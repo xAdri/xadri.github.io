@@ -1,306 +1,306 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>waltermasterg8</title>
-
-    <!-- font awesome cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-
-    <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/style.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Adrián Pérez</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="icon" href="img/logo.png">
 </head>
+
 <body>
-    
-<!-- header section starts      -->
-
-<header class="header">
-
-    <a href="#" class="logo"> <span>WALTER</span>MASTERG8 </a>
-
-    <div id="menu-btn" class="fas fa-bars"></div>
-
-    <nav class="navbar">
-        <a href="#home">Inicio</a>
-        <a href="#about">Sobre mi</a>
-        <a href="#features">Especialización</a>
-        <a href="#pricing">Precios</a>
-        <a href="#trainers">Resultados</a>
-        <a href="#blogs">Entrenamientos</a>
-    </nav>
-
-</header>
-
-<!-- header section ends     -->
-
-<!-- home section starts  -->
-
-<section class="home" id="home">
-
-    <div class="swiper home-slider">
-
-        <div class="swiper-wrapper">
-
-            <div class="swiper-slide slide" style="background: url(images/home-bg-1.jpg) no-repeat;">
-                <div class="content">
-                    <span>Máster マスタ</span>
-                    <h3>
-                        Salud & Bienestar<br>
-                        Preparación Deportiva<br>
-                        Acondicionamiento Físico<br>
-                    </h3>
-                    <a href="#" class="btn">Empezar</a>
-                </div>
+    <!-- MENU ENCABEZADO -->
+    <div class="contenedor-header">
+        <header>
+            <div class="logo">
+                <a href="#">Adri</a>
             </div>
-            <!--
-            <div class="swiper-slide slide" style="background: url(images/home-bg-2.jpg) no-repeat;">
-                <div class="content">
-                    <span>Máster マスタ</span>
-                    <h3>Acondicionamiento Físico</h3>
-                    <a href="#" class="btn">Empezar</a>
-                </div>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#" onclick="seleccionar()">INICIO</a></li>
+                    <li><a href="#skills" onclick="seleccionar()">HABILIDADES</a></li>
+                    <li><a href="#curriculum" onclick="seleccionar()">CURRICULUM</a></li>
+                    <li><a href="#portfolio" onclick="seleccionar()">PORTFOLIO</a></li>
+                    <li><a href="#contacto" onclick="seleccionar()">CONTACTO</a></li>
+                </ul>
+            </nav>
+            <div class="nav-responsive" onclick="mostrarOcultarMenu()">
+                <i class="fa-solid fa-bars"></i>
             </div>
-
-            <div class="swiper-slide slide" style="background: url(images/home-bg-3.jpg) no-repeat;">
-                <div class="content">
-                    <span>Máster マスタ</span>
-                    <h3>Salud & bienestar</h3>
-                    <a href="#" class="btn">Empezar</a>
-                </div>
-            </div>
-            -->
-        </div>
-
-        <div class="swiper-pagination"></div>
-
+        </header>
     </div>
 
-</section>
-
-<!-- home section ends -->
-
-<!-- about section starts  -->
-
-<section class="about" id="about">
-
-    <div class="image">
-        <img src="images/about-img.jpg" alt="">
-    </div>
-
-    <div class="content">
-        <span>Sobre mi</span>
-        <h3 class="title">Cada día es una nueva oportunidad para ser la mejor vesión de ti mismo</h3>
-        <p>Aqui poner un texto sobre quién eres, estudios y algo que te defina como entrenador y persona nobis obcaecati vero odio, id dolorum. Consequatur ex, aperiam deserunt nostrum perferendis illum unde ipsa? Consequatur, distinctio?</p>
-        <div class="box-container">
-            <div class="box">
-                <h3><i class="fas fa-check"></i>Buena actitud</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, enim.</p>
+    <!-- SECCION INICIO -->
+    <section id="inicio" class="inicio">
+        <div class="contenido-banner">
+            <div class="contenedor-img">
+                <img src="img/hero.png" alt="">
             </div>
-            <div class="box">
-                <h3><i class="fas fa-check"></i>Vida sana</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, enim.</p>
-            </div>
-            <div class="box">
-                <h3><i class="fas fa-check"></i>test</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, enim.</p>
-            </div>
-            <div class="box">
-                <h3><i class="fas fa-check"></i>test</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, enim.</p>
-            </div>
-            <div class="box">
-                <h3><i class="fas fa-check"></i>test</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, enim.</p>
-            </div>
-            <div class="box">
-                <h3><i class="fas fa-check"></i>test</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, enim.</p>
-            </div>
+            <h1>ADRI PÉREZ</h1>
+            <h2>Soy un programador apasionado por el desarrollo con un background de diseñador gráfico!<h2>
         </div>
-        <a href="#" class="btn">Video</a>
-    </div>
+    </section>
 
-</section>
-
-<!-- about section ends -->
-
-<!-- features section starts  -->
-
-<section class="features" id="features">
-
-    <h1 class="heading"> <span>Especialización</span> </h1>
-
-    <div class="box-container">
-
-        <div class="box">
-            <div class="image">
-                <img src="images/f-img-1.jpg" alt="">
-            </div>
-            <div class="content">
-                <img src="images/icon-1.png" alt="">
-                <h3>Entrenamiento físico</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, atque.</p>
-                <a href="#" class="btn">Más información</a>
-            </div>
-        </div>
-
-        <div class="box second">
-            <div class="image">
-                <img src="images/f-img-2.jpg" alt="">
-            </div>
-            <div class="content">
-                <img src="images/icon-2.png" alt="">
-                <h3>Entrenamiento de rehabilitación</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, atque.</p>
-                <a href="#" class="btn">Más información</a>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="images/f-img-3.jpg" alt="">
-            </div>
-            <div class="content">
-                <img src="images/icon-3.png" alt="">
-                <h3>Entrenamiento para atletas</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, atque.</p>
-                <a href="#" class="btn">Más información</a>
-            </div>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- features section ends -->
-
-<!-- pricing section starts  -->
-
-<section class="pricing" id="pricing">
-
-    <div class="information">
-        <span>Plan de precios</span>
-        <h3>affordable pricing plan for your</h3>
-        <p>
-            Gracias a mis asesorías de entrenamiento y nutrición personalizadas, voy a ayudarte a tener un equilibrio obteniendo una mayor calidad de vida.<br>
-            Tú eres diferente del resto y por eso vamos a hacerlo diferente. Te voy a enseñar el significado real de la flexibilidad nutricional.
-        </p>
-        <p> <i class="fas fa-check"></i> Kick boxing </p>
-        <p> <i class="fas fa-check"></i> Karate </p>
-        <p> <i class="fas fa-check"></i> Culturismo </p>
-        <p> <i class="fas fa-check"></i> Algún otro deporte que manejes </p>
-        <!-- <a href="#" class="btn">all pricing</a> -->
-    </div>
-
-    <div class="plan basic">
-        <h3>Plan básico</h3>
-        <div class="price"><span>€</span>100<span>/mo</span></div>
-       <div class="list">
-        <p> <i class="fas fa-check"></i> Entrenamiento personal </p>
-        <p> <i class="fas fa-check"></i> Ejercicios de cardio </p>
-        <p> <i class="fas fa-check"></i> Levantamiento de pesas </p>
-        <p> <i class="fas fa-check"></i> Plan de dieta </p>
-        <p> <i class="fas fa-check"></i> Seguimiento </p>
-       </div>
-       <a href="#" class="btn">Contacta</a>
-    </div>
-
-    <div class="plan">
-        <h3>Plan premium</h3>
-        <div class="price"><span>€</span>200<span>/mo</span></div>
-       <div class="list">
-        <p> <i class="fas fa-check"></i> Entrenamiento personal </p>
-        <p> <i class="fas fa-check"></i> Ejercicios de cardio </p>
-        <p> <i class="fas fa-check"></i> Levantamiento de pesas </p>
-        <p> <i class="fas fa-check"></i> Plan de dieta </p>
-        <p> <i class="fas fa-check"></i> Seguimiento </p>
-       </div>
-       <a href="#" class="btn">Contacta</a>
-    </div>
-
-</section>
-
-<!-- pricing section ends -->
-
-<!-- trainers section starts  -->
-
-<section class="trainers" id="trainers">
-
-    <h1 class="heading"> <span>Resultados</span> </h1>
-
-    <div class="box-container">
-
-        <div class="box">
-            <img src="images/CAMBIO.jpg" alt="">
-            <div class="content">
-                <h3>Olga</h3>
-                <span>18 meses</span>
-            </div>
-        </div>
-
-        <div class="box">
-            <img src="images/CAMBIO.png" alt="">
-            <div class="content">
-                <h3>Walter</h3>
-                <span>15 meses</span>
-            </div>
-        </div>
-
-        <div class="box">
-            <img src="images/CAMBIO.png" alt="">
-            <div class="content">
-                <h3>Adrián</h3>
-                <span>6 meses</span>
-            </div>
-        </div>
-    </div>
-
-</section>
-
-<!-- trainers section ends -->
-
-<!-- blogs section starts  -->
-
-<section class="blogs" id="blogs">
-
-    <h1 class="heading"> <span>Entrenamientos</span> </h1>
-
-    <div class="swiper blogs-slider">
-
-        <div class="swiper-wrapper">
-
-            <div class="swiper-slide slide">
-                <div class="image">
-                    <img src="images/blog-1.jpg" alt="">
+    <!-- SECCION SKILLS -->
+    <section class="skills" id="skills">
+        <div class="contenido-seccion">
+            <h2>Habilidades</h2>
+            <div class="fila">
+                <!-- Programacion -->
+                <div class="col">
+                    <h3>Programación</h3>
+                    <div class="skill">
+                        <span>Django Python</span>
+                    </div>
+                    <div class="skill">
+                        <span>MySQL / PostgreSQL</span>
+                    </div>
+                    <div class="skill">
+                        <span>API REST</span>
+                    </div>
+                    <div class="skill">
+                        <span>Unity C#</span>
+                    </div>
+                    <div class="skill">
+                        <span>Realidad Virtual</span>
+                    </div>
+                    <div class="skill">
+                        <span>Realidad Aumentada</span>
+                    </div>
+                    <div class="skill">
+                        <span><br></span>
+                    </div>
                 </div>
-                <div class="content">
-                    <h3>La rutina perfecta para pecho</h3>
-                    <p>La rutina perfecta de pecho debería consistir en ejercicios para el pecho superior, pecho medio y pecho inferior.</p>
-                    <a href="https://www.youtube.com/watch?v=xYLfVvC8dD8&ab_channel=ATHLEAN-XEspa%C3%B1ol" class="btn">Ver video</a>
+
+                <!-- Diseño -->
+                <div class="col">
+                    <h3>Diseño Gráfico</h3>
+                    <div class="skill">
+                        <span>Photoshop</span>
+                    </div>
+                    <div class="skill">
+                        <span>Illustrator</span>
+                    </div>
+                    <div class="skill">
+                        <span>InDesign</span>
+                    </div>
+                    <div class="skill">
+                        <span>Sony Vegas</span>
+                    </div>
+                    <div class="skill">
+                        <span>3Ds Max</span>
+                    </div>
+                    <div class="skill">
+                        <span>Substance painter</span>
+                    </div>
                 </div>
             </div>
-            
-            <div class="swiper-slide slide">
-                <div class="image">
-                    <img src="images/blog-2.jpg" alt="">
+        </div>
+    </section>
+
+    <!-- SECCION CURRICULUM -->
+    <section id="curriculum" class="curriculum">
+        <div class="contenido-seccion">
+            <h2>Curriculum</h2>
+            <div class="fila">
+                <div class="col izquierda">
+                    <h3>Educación</h3>
+                    <div class="item izq">
+                        <h4>Curso de programación en Django y Django REST framework de básico a profesional</h4>
+                        <span class="casa">Udemy</span>
+                        <span class="fecha">Septiembre 2021</span>
+                        <div class="conectori">
+                            <div class="circuloi"></div>
+                        </div>
+                    </div>
+                    <div class="item izq">
+                        <h4>Técnico Superior en Desarrollo de Aplicaciones Multiplataforma</h4>
+                        <span class="casa">Florida Universitaria</span>
+                        <span class="fecha">2019 - 2021</span>
+                        <div class="conectori">
+                            <div class="circuloi"></div>
+                        </div>
+                    </div>
+                    <div class="item izq">
+                        <h4>Técnico Superior en Animación 3D, Juegos y Entornos Interactivos</h4>
+                        <span class="casa">Florida Universitaria</span>
+                        <span class="fecha">2017 - 2019</span>
+                        <div class="conectori">
+                            <div class="circuloi"></div>
+                        </div>
+                    </div>
+                    <div class="item izq">
+                        <h4>Técnico en Preimpresión Digital</h4>
+                        <span class="casa">Centre FP La Safor</span>
+                        <span class="fecha">2015 - 2017</span>
+                        <div class="conectori">
+                            <div class="circuloi"></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="content">
-                    <div class="link"> <a href="#">by user</a> <span>|</span> <a href="#">21st may, 2021</a> </div>
-                    <h3>fitness is not about being better than someone else</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam, tenetur?</p>
-                    <a href="#" class="btn">read more</a>
+
+                <div class="col derecha">
+                    <h3>Experiencia laboral</h3>
+                    <div class="item der">
+                        <h4>Desarrollador Back-end</h4>
+                        <span class="casa">Rudo Apps</span>
+                        <span class="fecha">2021 - Actualidad</span>
+                        <p>Desarrollador de aplicaciones con Python y el framework de Django, mi trabajo consiste en
+                            desarrollar API REST.</p>
+                        <div class="conectord">
+                            <div class="circulod"></div>
+                        </div>
+                    </div>
+                    <div class="item der">
+                        <span class="casa">Florida Universitaria</span><br>
+                        <h4>Personal Docente</h4>
+                        <p>Profesor de Holiday Lab Teens 2019 (con alumnos de diferentes edades entre 12 y 16 años) un
+                            curso que junta la parte de Florida Idiomes y Florida Replay.<br><br>
+                            Durante el curso impartí clases mediante proyectos semanales, creación de proyectos
+                            audiovisuales en adobe premiere, diseño gráfico en photoshop y programación de videojuegos
+                            en Unity 3D.</p><br><br>
+
+                        <h4>Monitor/Animador de Stand en eventos</h4>
+                        <p>Charlas en centros educativos sobre el desarrollo de videojuegos con pequeños talleres de
+                            programación.<br><br>Florida Expo:<br>&emsp;Dreamhack Valencia 2018 y 2019.<br>&emsp;Héroes
+                            Cómic Con Valencia 2019.</p>
+                        <div class="conectord">
+                            <div class="circulod"></div>
+                        </div>
+                    </div>
+                    <div class="item der">
+                        <h4>Desarrollador Unity</h4>
+                        <span class="casa">LabLENI UPV (i3B Neuro Rehabilitation & Brain Research)</span>
+                        <span class="fecha">Marzo - Mayo 2019</span>
+                        <p>Encargado de gamificar ejercicios de rehabilitación para mejorar a pacientes con movilidad
+                            reducida en Unity 3D con tecnologías de Realidad Virtual.</p>
+                        <div class="conectord">
+                            <div class="circulod"></div>
+                        </div>
+                    </div>
+                    <div class="item der">
+                        <h4>Diseñador gráfico</h4>
+                        <span class="casa">Imprenta Rocher S.L.</span>
+                        <span class="fecha">Marzo - Mayo 2017</span>
+                        <p>Diseño digital y para impresión, maquetación de textos y diseño de camisetas con las
+                            herramientas de Photoshop, Illustrator y inDesign.</p>
+                        <div class="conectord">
+                            <div class="circulod"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div>
+                <button>
+                    Descargar CV <i class="fa-solid fa-download"></i>
+                    <span class="overlay"></span>
+                </button>
+            </div>
+        </div>
+    </section>
 
-            <div class="swiper-slide slide">
-                <div class="image">
-                    <img src="images/blog-3.jpg" alt="">
+    <!-- SECCION PORTFOLIO -->
+    <section id="portfolio" class="portfolio">
+        <div class="contenido-seccion">
+            <h2>PORTFOLIO</h2>
+            <div class="galeria">
+                <a href="https://adriperez.itch.io/void-of-light" target=”_blank”>
+                    <div class="proyecto">
+                        <img src="img/p1.png" alt="">
+                        <div class="overlay">
+                            <h3>Void Of Light</h3>
+                            <p>Videojuego</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://adriperez.itch.io/pokedex" target=”_blank”>
+                    <div class="proyecto">
+                        <img src="img/p6.png" alt="">
+                        <div class="overlay">
+                            <h3>Pokédex App</h3>
+                            <p>Aplicación Front-end</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=iFoCU6s1GQ8&ab_channel=ADRIPEREZ3D" target=”_blank”>
+                    <div class="proyecto">
+                        <img src="img/p3.png" alt="">
+                        <div class="overlay">
+                            <h3>Push The Hipster</h3>
+                            <p>Videojuego</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=-C2bGqFbJSw&ab_channel=ADRIPEREZ3D" target=”_blank”>
+                    <div class="proyecto">
+                        <img src="img/p5.png" alt="">
+                        <div class="overlay">
+                            <h3>Modular Environment</h3>
+                            <p>Modelado y Texturizado</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=r1-0eWeODWE&ab_channel=ADRIPEREZ3D" target=”_blank”>
+                    <div class="proyecto">
+                        <img src="img/p2.png" alt="">
+                        <div class="overlay">
+                            <h3>Bonfire</h3>
+                            <p>Videojuego</p>
+                        </div>
+                    </div>
+                </a>
+                <div class="proyecto">
+                    <img src="img/p4.png" alt="">
+                    <div class="overlay">
+                        <h3>Diseño Creativo</h3>
+                        <p>Modelado y Texturizado</p>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCION CONTACTO -->
+    <section id="contacto" class="contacto">
+        <div class="contenido-seccion">
+            <h2>CONTACTO</h2>
+            <div class="fila">
+                <!-- Formulario -->
+                <div class="col">
+                    <input type="text" placeholder="Tú Nombre">
+                    <input type="text" placeholder="Dirección de correo">
+                    <input type="text" placeholder="Tema">
+                    <textarea name="" id="" cols="30" rows="10" placeholder="Mensaje"></textarea>
+                    <button>
+                        Enviar Mensaje <i class="fa-solid fa-paper-plane"></i>
+                        <span class="overlay"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer>
+        <a href="#inicio" class="arriba">
+            <i class="fa-solid fa-angles-up"></i>
+        </a>
+        <div class="redes">
+            <a href="https://www.instagram.com/adriperezdev/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/aperezgfx/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#"><i class="fa-solid fa-rss"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>         </div>
                 <div class="content">
                     <div class="link"> <a href="#">by user</a> <span>|</span> <a href="#">21st may, 2021</a> </div>
                     <h3>fitness is not about being better than someone else</h3>
