@@ -134,6 +134,9 @@ html{
 .contenido-seccion button:hover .overlay{
     width: 100%;
 }
+.contenido-seccion a{
+    text-decoration: none;
+}
 
 .sobremi{
     background-color: #1e2326;
