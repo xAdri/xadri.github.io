@@ -1,0 +1,4 @@
+Falta:
+
+- Al hacer click en el navbar ponerlo en la posición que toca (el titulo oficial después de mi imagen)
+- Ajustar el inicio para web desktop

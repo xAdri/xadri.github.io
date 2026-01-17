@@ -1,395 +1,1113 @@
 <!DOCTYPE html>
-<html lang="es">
+<html class="dark" lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
-        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Adrián Pérez</title>
-    <link rel="stylesheet" href="estilo.css">
-    <link rel="icon" href="img/logo.png">
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Adrián Pérez — Backend Developer</title>
+    <meta name="description"
+        content="Backend specialist. Python + Django. Unity/Unreal for XR. Ionic for mobile. Let’s build something solid." />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://adriperez.es/" />
+    <meta property="og:title" content="Adrián Pérez — Backend Developer" />
+    <meta property="og:description"
+        content="Backend specialist. Python + Django. Unity/Unreal for XR. Ionic for mobile. Let’s build something solid." />
+    <meta property="og:image" content="https://adriperez.es/assets/image.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Adrián Pérez — Backend Developer" />
+    <meta name="twitter:description"
+        content="Backend specialist. Python + Django. Unity/Unreal for XR. Ionic for mobile. Let’s build something solid." />
+    <meta name="twitter:image" content="https://adriperez.es/assets/image.webp" />
+
+    <link rel="icon" type="image/svg+xml" href="/logo.svg">
+
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- Inter (NEW) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&display=swap" rel="stylesheet" />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#ffffff",
+                        accent: "#f97316",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0a0a0a",
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                        display: ["Inter", "sans-serif"],
+                        mono: ["Space Grotesk", "monospace"],
+                    },
+                },
+            },
+        };
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer utilities {
+    .tight-kerning { letter-spacing: -0.05em; }
+  }
+
+  @keyframes pageReveal {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+#page-reveal {
+  animation: pageReveal 900ms ease-out forwards;
+}
+
+
+  /* Chrome / Edge / Safari */
+::-webkit-scrollbar-thumb {
+  background: theme("colors.accent");
+}
+
+/* Firefox */
+html {
+  scrollbar-color: #f97316 transparent;
+}
+
+
+  /* Overlay de grano (noise) usando SVG inline */
+  .noise {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
+  }
+
+  /* Scanlines sutiles */
+  .scanlines {
+    background-image: repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.06),
+      rgba(255,255,255,0.06) 1px,
+      rgba(0,0,0,0) 2px,
+      rgba(0,0,0,0) 6px
+    );
+    opacity: 0.2;
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+h1 {
+  color: #fff;
+  text-shadow:
+  /* 2px 0 #f97316,
+  -2px 0 cyan, */
+  0 0 2px rgba(255,255,255,0.8),
+  0 0 6px rgba(255,255,255,0.6),
+  0 0 12px rgba(255,255,255,0.4),
+  0 0 4px rgba(255,255,255,0.7),
+  0 0 10px rgba(0,150,255,0.5);
+}
+
+h2 {
+  color: #fff;
+  text-shadow:
+    /* 2px 0 #f97316,
+   -2px 0 cyan, */
+    0 0 2px rgba(255,255,255,0.8),
+    0 0 6px rgba(255,255,255,0.6),
+    0 0 12px rgba(255,255,255,0.4),
+    0 0 4px rgba(255,255,255,0.7),
+    0 0 10px rgba(0,150,255,0.5);
+  /* filter: url(#displacementFilter); */
+
+}
+
+img {
+filter: url(#displacementFilter);
+}
+
+/* Mobile menu items: stagger fade + move */
+#mobileMenu .mobile-item {
+  transition-property: opacity, transform;
+  transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Estado abierto */
+#mobileMenu.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#mobileMenu.is-open .mobile-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@layer utilities {
+  .section-hidden { display: none; }
+  .section-show { display: block; }
+}
+
+/* Fade in para cambiar de seccion */
+@keyframes sectionFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.section-fade-in {
+  animation: sectionFadeIn 450ms ease-out both;
+}
+
+
+</style>
+
 </head>
 
-<body>
-    <!-- MENU ENCABEZADO -->
-    <div class="contenedor-header">
-        <header>
-            <div class="logo">
-                <a href="#">Adri</a>
-            </div>
-            <nav id="nav">
-                <ul>
-                    <li><a href="#" onclick="seleccionar()">INICIO</a></li>
-                    <li><a href="#portfolio" onclick="seleccionar()">PORTFOLIO</a></li>
-                    <li><a href="#skills" onclick="seleccionar()">HABILIDADES</a></li>
-                    <li><a href="#curriculum" onclick="seleccionar()">CURRICULUM</a></li>
-                    <!-- <li><a href="#contacto" onclick="seleccionar()">CONTACTO</a></li> -->
-                </ul>
+
+<body class="bg-background-dark font-sans text-white transition-colors duration-300">
+    <div id="page-reveal" class="fixed inset-0 bg-black z-[9999] pointer-events-none"></div>
+
+    <div class="noise scanlines fixed inset-0 pointer-events-none z-40"></div>
+    <!-- Header -->
+    <!-- <header class="fixed top-0 left-0 w-full z-50 mix-blend-difference">
+        <div
+            class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 py-6 sm:py-8 md:py-10 flex justify-between items-center md:items-end gap-6">
+            <a href="#top" class="flex items-center gap-3 shrink-0 hover:opacity-50 transition-opacity">
+                <span class="w-8 h-8 inline-block" style="
+                background: #f97316;
+                -webkit-mask: url('logo.svg') no-repeat center / contain;
+                mask: url('logo.svg') no-repeat center / contain; ">
+                </span>
+
+                <span class="text-xs font-bold text-accent uppercase tracking-widest">
+                    Adrián<br>Pérez
+                </span>
+            </a>
+
+
+            <nav class="flex gap-6 sm:gap-10 md:gap-12">
+                <a class="text-xs font-bold uppercase tracking-widest hover:opacity-50 transition-opacity"
+                    href="#work">Work</a>
+                <a class="text-xs font-bold uppercase tracking-widest hover:opacity-50 transition-opacity"
+                    href="#about">About</a>
+                <a class="text-xs font-bold uppercase tracking-widest hover:opacity-50 transition-opacity"
+                    href="#experience">Experience</a>
+                <a class="text-xs font-bold uppercase tracking-widest hover:opacity-50 transition-opacity"
+                    href="#contact">Contact</a>
             </nav>
-            <div class="nav-responsive" onclick="mostrarOcultarMenu()">
-                <i class="fa-solid fa-bars"></i>
-            </div>
-        </header>
+        </div>
+    </header> -->
+
+    <header class="fixed top-0 left-0 w-full z-50 mix-blend-difference">
+        <div
+            class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 py-6 sm:py-8 md:py-10 flex justify-between items-center md:items-end gap-6">
+
+            <!-- Brand -->
+            <a href="#top" class="flex items-center gap-3 shrink-0 hover:opacity-50 transition-opacity">
+                <!-- Logo: SOLO desktop -->
+                <span class="hidden sm:inline-block w-8 h-8" style="
+        background: #f97316;
+        -webkit-mask: url('logo.svg') no-repeat center / contain;
+        mask: url('logo.svg') no-repeat center / contain;
+      "></span>
+
+                <!-- Nombre: SIEMPRE visible (en mobile queda solo esto) -->
+                <span class="text-xs font-bold text-accent uppercase tracking-widest">
+                    Adrián<br>Pérez
+                </span>
+            </a>
+
+            <!-- Desktop nav -->
+            <nav class="hidden md:flex gap-6 sm:gap-10 md:gap-12">
+                <a class="nav-link text-xs font-bold uppercase tracking-widest transition-colors duration-[450ms] ease-out hover:opacity-50 transition-opacity"
+                    data-view="work" href="#work">Work</a>
+
+                <a class="nav-link text-xs font-bold uppercase tracking-widest transition-colors duration-[450ms] ease-out hover:opacity-50 transition-opacity"
+                    data-view="projects" href="#projects">Projects</a>
+
+                <a class="nav-link text-xs font-bold uppercase tracking-widest transition-colors duration-[450ms] ease-out hover:opacity-50 transition-opacity"
+                    data-view="experience" href="#experience">Experience</a>
+
+                <a class="nav-link text-xs font-bold uppercase tracking-widest transition-colors duration-[450ms] ease-out hover:opacity-50 transition-opacity"
+                    data-view="about" href="#about">About</a>
+            </nav>
+
+
+
+            <!-- Mobile burger -->
+            <button id="menuBtn"
+                class="md:hidden inline-flex items-center justify-center w-10 h-10 hover:opacity-60 transition-opacity"
+                aria-label="Open menu" aria-expanded="false" type="button">
+                <span class="material-symbols-outlined text-3xl text-accent">menu</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenu"
+        class="fixed inset-0 z-[999] bg-background-dark/95 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-500">
+
+        <!-- Close area top bar -->
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 pt-6 flex justify-end">
+            <button id="menuCloseBtn"
+                class="md:hidden inline-flex items-center justify-center w-10 h-10 hover:opacity-60 transition-opacity"
+                aria-label="Close menu" type="button">
+                <span class="material-symbols-outlined text-3xl text-accent">close</span>
+            </button>
+        </div>
+
+        <!-- Items -->
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 pt-10">
+            <nav class="flex flex-col gap-6">
+                <a class="nav-link mobile-item text-4xl font-extrabold tight-kerning uppercase opacity-0 translate-y-3 transition-colors duration-[450ms] ease-out"
+                    style="transition-delay: 80ms;" data-view="work" href="#work">Work</a>
+
+                <a class="nav-link mobile-item text-4xl font-extrabold tight-kerning uppercase opacity-0 translate-y-3 transition-colors duration-[450ms] ease-out"
+                    style="transition-delay: 160ms;" data-view="projects" href="#projects">Projects</a>
+
+                <a class="nav-link mobile-item text-4xl font-extrabold tight-kerning uppercase opacity-0 translate-y-3 transition-colors duration-[450ms] ease-out"
+                    style="transition-delay: 240ms;" data-view="experience" href="#experience">Experience</a>
+
+                <a class="nav-link mobile-item text-4xl font-extrabold tight-kerning uppercase opacity-0 translate-y-3 transition-colors duration-[450ms] ease-out"
+                    style="transition-delay: 320ms;" data-view="about" href="#about">About</a>
+            </nav>
+        </div>
     </div>
 
-    <!-- SECCION INICIO -->
-    <section id="inicio" class="inicio">
-        <div class="contenido-banner">
-            <div class="contenedor-img">
-                <img src="img/hero.png" alt="">
-            </div>
-            <h1>ADRI PÉREZ</h1>
-            <h2>Desarrollador Unity y Backend<h2>
-        </div>
-    </section>
 
-    <!-- SECCION PORTFOLIO -->
-    <section id="portfolio" class="portfolio">
-        <div class="contenido-seccion">
-            <h2>PORTFOLIO</h2>
+    <main id="me" class="relative flex flex-col items-center min-h-screen px-4 sm:px-6 md:px-8 pt-30 overflow-hidden">
 
-            <h2>Unity</h2>
-            <div class="galeria">
-                <a href="https://adriperez.itch.io/void-of-light" target=”_blank”>
-                    <div class="proyecto">
-                        <img src="img/p1.png" alt="">
-                        <div class="overlay">
-                            <h3>Void Of Light</h3>
-                            <p>Videojuego completo</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://adriperez.itch.io/pokedex" target=”_blank”>
-                    <div class="proyecto">
-                        <img src="img/p6.png" alt="">
-                        <div class="overlay">
-                            <h3>Pokédex App</h3>
-                            <p>Unity App Front-end</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://www.youtube.com/watch?v=COvmPMtQlVo&ab_channel=Adri%C3%A1nP%C3%A9rezGonz%C3%A1lez"
-                    target=”_blank”>
-                    <div class="proyecto">
-                        <img src="img/p3.jpg" alt="">
-                        <div class="overlay">
-                            <h3>Ages Of Warfare</h3>
-                            <p>Global Game Jam23 [48h]</p>
-                        </div>
-                    </div>
-                </a>
+        <!-- Hero -->
+        <!-- <div class="max-w-5xl w-full mb-20 sm:mb-28 md:mb-48"> -->
+        <div class="max-w-5xl w-full mb-20 sm:mb-28">
+            <div id="personal">
 
-                <a href="https://www.youtube.com/watch?v=-C2bGqFbJSw&ab_channel=ADRIPEREZ3D" target=”_blank”>
-                    <div class="proyecto">
-                        <img src="img/p5.png" alt="">
-                        <div class="overlay">
-                            <h3>Modular Environment</h3>
-                            <p>Unity Assets Modulares Modelado y Texturizado</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://www.youtube.com/watch?v=r1-0eWeODWE&ab_channel=ADRIPEREZ3D" target=”_blank”>
-                    <div class="proyecto">
-                        <img src="img/p2.png" alt="">
-                        <div class="overlay">
-                            <h3>Bonfire</h3>
-                            <p>Global Game Jam19 [48h]</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://www.youtube.com/watch?v=iFoCU6s1GQ8&ab_channel=ADRIPEREZ3D" target=”_blank”>
-                    <div class="proyecto">
-                        <img src="img/p3.png" alt="">
-                        <div class="overlay">
-                            <h3>Push The Hipster</h3>
-                            <p>Global Game Jam18 [48h]</p>
-                        </div>
-                    </div>
-                </a>
+                <img src="assets/image.webp" alt="" class="translate-x-20 -mb-20" />
 
-                <a href="https://www.youtube.com/watch?v=6ATbNLhIs4c&ab_channel=Adri%C3%A1nP%C3%A9rezGonz%C3%A1lez"
-                    target=”_blank”>
-                    <div class="proyecto">
-                        <img src="img/p7.jpg" alt="">
-                        <div class="overlay">
-                            <h3>Pizza Panic</h3>
-                            <p>Mobile Game</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://www.youtube.com/watch?v=D7Ls64xokts&ab_channel=Adri%C3%A1nP%C3%A9rezGonz%C3%A1lez"
-                    target=”_blank”>
+                <h1
+                    class="text-[2.75rem] sm:text-5xl md:text-[6.5rem] font-extrabold leading-[0.9] break-words tight-kerning relative">
+                    Backend Developer
+                    <!-- <img src="image_res.webp" alt="" class="inline-block sm:w-28 sm:scale-x-[1] md:w-[35vw] absolute -top-20 md:-left-[375px] right-4 top-5 -z-10 ml-2 -mt-4 lg:scale-x-[-1] grayscale" /> -->
+                </h1>
 
-                    <div class="proyecto">
-                        <img src="img/p8.PNG" alt="">
-                        <div class="overlay">
-                            <h3>UFO VS Cows</h3>
-                            <p>Mobile Game</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
 
-            <h2>Backend</h2>
-            <div class="galeria">
-                <a href="https://apps.apple.com/es/app/chatripp/id1497272757" target=”_blank”>
-                    <div class="proyecto">
-                        <img src="img/python_chatripp.png" alt="">
-                        <div class="overlay">
-                            <h3>Chatripp</h3>
-                            <p>App para viajeros</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://www.sherpa.ai/" target=”_blank”>
-                    <div class="proyecto">
-                        <img src="img/python_sherpa.png" alt="">
-                        <div class="overlay">
-                            <h3>Sherpa</h3>
-                            <p>Inteligencia Artificial</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://stm.intersindical.org/" target=”_blank”>
-                    <div class="proyecto">
-                        <img src="img/python_sindicatos.png" alt="">
-                        <div class="overlay">
-                            <h3>STM intersindical</h3>
-                            <p>App informativa</p>
-                        </div>
-                    </div>
-                </a>
-                
-                <a href="https://thefitzgerald.es/" target=”_blank”>
-                    <div class="proyecto">
-                        <img src="img/python_fitz.png" alt="">
-                        <div class="overlay">
-                            <h3>The Fitzerald</h3>
-                            <p>Hamburguesería</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://www.hundredburgers.com/" target=”_blank”>
-                    <div class="proyecto">
-                        <img src="img/python_hundred.png" alt="">
-                        <div class="overlay">
-                            <h3>Hundred Burgers</h3>
-                            <p>Hamburguesería</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
+                <div
+                    class="mt-10 sm:mt-12 md:mt-16 flex flex-col md:flex-row justify-between items-start gap-8 sm:gap-10 md:gap-12">
+                    <p class="text-lg sm:text-xl md:text-2xl font-normal max-w-2xl leading-tight opacity-90">
+                        With +5 years of experience in the industry, I believe in the power of new technologies to
+                        change
+                        the world and improve
+                        multiple areas of society such as health, industrial 4.0 fields and education.
+                    </p>
 
-        </div>
-    </section>
-
-    <!-- SECCION SKILLS -->
-    <section class="skills" id="skills">
-        <div class="contenido-seccion">
-            <h2>Habilidades</h2>
-            <div class="fila">
-                <!-- Programacion -->
-                <div class="col">
-                    <h3>Programación</h3>
-                    <div class="skill">
-                        <span>Unity</span>
-                    </div>
-                    <div class="skill">
-                        <span>C#</span>
-                    </div>
-                    <div class="skill">
-                        <span>Python</span>
-                    </div>
-                    <div class="skill">
-                        <span>Django REST framework</span>
-                    </div>
-                    <div class="skill">
-                        <span>MySQL / PostgreSQL</span>
-                    </div>
-                    <div class="skill">
-                        <span>Realidad Virtual & Aumentada</span>
-                    </div>
-                    <div class="skill">
-                        <span><br></span>
-                    </div>
+                    <!-- <div class="text-[10px] uppercase tracking-[0.3em] font-bold opacity-40 mt-1 md:mt-2">
+                    Houdini / Unity / Unreal / Django
+                </div> -->
                 </div>
 
-                <!-- Diseño -->
-                <div class="col">
-                    <h3>Generalista 3D</h3>
-                    <div class="skill">
-                        <span>Photoshop</span>
-                    </div>
-                    <div class="skill">
-                        <span>Illustrator</span>
-                    </div>
-                    <div class="skill">
-                        <span>InDesign</span>
-                    </div>
-                    <div class="skill">
-                        <span>Sony Vegas</span>
-                    </div>
-                    <div class="skill">
-                        <span>3Ds Max</span>
-                    </div>
-                    <div class="skill">
-                        <span>Substance painter</span>
-                    </div>
+                <div class="mt-10 sm:mt-12 flex flex-wrap gap-3">
+                    <span
+                        class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">Python</span>
+                    <span
+                        class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">Django</span>
+                    <span
+                        class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">Django
+                        REST Framework</span>
+                    <span
+                        class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">PostgreSQL</span>
+                    <span
+                        class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">Redis</span>
+                    <span
+                        class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">Celery</span>
+                    <span
+                        class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">Docker</span>
+                    <span
+                        class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">TESTS</span>
+                    <span
+                        class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">CI/CD</span>
+                    <span
+                        class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">AWS</span>
+                    <span
+                        class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">Fast
+                        API</span>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- SECCION CURRICULUM -->
-    <section id="curriculum" class="curriculum">
-        <div class="contenido-seccion">
-            <h2>Curriculum</h2>
-            <div class="fila">
-                <div class="col izquierda">
-                    <h3>Educación</h3>
-                    <div class="item izq">
-                        <h4>Curso de programación en Django y Django REST framework de básico a profesional</h4>
-                        <span class="casa">Udemy</span>
-                        <span class="fecha">Septiembre 2021</span>
-                        <div class="conectori">
-                            <div class="circuloi"></div>
-                        </div>
-                    </div>
-                    <div class="item izq">
-                        <h4>Técnico Superior en Desarrollo de Aplicaciones Multiplataforma</h4>
-                        <span class="casa">Florida Universitaria</span>
-                        <span class="fecha">2019 - 2021</span>
-                        <div class="conectori">
-                            <div class="circuloi"></div>
-                        </div>
-                    </div>
-                    <div class="item izq">
-                        <h4>Técnico Superior en Animación 3D, Juegos y Entornos Interactivos</h4>
-                        <span class="casa">Florida Universitaria</span>
-                        <span class="fecha">2017 - 2019</span>
-                        <div class="conectori">
-                            <div class="circuloi"></div>
-                        </div>
-                    </div>
-                    <div class="item izq">
-                        <h4>Técnico en Preimpresión Digital</h4>
-                        <span class="casa">Centre FP La Safor</span>
-                        <span class="fecha">2015 - 2017</span>
-                        <div class="conectori">
-                            <div class="circuloi"></div>
-                        </div>
-                    </div>
-                </div>
+        <!-- Work / Projects list -->
+        <section id="work" class="w-full max-w-5xl">
+            <!-- <div class="flex flex-col border-t border-white/10"> -->
+            <h1 class="text-[16px] font-bold uppercase tracking-[0.3em]">// Highlighted
+                projects</h1>
 
-                <div class="col derecha">
-                    <h3>Experiencia laboral</h3>
-                    <div class="item der">
-                        <h4>Desarrollador Unity & Django</h4>
-                        <span class="casa">USA Flexo Solutions Corp.</span>
-                        <span class="fecha">Junio 2023 - Actualidad</span>
-                        <p>Diseño y desarrollo de aplicaciones en el sector de logística e industria con Unity.
-                            Desarrollo de API REST utilizando Django y Docker para la integración y obtención de datos en aplicaciones.</p>
-                        <div class="conectord">
-                            <div class="circulod"></div>
-                        </div>
-                    </div>
-                    <div class="item der">
-                        <h4>Desarrollador Back-end</h4>
-                        <span class="casa">Rudo Apps</span>
-                        <span class="fecha">2021 - Febrero 2023</span>
-                        <p>Desarrollador de aplicaciones con Python y el framework de Django, mi trabajo consiste en
-                            desarrollar API REST.</p>
-                        <div class="conectord">
-                            <div class="circulod"></div>
-                        </div>
-                    </div>
-                    <div class="item der">
-                        <span class="casa">Florida Universitaria</span><br>
-                        <h4>Personal Docente</h4>
-                        <p>Profesor de Holiday Lab Teens 2019 (con alumnos de diferentes edades entre 12 y 16 años) un
-                            curso que junta la parte de Florida Idiomes y Florida Replay.<br><br>
-                            Durante el curso impartí clases mediante proyectos semanales, creación de proyectos
-                            audiovisuales en adobe premiere, diseño gráfico en photoshop y programación de videojuegos
-                            en Unity 3D.</p><br><br>
+            <!-- <h1 class="text-[16px] font-bold uppercase tracking-[0.3em]">Highlighted
+                    projects</h1> -->
 
-                        <h4>Monitor/Animador de Stand en eventos</h4>
-                        <p>Charlas en centros educativos sobre el desarrollo de videojuegos con pequeños talleres de
-                            programación.<br><br>Florida Expo:<br>&emsp;Dreamhack Valencia 2018 y 2019.<br>&emsp;Héroes
-                            Cómic Con Valencia 2019.</p>
-                        <div class="conectord">
-                            <div class="circulod"></div>
+            <!-- 01 -->
+            <a class="group relative flex flex-col md:flex-row md:items-stretch justify-between py-10 sm:py-12 md:py-16 border-b border-white/10 transition-all px-2 sm:px-4 -mx-2 sm:-mx-4"
+                href="#sti-sync-software">
+
+                <div
+                    class="relative overflow-hidden rounded-xl w-full md:flex-1 min-h-[240px] sm:min-h-[300px] md:min-h-[340px]">
+
+                    <!-- Video -->
+                    <video
+                        class="absolute inset-0 w-full h-full object-cover grayscale-0 md:grayscale transition duration-500 md:group-hover:grayscale-0"
+                        autoplay muted loop playsinline>
+                        <source src="assets/sti.mp4" type="video/mp4" />
+                    </video>
+
+                    <!-- Overlays -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/30 to-transparent"></div>
+                    <div class="absolute inset-0 bg-accent/50 mix-blend-multiply"></div>
+                    <div class="absolute inset-0 bg-black/50"></div>
+
+                    <!-- Content -->
+                    <div class="relative z-10 flex h-full flex-col justify-center p-6">
+                        <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-accent mb-6">Django +
+                            UNITY 3D</div>
+
+                        <div
+                            class="text-4xl sm:text-5xl md:text-[5.5rem] font-extrabold leading-none md:group-hover:translate-x-4 transition-transform">
+                            STI Sync Software
                         </div>
+
+                        <ul class="mt-6 text-sm sm:text-base opacity-80 leading-relaxed max-w-2xl">
+                            <li>• Gameplay programming</li>
+                            <li>• Profiling and optimization</li>
+                            <li>• Enemy AI with states machine</li>
+                            <li>• Character Controller</li>
+                        </ul>
                     </div>
-                    <div class="item der">
-                        <h4>Desarrollador Unity</h4>
-                        <span class="casa">LabLENI UPV (i3B Neuro Rehabilitation & Brain Research)</span>
-                        <span class="fecha">Marzo - Mayo 2019</span>
-                        <p>Encargado de gamificar ejercicios de rehabilitación para mejorar a pacientes con movilidad
-                            reducida en Unity 3D con tecnologías de Realidad Virtual.</p>
-                        <div class="conectord">
-                            <div class="circulod"></div>
-                        </div>
-                    </div>
-                    <div class="item der">
-                        <h4>Diseñador gráfico</h4>
-                        <span class="casa">Imprenta Rocher S.L.</span>
-                        <span class="fecha">Marzo - Mayo 2017</span>
-                        <p>Diseño digital y para impresión, maquetación de textos y diseño de camisetas con herramientas
-                            de Adobe Photoshop, Illustrator y inDesign.</p>
-                        <div class="conectord">
-                            <div class="circulod"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <a href="adri_perez_cv.pdf" download="Adri Perez CV">
-                <div>
-                    <button>
-                        Descargar CV <i class="fa-solid fa-download"></i>
-                        <span class="overlay"></span>
-                    </button>
+
+                    <!-- Arrow -->
+                    <span
+                        class="material-symbols-outlined absolute bottom-4 right-4 text-5xl font-extralight opacity-40 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-accent">
+                        north_east
+                    </span>
                 </div>
             </a>
-        </div>
-    </section>
 
-    <!-- SECCION CONTACTO
-    <section id="contacto" class="contacto">
-        <div class="contenido-seccion">
-            <h2>CONTACTO</h2>
-            <div class="fila">
-                Formulario
-                <div class="col">
-                    <input type="text" placeholder="Tú Nombre">
-                    <input type="text" placeholder="Dirección de correo">
-                    <input type="text" placeholder="Tema">
-                    <textarea name="" id="" cols="30" rows="10" placeholder="Mensaje"></textarea>
-                    <button>
-                        Enviar Mensaje <i class="fa-solid fa-paper-plane"></i>
-                        <span class="overlay"></span>
-                    </button>
+
+            <!-- 02 -->
+            <a class="group relative flex flex-col md:flex-row md:items-stretch justify-between py-10 sm:py-12 md:py-16 border-b border-white/10 transition-all  px-2 sm:px-4 -mx-2 sm:-mx-4"
+                href="#ford-stm">
+
+                <div
+                    class="relative overflow-hidden rounded-xl w-full md:flex-1 min-h-[240px] sm:min-h-[300px] md:min-h-[340px]">
+
+                    <video
+                        class="absolute inset-0 w-full h-full object-cover grayscale-0 md:grayscale transition duration-500 md:group-hover:grayscale-0"
+                        autoplay muted loop playsinline>
+                        <source src="assets/ford.mp4" type="video/mp4" />
+                    </video>
+
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/30 to-transparent"></div>
+                    <div class="absolute inset-0 bg-accent/50 mix-blend-multiply"></div>
+                    <div class="absolute inset-0 bg-black/50"></div>
+
+                    <div class="relative z-10 flex h-full flex-col justify-center p-6">
+                        <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-accent mb-6">Django REST
+                            framework</div>
+
+                        <div
+                            class="text-4xl sm:text-5xl md:text-[5.5rem] font-extrabold leading-none md:group-hover:translate-x-4 transition-transform">
+                            STM Ford
+                        </div>
+
+                        <ul class="mt-6 text-sm sm:text-base opacity-80 leading-relaxed max-w-2xl">
+                            <li>• API Connections</li>
+                            <li>• Handling data</li>
+                            <li>• Responsive UI</li>
+                            <li>• Design (Illustrator)</li>
+                        </ul>
+                    </div>
+
+                    <span
+                        class="material-symbols-outlined absolute bottom-4 right-4 text-5xl font-extralight opacity-40 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-accent">
+                        north_east
+                    </span>
+                </div>
+            </a>
+
+            <!-- 03 -->
+            <a class="group relative flex flex-col md:flex-row md:items-stretch justify-between py-10 sm:py-12 md:py-16 border-b border-white/10 transition-all  px-2 sm:px-4 -mx-2 sm:-mx-4"
+                href="#merchanfactory">
+
+
+                <div
+                    class="relative overflow-hidden rounded-xl w-full md:flex-1 min-h-[240px] sm:min-h-[300px] md:min-h-[340px]">
+
+                    <video
+                        class="absolute inset-0 w-full h-full object-cover grayscale-0 md:grayscale transition duration-500 md:group-hover:grayscale-0"
+                        autoplay muted loop playsinline>
+                        <source src="assets/merchanfactory.mp4" type="video/mp4" />
+                    </video>
+
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/30 to-transparent"></div>
+                    <div class="absolute inset-0 bg-accent/50 mix-blend-multiply"></div>
+                    <div class="absolute inset-0 bg-black/50"></div>
+
+                    <div class="relative z-10 flex h-full flex-col justify-center p-6">
+                        <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-accent mb-6">Django Web
+                        </div>
+
+                        <div
+                            class="text-4xl sm:text-5xl md:text-[5.5rem] font-extrabold leading-none md:group-hover:translate-x-4 transition-transform">
+                            Merchanfactory
+                        </div>
+
+                        <ul class="mt-6 text-sm sm:text-base opacity-80 leading-relaxed max-w-2xl">
+                            <li>• Mobility rehabilitation exercises</li>
+                            <li>• Wii balance board implementation</li>
+                            <li>• Collection of raw data for analysis</li>
+                            <li>• Patient-based dynamic difficulty</li>
+                        </ul>
+                    </div>
+
+                    <span
+                        class="material-symbols-outlined absolute bottom-4 right-4 text-5xl font-extralight opacity-40 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-accent">
+                        north_east
+                    </span>
+                </div>
+            </a>
+
+            <!-- 04 -->
+            <a class="group relative flex flex-col md:flex-row md:items-stretch justify-between py-10 sm:py-12 md:pt-16 border-white/10 transition-all  px-2 sm:px-4 -mx-2 sm:-mx-4"
+                href="#trainer-crm">
+
+                <div
+                    class="relative overflow-hidden rounded-xl w-full md:flex-1 min-h-[240px] sm:min-h-[300px] md:min-h-[340px]">
+
+                    <video
+                        class="absolute inset-0 w-full h-full object-cover grayscale-0 md:grayscale transition duration-500 md:group-hover:grayscale-0"
+                        autoplay muted loop playsinline>
+                        <source src="assets/trainer_crm.mp4" type="video/mp4" />
+                    </video>
+
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/30 to-transparent"></div>
+                    <div class="absolute inset-0 bg-accent/50 mix-blend-multiply"></div>
+                    <div class="absolute inset-0 bg-black/50"></div>
+
+                    <div class="relative z-10 flex h-full flex-col justify-center p-6">
+                        <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-accent mb-6">Django REST
+                            framework + ionic</div>
+
+                        <div
+                            class="text-4xl sm:text-5xl md:text-[5.5rem] font-extrabold leading-none md:group-hover:translate-x-4 transition-transform">
+                            Trainer CRM
+                        </div>
+
+                        <ul class="mt-6 text-sm sm:text-base opacity-80 leading-relaxed max-w-2xl">
+                            <li>• API REST backend with python (Django)</li>
+                            <li>• Recyclable Components and clean animations</li>
+                            <li>• Android native notification system</li>
+                            <li>• App design (Figma)</li>
+                        </ul>
+                    </div>
+
+                    <span
+                        class="material-symbols-outlined absolute bottom-4 right-4 text-5xl font-extralight opacity-40 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-accent">
+                        north_east
+                    </span>
+                </div>
+            </a>
+
+            </div>
+        </section>
+
+
+
+        <!-- About -->
+        <!-- <section id="about" class="mt-24 sm:mt-36 md:mt-64 w-full max-w-5xl grid md:grid-cols-2 gap-12 sm:gap-16 md:gap-24"> -->
+
+
+        <!-- Highlighted projects -->
+        <!-- <section class="mt-24 sm:mt-36 md:mt-64 w-full max-w-5xl"> -->
+        <section id="projects" class="w-full max-w-5xl">
+            <h1 class="text-[16px] font-bold uppercase tracking-[0.3em] pb-10">
+                // projects</h1>
+            <div class="grid md:grid-cols-2 gap-12 sm:gap-16 md:gap-24">
+                <div>
+                    <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-accent">Highlighted
+                        project</div>
+                    <h3 class="text-4xl sm:text-5xl font-extrabold tight-kerning leading-tight">STI Sync Software
+                    </h3>
+                    <p class="mt-6 text-base sm:text-lg opacity-85 leading-relaxed">
+                        Gain a competitive edge with real-time access to crucial production data. Seamlessly
+                        integrate with your production
+                        department for enhanced planning and utilize APIs for seamless data exchange with your
+                        external ERP systems.
+                    </p>
+
+                    <ul class="mt-8 space-y-3 text-base opacity-80">
+                        <li>• Robust and escalable backend services.</li>
+                        <li>• Real-time access to comprehensive production data.</li>
+                        <li>• API connectivity for data exchange with external ERPs.</li>
+                    </ul>
+
+                    <a class="inline-flex items-center gap-2 mt-10 text-xs font-bold uppercase tracking-widest hover:opacity-60 transition-opacity"
+                        href="https://www.flexo.solutions" target="_blank" rel="noreferrer">
+                        Read more
+                        <span class="material-symbols-outlined text-base text-accent">north_east</span>
+                    </a>
+                </div>
+
+                <div id="project-void">
+                    <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-accent">Highlighted
+                        project</div>
+                    <h3 class="text-4xl sm:text-5xl font-extrabold tight-kerning leading-tight">Void Of Light</h3>
+                    <p class="mt-6 text-base sm:text-lg opacity-85 leading-relaxed">
+                        Our character has the time to be discarded. But at the moment when they separate the orb
+                        from the body there is an
+                        overload of energy, which causes a blackout and everything is paralyzed. Then the orb falls
+                        to the recycling plant by
+                        mistake, without body and with self-consciousness. Your objective as the orb is to look for
+                        robot bodies to control.
+                    </p>
+
+                    <ul class="mt-8 space-y-3 text-base opacity-80">
+                        <li>• Gameplay programming.</li>
+                        <li>• Profiling and optimization.</li>
+                        <li>• API connectivity for score data exchange.</li>
+                    </ul>
+
+                    <a class="inline-flex items-center gap-2 mt-10 text-xs font-bold uppercase tracking-widest hover:opacity-60 transition-opacity"
+                        href="https://adriperez.itch.io" target="_blank" rel="noreferrer">
+                        Read more
+                        <span class="material-symbols-outlined text-base text-accent">north_east</span>
+                    </a>
+                </div>
+
+
+
+                <div id="project-void">
+                    <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-accent">Highlighted
+                        project</div>
+                    <h3 class="text-4xl sm:text-5xl font-extrabold tight-kerning leading-tight">Void Of Light</h3>
+                    <p class="mt-6 text-base sm:text-lg opacity-85 leading-relaxed">
+                        Our character has the time to be discarded. But at the moment when they separate the orb
+                        from the body there is an
+                        overload of energy, which causes a blackout and everything is paralyzed. Then the orb falls
+                        to the recycling plant by
+                        mistake, without body and with self-consciousness. Your objective as the orb is to look for
+                        robot bodies to control.
+                    </p>
+
+                    <ul class="mt-8 space-y-3 text-base opacity-80">
+                        <li>• Gameplay programming.</li>
+                        <li>• Profiling and optimization.</li>
+                        <li>• API connectivity for score data exchange.</li>
+                    </ul>
+
+                    <a class="inline-flex items-center gap-2 mt-10 text-xs font-bold uppercase tracking-widest hover:opacity-60 transition-opacity mb-10"
+                        href="https://adriperez.itch.io" target="_blank" rel="noreferrer">
+                        Read more
+                        <span class="material-symbols-outlined text-base text-accent">north_east</span>
+                    </a>
                 </div>
             </div>
-        </div>
-         -->
+        </section>
 
-    </section>
+        <!-- Experience -->
+        <!-- <section id="experience" class="mt-24 sm:mt-36 md:mt-64 w-full max-w-5xl"> -->
+        <section id="experience" class=" w-full max-w-5xl">
+            <h1 class="text-[16px] font-bold uppercase tracking-[0.3em] mb-14">// Work experience</h1>
 
-    <!-- footer -->
-    <footer>
-        <a href="#inicio" class="arriba">
-            <i class="fa-solid fa-angles-up"></i>
-        </a>
-        <div class="redes">
-            <a href="https://www.instagram.com/adriperezdev/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/in/aperezgfx/" target="_blank"><i
-                    class="fa-brands fa-linkedin-in"></i></a>
-            <a href="https://adriperez.itch.io/"><i class="fa-solid fa-rss"></i></a>
+            <div>
+                <!-- <h3 class="text-[10px] font-bold uppercase tracking-[0.3em] text-accent mb-10">Work experience</h3> -->
+
+                <div class="space-y-10">
+
+                    <div class="border-b border-white/10 pb-10">
+                        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+                            <div>
+                                <div class="text-sm  text-accent uppercase tracking-widest font-bold">Many Worlds</div>
+                                <div class="text-2xl sm:text-3xl font-extrabold tight-kerning">Backend Developer</div>
+                            </div>
+                            <div class="text-[12px] font-mono text-accent uppercase tracking-[0.2em]">(Jun 2025 - Dec
+                                2025)
+                            </div>
+                        </div>
+                        <p class="mt-4 opacity-85 leading-relaxed">
+                            Backend Developer focused on building Django Web and REST API solutions.
+                            Specialist in backend development for APIs with Django REST Framework and fullstack Django
+                            for web apps.
+                            Python developer creating internal tools with PySide to improve workflows.
+                        </p>
+                    </div>
+
+                    <div class="border-b border-white/10 pb-10">
+                        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+                            <div>
+                                <div class="text-sm  text-accent uppercase tracking-widest font-bold">Sincrolab</div>
+                                <div class="text-2xl sm:text-3xl font-extrabold tight-kerning">R&amp;D Unity 3D
+                                    Developer</div>
+                            </div>
+                            <div class="text-[12px] font-mono text-accent uppercase tracking-[0.2em]">(Sep 2024 - Jun
+                                2025)
+                            </div>
+                        </div>
+                        <p class="mt-4 opacity-85 leading-relaxed">
+                            Gamify neurorehabilitation exercises to treat cognitive deficits and help ease symptoms
+                            related to medical conditions in neurology
+                            and psychiatry, such as attention-deficit hyperactivity disorder (ADHD). Using Unity 3D to
+                            offer a more efficient, comfortable
+                            and affordable access to neuropsychological therapy.
+                        </p>
+                    </div>
+
+                    <div class="border-b border-white/10 pb-10">
+                        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+                            <div>
+                                <div class="text-sm  text-accent uppercase tracking-widest font-bold">USA Flexo
+                                    Solutions
+                                    Corp.</div>
+                                <div class="text-2xl sm:text-3xl font-extrabold tight-kerning">Head of R&amp;D Software
+                                    Department</div>
+                            </div>
+                            <div class="text-[12px] font-mono text-accent uppercase tracking-[0.2em]">(Mar 2023 - Aug
+                                2024)
+                            </div>
+                        </div>
+                        <p class="mt-4 opacity-85 leading-relaxed">
+                            Lead the development of desktop and XR applications in the logistics and industrial 4.0
+                            fields with Unity 3D and Python
+                            (Django REST framework) with Docker. Automatizing the design and engineering processes to
+                            bring more effective time to other departments.
+                        </p>
+                    </div>
+
+                    <div class="border-b border-white/10 pb-10">
+                        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+                            <div>
+                                <div class="text-sm  text-accent uppercase tracking-widest font-bold">Rudo Apps</div>
+                                <div class="text-2xl sm:text-3xl font-extrabold tight-kerning">Backend Developer</div>
+                            </div>
+                            <div class="text-[12px] font-mono text-accent uppercase tracking-[0.2em]">(Mar 2021 - Feb
+                                2023)
+                            </div>
+                        </div>
+                        <p class="mt-4 opacity-85 leading-relaxed">
+                            Development of a REST API for mobile applications in Python using the Django framework,
+                            Docker, and deployment on Digital Ocean.
+                            I worked from internal developments to external project as consultant: Sherpa, Chatripp
+                            Hundred Burgers, The Fitzgerald, STM Intersindical.
+                        </p>
+                    </div>
+
+                    <div class="border-b border-white/10 pb-10">
+                        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+                            <div>
+                                <div class="text-sm  text-accent uppercase tracking-widest font-bold">LabLENI UPV (i3B
+                                    Neuro Rehabilitation &amp; Brain Research)</div>
+                                <div class="text-2xl sm:text-3xl font-extrabold tight-kerning">R&amp;D Unity 3D
+                                    Developer</div>
+                            </div>
+                            <div class="text-[12px] font-mono text-accent uppercase tracking-[0.2em]">(Mar 2019 - May
+                                2019)</div>
+                        </div>
+                        <p class="mt-4 opacity-85 leading-relaxed">
+                            Responsible of gamifying neurorehabilitation exercises to enhance the mobility of patients
+                            with reduced mobility after cerebrovascular issues.
+                            Using Unity 3D and AR, VR, and XR technologies, as well as integrated various input devices,
+                            including the Wii Balance Board, Leap Motion, and Kinect.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <h1 class="text-[16px] font-bold uppercase tracking-[0.3em] mt-14 mb-14">// Education</h1>
+
+            <div>
+                <!-- <h3 class="text-[10px] font-bold uppercase tracking-[0.3em] text-accent mb-10">Work experience</h3> -->
+
+                <div class="space-y-10">
+
+                    <div class="border-b border-white/10 pb-10">
+                        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+                            <div>
+                                <div class="text-sm  text-accent uppercase tracking-widest font-bold">Many Worlds</div>
+                                <div class="text-2xl sm:text-3xl font-extrabold tight-kerning">Backend Developer</div>
+                            </div>
+                            <div class="text-[12px] font-mono text-accent uppercase tracking-[0.2em]">(Jun 2025 - Dec
+                                2025)
+                            </div>
+                        </div>
+                        <p class="mt-4 opacity-85 leading-relaxed">
+                            Backend Developer focused on building Django Web and REST API solutions.
+                            Specialist in backend development for APIs with Django REST Framework and fullstack Django
+                            for web apps.
+                            Python developer creating internal tools with PySide to improve workflows.
+                        </p>
+                    </div>
+
+                    <div class="border-b border-white/10 pb-10">
+                        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+                            <div>
+                                <div class="text-sm  text-accent uppercase tracking-widest font-bold">Sincrolab</div>
+                                <div class="text-2xl sm:text-3xl font-extrabold tight-kerning">R&amp;D Unity 3D
+                                    Developer</div>
+                            </div>
+                            <div class="text-[12px] font-mono text-accent uppercase tracking-[0.2em]">(Sep 2024 - Jun
+                                2025)
+                            </div>
+                        </div>
+                        <p class="mt-4 opacity-85 leading-relaxed">
+                            Gamify neurorehabilitation exercises to treat cognitive deficits and help ease symptoms
+                            related to medical conditions in neurology
+                            and psychiatry, such as attention-deficit hyperactivity disorder (ADHD). Using Unity 3D to
+                            offer a more efficient, comfortable
+                            and affordable access to neuropsychological therapy.
+                        </p>
+                    </div>
+
+                    <div class="border-b border-white/10 pb-10">
+                        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+                            <div>
+                                <div class="text-sm  text-accent uppercase tracking-widest font-bold">USA Flexo
+                                    Solutions
+                                    Corp.</div>
+                                <div class="text-2xl sm:text-3xl font-extrabold tight-kerning">Head of R&amp;D Software
+                                    Department</div>
+                            </div>
+                            <div class="text-[12px] font-mono text-accent uppercase tracking-[0.2em]">(Mar 2023 - Aug
+                                2024)
+                            </div>
+                        </div>
+                        <p class="mt-4 opacity-85 leading-relaxed">
+                            Lead the development of desktop and XR applications in the logistics and industrial 4.0
+                            fields with Unity 3D and Python
+                            (Django REST framework) with Docker. Automatizing the design and engineering processes to
+                            bring more effective time to other departments.
+                        </p>
+                    </div>
+
+                    <div class="border-b border-white/10 pb-10">
+                        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+                            <div>
+                                <div class="text-sm  text-accent uppercase tracking-widest font-bold">Rudo Apps</div>
+                                <div class="text-2xl sm:text-3xl font-extrabold tight-kerning">Backend Developer</div>
+                            </div>
+                            <div class="text-[12px] font-mono text-accent uppercase tracking-[0.2em]">(Mar 2021 - Feb
+                                2023)
+                            </div>
+                        </div>
+                        <p class="mt-4 opacity-85 leading-relaxed">
+                            Development of a REST API for mobile applications in Python using the Django framework,
+                            Docker, and deployment on Digital Ocean.
+                            I worked from internal developments to external project as consultant: Sherpa, Chatripp
+                            Hundred Burgers, The Fitzgerald, STM Intersindical.
+                        </p>
+                    </div>
+
+                    <div class="border-b border-white/10 pb-10">
+                        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+                            <div>
+                                <div class="text-sm  text-accent uppercase tracking-widest font-bold">LabLENI UPV (i3B
+                                    Neuro Rehabilitation &amp; Brain Research)</div>
+                                <div class="text-2xl sm:text-3xl font-extrabold tight-kerning">R&amp;D Unity 3D
+                                    Developer</div>
+                            </div>
+                            <div class="text-[12px] font-mono text-accent uppercase tracking-[0.2em]">(Mar 2019 - May
+                                2019)</div>
+                        </div>
+                        <p class="mt-4 opacity-85 leading-relaxed">
+                            Responsible of gamifying neurorehabilitation exercises to enhance the mobility of patients
+                            with reduced mobility after cerebrovascular issues.
+                            Using Unity 3D and AR, VR, and XR technologies, as well as integrated various input devices,
+                            including the Wii Balance Board, Leap Motion, and Kinect.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <section id="about" class="w-full max-w-5xl grid md:grid-cols-2 gap-12 sm:gap-16 md:gap-24 mb-10">
+            <div>
+                <h1 class="text-[16px] font-bold uppercase tracking-[0.3em] mb-14">// About me</h1>
+
+                <p class="text-xl sm:text-2xl font-medium leading-snug tight-kerning opacity-90">
+                    <span class="block mb-3">
+                        <span class="text-accent">Backend specialist</span> but strong across multiple technologies.
+                    </span>
+
+                    <span class="block mb-3">
+                        I take projects <span class="text-accent">from idea to launch</span>, using
+                        <span class="text-accent">Python</span> for backend,
+                        <span class="text-accent">Unity</span> or <span class="text-accent">Unreal</span> for XR,
+                        <span class="text-accent">Ionic</span> for mobile and
+                        <span class="text-accent">cloud tools</span> for deploys.
+                    </span>
+
+                    <span class="block">
+                        Experienced <span class="text-accent">leading teams</span> and
+                        <span class="text-accent">driving projects forward</span>.
+                    </span>
+                </p>
+
+
+
+
+                <!-- <div class="mt-10 border-t border-white/10 pt-8">
+                    <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] opacity-60 mb-6">Roles</h4>
+                    <ul class="space-y-3 text-base sm:text-lg opacity-80">
+                        <li>Graphic Designer</li>
+                        <li>Backend Developer</li>
+                        <li>Unity 3D Developer</li>
+                        <li>Full Stack Developer</li>
+                        <li>Houdini Tech Artist</li>
+                    </ul>
+                </div> -->
+            </div>
+
+            <!-- Contact -->
+            <div id="contact"
+                class="flex flex-col gap-8 sm:gap-9 md:gap-10 text-xl sm:text-2xl font-medium leading-snug tight-kerning opacity-90">
+                <h1 class="text-[16px] font-bold uppercase tracking-[0.3em]">// Connect</h1>
+                <p>
+                    If you’re looking for a <span class="text-accent">developer</span> and think I could be a
+                    <span class="text-accent">good fit</span>, don’t be shy and
+                    <span class="text-accent">let’s talk</span> about it!
+                </p>
+
+
+
+
+                <div class="flex flex-col">
+                    <a class="text-2xl sm:text-3xl font-extrabold tight-kerning hover:text-accent transition-colors break-all underline"
+                        href="mailto:hello@adriperez.es">aperezgfx@gmail.com</a>
+
+                    <div class="mt-10 sm:mt-12 flex flex-wrap gap-3 justify-start">
+                        <a href="https://www.youtube.com/@adrixnperez" target="_blank" rel="noreferrer"
+                            class="text-[10px] font-mono bg-accent text-black uppercase tracking-[0.2em] border border-accent px-3 py-2 opacity-90 hover:opacity-100 hover:bg-white hover:text-accent transition">
+                            YouTube
+                        </a>
+
+                        <a href="https://github.com/xAdri" target="_blank" rel="noreferrer"
+                            class="text-[10px] font-mono bg-accent text-black uppercase tracking-[0.2em] border border-accent px-3 py-2 opacity-90 hover:opacity-100 hover:bg-white hover:text-accent transition">
+                            GitHub
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/aperezgfx" target="_blank" rel="noreferrer"
+                            class="text-[10px] font-mono bg-accent text-black uppercase tracking-[0.2em] border border-accent px-3 py-2 opacity-90 hover:opacity-100 hover:bg-white hover:text-accent transition">
+                            LinkedIn
+                        </a>
+
+                        <a href="https://www.artstation.com/adriperez" target="_blank" rel="noreferrer"
+                            class="text-[10px] font-mono bg-accent text-black uppercase tracking-[0.2em] border border-accent px-3 py-2 opacity-90 hover:opacity-100 hover:bg-white hover:text-accent transition">
+                            ArtStation
+                        </a>
+
+                        <a href="https://adriperez.itch.io/" target="_blank" rel="noreferrer"
+                            class="text-[10px] font-mono bg-accent text-black uppercase tracking-[0.2em] border border-accent px-3 py-2 opacity-90 hover:opacity-100 hover:bg-white hover:text-accent transition">
+                            Itch.io
+                        </a>
+                    </div>
+
+
+        </section>
+    </main>
+
+    <footer class="w-full border-t border-white/10 bg-background-dark">
+        <div
+            class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 py-10 sm:py-11 md:py-12 flex flex-col md:flex-row justify-center md:justify-between items-center md:items-center text-[12px] font-mono tracking-[0.4em] opacity-40 gap-4 uppercase">
+            <p>©2026 Adrián Pérez</p>
+
+            <div class="flex gap-4 items-center">
+
+                <a href="https://www.youtube.com/@adrixnperez" target="_blank" rel="noreferrer">
+                    <img src="icons/youtube.png" alt="YouTube"
+                        class="w-[30px] h-[30px] object-contain hover:opacity-60 transition-opacity">
+                </a>
+
+                <a href="https://www.artstation.com/adriperez" target="_blank" rel="noreferrer">
+                    <img src="icons/artstation.png" alt="ArtStation"
+                        class="w-[30px] h-[30px] object-contain hover:opacity-60 transition-opacity">
+
+                </a>
+
+                <a href="https://www.linkedin.com/in/aperezgfx" target="_blank" rel="noreferrer">
+                    <img src="icons/linkedin.png" alt="LinkedIn"
+                        class="w-[30px] h-[30px] object-contain hover:opacity-60 transition-opacity">
+
+                </a>
+
+                <a href="https://github.com/xAdri" target="_blank" rel="noreferrer">
+                    <img src="icons/github.png" alt="GitHub"
+                        class="w-[30px] h-[30px] object-contain hover:opacity-60 transition-opacity">
+                </a>
+
+                <a href="https://adriperez.itch.io/" target="_blank" rel="noreferrer">
+                    <img src="icons/itchio.png" alt="Itch.io"
+                        class="w-[30px] h-[30px] object-contain hover:opacity-60 transition-opacity">
+                </a>
+            </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+
+    <!-- <svg width="0" height="0" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+        <filter id="displacementFilter">
+            <feTurbulence type="turbulence" baseFrequency="0.05" numOctaves="2" seed="12" result="turbulence">
+            </feTurbulence>
+            <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="3" xChannelSelector="R" yChannelSelector="G"
+                result="displacement"></feDisplacementMap>
+            <feGaussianBlur in="displacement" stdDeviation="4" result="blur"></feGaussianBlur>
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -8" result="goo">
+            </feColorMatrix>
+            <feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
+        </filter>
+    </svg> -->
+
 </body>
+
+<script>
+    (function () {
+        // ----------------------------
+        // Mobile menu (open/close)
+        // ----------------------------
+        const menu = document.getElementById("mobileMenu");
+        const btn = document.getElementById("menuBtn");
+        const closeBtn = document.getElementById("menuCloseBtn");
+
+        function openMenu() {
+            if (!menu || !btn) return;
+            menu.classList.add("is-open");
+            btn.setAttribute("aria-expanded", "true");
+            document.documentElement.style.overflow = "hidden";
+        }
+
+        function closeMenu() {
+            if (!menu || !btn) return;
+            menu.classList.remove("is-open");
+            btn.setAttribute("aria-expanded", "false");
+            document.documentElement.style.overflow = "";
+        }
+
+        if (btn) btn.addEventListener("click", openMenu);
+        if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") closeMenu();
+        });
+
+        if (menu) {
+            menu.addEventListener("click", (e) => {
+                if (e.target === menu) closeMenu();
+            });
+        }
+
+        if (menu) {
+            const mobileLinks = menu.querySelectorAll("a");
+            mobileLinks.forEach((a) => a.addEventListener("click", closeMenu));
+        }
+
+        // ----------------------------
+        // Views: show/hide groups of sections
+        // ----------------------------
+        function setHidden(el, hidden) {
+            if (!el) return;
+            if (hidden) {
+                el.classList.add("hidden");
+                el.classList.remove("section-fade-in");
+            } else {
+                el.classList.remove("hidden");
+                // Restart fade animation
+                el.classList.remove("section-fade-in");
+                void el.offsetWidth;
+                el.classList.add("section-fade-in");
+            }
+        }
+
+        // Sections by id
+        const secWork = document.getElementById("work");          // Work list
+        const secExperience = document.getElementById("experience"); // Work experience
+        const secAbout = document.getElementById("about");        // About + Connect
+        const secProjects = document.getElementById("projects");  // Highlighted projects
+
+        function setActiveNav(view) {
+            const links = document.querySelectorAll(".nav-link");
+
+            links.forEach((a) => {
+                const v = a.getAttribute("data-view");
+                const baseText = a.textContent.replace(/^\/\/\s*/, "");
+
+                if (v === view) {
+                    a.textContent = "// " + baseText;
+                    a.classList.add("text-accent");
+                } else {
+                    a.textContent = baseText;
+                    a.classList.remove("text-accent");
+                }
+            });
+        }
+
+
+        function showView(view) {
+            // Hide everything first
+            setHidden(secWork, true);
+            setHidden(secExperience, true);
+            setHidden(secAbout, true);
+            setHidden(secProjects, true);
+
+            if (view === "work") {
+                setHidden(secWork, false);
+            } else if (view === "experience") {
+                setHidden(secExperience, false);
+            } else if (view === "about") {
+                setHidden(secAbout, false);
+            } else if (view === "projects") {
+                setHidden(secProjects, false);
+            }
+
+            setActiveNav(view);
+        }
+
+        // Intercept nav clicks
+        const navLinks = Array.from(document.querySelectorAll('a[href^="#"]'));
+
+        navLinks.forEach((a) => {
+            const href = a.getAttribute("href");
+            if (!href || href.length < 2) return;
+
+            const id = href.slice(1);
+            const allowed = ["work", "experience", "about", "projects"];
+            if (allowed.indexOf(id) === -1) return;
+
+            a.addEventListener("click", (e) => {
+                e.preventDefault();
+                history.replaceState(null, "", "#" + id);
+                showView(id);
+                closeMenu();
+            });
+        });
+
+        // Initial state:
+        // Por defecto: oculto projects, experience, about
+        // => se ve solo work
+        const initial = location.hash ? location.hash.slice(1) : "work";
+        if (["experience", "about", "projects"].includes(initial)) {
+            showView(initial);
+        } else {
+            showView("work");
+        }
+    })();
+</script>
+
+
+
+
+</html>
