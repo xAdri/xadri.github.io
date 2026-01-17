@@ -2,3 +2,6 @@ Falta:
 
 - Al hacer click en el navbar ponerlo en la posición que toca (el titulo oficial después de mi imagen)
 - Ajustar el inicio para web desktop
+- Añadir la descripción de los proyectos en pantalla detalle
+- Añadir todos los proyectos
+- Cambiar la descripción de los highlighted projects matcheando textos correctos
