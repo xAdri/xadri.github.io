@@ -246,7 +246,7 @@ filter: url(#displacementFilter);
                     data-view="experience" href="#experience">Experience</a>
 
                 <a class="nav-link text-xs font-bold uppercase tracking-widest transition-colors duration-[450ms] ease-out hover:opacity-50 transition-opacity"
-                    data-view="about" href="#about">About</a>
+                    data-view="about" href="#about">About me</a>
             </nav>
 
 
@@ -286,25 +286,24 @@ filter: url(#displacementFilter);
                     style="transition-delay: 240ms;" data-view="experience" href="#experience">Experience</a>
 
                 <a class="nav-link mobile-item text-4xl font-extrabold tight-kerning uppercase opacity-0 translate-y-3 transition-colors duration-[450ms] ease-out"
-                    style="transition-delay: 320ms;" data-view="about" href="#about">About</a>
+                    style="transition-delay: 320ms;" data-view="about" href="#about">About me</a>
             </nav>
         </div>
     </div>
 
 
-    <main id="me" class="relative flex flex-col items-center min-h-screen px-4 sm:px-6 md:px-8 pt-30 overflow-hidden">
+    <main id="me" class="relative flex flex-col items-center min-h-screen px-4 sm:px-6 md:px-8 overflow-hidden md:pt-[22rem]">
 
         <!-- Hero -->
         <!-- <div class="max-w-5xl w-full mb-20 sm:mb-28 md:mb-48"> -->
         <div class="max-w-5xl w-full mb-20 sm:mb-28">
             <div id="personal">
 
-                <img src="assets/image.webp" alt="" class="translate-x-20 -mb-20" />
+                <img src="assets/image.webp" alt="" class="translate-x-20 -mb-20 md:absolute md:top-20 md:w-[40rem] md:right-40 lg:w-[40rem] lg:absolute lg:right-20 xl:right-80" />
 
                 <h1
                     class="text-[2.75rem] sm:text-5xl md:text-[6.5rem] font-extrabold leading-[0.9] break-words tight-kerning relative">
-                    Backend Developer
-                    <!-- <img src="image_res.webp" alt="" class="inline-block sm:w-28 sm:scale-x-[1] md:w-[35vw] absolute -top-20 md:-left-[375px] right-4 top-5 -z-10 ml-2 -mt-4 lg:scale-x-[-1] grayscale" /> -->
+                    Backend<br/> Developer
                 </h1>
 
 
@@ -876,13 +875,127 @@ filter: url(#displacementFilter);
 
             </div>
             </div>
-
             </div>
         </section>
 
-        <section id="about" class="w-full max-w-5xl grid md:grid-cols-2 gap-12 sm:gap-16 md:gap-24 mb-10">
+
+
+
+
+        <section id="about"
+            class="w-full max-w-5xl mx-auto grid md:grid-cols-2 gap-10 sm:gap-14 md:gap-24 py-10 sm:py-14">
+            <!-- Left: About -->
+            <div class="relative">
+                <!-- Decorative image + gradient (only affects the image) -->
+                <div class="pointer-events-none select-none absolute -top-[5rem] -right-[0.6rem]
+           w-[260px] sm:w-[320px] md:w-[420px]
+           z-0">
+                    <img src="assets/me.webp" alt="" class="w-full h-auto scale-x-[1] opacity-90" />
+
+                    <!-- Vertical gradient: bottom 90% -> top 0% -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/100 to-transparent"></div>
+                </div>
+
+                <!-- Text content -->
+                <div class="relative z-10">
+                    <!-- About label ON TOP of the image -->
+                    <h2 class="text-[12px] sm:text-[14px] font-bold uppercase tracking-[0.3em] mb-5 sm:mb-6">
+                        // About me
+                    </h2>
+
+                    <h1
+                        class="text-[2.5rem] sm:text-5xl md:text-[4rem] font-extrabold leading-[0.9] break-words tight-kerning">
+                        Why me?
+                    </h1>
+
+                    <p class="mt-6 sm:mt-8 text-xl sm:text-2xl font-medium leading-snug tight-kerning">
+                        <span class="block mb-3">
+                            Experienced <span class="text-accent">leading</span> teams,
+                            <span class="text-accent">backend specialist</span> but strong across multiple technologies.
+                        </span>
+
+                        <span class="block">
+                            I take projects <span class="text-accent">from idea to launch</span>, using
+                            <span class="text-accent">Python</span> or <span class="text-accent">.NET</span> for
+                            backend,
+                            <span class="text-accent">Unity</span> or <span class="text-accent">Unreal</span> for XR,
+                            <span class="text-accent">Ionic</span> for mobile and
+                            <span class="text-accent">cloud tools</span> for deploys.
+                        </span>
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- Right: Contact -->
+            <div id="contact"
+                class="flex flex-col gap-7 sm:gap-8 md:gap-10 text-xl sm:text-2xl font-medium leading-snug tight-kerning opacity-90">
+                <h2 class="text-[12px] sm:text-[14px] font-bold uppercase tracking-[0.3em]">
+                    // Connect
+                </h2>
+
+                <p>
+                    If you’re looking for a <span class="text-accent">developer</span> and think I could be a
+                    <span class="text-accent">good fit</span>, don’t be shy and
+                    <span class="text-accent">let’s talk</span> about it!
+                </p>
+
+                <div class="flex flex-col">
+                    <a class="text-2xl sm:text-3xl font-extrabold tight-kerning hover:text-accent transition-colors break-all underline"
+                        href="mailto:hello@adriperez.es">
+                        aperezgfx@gmail.com
+                    </a>
+
+                    <div class="mt-8 sm:mt-10 flex flex-wrap gap-3 justify-start">
+                        <a href="https://www.youtube.com/@adrixnperez" target="_blank" rel="noreferrer"
+                            class="text-[10px] font-mono bg-accent text-black uppercase tracking-[0.2em] border border-accent px-3 py-2 opacity-90 hover:opacity-100 hover:bg-white hover:text-accent transition">
+                            YouTube
+                        </a>
+
+                        <a href="https://github.com/xAdri" target="_blank" rel="noreferrer"
+                            class="text-[10px] font-mono bg-accent text-black uppercase tracking-[0.2em] border border-accent px-3 py-2 opacity-90 hover:opacity-100 hover:bg-white hover:text-accent transition">
+                            GitHub
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/aperezgfx" target="_blank" rel="noreferrer"
+                            class="text-[10px] font-mono bg-accent text-black uppercase tracking-[0.2em] border border-accent px-3 py-2 opacity-90 hover:opacity-100 hover:bg-white hover:text-accent transition">
+                            LinkedIn
+                        </a>
+
+                        <a href="https://www.artstation.com/adriperez" target="_blank" rel="noreferrer"
+                            class="text-[10px] font-mono bg-accent text-black uppercase tracking-[0.2em] border border-accent px-3 py-2 opacity-90 hover:opacity-100 hover:bg-white hover:text-accent transition">
+                            ArtStation
+                        </a>
+
+                        <a href="https://adriperez.itch.io/" target="_blank" rel="noreferrer"
+                            class="text-[10px] font-mono bg-accent text-black uppercase tracking-[0.2em] border border-accent px-3 py-2 opacity-90 hover:opacity-100 hover:bg-white hover:text-accent transition">
+                            Itch.io
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+        <!-- <section id="about" class="w-full max-w-5xl grid md:grid-cols-2 gap-12 sm:gap-16 md:gap-24 mb-10">
+
             <div>
-                <h1 class="text-[16px] font-bold uppercase tracking-[0.3em] mb-14">// About me</h1>
+                <div>
+                    <img src="assets/me_01.webp" alt="" class="-mb-20 z-0 scale-x-[-1]" />
+
+                    <h1
+                        class="text-[2.75rem] sm:text-5xl md:text-[4rem] font-extrabold leading-[0.9] break-words tight-kerning relative z-12">
+                        Why me?
+                    </h1>
+                </div>
+
+                <h1 class="text-[16px] font-bold uppercase tracking-[0.3em] mb-14 z-10">// About me</h1>
 
                 <p class="text-xl sm:text-2xl font-medium leading-snug tight-kerning opacity-90">
                     <span class="block mb-3">
@@ -897,12 +1010,9 @@ filter: url(#displacementFilter);
                         <span class="text-accent">Ionic</span> for mobile and
                         <span class="text-accent">cloud tools</span> for deploys.
                     </span>
-                </p>
+                </p> -->
 
-
-
-
-                <!-- <div class="mt-10 border-t border-white/10 pt-8">
+        <!-- <div class="mt-10 border-t border-white/10 pt-8">
                     <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] opacity-60 mb-6">Roles</h4>
                     <ul class="space-y-3 text-base sm:text-lg opacity-80">
                         <li>Graphic Designer</li>
@@ -912,10 +1022,10 @@ filter: url(#displacementFilter);
                         <li>Houdini Tech Artist</li>
                     </ul>
                 </div> -->
-            </div>
+        <!-- </div> -->
 
-            <!-- Contact -->
-            <div id="contact"
+        <!-- Contact -->
+        <!-- <div id="contact"
                 class="flex flex-col gap-8 sm:gap-9 md:gap-10 text-xl sm:text-2xl font-medium leading-snug tight-kerning opacity-90">
                 <h1 class="text-[16px] font-bold uppercase tracking-[0.3em]">// Connect</h1>
                 <p>
@@ -923,8 +1033,6 @@ filter: url(#displacementFilter);
                     <span class="text-accent">good fit</span>, don’t be shy and
                     <span class="text-accent">let’s talk</span> about it!
                 </p>
-
-
 
 
                 <div class="flex flex-col">
@@ -957,8 +1065,8 @@ filter: url(#displacementFilter);
                             Itch.io
                         </a>
                     </div>
-
-
+                </div>
+            </div> -->
         </section>
     </main>
 
