@@ -9,25 +9,28 @@
     <meta name="description"
         content="Backend Developer with 5+ years of experience. Python + Django. Unity/Unreal for XR. Ionic for mobile." />
 
-    <link rel="canonical" href="https://adriperez.es/" />
+    <link rel="canonical" href="https://www.adriperez.es/" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Adrián Pérez — Portfolio" />
-    <meta property="og:url" content="https://adriperez.es/" />
+    <meta property="og:url" content="https://www.adriperez.es/" />
     <meta property="og:title" content="Adrián Pérez — Backend Developer" />
     <meta property="og:description"
         content="Backend Developer with 5+ years of experience. Python + Django. Unity/Unreal for XR. Ionic for mobile." />
-    <meta property="og:image" content="https://adriperez.es/assets/image.jpg" />
-    <meta property="og:image:secure_url" content="https://adriperez.es/assets/image.jpg" />
-    <meta property="og:image:type" content="image/png" />
+
+    <meta property="og:image" content="https://www.adriperez.es/assets/image.jpg" />
+    <meta property="og:image:secure_url" content="https://www.adriperez.es/assets/image.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Adrián Pérez — Portfolio" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Adrián Pérez — Backend Developer" />
     <meta name="twitter:description"
         content="Backend Developer with 5+ years of experience. Python + Django. Unity/Unreal for XR. Ionic for mobile." />
-    <meta name="twitter:image" content="https://adriperez.es/assets/image.jpg" />
+    <meta name="twitter:image" content="https://www.adriperez.es/assets/image.jpg" />
+
 
     <link rel="icon" type="image/svg+xml" href="/logo.svg">
 
@@ -180,6 +183,23 @@ filter: url(#displacementFilter);
     color: white;
 }
 
+.lwr-box{
+  position: relative;
+}
+
+.lwr-box * {
+  position: absolute;
+  opacity: 0;
+  transition: opacity .4s ease-in-out, filter .4s ease-in-out;
+  filter: blur(20px);
+  white-space: nowrap;
+}
+
+.lwr-box .visible{
+  opacity: 1;
+  filter: blur(0px);
+}
+
 </style>
 
 </head>
@@ -308,8 +328,14 @@ filter: url(#displacementFilter);
 
                 <h1
                     class="text-[2.75rem] sm:text-[6.5rem] md:text-[6.5rem] font-extrabold leading-[0.9] break-words tight-kerning relative">
-                    Backend<br /> Developer
+                    <span class="lwr-box">
+                        <span class="visible">Backend</span>
+                        <span>Unity & XR</span>
+                        <span>Fullstack</span>
+                    </span><br />
+                    Developer
                 </h1>
+
 
 
                 <div
@@ -513,7 +539,8 @@ filter: url(#displacementFilter);
                     <div class="absolute inset-0 bg-black/50"></div>
 
                     <div class="relative z-10 flex h-full flex-col justify-center p-6">
-                        <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-accent mb-6">Django Rest Framework + ionic</div>
+                        <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-accent mb-6">Django Rest
+                            Framework + ionic</div>
 
                         <div
                             class="text-4xl sm:text-5xl md:text-[5.5rem] font-extrabold leading-none md:group-hover:translate-x-4 transition-transform">
@@ -1355,6 +1382,36 @@ filter: url(#displacementFilter);
         } else {
             showView("work");
         }
+
+
+        // animation
+        var lwr = 0;
+
+        var listenWatchRead = function () {
+            var spans = document.querySelectorAll(".lwr-box span");
+
+            if (lwr <= 2) {
+                spans.forEach(function (span) {
+                    span.classList.remove("visible");
+                });
+
+                if (spans[lwr]) {
+                    spans[lwr].classList.add("visible");
+                }
+            } else {
+                lwr = 0;
+            }
+
+            lwr++;
+            if (lwr === 3) lwr = 0;
+
+            setTimeout(function () {
+                listenWatchRead();
+            }, 2000);
+        };
+
+        listenWatchRead();
+
     })();
 </script>
 
