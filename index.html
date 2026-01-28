@@ -200,6 +200,21 @@ filter: url(#displacementFilter);
   filter: blur(0px);
 }
 
+/* Estado activo para chips de tecnologia (estilo tipo chips sociales) */
+.tech-active {
+  background: #f97316;   /* accent */
+  color: #000;
+  border-color: #f97316;
+}
+
+/* Transicion suave (igual timing que el resto) */
+.tech-transition {
+  transition-property: color, background-color, border-color, opacity, transform, filter;
+  transition-duration: 450ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
 </style>
 
 </head>
@@ -209,35 +224,6 @@ filter: url(#displacementFilter);
     <div id="page-reveal" class="fixed inset-0 bg-black z-[9999] pointer-events-none"></div>
 
     <div class="noise scanlines fixed inset-0 pointer-events-none z-40"></div>
-    <!-- Header -->
-    <!-- <header class="fixed top-0 left-0 w-full z-50 mix-blend-difference">
-        <div
-            class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 py-6 sm:py-8 md:py-10 flex justify-between items-center md:items-end gap-6">
-            <a href="#top" class="flex items-center gap-3 shrink-0 hover:opacity-50 transition-opacity">
-                <span class="w-8 h-8 inline-block" style="
-                background: #f97316;
-                -webkit-mask: url('logo.svg') no-repeat center / contain;
-                mask: url('logo.svg') no-repeat center / contain; ">
-                </span>
-
-                <span class="text-xs font-bold text-accent uppercase tracking-widest">
-                    Adrián<br>Pérez
-                </span>
-            </a>
-
-
-            <nav class="flex gap-6 sm:gap-10 md:gap-12">
-                <a class="text-xs font-bold uppercase tracking-widest hover:opacity-50 transition-opacity"
-                    href="#work">Work</a>
-                <a class="text-xs font-bold uppercase tracking-widest hover:opacity-50 transition-opacity"
-                    href="#about">About</a>
-                <a class="text-xs font-bold uppercase tracking-widest hover:opacity-50 transition-opacity"
-                    href="#experience">Experience</a>
-                <a class="text-xs font-bold uppercase tracking-widest hover:opacity-50 transition-opacity"
-                    href="#contact">Contact</a>
-            </nav>
-        </div>
-    </header> -->
 
     <header class="fixed top-0 left-0 w-full z-50 mix-blend-difference">
         <div
@@ -353,30 +339,25 @@ filter: url(#displacementFilter);
                 </div>
 
                 <div class="mt-10 sm:mt-12 flex flex-wrap gap-3">
-                    <span
-                        class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">Python</span>
-                    <span
-                        class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">Django</span>
-                    <span
-                        class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">DRF</span>
-                    <span
-                        class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">.Net</span>
-                    <span
-                        class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">Entity
-                        framework</span>
-                    <span
-                        class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">Docker</span>
-                    <span
-                        class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">Postgresql</span>
-                    <span
-                        class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">MSQL
-                        Server</span>
-                    <span
-                        class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">CI/CD</span>
-                    <span
-                        class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">AWS/Digital
-                        Ocean</span>
+                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">Python</span>
+                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">Django</span>
+                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">DRF</span>
+                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">FASt api</span>
+                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">C#</span>
+                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">Unity Engine</span>
+                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">Unreal Engine</span>
+                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">.Net</span>
+                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">Entity framework</span>
+                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">React (Typescript)</span>
+                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">Ionic (Angular)</span>
+                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">Docker</span>
+                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">Postgresql</span>
+                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">MSQL Server</span>
+                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">CI/ CD</span>
+                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">Digital Ocean / AWS</span>
+                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80">Houdini</span>
                 </div>
+
             </div>
         </div>
 
@@ -1376,41 +1357,128 @@ filter: url(#displacementFilter);
         });
 
         // Initial state
-        const initial = location.hash ? location.hash.slice(1) : "work";
-        if (["work", "experience", "about", "projects"].includes(initial)) {
-            showView(initial);
-        } else {
-            showView("work");
-        }
+        // const initial = location.hash ? location.hash.slice(1) : "work";
+        // if (["work", "experience", "about", "projects"].includes(initial)) {
+        //     showView(initial);
+        // } else {
+        //     showView("work");
+        // }
 
 
         // animation
+        // var lwr = 0;
+
+        // var listenWatchRead = function () {
+        //     var spans = document.querySelectorAll(".lwr-box span");
+
+        //     if (lwr <= 2) {
+        //         spans.forEach(function (span) {
+        //             span.classList.remove("visible");
+        //         });
+
+        //         if (spans[lwr]) {
+        //             spans[lwr].classList.add("visible");
+        //         }
+        //     } else {
+        //         lwr = 0;
+        //     }
+
+        //     lwr++;
+        //     if (lwr === 3) lwr = 0;
+
+        //     setTimeout(function () {
+        //         listenWatchRead();
+        //     }, 2000);
+        // };
+
+        // listenWatchRead();
+
+
+        // ----------------------------
+        // Tech chips: solo cambia el color de los activos
+        // (los no activos se quedan como estaban)
+        // ----------------------------
+        const techMap = {
+            "Backend": new Set([
+                "Python", "Django", "DRF", "FASt api",
+                ".Net", "Entity framework",
+                "Docker", "Postgresql", "MSQL Server", "CI / CD", "Digital Ocean / AWS"
+            ]),
+            "Fullstack": new Set([
+                "Python", "Django", "DRF",
+                "React (Typescript)", "Ionic (Angular)",
+                "Docker", "Postgresql", "CI / CD", "Digital Ocean / AWS"
+            ]),
+            "Unity & XR": new Set([
+                "C#", "Unity Engine", "Houdini", "Python", "Unreal Engine"
+            ])
+        };
+
+        function getTechChipsContainer() {
+            // Encuentra el bloque de chips (muchos spans con border-white/15)
+            const candidates = document.querySelectorAll("div.flex.flex-wrap.gap-3");
+            for (const div of candidates) {
+                const spans = div.querySelectorAll("span.border-white\\/15");
+                if (spans.length >= 10) return div;
+            }
+            return null;
+        }
+
+        function setTechChipsMode(modeLabel) {
+            const container = getTechChipsContainer();
+            if (!container) return;
+
+            const chips = Array.from(container.querySelectorAll("span"));
+            const activeSet = techMap[modeLabel] || new Set();
+
+            chips.forEach((chip) => {
+                const name = (chip.textContent || "").trim();
+                const isActive = activeSet.has(name);
+
+                // Aplica transicion (sin tocar clases tailwind existentes)
+                chip.classList.add("tech-transition");
+
+                // Quita estado activo
+                chip.classList.remove("tech-active");
+
+                // Aplica estado activo solo a los que toque
+                if (isActive) {
+                    chip.classList.add("tech-active");
+                }
+            });
+        }
+
+        // ----------------------------
+        // LWR animation (Backend / Unity & XR / Fullstack)
+        // ----------------------------
         var lwr = 0;
 
-        var listenWatchRead = function () {
+        function listenWatchRead() {
             var spans = document.querySelectorAll(".lwr-box span");
 
-            if (lwr <= 2) {
-                spans.forEach(function (span) {
-                    span.classList.remove("visible");
-                });
+            spans.forEach(function (span) {
+                span.classList.remove("visible");
+            });
 
-                if (spans[lwr]) {
-                    spans[lwr].classList.add("visible");
-                }
-            } else {
-                lwr = 0;
+            if (spans[lwr]) {
+                spans[lwr].classList.add("visible");
+                var label = (spans[lwr].textContent || "").trim();
+                setTechChipsMode(label);
             }
 
             lwr++;
-            if (lwr === 3) lwr = 0;
+            if (lwr === spans.length) lwr = 0;
 
-            setTimeout(function () {
-                listenWatchRead();
-            }, 2000);
-        };
+            setTimeout(listenWatchRead, 2000);
+        }
 
-        listenWatchRead();
+        // Init
+        (function init() {
+            var firstVisible = document.querySelector(".lwr-box span.visible");
+            var label = firstVisible ? (firstVisible.textContent || "").trim() : "Backend";
+            setTechChipsMode(label);
+            listenWatchRead();
+        })();
 
     })();
 </script>
