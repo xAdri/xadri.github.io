@@ -1437,11 +1437,21 @@ filter: url(#displacementFilter);
 
         // Init
         (function init() {
+            // 1) Decide view inicial por hash (o "work")
+            const allowed = ["work", "experience", "about", "projects"];
+            const hash = (location.hash || "").replace("#", "");
+            const initialView = allowed.includes(hash) ? hash : "work";
+        
+            // 2) Muestra solo la vista inicial (esto evita que cargue todo)
+            showView(initialView);
+        
+            // 3) Inicializa chips + animacion LWR (respetando el texto visible actual)
             var firstVisible = document.querySelector(".lwr-box span.visible");
             var label = firstVisible ? (firstVisible.textContent || "").trim() : "Backend";
             setTechChipsMode(label);
             listenWatchRead();
         })();
+
 
     })();
 </script>
