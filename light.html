@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Adrián Pérez - R&D Software Engineer</title>
+
+    <meta name="description"
+        content="Backend Developer with 5+ years of experience. Python + Django. Unity/Unreal for XR. Ionic for mobile." />
+
+    <link rel="canonical" href="https://www.adriperez.es/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Adrián Pérez — Portfolio" />
+    <meta property="og:url" content="https://www.adriperez.es/" />
+    <meta property="og:title" content="Adrián Pérez — Backend Developer" />
+    <meta property="og:description"
+        content="Backend Developer with 5+ years of experience. Python + Django. Unity/Unreal for XR. Ionic for mobile." />
+
+    <meta property="og:image" content="https://www.adriperez.es/assets/image.jpg" />
+    <meta property="og:image:secure_url" content="https://www.adriperez.es/assets/image.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Adrián Pérez — Portfolio" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Adrián Pérez — Backend Developer" />
+    <meta name="twitter:description"
+        content="Backend Developer with 5+ years of experience. Python + Django. Unity/Unreal for XR. Ionic for mobile." />
+    <meta name="twitter:image" content="https://www.adriperez.es/assets/image.jpg" />
+
+
+    <link rel="icon" type="image/svg+xml" href="/logo.svg">
+
+
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- Inter (NEW) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&display=swap" rel="stylesheet" />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#ffffff",
+                        accent: "#009c83",
+                        // "background-light": "#f5f7f8",
+                        "background-light": "#0a0a0a",
+                        // "background-dark": "#0a0a0a",
+                        "background-dark": "#f5f7f8",
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                        display: ["Inter", "sans-serif"],
+                        mono: ["Space Grotesk", "monospace"],
+                    },
+                },
+            },
+        };
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer utilities {
+    .tight-kerning { letter-spacing: -0.05em; }
+  }
+
+  @keyframes pageReveal {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+#page-reveal {
+  animation: pageReveal 900ms ease-out forwards;
+}
+
+
+  /* Chrome / Edge / Safari */
+::-webkit-scrollbar-thumb {
+  background: theme("colors.accent");
+}
+
+/* Firefox */
+html {
+  scrollbar-color: #009c83 transparent;
+}
+
+
+  /* Overlay de grano (noise) usando SVG inline */
+  .noise {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
+  }
+
+  /* Scanlines sutiles */
+.scanlines {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(0,156,131,0.15),
+    rgba(0,156,131,0.15) 1px,
+    rgba(0,0,0,0) 2px,
+    rgba(0,0,0,0) 6px
+  );
+  opacity: 0.4;
+}
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+h1 {
+  color: #009c83;
+  text-shadow:
+  /* 2px 0 #009c83,
+  -2px 0 cyan, */
+  0 0 2px rgba(255,255,255,0.8),
+  0 0 6px rgba(255,255,255,0.6),
+  0 0 12px rgba(255,255,255,0.4),
+  0 0 4px rgba(255,255,255,0.7),
+  0 0 10px rgba(0,150,255,0.5);
+}
+
+h2 {
+  color: #fff;
+  text-shadow:
+    /* 2px 0 #009c83,
+   -2px 0 cyan, */
+    0 0 2px rgba(255,255,255,0.8),
+    0 0 6px rgba(255,255,255,0.6),
+    0 0 12px rgba(255,255,255,0.4),
+    0 0 4px rgba(255,255,255,0.7),
+    0 0 10px rgba(0,150,255,0.5);
+  /* filter: url(#displacementFilter); */
+
+}
+
+h3 {
+    color:#242424;
+}
+
+img {
+filter: url(#displacementFilter);
+}
+
+/* Mobile menu items: stagger fade + move */
+#mobileMenu .mobile-item {
+  transition-property: opacity, transform;
+  transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Estado abierto */
+#mobileMenu.is-open {
+  color:#242424;  
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#mobileMenu.is-open .mobile-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@layer utilities {
+  .section-hidden { display: none; }
+  .section-show { display: block; }
+}
+
+/* Fade in para cambiar de seccion */
+@keyframes sectionFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.section-fade-in {
+  animation: sectionFadeIn 450ms ease-out both;
+}
+
+::selection {
+    background-color: #009c83;
+    color: white;
+}
+
+.lwr-box{
+  position: relative;
+}
+
+.lwr-box * {
+  position: absolute;
+  opacity: 0;
+  transition: opacity .4s ease-in-out, filter .4s ease-in-out;
+  filter: blur(20px);
+  white-space: nowrap;
+}
+
+.lwr-box .visible{
+  opacity: 1;
+  filter: blur(0px);
+}
+
+.tech-active {
+  background: white;        
+  border-color:#009c83;
+}
+
+/* Transicion suave (igual timing que el resto) */
+.tech-transition {
+  transition-property: color, background-color, border-color, opacity, transform, filter;
+  transition-duration: 450ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.text-primary {
+    color: #009c83;
+}
+
+.text-base {
+    color: #242424;
+}
+
+.set-color-green {
+    color: #009c83;
+}
+
+.set-color-black {
+    color: #242424;
+}
+</style>
+
+</head>
+
+
+<body class="bg-background-dark font-sans text-white transition-colors duration-300">
+    <div id="page-reveal" class="fixed inset-0 bg-white z-[9999] pointer-events-none"></div>
+
+    <div class="noise scanlines fixed inset-0 pointer-events-none z-40"></div>
+
+    <header class="fixed top-0 left-0 w-full z-50">
+        <div
+            class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 py-6 sm:py-8 md:py-10 flex justify-between items-center md:items-end gap-6 set-color-black">
+
+            <!-- Brand -->
+            <a href="#work" class="flex items-center gap-3 shrink-0 hover:opacity-50 transition-opacity">
+                <!-- Logo: SOLO desktop -->
+                <span class="hidden sm:inline-block w-8 h-8" style="
+        background: #009c83;
+        -webkit-mask: url('logo.svg') no-repeat center / contain;
+        mask: url('logo.svg') no-repeat center / contain;
+      "></span>
+
+                <!-- Nombre: SIEMPRE visible (en mobile queda solo esto) -->
+                <span class="text-xs font-bold text-accent uppercase tracking-widest">
+                    Adrián<br>Pérez
+                </span>
+            </a>
+
+            <!-- Desktop nav -->
+            <nav class="hidden md:flex gap-6 sm:gap-10 md:gap-12">
+                <a class="nav-link text-xs font-bold uppercase tracking-widest transition-colors duration-[450ms] ease-out hover:opacity-50 transition-opacity"
+                    data-view="work" href="#work">Work</a>
+
+                <a class="nav-link text-xs font-bold uppercase tracking-widest transition-colors duration-[450ms] ease-out hover:opacity-50 transition-opacity"
+                    data-view="projects" href="#projects">Projects</a>
+
+                <a class="nav-link text-xs font-bold uppercase tracking-widest transition-colors duration-[450ms] ease-out hover:opacity-50 transition-opacity"
+                    data-view="experience" href="#experience">Experience</a>
+
+                <a class="nav-link text-xs font-bold uppercase tracking-widest transition-colors duration-[450ms] ease-out hover:opacity-50 transition-opacity"
+                    data-view="about" href="#about">About me</a>
+            </nav>
+
+
+
+            <!-- Mobile burger -->
+            <button id="menuBtn"
+                class="md:hidden inline-flex items-center justify-center w-10 h-10 hover:opacity-60 transition-opacity"
+                aria-label="Open menu" aria-expanded="false" type="button">
+                <span class="material-symbols-outlined text-3xl text-accent">menu</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenu"
+        class="fixed inset-0 z-[999] bg-background-dark/95 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-500">
+
+        <!-- Close area top bar -->
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 pt-6 flex justify-end">
+            <button id="menuCloseBtn"
+                class="md:hidden inline-flex items-center justify-center w-10 h-10 hover:opacity-60 transition-opacity"
+                aria-label="Close menu" type="button">
+                <span class="material-symbols-outlined text-3xl text-accent">close</span>
+            </button>
+        </div>
+
+        <!-- Items -->
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 pt-10">
+            <nav class="flex flex-col gap-6">
+                <a class="nav-link mobile-item text-4xl font-extrabold tight-kerning uppercase opacity-0 translate-y-3 transition-colors duration-[450ms] ease-out"
+                    style="transition-delay: 80ms;" data-view="work" href="#work">Work</a>
+
+                <a class="nav-link mobile-item text-4xl font-extrabold tight-kerning uppercase opacity-0 translate-y-3 transition-colors duration-[450ms] ease-out"
+                    style="transition-delay: 160ms;" data-view="projects" href="#projects">Projects</a>
+
+                <a class="nav-link mobile-item text-4xl font-extrabold tight-kerning uppercase opacity-0 translate-y-3 transition-colors duration-[450ms] ease-out"
+                    style="transition-delay: 240ms;" data-view="experience" href="#experience">Experience</a>
+
+                <a class="nav-link mobile-item text-4xl font-extrabold tight-kerning uppercase opacity-0 translate-y-3 transition-colors duration-[450ms] ease-out"
+                    style="transition-delay: 320ms;" data-view="about" href="#about">About me</a>
+            </nav>
+        </div>
+    </div>
+
+
+    <main id="me" class="relative flex flex-col items-center min-h-[50rem] px-4 sm:px-6 md:px-8 overflow-hidden">
+
+        <!-- Hero -->
+        <!-- <div class="max-w-5xl w-full mb-20 sm:mb-28 md:mb-48"> -->
+        <div class="max-w-5xl w-full mb-20 sm:mb-28">
+            <div id="personal" class="md:pt-[19rem]">
+
+                <img src="assets/me_light_2.webp" alt=""
+                    class="translate-x-20 -mb-20 md:absolute md:top-[6rem] md:w-[40rem] md:right-20 lg:w-[40rem] lg:absolute lg:right-20" />
+
+                <h1
+                    class="text-[2.75rem] sm:text-[6.5rem] md:text-[6.5rem] font-extrabold leading-[0.9] break-words tight-kerning relative">
+                    <span class="lwr-box">
+                        <span class="visible" data-role="software">Software<br>Engineer</span>
+                        <span data-role="unityxr">Unity XR<br>Developer</span>
+                        <span data-role="techart">Tech Art<br>Instructor</span>
+                    </span><br />
+                    <br>
+                    <!-- Developer -->
+                </h1>
+
+
+
+                <div
+                    class="mt-10 sm:mt-12 md:mt-16 flex flex-col md:flex-row justify-between items-start gap-8 sm:gap-10 md:gap-12 text-base">
+                    <p class="text-lg sm:text-xl md:text-2xl font-normal max-w-2xl leading-tight opacity-90">
+                        With +5 years of experience in the industry, I believe in the power of new technologies to
+                        change
+                        the world and improve
+                        multiple areas of society such as health, industrial 4.0 fields and education.
+                    </p>
+                </div>
+
+                <div class="mt-10 sm:mt-12 flex flex-wrap gap-3">
+                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80 set-color-black">Python/C#</span>
+                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80 set-color-black">Django/DRF</span>
+                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80 set-color-black">Fast API</span>
+                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80 set-color-black">Unity Engine</span>
+                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80 set-color-black">Unreal Engine</span>
+                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80 set-color-black">Docker</span>
+                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80 set-color-black">Postgresql</span>
+                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80 set-color-black">Digital Ocean/AWS</span>
+                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80 set-color-black">Houdini</span>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Work / Projects list -->
+        <section id="work" class="w-full max-w-5xl">
+            <!-- <div class="flex flex-col border-t border-white/10"> -->
+            <h1 class="text-[16px] font-bold uppercase tracking-[0.3em]">// Highlighted
+                projects</h1>
+
+            <!-- <h1 class="text-[16px] font-bold uppercase tracking-[0.3em]">Highlighted
+                    projects</h1> -->
+
+            <!-- 01 -->
+            <a class="group relative flex flex-col md:flex-row md:items-stretch justify-between py-10 sm:py-12 md:py-16 border-b border-white/10 transition-all px-2 sm:px-4 -mx-2 sm:-mx-4"
+                href="#sti-sync-software">
+
+                <div
+                    class="relative overflow-hidden rounded-xl w-full md:flex-1 min-h-[240px] sm:min-h-[300px] md:min-h-[340px]">
+
+                    <!-- Video -->
+                    <video
+                        class="absolute inset-0 w-full h-full object-cover grayscale-0 md:grayscale transition duration-500 md:group-hover:grayscale-0"
+                        autoplay muted loop playsinline>
+                        <source src="assets/sti.mp4" type="video/mp4" />
+                    </video>
+
+                    <!-- Overlays -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/30 to-transparent"></div>
+                    <div class="absolute inset-0 bg-accent/50 "></div>
+                    <div class="absolute inset-0 bg-black/50"></div>
+
+                    <!-- Content -->
+                    <div class="relative z-10 flex h-full flex-col justify-center p-6">
+                        <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-accent mb-6">Django +
+                            UNITY 3D</div>
+
+                        <div
+                            class="text-4xl sm:text-5xl md:text-[5.5rem] font-extrabold leading-none md:group-hover:translate-x-4 transition-transform">
+                            STI Sync Software
+                        </div>
+
+                        <ul class="mt-6 text-sm sm:text-base opacity-80 leading-relaxed max-w-2xl">
+                            <li>• PLC integration</li>
+                            <li>• Real-time data sync</li>
+                            <li>• 3D visualization</li>
+                            <li>• Control interface</li>
+                        </ul>
+
+                    </div>
+
+                    <!-- Arrow -->
+                    <span
+                        class="material-symbols-outlined absolute bottom-4 right-4 text-5xl font-extralight opacity-40 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-accent">
+                        north_east
+                    </span>
+                </div>
+            </a>
+
+
+            <!-- 02 -->
+            <a class="group relative flex flex-col md:flex-row md:items-stretch justify-between py-10 sm:py-12 md:py-16 border-b border-white/10 transition-all  px-2 sm:px-4 -mx-2 sm:-mx-4"
+                href="#ford-stm">
+
+                <div
+                    class="relative overflow-hidden rounded-xl w-full md:flex-1 min-h-[240px] sm:min-h-[300px] md:min-h-[340px]">
+
+                    <video
+                        class="absolute inset-0 w-full h-full object-cover grayscale-0 md:grayscale transition duration-500 md:group-hover:grayscale-0"
+                        autoplay muted loop playsinline>
+                        <source src="assets/ford.mp4" type="video/mp4" />
+                    </video>
+
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/30 to-transparent"></div>
+                    <div class="absolute inset-0 bg-accent/50 "></div>
+                    <div class="absolute inset-0 bg-black/50"></div>
+
+                    <div class="relative z-10 flex h-full flex-col justify-center p-6">
+                        <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-accent mb-6">Django REST
+                            framework</div>
+
+                        <div
+                            class="text-4xl sm:text-5xl md:text-[5.5rem] font-extrabold leading-none md:group-hover:translate-x-4 transition-transform">
+                            STM Ford
+                        </div>
+
+                        <ul class="mt-6 text-sm sm:text-base opacity-80 leading-relaxed max-w-2xl">
+                            <li>• Google Maps API integration</li>
+                            <li>• Geolocation data</li>
+                            <li>• PDF & Excel data processing</li>
+                            <li>• Firebase push alerts</li>
+                        </ul>
+
+
+                    </div>
+
+                    <span
+                        class="material-symbols-outlined absolute bottom-4 right-4 text-5xl font-extralight opacity-40 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-accent">
+                        north_east
+                    </span>
+                </div>
+            </a>
+
+            <!-- 03 -->
+            <a class="group relative flex flex-col md:flex-row md:items-stretch justify-between py-10 sm:py-12 md:py-16 border-b border-white/10 transition-all  px-2 sm:px-4 -mx-2 sm:-mx-4"
+                href="#merchanfactory">
+
+
+                <div
+                    class="relative overflow-hidden rounded-xl w-full md:flex-1 min-h-[240px] sm:min-h-[300px] md:min-h-[340px]">
+
+                    <video
+                        class="absolute inset-0 w-full h-full object-cover grayscale-0 md:grayscale transition duration-500 md:group-hover:grayscale-0"
+                        autoplay muted loop playsinline>
+                        <source src="assets/merchanfactory.mp4" type="video/mp4" />
+                    </video>
+
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/30 to-transparent"></div>
+                    <div class="absolute inset-0 bg-accent/50 "></div>
+                    <div class="absolute inset-0 bg-black/50"></div>
+
+                    <div class="relative z-10 flex h-full flex-col justify-center p-6">
+                        <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-accent mb-6">Django Web
+                        </div>
+
+                        <div
+                            class="text-4xl sm:text-5xl md:text-[5.5rem] font-extrabold leading-none md:group-hover:translate-x-4 transition-transform">
+                            Merchanfactory
+                        </div>
+
+                        <ul class="mt-6 text-sm sm:text-base opacity-80 leading-relaxed max-w-2xl">
+                            <li>• Django web app</li>
+                            <li>• Reusable JS components</li>
+                            <li>• E-commerce integration</li>
+                            <li>• Data management</li>
+                        </ul>
+                    </div>
+
+                    <span
+                        class="material-symbols-outlined absolute bottom-4 right-4 text-5xl font-extralight opacity-40 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-accent">
+                        north_east
+                    </span>
+                </div>
+            </a>
+
+            <!-- 04 -->
+            <a class="group relative flex flex-col md:flex-row md:items-stretch justify-between py-10 sm:py-12 md:pt-16 border-white/10 transition-all  px-2 sm:px-4 -mx-2 sm:-mx-4"
+                href="#trainer-crm">
+
+                <div
+                    class="relative overflow-hidden rounded-xl w-full md:flex-1 min-h-[240px] sm:min-h-[300px] md:min-h-[340px]">
+
+                    <video
+                        class="absolute inset-0 w-full h-full object-cover grayscale-0 md:grayscale transition duration-500 md:group-hover:grayscale-0"
+                        autoplay muted loop playsinline>
+                        <source src="assets/trainer_crm.mp4" type="video/mp4" />
+                    </video>
+
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/30 to-transparent"></div>
+                    <div class="absolute inset-0 bg-accent/50 "></div>
+                    <div class="absolute inset-0 bg-black/50"></div>
+
+                    <div class="relative z-10 flex h-full flex-col justify-center p-6">
+                        <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-accent mb-6">Django Rest
+                            Framework + ionic</div>
+
+                        <div
+                            class="text-4xl sm:text-5xl md:text-[5.5rem] font-extrabold leading-none md:group-hover:translate-x-4 transition-transform">
+                            Trainer CRM
+                        </div>
+
+                        <ul class="mt-6 text-sm sm:text-base opacity-80 leading-relaxed max-w-2xl">
+                            <li>• Trainer app</li>
+                            <li>• Client app</li>
+                            <li>• Stripe integration</li>
+                            <li>• UX/UI design</li>
+                        </ul>
+
+                    </div>
+
+                    <span
+                        class="material-symbols-outlined absolute bottom-4 right-4 text-5xl font-extralight opacity-40 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-accent">
+                        north_east
+                    </span>
+                </div>
+            </a>
+
+            </div>
+        </section>
+
+
+
+        <!-- About -->
+        <!-- <section id="about" class="mt-24 sm:mt-36 md:mt-64 w-full max-w-5xl grid md:grid-cols-2 gap-12 sm:gap-16 md:gap-24"> -->
+
+
+        <!-- Highlighted projects -->
+        <!-- <section class="mt-24 sm:mt-36 md:mt-64 w-full max-w-5xl"> -->
+        <section id="projects" class="w-full max-w-5xl">
+            <h1 class="text-[16px] font-bold uppercase tracking-[0.3em] pb-10">
+                // projects
+            </h1>
+
+            <div class="grid md:grid-cols-2 gap-12 sm:gap-16 md:gap-24">
+
+                <!-- Sea of Heroes -->
+                <div class="mb-10">
+
+                    <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-accent">
+                        Sincrolab
+                    </div>
+                    <h3 class="text-4xl sm:text-5xl font-extrabold tight-kerning leading-tight">
+                        Sea of Heroes:<br>New World
+                    </h3>
+                    <p class="mt-6 text-base sm:text-lg opacity-85 leading-relaxed">
+                        Fantasy adventure game developed in Unity, featuring naval exploration,
+                        combat systems, and character progression in a stylized sea world.
+                    </p>
+
+                    <ul class="mt-8 space-y-3 text-base opacity-80">
+                        <li>• Gameplay systems in Unity.</li>
+                        <li>• Tools for designers and artists.</li>
+                        <li>• Cross-platform optimization.</li>
+                    </ul>
+                </div>
+
+                <!-- Sincrolab -->
+                <div class="mb-10">
+
+                    <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-accent">
+                        Sincrolab
+                    </div>
+                    <h3 class="text-4xl sm:text-5xl font-extrabold tight-kerning leading-tight">
+                        Sincrolab Adults
+                    </h3>
+                    <p class="mt-6 text-base sm:text-lg opacity-85 leading-relaxed">
+                        Neurorehabilitation software for adults, using interactive cognitive exercises
+                        to support therapists and improve patient recovery.
+                    </p>
+
+                    <ul class="mt-8 space-y-3 text-base opacity-80">
+                        <li>• Therapeutic software development.</li>
+                        <li>• Patient progress tracking.</li>
+                        <li>• Healthcare-focused UX.</li>
+                    </ul>
+                </div>
+
+                <!-- STI -->
+                <div class="mb-10">
+
+                    <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-accent">
+                        USA Flexo Solutions corp.
+                    </div>
+                    <h3 class="text-4xl sm:text-5xl font-extrabold tight-kerning leading-tight">
+                        STI Sync Software
+                    </h3>
+                    <p class="mt-6 text-base sm:text-lg opacity-85 leading-relaxed">
+                        Industrial synchronization software that provides real-time access
+                        to production data and seamless integration with ERP systems.
+                    </p>
+
+                    <ul class="mt-8 space-y-3 text-base opacity-80">
+                        <li>• Robust and scalable backend services.</li>
+                        <li>• Real-time production data access.</li>
+                        <li>• API connectivity with external ERPs.</li>
+                    </ul>
+                </div>
+
+                <!-- Hundred Burgers -->
+                <div class="mb-10">
+                    <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-accent">
+                        Rudo apps (Laberit)
+                    </div>
+                    <h3 class="text-4xl sm:text-5xl font-extrabold tight-kerning leading-tight">
+                        Hundred Burgers<br>App Backend
+                    </h3>
+                    <p class="mt-6 text-base sm:text-lg opacity-85 leading-relaxed">
+                        Digital solutions for a premium burger brand, focused on improving
+                        customer experience and supporting business growth.
+                    </p>
+
+                    <ul class="mt-8 space-y-3 text-base opacity-80">
+                        <li>• Custom digital tools for branding.</li>
+                        <li>• User experience driven design.</li>
+                        <li>• Support for marketing and scaling.</li>
+                    </ul>
+                </div>
+
+                <!-- The Fitzgerald -->
+                <div class="mb-10">
+                    <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-accent">
+                        Rudo apps (Laberit)
+                    </div>
+                    <h3 class="text-4xl sm:text-5xl font-extrabold tight-kerning leading-tight">
+                        The Fitzgerald<br>App Backend
+                    </h3>
+                    <p class="mt-6 text-base sm:text-lg opacity-85 leading-relaxed">
+                        Technology solutions for a restaurant brand, improving digital presence
+                        and optimizing internal workflows.
+                    </p>
+
+                    <ul class="mt-8 space-y-3 text-base opacity-80">
+                        <li>• Custom internal tools.</li>
+                        <li>• Workflow automation.</li>
+                        <li>• Business-focused UX.</li>
+                    </ul>
+                </div>
+
+                <!-- Sherpa.ai -->
+                <div class="mb-10">
+                    <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-accent">
+                        Rudo apps (Laberit)
+                    </div>
+                    <h3 class="text-4xl sm:text-5xl font-extrabold tight-kerning leading-tight">
+                        Sherpa.ai Backend
+                    </h3>
+                    <p class="mt-6 text-base sm:text-lg opacity-85 leading-relaxed">
+                        Privacy-first AI platform focused on behavior prediction
+                        and intelligent personalization.
+                    </p>
+
+                    <ul class="mt-8 space-y-3 text-base opacity-80">
+                        <li>• Applied artificial intelligence.</li>
+                        <li>• Privacy-oriented architecture.</li>
+                        <li>• High-impact tech solutions.</li>
+                    </ul>
+                </div>
+
+                <!-- Chatripp -->
+                <div class="mb-10">
+                    <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-accent">
+                        Rudo apps (Laberit)
+                    </div>
+                    <h3 class="text-4xl sm:text-5xl font-extrabold tight-kerning leading-tight">
+                        Chatripp Backend
+                    </h3>
+                    <p class="mt-6 text-base sm:text-lg opacity-85 leading-relaxed">
+                        Travel platform that combines chat, smart recommendations,
+                        and trip planning in one experience.
+                    </p>
+
+                    <ul class="mt-8 space-y-3 text-base opacity-80">
+                        <li>• End-to-end product development.</li>
+                        <li>• Chat and recommendation features.</li>
+                        <li>• Scalable system design.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Experience -->
+        <!-- <section id="experience" class="mt-24 sm:mt-36 md:mt-64 w-full max-w-5xl"> -->
+        <section id="experience" class=" w-full max-w-5xl">
+            <h1 class="text-[16px] font-bold uppercase tracking-[0.3em] mb-14">// Work experience</h1>
+
+            <div>
+                <!-- <h3 class="text-[10px] font-bold uppercase tracking-[0.3em] text-accent mb-10">Work experience</h3> -->
+
+                <div class="space-y-10 set-color-black">
+
+                    <!-- Iti -->
+                    <div class="border-b border-white/10 pb-10">
+                        <div class="flex gap-6 items-start">
+                            <div class="shrink-0">
+                                <img src="assets/iti_logo.webp" alt="Iti logo"
+                                    class="w-14 h-14 object-contain" />
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+                                    <div>
+                                        <div class="text-sm text-accent uppercase tracking-widest font-bold">ITI (Instituto Tecnológico de Informática)
+                                        </div>
+                                        <div class="text-2xl sm:text-3xl font-extrabold tight-kerning">R&D Software
+                                            Engineer
+                                        </div>
+                                        <div style="color: slategray;" class="text-base sm:text-base">Full-time · Hybrid (Valencia, Spain) </div>
+                                    </div>
+                                    <div class="text-[12px] font-mono text-accent uppercase tracking-[0.2em]">(Feb 2026
+                                        - Present)</div>
+                                </div>
+                                <p class="mt-4 opacity-85 leading-relaxed">
+                                    Research and development software engineer focused on building innovative XR solutions in the fields of neurorehabilitation and industrial fields usign Unity 3D
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tech art worlds -->
+                    <div class="border-b border-white/10 pb-10">
+                        <div class="flex gap-6 items-start">
+                            <div class="shrink-0">
+                                <img src="assets/taw_logo.jpeg" alt="Tech Art Worlds logo"
+                                    class="w-14 h-14 object-contain" />
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+                                    <div>
+                                        <div class="text-sm text-accent uppercase tracking-widest font-bold">Tech Art Worlds
+                                        </div>
+                                        <div class="text-2xl sm:text-3xl font-extrabold tight-kerning">Technical Art Instructor
+                                        </div>
+                                        <div style="color: slategray;" class="text-base sm:text-base">Part-time · Remote (Valencia, Spain) </div>
+                                    </div>
+                                    <div class="text-[12px] font-mono text-accent uppercase tracking-[0.2em]">(Jan 2026
+                                        - Present)</div>
+                                </div>
+                                <p class="mt-4 opacity-85 leading-relaxed">
+                                    Python training focused on tool development for artists and developers.
+                                    Blender add-ons, Houdini tools, desktop/game engine UI tools with PySide.
+                                    Integrated tools into game engines and real production workflows.
+                                    Provided continuous guidance, feedback, and one-on-one mentoring throughout the course.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Many Worlds -->
+                    <div class="border-b border-white/10 pb-10">
+                        <div class="flex gap-6 items-start">
+                            <div class="shrink-0">
+                                <img src="assets/manyworlds_logo.webp" alt="Many Worlds logo"
+                                    class="w-14 h-14 object-contain" />
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+                                    <div>
+                                        <div class="text-sm text-accent uppercase tracking-widest font-bold">Many Worlds
+                                        </div>
+                                        <div class="text-2xl sm:text-3xl font-extrabold tight-kerning">Fullstack XR Developer
+                                        </div>
+                                        <div style="color: slategray;"class="text-base sm:text-base">Full-time · Remote (Madrid, Spain) </div>
+                                    </div>
+                                    <div class="text-[12px] font-mono text-accent uppercase tracking-[0.2em]">(Jun 2025
+                                        - Jan 2026)</div>
+                                </div>
+                                <p class="mt-4 opacity-85 leading-relaxed">
+                                    Backend Developer focused on building Django Web and REST API solutions.
+                                    Python developer creating internal tools with PySide to improve workflows and create engine tools.
+                                    Unity for XR experiences.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sincrolab -->
+                    <div class="border-b border-white/10 pb-10">
+                        <div class="flex gap-6 items-start">
+                            <div class="shrink-0">
+                                <img src="/assets/logo_sincrolab.png" alt="Sincrolab logo"
+                                    class="w-14 h-14 object-contain" />
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+                                    <div>
+                                        <div class="text-sm text-accent uppercase tracking-widest font-bold">Sincrolab
+                                        </div>
+                                        <div class="text-2xl sm:text-3xl font-extrabold tight-kerning">R&amp;D Unity 3D
+                                            Developer</div>
+                                            <div style="color: slategray;"class="text-base sm:text-base">Full-time · Remote (Madrid, Spain) </div>
+                                    </div>
+
+                                    <div class="text-[12px] font-mono text-accent uppercase tracking-[0.2em]">(Sep 2024
+                                        - Jun 2025)</div>
+                                </div>
+                                <p class="mt-4 opacity-85 leading-relaxed">
+                                    Gamify neurorehabilitation exercises to treat cognitive deficits and help ease
+                                    symptoms
+                                    related to medical conditions in neurology and psychiatry, such as attention-deficit
+                                    hyperactivity disorder (ADHD).
+                                    Using Unity 3D to offer a more efficient, comfortable and affordable access to
+                                    neuropsychological therapy.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- USA Flexo Solutions Corp -->
+                    <div class="border-b border-white/10 pb-10">
+                        <div class="flex gap-6 items-start">
+                            <div class="shrink-0">
+                                <img src="assets/flexo_logo.webp" alt="USA Flexo Solutions logo"
+                                    class="w-14 h-14 object-contain" />
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+                                    <div>
+                                        <div class="text-sm text-accent uppercase tracking-widest font-bold">USA Flexo
+                                            Solutions Corp.</div>
+                                        <div class="text-2xl sm:text-3xl font-extrabold tight-kerning">Head of R&amp;D
+                                            Software Department</div>
+                                            <div style="color: slategray;"class="text-base sm:text-base">Full-time · On-site (Valencia, Spain) </div>
+                                    </div>
+
+                                    <div class="text-[12px] font-mono text-accent uppercase tracking-[0.2em]">(Mar 2023
+                                        - Aug 2024)</div>
+                                </div>
+                                <p class="mt-4 opacity-85 leading-relaxed">
+                                    Lead the development of desktop and XR applications in the logistics and industrial
+                                    4.0 fields with Unity 3D and Python
+                                    (Django REST framework) with Docker. Automatizing the design and engineering
+                                    processes to
+                                    bring more effective time to other departments.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rudo Apps -->
+                    <div class="border-b border-white/10 pb-10">
+                        <div class="flex gap-6 items-start">
+                            <div class="shrink-0">
+                                <img src="/assets/rudo.webp" alt="Rudo Apps logo" class="w-14 h-14 object-contain" />
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+                                    <div>
+                                        <div class="text-sm text-accent uppercase tracking-widest font-bold">Rudo Apps
+                                            (Laberit)
+                                        </div>
+                                        <div class="text-2xl sm:text-3xl font-extrabold tight-kerning">Backend Developer
+                                        </div>
+                                        <div style="color: slategray;"class="text-base sm:text-base">Full-time · Hybrid (Valencia, Spain) </div>
+                                    </div>
+                                    <div class="text-[12px] font-mono text-accent uppercase tracking-[0.2em]">(Mar 2021
+                                        - Feb 2023)</div>
+                                </div>
+                                <p class="mt-4 opacity-85 leading-relaxed">
+                                    Development of a REST API for mobile applications in Python using the Django
+                                    framework,
+                                    Docker, and deployment on Digital Ocean.
+                                    I worked from internal developments to external project as consultant: Sherpa,
+                                    Chatripp
+                                    Hundred Burgers, The Fitzgerald, STM Intersindical.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- LabLENI UPV -->
+                    <div class="border-b border-white/10 pb-10">
+                        <div class="flex gap-6 items-start">
+                            <div class="shrink-0">
+                                <img src="/assets/lableni.jpg" alt="LabLENI UPV logo"
+                                    class="w-14 h-14 object-contain" />
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+                                    <div>
+                                        <div class="text-sm text-accent uppercase tracking-widest font-bold">
+                                            LabLENI UPV (i3B Neuro Rehabilitation &amp; Brain Research)
+                                        </div>
+                                        <div class="text-2xl sm:text-3xl font-extrabold tight-kerning">R&amp;D Unity 3D
+                                            Developer</div>
+                                        <div style="color: slategray;"class="text-base sm:text-base">Internship · On-site (Valencia, Spain) </div>
+
+                                    </div>
+                                    <div class="text-[12px] font-mono text-accent uppercase tracking-[0.2em]">(Mar 2019
+                                        - May 2019)</div>
+                                </div>
+                                <p class="mt-4 opacity-85 leading-relaxed">
+                                    Responsible of gamifying neurorehabilitation exercises to enhance the mobility of
+                                    patients
+                                    with reduced mobility after cerebrovascular issues.
+                                    Using Unity 3D and AR, VR, and XR technologies, as well as integrated various input
+                                    devices,
+                                    including the Wii Balance Board, Leap Motion, and Kinect.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            </div>
+
+            <h1 class="text-[16px] font-bold uppercase tracking-[0.3em] mt-14 mb-14">// Education</h1>
+
+            <div class="space-y-10 set-color-black">
+
+                <div class="border-b border-white/10 pb-10">
+                    <div class="flex gap-6 items-start">
+                        <!-- Logo -->
+                        <div class="shrink-0">
+                            <img src="assets/taw_logo.jpeg" alt="TechArt Worlds logo"
+                                class="w-14 h-14 object-contain" />
+                        </div>
+
+                        <!-- Content -->
+                        <div class="flex-1">
+                            <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+                                <div>
+                                    <div class="text-sm text-accent uppercase tracking-widest font-bold">TECHART WORLDS
+                                    </div>
+                                    <div class="text-2xl sm:text-3xl font-extrabold tight-kerning">
+                                        Master's degree in Technical Art<br>&amp;
+                                        3D Procedural Generation
+                                    </div>
+                                </div>
+                                <div class="text-[12px] font-mono text-accent uppercase tracking-[0.2em]">(2024 - 2025)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-b border-white/10 pb-10">
+                    <div class="flex gap-6 items-start">
+                        <!-- Logo -->
+                        <div class="shrink-0">
+                            <img src="assets/florida_logo.jpg" alt="Florida Universitaria logo"
+                                class="w-14 h-14 object-contain" />
+                        </div>
+
+                        <!-- Content -->
+                        <div class="flex-1">
+                            <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+                                <div>
+                                    <div class="text-sm text-accent uppercase tracking-widest font-bold">Florida
+                                        Universitària</div>
+                                    <div class="text-2xl sm:text-3xl font-extrabold tight-kerning">
+                                        Advanced Vocational Training Degree in<br>
+                                        Multiplatform Application Development
+                                    </div>
+                                </div>
+                                <div class="text-[12px] font-mono text-accent uppercase tracking-[0.2em]">(2019 - 2021)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-b border-white/10 pb-10">
+                    <div class="flex gap-6 items-start">
+                        <!-- Logo -->
+                        <div class="shrink-0">
+                            <img src="assets/florida_logo.jpg" alt="Florida Universitaria logo"
+                                class="w-14 h-14 object-contain" />
+                        </div>
+
+                        <!-- Content -->
+                        <div class="flex-1">
+                            <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+                                <div>
+                                    <div class="text-sm text-accent uppercase tracking-widest font-bold">Florida
+                                        Universitària</div>
+                                    <div class="text-2xl sm:text-3xl font-extrabold tight-kerning">
+                                        Advanced Vocational Training Degree in<br>
+                                        3D Animation, Games, and Interactive environments
+                                    </div>
+                                </div>
+                                <div class="text-[12px] font-mono text-accent uppercase tracking-[0.2em]">(2017 - 2019)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            </div>
+            </div>
+        </section>
+
+
+
+
+
+        <section id="about"
+            class="w-full max-w-5xl mx-auto grid md:grid-cols-2 gap-10 sm:gap-14 md:gap-24 py-10 sm:py-14">
+            <!-- Left: About -->
+            <div class="relative">
+                <!-- Decorative image + gradient (only affects the image) -->
+                <div class="pointer-events-none select-none absolute -top-[5rem] -right-[0.6rem]
+           w-[260px] sm:w-[320px] md:w-[420px]
+           z-0">
+                    <img src="assets/me.webp" alt="" class="w-full h-auto scale-x-[1] opacity-90" />
+
+                    <!-- Vertical gradient: bottom 90% -> top 0% -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/100 to-transparent"></div>
+                </div>
+
+                <!-- Text content -->
+                <div class="relative z-10">
+                    <!-- About label ON TOP of the image -->
+                    <h2 class="text-[12px] sm:text-[14px] font-bold uppercase tracking-[0.3em] mb-5 sm:mb-6">
+                        // About me
+                    </h2>
+
+                    <h1
+                        class="text-[2.5rem] sm:text-5xl md:text-[4rem] font-extrabold leading-[0.9] break-words tight-kerning">
+                        Why me?
+                    </h1>
+
+                    <p class="mt-6 sm:mt-8 text-xl sm:text-2xl font-medium leading-snug tight-kerning set-color-black">
+                        <span class="block mb-3">
+                            <span class="text-accent">R&D Software Engineer</span> strong across multiple technologies.
+                        </span>
+
+                        <span class="block">
+                            I take projects <span class="text-accent">from idea to launch</span>, using
+                            Python for
+                            <span class="text-accent">backend</span>,
+                            Unity or Unreal for <span class="text-accent">XR/mobile</span> and
+                            <span class="text-accent">cloud</span> tools for deploys.
+                        </span>
+
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- Right: Contact -->
+            <div id="contact"
+                class="flex flex-col gap-7 sm:gap-8 md:gap-10 text-xl sm:text-2xl font-medium leading-snug tight-kerning opacity-90 set-color-black">
+                <h2 class="text-[12px] sm:text-[14px] font-bold uppercase tracking-[0.3em]">
+                    // Connect
+                </h2>
+
+                <p>
+                    If you’re looking for a <span class="text-accent">software engineer</span> and think I could be a
+                    <span class="text-accent">good fit</span>, don’t be shy and
+                    <span class="text-accent">let’s talk</span> about it!
+                </p>
+
+                <div class="flex flex-col">
+                    <a class="text-2xl sm:text-3xl font-extrabold tight-kerning hover:text-accent transition-colors break-all underline"
+                        href="mailto:hello@adriperez.es">
+                        aperezgfx@gmail.com
+                    </a>
+
+                    <div class="mt-8 sm:mt-10 flex flex-wrap gap-3 justify-start">
+                        <a href="https://www.youtube.com/@adrixnperez" target="_blank" rel="noreferrer"
+                            class="text-[10px] font-mono bg-accent text-black uppercase tracking-[0.2em] border border-accent px-3 py-2 opacity-90 hover:opacity-100 hover:bg-white hover:text-accent transition tech-active">
+                            YouTube
+                        </a>
+
+                        <a href="https://github.com/xAdri" target="_blank" rel="noreferrer"
+                            class="text-[10px] font-mono bg-accent text-black uppercase tracking-[0.2em] border border-accent px-3 py-2 opacity-90 hover:opacity-100 hover:bg-white hover:text-accent transition tech-active">
+                            GitHub
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/aperezgfx" target="_blank" rel="noreferrer"
+                            class="text-[10px] font-mono bg-accent text-black uppercase tracking-[0.2em] border border-accent px-3 py-2 opacity-90 hover:opacity-100 hover:bg-white hover:text-accent transition tech-active">
+                            LinkedIn
+                        </a>
+
+                        <a href="https://www.artstation.com/adriperez" target="_blank" rel="noreferrer"
+                            class="text-[10px] font-mono bg-accent text-black uppercase tracking-[0.2em] border border-accent px-3 py-2 opacity-90 hover:opacity-100 hover:bg-white hover:text-accent transition tech-active">
+                            ArtStation
+                        </a>
+
+                        <a href="https://adriperez.itch.io/" target="_blank" rel="noreferrer"
+                            class="text-[10px] font-mono bg-accent text-black uppercase tracking-[0.2em] border border-accent px-3 py-2 opacity-90 hover:opacity-100 hover:bg-white hover:text-accent transition tech-active">
+                            Itch.io
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+        <!-- <section id="about" class="w-full max-w-5xl grid md:grid-cols-2 gap-12 sm:gap-16 md:gap-24 mb-10">
+
+            <div>
+                <div>
+                    <img src="assets/me_01.webp" alt="" class="-mb-20 z-0 scale-x-[-1]" />
+
+                    <h1
+                        class="text-[2.75rem] sm:text-5xl md:text-[4rem] font-extrabold leading-[0.9] break-words tight-kerning relative z-12">
+                        Why me?
+                    </h1>
+                </div>
+
+                <h1 class="text-[16px] font-bold uppercase tracking-[0.3em] mb-14 z-10">// About me</h1>
+
+                <p class="text-xl sm:text-2xl font-medium leading-snug tight-kerning opacity-90">
+                    <span class="block mb-3">
+                        Experienced <span class="text-accent">leading</span> teams, <span class="text-accent">backend
+                            specialist</span> but strong across multiple technologies.
+                    </span>
+
+                    <span class="block mb-3">
+                        I take projects <span class="text-accent">from idea to launch</span>, using
+                        <span class="text-accent">Python</span> or <span class="text-accent">.NET</span> for backend,
+                        <span class="text-accent">Unity</span> or <span class="text-accent">Unreal</span> for XR,
+                        <span class="text-accent">Ionic</span> for mobile and
+                        <span class="text-accent">cloud tools</span> for deploys.
+                    </span>
+                </p> -->
+
+        <!-- <div class="mt-10 border-t border-white/10 pt-8">
+                    <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] opacity-60 mb-6">Roles</h4>
+                    <ul class="space-y-3 text-base sm:text-lg opacity-80">
+                        <li>Graphic Designer</li>
+                        <li>Backend Developer</li>
+                        <li>Unity 3D Developer</li>
+                        <li>Full Stack Developer</li>
+                        <li>Houdini Tech Artist</li>
+                    </ul>
+                </div> -->
+        <!-- </div> -->
+
+        <!-- Contact -->
+        <!-- <div id="contact"
+                class="flex flex-col gap-8 sm:gap-9 md:gap-10 text-xl sm:text-2xl font-medium leading-snug tight-kerning opacity-90">
+                <h1 class="text-[16px] font-bold uppercase tracking-[0.3em]">// Connect</h1>
+                <p>
+                    If you’re looking for a <span class="text-accent">developer</span> and think I could be a
+                    <span class="text-accent">good fit</span>, don’t be shy and
+                    <span class="text-accent">let’s talk</span> about it!
+                </p>
+
+
+                <div class="flex flex-col">
+                    <a class="text-2xl sm:text-3xl font-extrabold tight-kerning hover:text-accent transition-colors break-all underline"
+                        href="mailto:hello@adriperez.es">aperezgfx@gmail.com</a>
+
+                    <div class="mt-10 sm:mt-12 flex flex-wrap gap-3 justify-start">
+                        <a href="https://www.youtube.com/@adrixnperez" target="_blank" rel="noreferrer"
+                            class="text-[10px] font-mono bg-accent text-black uppercase tracking-[0.2em] border border-accent px-3 py-2 opacity-90 hover:opacity-100 hover:bg-white hover:text-accent transition">
+                            YouTube
+                        </a>
+
+                        <a href="https://github.com/xAdri" target="_blank" rel="noreferrer"
+                            class="text-[10px] font-mono bg-accent text-black uppercase tracking-[0.2em] border border-accent px-3 py-2 opacity-90 hover:opacity-100 hover:bg-white hover:text-accent transition">
+                            GitHub
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/aperezgfx" target="_blank" rel="noreferrer"
+                            class="text-[10px] font-mono bg-accent text-black uppercase tracking-[0.2em] border border-accent px-3 py-2 opacity-90 hover:opacity-100 hover:bg-white hover:text-accent transition">
+                            LinkedIn
+                        </a>
+
+                        <a href="https://www.artstation.com/adriperez" target="_blank" rel="noreferrer"
+                            class="text-[10px] font-mono bg-accent text-black uppercase tracking-[0.2em] border border-accent px-3 py-2 opacity-90 hover:opacity-100 hover:bg-white hover:text-accent transition">
+                            ArtStation
+                        </a>
+
+                        <a href="https://adriperez.itch.io/" target="_blank" rel="noreferrer"
+                            class="text-[10px] font-mono bg-accent text-black uppercase tracking-[0.2em] border border-accent px-3 py-2 opacity-90 hover:opacity-100 hover:bg-white hover:text-accent transition">
+                            Itch.io
+                        </a>
+                    </div>
+                </div>
+            </div> -->
+        </section>
+    </main>
+
+    <footer class="w-full border-t border-black/10 bg-background-dark set-color-black">
+        <div
+            class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 py-10 sm:py-11 md:py-12 flex flex-col md:flex-row justify-center md:justify-between items-center md:items-center text-[12px] font-mono tracking-[0.4em] opacity-40 gap-4 uppercase">
+            <p>©2026 Adrián Pérez</p>
+
+            <div class="flex gap-4 items-center">
+
+                <a href="https://www.youtube.com/@adrixnperez" target="_blank" rel="noreferrer">
+                  <img
+                    src="icons/youtube.png"
+                    alt="YouTube"
+                    class="w-[30px] h-[30px] object-contain hover:opacity-60 transition-opacity"
+                    style="filter: brightness(0) saturate(100%) invert(13%) sepia(2%) saturate(0%) hue-rotate(174deg) brightness(94%) contrast(92%);">
+                </a>
+
+                <a href="https://www.artstation.com/adriperez" target="_blank" rel="noreferrer">
+                    <img src="icons/artstation.png" alt="ArtStation"
+                        class="w-[30px] h-[30px] object-contain hover:opacity-60 transition-opacity"
+                        style="filter: brightness(0) saturate(100%) invert(13%) sepia(2%) saturate(0%) hue-rotate(174deg) brightness(94%) contrast(92%);">
+                </a>
+
+                <a href="https://www.linkedin.com/in/aperezgfx" target="_blank" rel="noreferrer">
+                    <img src="icons/linkedin.png" alt="LinkedIn"
+                        class="w-[30px] h-[30px] object-contain hover:opacity-60 transition-opacity"
+                        style="filter: brightness(0) saturate(100%) invert(13%) sepia(2%) saturate(0%) hue-rotate(174deg) brightness(94%) contrast(92%);">
+
+                </a>
+
+                <a href="https://github.com/xAdri" target="_blank" rel="noreferrer">
+                    <img src="icons/github.png" alt="GitHub"
+                        class="w-[30px] h-[30px] object-contain hover:opacity-60 transition-opacity"
+                        style="filter: brightness(0) saturate(100%) invert(13%) sepia(2%) saturate(0%) hue-rotate(174deg) brightness(94%) contrast(92%);">
+                </a>
+
+                <a href="https://adriperez.itch.io/" target="_blank" rel="noreferrer">
+                    <img src="icons/itchio.png" alt="Itch.io"
+                        class="w-[30px] h-[30px] object-contain hover:opacity-60 transition-opacity"
+                        style="filter: brightness(0) saturate(100%) invert(13%) sepia(2%) saturate(0%) hue-rotate(174deg) brightness(94%) contrast(92%);">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- <svg width="0" height="0" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+        <filter id="displacementFilter">
+            <feTurbulence type="turbulence" baseFrequency="0.05" numOctaves="2" seed="12" result="turbulence">
+            </feTurbulence>
+            <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="3" xChannelSelector="R" yChannelSelector="G"
+                result="displacement"></feDisplacementMap>
+            <feGaussianBlur in="displacement" stdDeviation="4" result="blur"></feGaussianBlur>
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -8" result="goo">
+            </feColorMatrix>
+            <feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
+        </filter>
+    </svg> -->
+
+</body>
+
+<script>
+    (function () {
+        // ----------------------------
+        // Mobile menu (open/close)
+        // ----------------------------
+        const menu = document.getElementById("mobileMenu");
+        const btn = document.getElementById("menuBtn");
+        const closeBtn = document.getElementById("menuCloseBtn");
+
+        function openMenu() {
+            if (!menu || !btn) return;
+            menu.classList.add("is-open");
+            btn.setAttribute("aria-expanded", "true");
+            document.documentElement.style.overflow = "hidden";
+        }
+
+        function closeMenu() {
+            if (!menu || !btn) return;
+            menu.classList.remove("is-open");
+            btn.setAttribute("aria-expanded", "false");
+            document.documentElement.style.overflow = "";
+        }
+
+        if (btn) btn.addEventListener("click", openMenu);
+        if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") closeMenu();
+        });
+
+        if (menu) {
+            menu.addEventListener("click", (e) => {
+                if (e.target === menu) closeMenu();
+            });
+        }
+
+        if (menu) {
+            const mobileLinks = menu.querySelectorAll("a");
+            mobileLinks.forEach((a) => a.addEventListener("click", closeMenu));
+        }
+
+        // ----------------------------
+        // Views: show/hide groups of sections
+        // ----------------------------
+        function setHidden(el, hidden) {
+            if (!el) return;
+            if (hidden) {
+                el.classList.add("hidden");
+                el.classList.remove("section-fade-in");
+            } else {
+                el.classList.remove("hidden");
+                // Restart fade animation
+                el.classList.remove("section-fade-in");
+                void el.offsetWidth;
+                el.classList.add("section-fade-in");
+            }
+        }
+
+        // Sections by id
+        const secPersonal = document.getElementById("personal");      // Hero personal
+        const secWorkList = document.getElementById("work");          // Highlighted projects list
+        const secProjects = document.getElementById("projects");      // Projects
+        const secExperience = document.getElementById("experience");  // Experience
+        const secAbout = document.getElementById("about");            // About + Connect
+
+        function setActiveNav(view) {
+            const links = document.querySelectorAll(".nav-link");
+
+            links.forEach((a) => {
+                const v = a.getAttribute("data-view");
+                const baseText = a.textContent.replace(/^\/\/\s*/, "");
+
+                if (v === view) {
+                    a.textContent = "// " + baseText;
+                    a.classList.add("text-accent");
+                } else {
+                    a.textContent = baseText;
+                    a.classList.remove("text-accent");
+                }
+            });
+        }
+
+        function scrollTop() {
+            window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+        }
+
+        function showView(view) {
+            // Hide everything first
+            setHidden(secPersonal, true);
+            setHidden(secWorkList, true);
+            setHidden(secProjects, true);
+            setHidden(secExperience, true);
+            setHidden(secAbout, true);
+
+            if (view === "work") {
+                // Work = personal + highlighted projects list
+                setHidden(secPersonal, false);
+                setHidden(secWorkList, false);
+            } else if (view === "projects") {
+                setHidden(secProjects, false);
+            } else if (view === "experience") {
+                setHidden(secExperience, false);
+            } else if (view === "about") {
+                setHidden(secAbout, false);
+            }
+
+            setActiveNav(view);
+            scrollTop();
+        }
+
+        // Intercept nav clicks
+        const navLinks = Array.from(document.querySelectorAll('a[href^="#"]'));
+
+        navLinks.forEach((a) => {
+            const href = a.getAttribute("href");
+            if (!href || href.length < 2) return;
+
+            const id = href.slice(1);
+            const allowed = ["work", "experience", "about", "projects"];
+            if (allowed.indexOf(id) === -1) return;
+
+            a.addEventListener("click", (e) => {
+                e.preventDefault();
+                history.replaceState(null, "", "#" + id);
+                showView(id);
+                closeMenu();
+            });
+        });
+
+
+        // ----------------------------
+        // Tech chips: solo cambia el color de los activos
+        // (los no activos se quedan como estaban)
+        // ----------------------------
+        const techMap = {
+  software: new Set([
+    "Python/C#",
+    "Django/DRF",
+    "Fast API",
+    "Docker",
+    "Postgresql",
+    "Digital Ocean/AWS"
+  ]),
+
+  unityxr: new Set([
+    "Python/C#",
+    "Django/DRF",
+    "Docker",
+    "Postgresql",
+    "Digital Ocean/AWS"
+  ]),
+
+  techart: new Set([
+    "Python/C#",
+    "Unity Engine",
+    "Houdini",
+    "Unreal Engine"
+  ])
+};
+
+        function getTechChipsContainer() {
+            // Encuentra el bloque de chips (muchos spans con border-white/15)
+            const candidates = document.querySelectorAll("div.flex.flex-wrap.gap-3");
+            for (const div of candidates) {
+                const spans = div.querySelectorAll("span.border-white\\/15");
+                if (spans.length >= 1) return div;
+            }
+            return null;
+        }
+
+        function normalizeLabel(s) {
+          return (s || "").replace(/\s+/g, " ").trim();
+        }
+
+        function setTechChipsMode(modeLabel) {
+            const container = getTechChipsContainer();
+            if (!container) return;
+
+            const chips = Array.from(container.querySelectorAll("span"));
+            const activeSet = techMap[modeLabel] || new Set();
+
+            chips.forEach((chip) => {
+                const name = (chip.textContent || "").trim();
+                const isActive = activeSet.has(name);
+
+                // Aplica transicion (sin tocar clases tailwind existentes)
+                chip.classList.add("tech-transition");
+
+                // Quita estado activo
+                chip.classList.remove("tech-active");
+
+                // Aplica estado activo solo a los que toque
+                if (isActive) {
+                    chip.classList.add("tech-active");
+                }
+            });
+        }
+
+        // ----------------------------
+        // LWR animation (Backend / Unity & XR / Fullstack)
+        // ----------------------------
+        var lwr = 0;
+
+        function listenWatchRead() {
+            var spans = document.querySelectorAll(".lwr-box span");
+
+            spans.forEach(function (span) {
+                span.classList.remove("visible");
+            });
+
+            if (spans[lwr]) {
+                spans[lwr].classList.add("visible");
+                var role = spans[lwr].dataset.role || "";
+                setTechChipsMode(role);
+            }
+
+            lwr++;
+            if (lwr === spans.length) lwr = 0;
+
+            setTimeout(listenWatchRead, 3000);
+        }
+
+        // Init
+        (function init() {
+            // 1) Decide view inicial por hash (o "work")
+            const allowed = ["work", "experience", "about", "projects"];
+            const hash = (location.hash || "").replace("#", "");
+            const initialView = allowed.includes(hash) ? hash : "work";
+        
+            // 2) Muestra solo la vista inicial (esto evita que cargue todo)
+            showView(initialView);
+        
+            // 3) Inicializa chips + animacion LWR (respetando el texto visible actual)
+            var firstVisible = document.querySelector(".lwr-box span.visible");
+            var role = firstVisible ? (firstVisible.dataset.role || "") : "software";
+            setTechChipsMode(role);
+            listenWatchRead();
+        })();
+
+
+    })();
+</script>
+
+
+
+
+
+</html>
