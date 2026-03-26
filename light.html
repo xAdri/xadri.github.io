@@ -192,19 +192,27 @@ filter: url(#displacementFilter);
 
 .lwr-box{
   position: relative;
+  display: inline-block;
+  min-height: 2.2em;
+  margin-bottom: 1.5rem;
 }
 
-.lwr-box * {
+.lwr-box > span {
   position: absolute;
+  top: 0;
+  left: 0;
   opacity: 0;
-  transition: opacity .4s ease-in-out, filter .4s ease-in-out;
-  filter: blur(20px);
   white-space: nowrap;
+  transform: translateY(12px);
+  -webkit-transform: translateY(12px);
+  transition: opacity .4s ease-in-out, transform .4s ease-in-out;
+  will-change: opacity, transform;
 }
 
-.lwr-box .visible{
+.lwr-box > span.visible{
   opacity: 1;
-  filter: blur(0px);
+  transform: translateY(0);
+  -webkit-transform: translateY(0);
 }
 
 .tech-active {
@@ -333,13 +341,11 @@ filter: url(#displacementFilter);
 
                 <h1
                     class="text-[2.75rem] sm:text-[6.5rem] md:text-[6.5rem] font-extrabold leading-[0.9] break-words tight-kerning relative">
-                    <span class="lwr-box">
+                    <div class="lwr-box">
                         <span class="visible" data-role="software">Software<br>Engineer</span>
                         <span data-role="unityxr">Unity XR<br>Developer</span>
                         <span data-role="techart">Tech Art<br>Instructor</span>
-                    </span><br />
-                    <br>
-                    <!-- Developer -->
+                    </div>
                 </h1>
 
 
