@@ -120,14 +120,21 @@ html {
 h1 {
   color: #009c83;
   text-shadow:
-  /* 2px 0 #009c83,
-  -2px 0 cyan, */
+    0 0 2px rgba(0,156,131,0.38),
+    0 0 6px rgba(0,156,131,0.28),
+    0 0 12px rgba(0,156,131,0.16),
+    0 0 4px rgba(0,156,131,0.22),
+    0 0 10px rgba(0,156,131,0.12);
+}
+/* h1 {
+  color: #009c83;
+  text-shadow:
   0 0 2px rgba(255,255,255,0.8),
   0 0 6px rgba(255,255,255,0.6),
   0 0 12px rgba(255,255,255,0.4),
   0 0 4px rgba(255,255,255,0.7),
   0 0 10px rgba(0,150,255,0.5);
-}
+} */
 
 h2 {
   color: #fff;
@@ -194,7 +201,6 @@ filter: url(#displacementFilter);
   position: relative;
   display: inline-block;
   min-height: 2.2em;
-  margin-bottom: 1.5rem;
 }
 
 .lwr-box > span {
@@ -242,12 +248,19 @@ filter: url(#displacementFilter);
 .set-color-black {
     color: #242424;
 }
+
+.section-title {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+}
 </style>
 
 </head>
 
 
-<body class="bg-background-dark font-sans text-white transition-colors duration-300">
+<body class="bg-background-dark font-sans text-black transition-colors duration-300">
     <div id="page-reveal" class="fixed inset-0 bg-white z-[9999] pointer-events-none"></div>
 
     <div class="noise fixed inset-0 pointer-events-none z-40"></div>
@@ -336,43 +349,41 @@ filter: url(#displacementFilter);
         <div class="max-w-5xl w-full mb-20 sm:mb-28">
             <div id="personal" class="md:pt-[19rem]">
 
-                <img src="assets/me_light_2.webp" alt=""
-                    class="translate-x-20 -mb-20 md:absolute md:top-[6rem] md:w-[40rem] md:right-20 lg:w-[40rem] lg:absolute lg:right-20" />
+        <img src="assets/me_light_2.webp" alt=""
+            class="translate-x-20 -mb-20 md:absolute md:top-[6rem] md:w-[40rem] md:right-20 lg:w-[40rem] lg:absolute lg:right-20" />
 
-                <h1
-                    class="text-[2.75rem] sm:text-[6.5rem] md:text-[6.5rem] font-extrabold leading-[0.9] break-words tight-kerning relative">
-                    <div class="lwr-box">
-                        <span class="visible" data-role="software">Software<br>Engineer</span>
-                        <span data-role="unityxr">Unity XR<br>Developer</span>
-                        <span data-role="techart">Tech Art<br>Instructor</span>
-                    </div>
-                </h1>
-
-
-
-                <div
-                    class="mt-10 sm:mt-12 md:mt-16 flex flex-col md:flex-row justify-between items-start gap-8 sm:gap-10 md:gap-12 text-base">
-                    <p class="text-lg sm:text-xl md:text-2xl font-normal max-w-2xl leading-tight opacity-90">
-                        With +5 years of experience in the industry, I believe in the power of new technologies to
-                        change
-                        the world and improve
-                        multiple areas of society such as health, industrial 4.0 fields and education.
-                    </p>
+        <h1 class="text-[2.75rem] sm:text-[6.5rem] md:text-[6.5rem] mb-[-1.5rem] sm:mb-[-3.55rem] font-extrabold leading-[0.9] break-words tight-kerning relative">
+            <div class="lwr-box">
+                    <span class="visible" data-role="software">Software<br>Engineer</span>
+                    <span data-role="unityxr">Unity XR<br>Developer</span>
+                    <span data-role="techart">Tech Art<br>Instructor</span>
                 </div>
+            
+            </h1>
 
-                <div class="mt-10 sm:mt-12 flex flex-wrap gap-3">
-                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80 set-color-black">Python/C#</span>
-                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80 set-color-black">Django/DRF</span>
-                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80 set-color-black">Fast API</span>
-                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80 set-color-black">Unity Engine</span>
-                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80 set-color-black">Unreal Engine</span>
-                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80 set-color-black">Docker</span>
-                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80 set-color-black">Postgresql</span>
-                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80 set-color-black">Digital Ocean/AWS</span>
-                    <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80 set-color-black">Houdini</span>
-                </div>
+        <div
+            class="mt-10 sm:mt-12 md:mt-16 flex flex-col md:flex-row justify-between items-start gap-8 sm:gap-10 md:gap-12 text-base">
+            <p class="text-lg sm:text-xl md:text-2xl font-normal max-w-2xl leading-tight opacity-90">
+                With +5 years of experience in the industry, I believe in the power of new technologies to
+                change
+                the world and improve
+                multiple areas of society such as health, industrial 4.0 fields and education.
+            </p>
+        </div>
 
-            </div>
+        <div class="mt-10 sm:mt-12 flex flex-wrap gap-3">
+            <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80 set-color-black">Python/C#</span>
+            <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80 set-color-black">Django/DRF</span>
+            <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80 set-color-black">Fast API</span>
+            <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80 set-color-black">Unity Engine</span>
+            <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80 set-color-black">Unreal Engine</span>
+            <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80 set-color-black">Docker</span>
+            <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80 set-color-black">Postgresql</span>
+            <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80 set-color-black">Digital Ocean/AWS</span>
+            <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2 opacity-80 set-color-black">Houdini</span>
+        </div>
+
+    </div>
         </div>
 
         <!-- Work / Projects list -->
@@ -409,11 +420,11 @@ filter: url(#displacementFilter);
                             UNITY 3D</div>
 
                         <div
-                            class="text-4xl sm:text-5xl md:text-[5.5rem] font-extrabold leading-none md:group-hover:translate-x-4 transition-transform">
+                            class="text-white text-4xl sm:text-5xl md:text-[5.5rem] font-extrabold leading-none md:group-hover:translate-x-4 transition-transform">
                             STI Sync Software
                         </div>
 
-                        <ul class="mt-6 text-sm sm:text-base opacity-80 leading-relaxed max-w-2xl">
+                        <ul class="text-white mt-6 text-sm sm:text-base opacity-80 leading-relaxed max-w-2xl">
                             <li>• PLC integration</li>
                             <li>• Real-time data sync</li>
                             <li>• 3D visualization</li>
@@ -453,11 +464,11 @@ filter: url(#displacementFilter);
                             framework</div>
 
                         <div
-                            class="text-4xl sm:text-5xl md:text-[5.5rem] font-extrabold leading-none md:group-hover:translate-x-4 transition-transform">
+                            class="text-white text-4xl sm:text-5xl md:text-[5.5rem] font-extrabold leading-none md:group-hover:translate-x-4 transition-transform">
                             STM Ford
                         </div>
 
-                        <ul class="mt-6 text-sm sm:text-base opacity-80 leading-relaxed max-w-2xl">
+                        <ul class="text-white mt-6 text-sm sm:text-base opacity-80 leading-relaxed max-w-2xl">
                             <li>• Google Maps API integration</li>
                             <li>• Geolocation data</li>
                             <li>• PDF & Excel data processing</li>
@@ -475,48 +486,6 @@ filter: url(#displacementFilter);
             </a>
 
             <!-- 03 -->
-            <a class="group relative flex flex-col md:flex-row md:items-stretch justify-between py-10 sm:py-12 md:py-16 border-b border-white/10 transition-all  px-2 sm:px-4 -mx-2 sm:-mx-4"
-                href="#merchanfactory">
-
-
-                <div
-                    class="relative overflow-hidden rounded-xl w-full md:flex-1 min-h-[240px] sm:min-h-[300px] md:min-h-[340px]">
-
-                    <video
-                        class="absolute inset-0 w-full h-full object-cover grayscale-0 md:grayscale transition duration-500 md:group-hover:grayscale-0"
-                        autoplay muted loop playsinline>
-                        <source src="assets/merchanfactory.mp4" type="video/mp4" />
-                    </video>
-
-                    <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/30 to-transparent"></div>
-                    <div class="absolute inset-0 bg-accent/50 "></div>
-                    <div class="absolute inset-0 bg-black/50"></div>
-
-                    <div class="relative z-10 flex h-full flex-col justify-center p-6">
-                        <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-accent mb-6">Django Web
-                        </div>
-
-                        <div
-                            class="text-4xl sm:text-5xl md:text-[5.5rem] font-extrabold leading-none md:group-hover:translate-x-4 transition-transform">
-                            Merchanfactory
-                        </div>
-
-                        <ul class="mt-6 text-sm sm:text-base opacity-80 leading-relaxed max-w-2xl">
-                            <li>• Django web app</li>
-                            <li>• Reusable JS components</li>
-                            <li>• E-commerce integration</li>
-                            <li>• Data management</li>
-                        </ul>
-                    </div>
-
-                    <span
-                        class="material-symbols-outlined absolute bottom-4 right-4 text-5xl font-extralight opacity-40 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-accent">
-                        north_east
-                    </span>
-                </div>
-            </a>
-
-            <!-- 04 -->
             <a class="group relative flex flex-col md:flex-row md:items-stretch justify-between py-10 sm:py-12 md:pt-16 border-white/10 transition-all  px-2 sm:px-4 -mx-2 sm:-mx-4"
                 href="#trainer-crm">
 
@@ -538,11 +507,11 @@ filter: url(#displacementFilter);
                             Framework + ionic</div>
 
                         <div
-                            class="text-4xl sm:text-5xl md:text-[5.5rem] font-extrabold leading-none md:group-hover:translate-x-4 transition-transform">
+                            class="text-white text-4xl sm:text-5xl md:text-[5.5rem] font-extrabold leading-none md:group-hover:translate-x-4 transition-transform">
                             Trainer CRM
                         </div>
 
-                        <ul class="mt-6 text-sm sm:text-base opacity-80 leading-relaxed max-w-2xl">
+                        <ul class="text-white mt-6 text-sm sm:text-base opacity-80 leading-relaxed max-w-2xl">
                             <li>• Trainer app</li>
                             <li>• Client app</li>
                             <li>• Stripe integration</li>
@@ -1042,89 +1011,62 @@ filter: url(#displacementFilter);
 
 
         <section id="about"
-            class="w-full max-w-5xl mx-auto grid md:grid-cols-2 gap-10 sm:gap-14 md:gap-24 py-10 sm:py-14">
+            class="w-full max-w-5xl mx-auto grid md:grid-cols-2 gap-10 sm:gap-14 md:gap-24 items-start">
+
             <!-- Left: About -->
-            <div class="relative">
-                <!-- Decorative image + gradient (only affects the image) -->
-                <div class="pointer-events-none select-none absolute -top-[5rem] -right-[0.6rem]
-           w-[260px] sm:w-[320px] md:w-[420px]
-           z-0">
-                    <img src="assets/me.webp" alt="" class="w-full h-auto scale-x-[1] opacity-90" />
-
-                    <!-- Vertical gradient: bottom 90% -> top 0% -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/100 to-transparent"></div>
-                </div>
-
-                <!-- Text content -->
-                <div class="relative z-10">
-                    <!-- About label ON TOP of the image -->
-                    <h2 class="text-[12px] sm:text-[14px] font-bold uppercase tracking-[0.3em] mb-5 sm:mb-6">
-                        // About me
-                    </h2>
-
-                    <h1
-                        class="text-[2.5rem] sm:text-5xl md:text-[4rem] font-extrabold leading-[0.9] break-words tight-kerning">
-                        Why me?
-                    </h1>
-
-                    <p class="mt-6 sm:mt-8 text-xl sm:text-2xl font-medium leading-snug tight-kerning set-color-black">
-                        <span class="block mb-3">
-                            <span class="text-accent">R&D Software Engineer</span> strong across multiple technologies.
-                        </span>
-
-                        <span class="block">
-                            I take projects <span class="text-accent">from idea to launch</span>, using
-                            Python for
-                            <span class="text-accent">backend</span>,
-                            Unity or Unreal for <span class="text-accent">XR/mobile</span> and
-                            <span class="text-accent">cloud</span> tools for deploys.
-                        </span>
-
-                    </p>
-                </div>
+            <div class="flex flex-col gap-7 sm:gap-8 md:gap-10 text-xl sm:text-2xl font-medium leading-snug tight-kerning opacity-90 set-color-black">
+                <h1 class="section-title">// About me</h1>
+            
+                <p>
+                    <span class="text-accent">R&amp;D Software Engineer</span> strong across multiple technologies.
+                </p>
+            
+                <p>
+                    I take projects <span class="text-accent">from idea to launch</span>, using
+                    Python for <span class="text-accent">backend</span>,
+                    Unity or Unreal for <span class="text-accent">XR/mobile</span> and
+                    <span class="text-accent">cloud</span> tools for deploys.
+                </p>
             </div>
-
-
+        
             <!-- Right: Contact -->
             <div id="contact"
                 class="flex flex-col gap-7 sm:gap-8 md:gap-10 text-xl sm:text-2xl font-medium leading-snug tight-kerning opacity-90 set-color-black">
-                <h2 class="text-[12px] sm:text-[14px] font-bold uppercase tracking-[0.3em]">
-                    // Connect
-                </h2>
-
+                <h1 class="section-title">// Connect</h1>
+            
                 <p>
                     If you’re looking for a <span class="text-accent">software engineer</span> and think I could be a
                     <span class="text-accent">good fit</span>, don’t be shy and
                     <span class="text-accent">let’s talk</span> about it!
                 </p>
-
-                <div class="flex flex-col">
+            
+                <div class="flex flex-col gap-8 sm:gap-10">
                     <a class="text-2xl sm:text-3xl font-extrabold tight-kerning hover:text-accent transition-colors break-all underline"
                         href="mailto:hello@adriperez.es">
                         aperezgfx@gmail.com
                     </a>
-
-                    <div class="mt-8 sm:mt-10 flex flex-wrap gap-3 justify-start">
+                
+                    <div class="flex flex-wrap gap-3 justify-start">
                         <a href="https://www.youtube.com/@adrixnperez" target="_blank" rel="noreferrer"
                             class="text-[10px] font-mono bg-accent text-black uppercase tracking-[0.2em] border border-accent px-3 py-2 opacity-90 hover:opacity-100 hover:bg-white hover:text-accent transition tech-active">
                             YouTube
                         </a>
-
+                    
                         <a href="https://github.com/xAdri" target="_blank" rel="noreferrer"
                             class="text-[10px] font-mono bg-accent text-black uppercase tracking-[0.2em] border border-accent px-3 py-2 opacity-90 hover:opacity-100 hover:bg-white hover:text-accent transition tech-active">
                             GitHub
                         </a>
-
+                    
                         <a href="https://www.linkedin.com/in/aperezgfx" target="_blank" rel="noreferrer"
                             class="text-[10px] font-mono bg-accent text-black uppercase tracking-[0.2em] border border-accent px-3 py-2 opacity-90 hover:opacity-100 hover:bg-white hover:text-accent transition tech-active">
                             LinkedIn
                         </a>
-
+                    
                         <a href="https://www.artstation.com/adriperez" target="_blank" rel="noreferrer"
                             class="text-[10px] font-mono bg-accent text-black uppercase tracking-[0.2em] border border-accent px-3 py-2 opacity-90 hover:opacity-100 hover:bg-white hover:text-accent transition tech-active">
                             ArtStation
                         </a>
-
+                    
                         <a href="https://adriperez.itch.io/" target="_blank" rel="noreferrer"
                             class="text-[10px] font-mono bg-accent text-black uppercase tracking-[0.2em] border border-accent px-3 py-2 opacity-90 hover:opacity-100 hover:bg-white hover:text-accent transition tech-active">
                             Itch.io

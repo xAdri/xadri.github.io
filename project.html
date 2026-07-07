@@ -1,0 +1,240 @@
+<!-- project.html -->
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project — Adrián Pérez</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&display=swap" rel="stylesheet" />
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#ffffff",
+                        accent: "#f97316",
+                        "background-dark": "#0a0a0a",
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+
+    <style type="text/tailwindcss">
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        ::selection {
+            background-color: #f97316;
+            color: white;
+        }
+
+        .tight-kerning {
+            letter-spacing: -0.05em;
+        }
+
+        .noise {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+            background-size: 180px 180px;
+        }
+
+        .scanlines {
+            background-image: repeating-linear-gradient(
+                to bottom,
+                rgba(255,255,255,0.06),
+                rgba(255,255,255,0.06) 1px,
+                rgba(0,0,0,0) 2px,
+                rgba(0,0,0,0) 6px
+            );
+            opacity: 0.2;
+        }
+
+        h1, h2 {
+            color: #fff;
+            text-shadow:
+                0 0 2px rgba(255,255,255,0.8),
+                0 0 6px rgba(255,255,255,0.6),
+                0 0 12px rgba(255,255,255,0.4),
+                0 0 10px rgba(0,150,255,0.5);
+        }
+    </style>
+</head>
+
+<body class="bg-background-dark font-sans text-white">
+
+    <div class="noise scanlines fixed inset-0 pointer-events-none z-40"></div>
+
+    <!-- Header simple -->
+    <header class="fixed top-0 left-0 w-full z-50 mix-blend-difference">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 py-8 flex justify-between items-center">
+            <a href="index.html#work" class="flex items-center gap-3 hover:opacity-50 transition-opacity">
+                <span class="hidden sm:inline-block w-8 h-8" style="
+                    background: #f97316;
+                    -webkit-mask: url('logo.svg') no-repeat center / contain;
+                    mask: url('logo.svg') no-repeat center / contain;
+                "></span>
+
+                <span class="text-xs font-bold text-accent uppercase tracking-widest">
+                    Adrián<br>Pérez
+                </span>
+            </a>
+
+            <a href="index.html#work"
+               class="text-xs font-bold uppercase tracking-widest text-accent hover:opacity-50 transition-opacity">
+                Back to work
+            </a>
+        </div>
+    </header>
+
+    <main class="relative z-10 px-4 sm:px-6 md:px-8 pt-36 sm:pt-44">
+
+        <!-- Project Hero -->
+        <section class="max-w-5xl mx-auto border-b border-white/10 pb-16 sm:pb-24">
+
+            <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-accent mb-8">
+                // Project
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-start">
+
+                <!-- Left text -->
+                <div>
+                    <h1 class="text-[3.5rem] sm:text-[5rem] md:text-[6.5rem] font-extrabold leading-[0.85] tight-kerning">
+                        STI Sync<br>Software
+                    </h1>
+
+                    <p class="mt-8 text-xl sm:text-2xl leading-tight opacity-85">
+                        Industrial synchronization software for real-time production data,
+                        PLC integration and 3D visualization.
+                    </p>
+
+                    <div class="mt-8 flex flex-wrap gap-3">
+                        <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2">
+                            Django
+                        </span>
+                        <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2">
+                            Unity 3D
+                        </span>
+                        <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2">
+                            PLC
+                        </span>
+                        <span class="text-[10px] font-mono text-accent uppercase tracking-[0.2em] border border-white/15 px-3 py-2">
+                            Real-time
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Right media -->
+                <div class="relative overflow-hidden rounded-xl min-h-[260px] sm:min-h-[360px] border border-white/10 bg-white/5">
+                    <video class="absolute inset-0 w-full h-full object-cover"
+                           autoplay
+                           muted
+                           loop
+                           playsinline>
+                        <source src="assets/sti.mp4" type="video/mp4" />
+                    </video>
+
+                    <div class="absolute inset-0 bg-black/30"></div>
+                    <div class="absolute inset-0 bg-accent/30 mix-blend-multiply"></div>
+
+                    <button class="absolute bottom-5 left-5 text-[10px] font-bold uppercase tracking-[0.25em] text-black bg-accent px-4 py-3 rounded-full">
+                        Play
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Main description -->
+        <section class="max-w-5xl mx-auto py-16 sm:py-24 border-b border-white/10">
+            <div class="grid md:grid-cols-[0.8fr_1.2fr] gap-10 md:gap-20">
+
+                <h2 class="text-[16px] font-bold uppercase tracking-[0.3em]">
+                    // Overview
+                </h2>
+
+                <div class="space-y-8 text-lg sm:text-xl leading-relaxed opacity-85">
+                    <p>
+                        This project was built to connect industrial production systems with
+                        a custom software layer capable of synchronizing data, visualizing
+                        machine states and exposing information through a clear interface.
+                    </p>
+
+                    <p>
+                        My work focused on backend architecture, real-time communication,
+                        Unity-based visualization and tooling for internal workflows.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Big image -->
+        <section class="max-w-5xl mx-auto py-16 sm:py-24 border-b border-white/10">
+            <div class="relative overflow-hidden rounded-xl min-h-[300px] sm:min-h-[520px] bg-white/5 border border-white/10">
+                <img src="assets/sti-cover.webp"
+                     alt="STI Sync Software project image"
+                     class="absolute inset-0 w-full h-full object-cover" />
+
+                <div class="absolute inset-0 bg-black/30"></div>
+            </div>
+        </section>
+
+        <!-- Detail sections -->
+        <section class="max-w-5xl mx-auto py-16 sm:py-24">
+            <div class="grid md:grid-cols-3 gap-12">
+
+                <div>
+                    <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-accent mb-5">
+                        Context
+                    </div>
+                    <p class="opacity-80 leading-relaxed">
+                        Industrial environment with the need to connect software, machines and
+                        production data in a reliable workflow.
+                    </p>
+                </div>
+
+                <div>
+                    <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-accent mb-5">
+                        My role
+                    </div>
+                    <p class="opacity-80 leading-relaxed">
+                        Backend development, Unity visualization, integration logic and
+                        technical decision-making.
+                    </p>
+                </div>
+
+                <div>
+                    <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-accent mb-5">
+                        Stack
+                    </div>
+                    <p class="opacity-80 leading-relaxed">
+                        Django, Unity 3D, C#, REST APIs, PLC integration and real-time data
+                        synchronization.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="w-full border-t border-white/10 bg-background-dark">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 py-12 flex justify-between items-center text-[12px] font-mono tracking-[0.4em] opacity-40 uppercase">
+            <p>©2026 Adrián Pérez</p>
+            <a href="index.html#work" class="hover:text-accent transition-colors">Back</a>
+        </div>
+    </footer>
+
+</body>
+</html>
