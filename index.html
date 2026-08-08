@@ -398,6 +398,66 @@ span[data-tech]:hover {
   padding: 10px 30px 24px;
 }
 
+.project-detail {
+  position: relative;
+  overflow: hidden;
+  border-radius: 35px;
+  background: #0d72d9;
+  box-shadow: 0 0 0 1px #ffffff, 0 14px 34px rgba(13, 114, 217, 0.24);
+}
+
+.project-detail::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  border: 15px solid #ffffff;
+  border-radius: 35px;
+  pointer-events: none;
+}
+
+.project-detail-header {
+  background: #ffffff;
+  color: #0d72d9;
+  padding: 24px 30px 28px;
+}
+
+.project-detail-header h2 {
+  color: #0d72d9;
+  text-shadow: none;
+  filter: none;
+}
+
+.project-detail-body {
+  padding: 30px;
+  color: #ffffff;
+}
+
+.detail-back {
+  border: 2px solid #0d72d9;
+  border-radius: 9999px;
+  background: #ffffff;
+  color: #0d72d9;
+  padding: 10px 18px;
+  font-family: "VDS", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-weight: 700;
+  transition: transform 220ms ease;
+}
+
+.detail-back:hover {
+  transform: scale(1.08) rotate(-2deg);
+}
+
+@media (min-width: 640px) {
+  .project-detail-header {
+    padding: 28px 36px 34px;
+  }
+
+  .project-detail-body {
+    padding: 36px;
+  }
+}
+
 #experience img {
   border-radius: 12px;
   box-shadow: 0 5px 14px rgba(0, 0, 0, 0.38);
@@ -858,13 +918,14 @@ html.hero-pixel-hover * {
             <div class="grid md:grid-cols-2 gap-x-12">
 
                 <!-- Digital Health Innovation -->
-                <div class="project-card mb-12">
+                <div class="project-card mb-12" data-view-target="healthcare" role="button" tabindex="0"
+                    aria-label="Open Immersive Healthcare and Serious Games">
 
 
                     <!-- Content -->
                     <!-- Image -->
                     <div class="relative w-full aspect-[4/3] bg-white/5 overflow-hidden">
-                        <img src="assets/projects/itimind.jpg" alt="Sea of Heroes: New World"
+                        <img src="assets/projects/itimind.jpg" alt="Mixcare mixed reality healthcare project"
                             class="w-full h-full object-contain">
 
                     </div>
@@ -974,6 +1035,150 @@ html.hero-pixel-hover * {
             </div>
 
             </div>
+        </section>
+
+        <section id="healthcare" class="hidden w-full max-w-5xl mb-12">
+            <button class="detail-back mb-8" type="button" data-view-target="home">
+                &larr; Back to work
+            </button>
+
+            <div class="mb-12 sm:mb-16">
+                <p class="text-[12px] font-bold uppercase tracking-[0.3em] mb-4">// Selected healthcare projects</p>
+                <h1 class="text-5xl sm:text-7xl md:text-8xl font-extrabold tight-kerning leading-[0.9]">
+                    Immersive Healthcare<br>&amp; Serious Games
+                </h1>
+                <p class="mt-8 max-w-2xl text-lg sm:text-xl leading-relaxed"
+                    style="font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
+                    A selection of projects exploring how immersive technology and game design can support clinical
+                    training, rehabilitation, and cognitive care.
+                </p>
+            </div>
+
+            <article class="project-detail mb-12 sm:mb-16">
+                <div class="w-full aspect-[16/9] bg-white overflow-hidden">
+                    <img src="assets/projects/itimind.jpg" alt="XR system being tested in a clinical environment"
+                        class="w-full h-full object-cover">
+                </div>
+
+                <header class="project-detail-header">
+                    <p class="text-[11px] font-bold uppercase tracking-[0.3em] mb-3">
+                        Project 01 &middot; Mixcare
+                    </p>
+                    <h2 class="text-4xl font-extrabold tight-kerning">
+                        Mixed Reality for Preoperative Anxiety
+                    </h2>
+                    <div class="flex flex-wrap gap-2 mt-6">
+                        <span class="rounded-full border-2 border-[#0d72d9] px-4 py-2 text-xs font-bold uppercase">Mixed Reality</span>
+                        <span class="rounded-full border-2 border-[#0d72d9] px-4 py-2 text-xs font-bold uppercase">Biofeedback</span>
+                        <span class="rounded-full border-2 border-[#0d72d9] px-4 py-2 text-xs font-bold uppercase">Healthcare</span>
+                    </div>
+                </header>
+
+                <div class="project-detail-body grid md:grid-cols-2 gap-8 md:gap-12">
+                    <div>
+                        <h2 class="text-sm font-bold uppercase tracking-[0.25em] mb-4">// Overview</h2>
+                        <p class="text-lg leading-relaxed"
+                            style="font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
+                            Mixcare combines mixed reality and non-invasive sensors to help patients recognize and
+                            manage anxiety before surgery while remaining connected to the real hospital environment.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h2 class="text-sm font-bold uppercase tracking-[0.25em] mb-4">// Project focus</h2>
+                        <ul class="space-y-3 text-lg leading-relaxed"
+                            style="font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
+                            <li>&bull; Real-time heart rate and breathing biofeedback.</li>
+                            <li>&bull; Emotional avatar and guided relaxation strategies.</li>
+                            <li>&bull; Participatory validation in a clinical pilot at Hospital La Fe.</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-detail mb-12 sm:mb-16">
+                <div class="w-full aspect-[16/9] bg-white overflow-hidden">
+                    <img src="assets/lunar_adventure.webp" alt="Cognitive training serious game"
+                        class="w-full h-full object-cover">
+                </div>
+
+                <header class="project-detail-header">
+                    <p class="text-[11px] font-bold uppercase tracking-[0.3em] mb-3">
+                        Project 02 &middot; Pediatric Neurorehabilitation
+                    </p>
+                    <h2 class="text-4xl font-extrabold tight-kerning">
+                        Lunar Adventure
+                    </h2>
+                    <div class="flex flex-wrap gap-2 mt-6">
+                        <span class="rounded-full border-2 border-[#0d72d9] px-4 py-2 text-xs font-bold uppercase">Unity</span>
+                        <span class="rounded-full border-2 border-[#0d72d9] px-4 py-2 text-xs font-bold uppercase">Serious Games</span>
+                        <span class="rounded-full border-2 border-[#0d72d9] px-4 py-2 text-xs font-bold uppercase">Adaptive AI</span>
+                    </div>
+                </header>
+
+                <div class="project-detail-body grid md:grid-cols-2 gap-8 md:gap-12">
+                    <div>
+                        <h2 class="text-sm font-bold uppercase tracking-[0.25em] mb-4">// Overview</h2>
+                        <p class="text-lg leading-relaxed"
+                            style="font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
+                            An AI-based serious games application designed to improve children&rsquo;s cognitive abilities
+                            through personalized neurogames that adapt their difficulty as the child progresses.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h2 class="text-sm font-bold uppercase tracking-[0.25em] mb-4">// Product model</h2>
+                        <ul class="space-y-3 text-lg leading-relaxed"
+                            style="font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
+                            <li>&bull; Personalized stimulation prescribed by professionals.</li>
+                            <li>&bull; Controlled sessions of up to 15 minutes per day.</li>
+                            <li>&bull; Progress monitoring through therapist and tutor platforms.</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-detail">
+                <div class="w-full aspect-[16/9] bg-white overflow-hidden">
+                    <img src="assets/projects/seaofheroes.jpg" alt="Sea of Heroes New World"
+                        class="w-full h-full object-contain">
+                </div>
+
+                <header class="project-detail-header">
+                    <p class="text-[11px] font-bold uppercase tracking-[0.3em] mb-3">
+                        Project 03 &middot; Digital Therapeutics
+                    </p>
+                    <h2 class="text-4xl font-extrabold tight-kerning">
+                        Sea of Heroes: New World
+                    </h2>
+                    <div class="flex flex-wrap gap-2 mt-6">
+                        <span class="rounded-full border-2 border-[#0d72d9] px-4 py-2 text-xs font-bold uppercase">Unity</span>
+                        <span class="rounded-full border-2 border-[#0d72d9] px-4 py-2 text-xs font-bold uppercase">Adaptive AI</span>
+                        <span class="rounded-full border-2 border-[#0d72d9] px-4 py-2 text-xs font-bold uppercase">Medical Device</span>
+                    </div>
+                </header>
+
+                <div class="project-detail-body grid md:grid-cols-2 gap-8 md:gap-12">
+                    <div>
+                        <h2 class="text-sm font-bold uppercase tracking-[0.25em] mb-4">// Overview</h2>
+                        <p class="text-lg leading-relaxed"
+                            style="font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
+                            A personalized cognitive training application for children. Its AI adjusts session
+                            difficulty in real time according to each child&rsquo;s needs and progress.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h2 class="text-sm font-bold uppercase tracking-[0.25em] mb-4">// Product model</h2>
+                        <ul class="space-y-3 text-lg leading-relaxed"
+                            style="font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
+                            <li>&bull; Prescribed by healthcare professionals.</li>
+                            <li>&bull; Remote cognitive training in a video game format.</li>
+                            <li>&bull; Professional monitoring of performance and progression.</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
         </section>
 
 
@@ -1552,6 +1757,7 @@ html.hero-pixel-hover * {
         // Sections by id
         const secPersonal = document.getElementById("personal");      // Hero personal
         const secWorkList = document.getElementById("home");          // Highlighted projects list
+        const secHealthcare = document.getElementById("healthcare");  // Healthcare project detail
         const secExperience = document.getElementById("experience");  // Experience
         const secAbout = document.getElementById("about");            // About + Connect
 
@@ -1580,6 +1786,7 @@ html.hero-pixel-hover * {
             // Hide everything first
             setHidden(secPersonal, true);
             setHidden(secWorkList, true);
+            setHidden(secHealthcare, true);
             setHidden(secExperience, true);
             setHidden(secAbout, true);
 
@@ -1589,11 +1796,13 @@ html.hero-pixel-hover * {
                 setHidden(secWorkList, false);
             } else if (view === "experience") {
                 setHidden(secExperience, false);
+            } else if (view === "healthcare") {
+                setHidden(secHealthcare, false);
             } else if (view === "about") {
                 setHidden(secAbout, false);
             }
 
-            setActiveNav(view);
+            setActiveNav(view === "healthcare" ? "home" : view);
             scrollTop();
         }
 
@@ -1613,6 +1822,22 @@ html.hero-pixel-hover * {
                 history.replaceState(null, "", "#" + id);
                 showView(id);
                 closeMenu();
+            });
+        });
+
+        document.querySelectorAll("[data-view-target]").forEach((control) => {
+            function openTargetView() {
+                const target = control.getAttribute("data-view-target");
+                if (!target) return;
+                history.replaceState(null, "", "#" + target);
+                showView(target);
+            }
+
+            control.addEventListener("click", openTargetView);
+            control.addEventListener("keydown", (event) => {
+                if (event.key !== "Enter" && event.key !== " ") return;
+                event.preventDefault();
+                openTargetView();
             });
         });
 
@@ -1747,7 +1972,7 @@ html.hero-pixel-hover * {
         // Init
         (function init() {
             // 1) Decide view inicial por hash (o "work")
-            const allowed = ["home", "experience"];
+            const allowed = ["home", "experience", "healthcare"];
             const hash = (location.hash || "").replace("#", "");
             const initialView = allowed.includes(hash) ? hash : "home";
 
