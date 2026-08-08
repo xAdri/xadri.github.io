@@ -87,6 +87,7 @@
 
   html {
     background-color: #0d72d9;
+    cursor: url("assets/cursor.svg") 3 3, auto;
   }
 
   @keyframes pageReveal {
@@ -100,6 +101,13 @@
 
 
   /* Chrome / Edge / Safari */
+::-webkit-scrollbar,
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-button {
+  cursor: url("assets/cursor.svg") 3 3, auto;
+}
+
 ::-webkit-scrollbar-thumb {
   background: #ffffff;
 }
@@ -134,7 +142,7 @@ html {
     cursor: url("assets/cursor.svg") 3 3, auto;
     box-sizing: border-box;
     min-height: 100vh;
-    border: 20px solid #0d72d9;
+    border: 10px solid #0d72d9;
     background: #0d72d9;
     isolation: isolate;
   }
@@ -152,16 +160,16 @@ html {
 
   @media (min-width: 768px) {
     body {
-      border-right-width: max(0px, calc(20px - (100vw - 100%)));
+      border-right-width: max(0px, calc(10px - (100vw - 100%)));
     }
   }
 
   .sky-stage {
     position: fixed;
-    inset: 20px;
+    inset: 10px;
     z-index: -1;
     overflow: hidden;
-    border-radius: 40px;
+    border-radius: 24px;
   }
 
   .sky-stage::before {
@@ -177,10 +185,10 @@ html {
   body::after {
     content: "";
     position: fixed;
-    inset: 20px;
+    inset: 10px;
     z-index: 1;
-    border-radius: 40px;
-    outline: 20px solid #0d72d9;
+    border-radius: 24px;
+    outline: 10px solid #0d72d9;
     box-shadow: inset 0 0 80px rgba(255, 255, 255, 0.9);
     pointer-events: none;
   }
@@ -419,7 +427,7 @@ span[data-tech]:hover {
   background-color: #ffffff;
   color: #0d72d9;
   padding: 28px 26px 34px;
-  box-shadow: 0 14px 34px rgba(13, 114, 217, 0.24);
+  box-shadow: 0 0 0 1px #ffffff, 0 14px 34px rgba(13, 114, 217, 0.24);
   cursor: url("assets/pointer.svg") 7 2, pointer;
   transition: transform 300ms ease, box-shadow 300ms ease;
 }
@@ -436,7 +444,7 @@ span[data-tech]:hover {
 
 #experience .space-y-10 > div:hover {
   transform: scale(1.04) rotate(2deg);
-  box-shadow: 0 20px 42px rgba(13, 114, 217, 0.34);
+  box-shadow: 0 0 0 1px #ffffff, 0 20px 42px rgba(13, 114, 217, 0.34);
 }
 
 #experience .space-y-10 > div .text-accent {
@@ -577,6 +585,13 @@ body > header {
   mix-blend-mode: normal !important;
 }
 
+@media (min-width: 768px) {
+  body > header > div {
+    padding-right: 40px !important;
+    padding-left: 40px !important;
+  }
+}
+
 .brand-link {
   transform: scale(1);
   transform-origin: left center;
@@ -594,6 +609,16 @@ body > header {
 
 .brand-link:hover .brand-name {
   color: #ffffff !important;
+}
+
+@media (min-width: 768px) {
+  .brand-logo {
+    background-color: #0d72d9 !important;
+  }
+
+  .brand-name {
+    color: #0d72d9 !important;
+  }
 }
 
 .hero-photo {
@@ -648,13 +673,13 @@ html.hero-pixel-hover * {
             <a href="#home" class="brand-link flex items-center gap-3 shrink-0 hover:opacity-50 transition-opacity">
                 <!-- Logo: SOLO desktop -->
                 <span class="brand-logo hidden sm:inline-block w-8 h-8" style="
-        background: #0d72d9;
+        background: #ffffff;
         -webkit-mask: url('logo.svg') no-repeat center / contain;
         mask: url('logo.svg') no-repeat center / contain;
       "></span>
 
                 <!-- Nombre: SIEMPRE visible (en mobile queda solo esto) -->
-                <span class="brand-name text-xs font-bold uppercase tracking-widest" style="color: #0d72d9;">
+                <span class="brand-name text-xs font-bold uppercase tracking-widest" style="color: #ffffff;">
                     Adrián<br>Pérez
                 </span>
             </a>
