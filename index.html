@@ -388,6 +388,7 @@ span[data-tech]:hover {
 
 #experience img {
   border-radius: 12px;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.38);
 }
 
 #experience {
@@ -396,12 +397,120 @@ span[data-tech]:hover {
 
 #experience p {
   font-size: clamp(1.05rem, 1.2vw, 1.125rem);
+  margin-bottom: -40px;
+  background-color: #0d72d9;
   color: #ffffff;
+  padding-top: 18px;
+  padding-bottom: 40px;
   opacity: 1 !important;
+  box-shadow: -160px 0 0 #0d72d9, 160px 0 0 #0d72d9;
   text-shadow: 2px 2px 0 #0d72d9;
 }
 
+#experience .space-y-10 > div {
+  position: relative;
+  overflow: hidden;
+  border: 0;
+  border-radius: 35px;
+  background-color: #ffffff;
+  color: #0d72d9;
+  padding: 28px 26px 34px;
+  box-shadow: 0 14px 34px rgba(13, 114, 217, 0.24);
+  cursor: url("assets/pointer.svg") 7 2, pointer;
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+#experience .space-y-10 > div::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  border: 15px solid #ffffff;
+  border-radius: 35px;
+  pointer-events: none;
+}
+
+#experience .space-y-10 > div:hover {
+  transform: scale(1.04) rotate(2deg);
+  box-shadow: 0 20px 42px rgba(13, 114, 217, 0.34);
+}
+
+#experience .space-y-10 > div .text-accent {
+  color: #0d72d9 !important;
+}
+
+#experience .space-y-10 > div > .flex {
+  align-items: center;
+}
+
+#experience .education-list > div > .flex {
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  #experience .space-y-10 > div > .flex {
+    display: grid;
+    grid-template-columns: 56px minmax(0, 1fr);
+    align-items: start;
+  }
+
+  #experience .space-y-10 > div > .flex > .shrink-0 {
+    align-self: center;
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  #experience .space-y-10 > div > .flex > .flex-1 {
+    display: contents;
+  }
+
+  #experience .space-y-10 > div > .flex > .flex-1 > div:first-child {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  #experience .space-y-10 > div > .flex > .flex-1 > p {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+}
+
+@media (max-width: 767px) {
+  #experience .space-y-10 > div > .flex {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+
+  #experience .space-y-10 > div > .flex > .shrink-0 {
+    display: none;
+  }
+
+  #experience .space-y-10 > div > .flex > .flex-1 {
+    display: contents;
+  }
+
+  #experience .space-y-10 > div > .flex > .flex-1 > div:first-child {
+    grid-column: 1;
+    grid-row: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  #experience .space-y-10 > div > .flex > .flex-1 > p {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin-top: 6px;
+    padding-top: 10px;
+  }
+}
+
 @media (min-width: 640px) {
+  #experience .space-y-10 > div {
+    padding: 32px 34px 40px;
+  }
+
   .project-card .text-accent {
     margin-right: -36px;
     margin-left: -36px;
@@ -487,6 +596,12 @@ body > header {
   scale: 1.04;
   rotate: 2deg;
   cursor: url("assets/pointer.svg") 7 2, pointer;
+}
+
+@media (min-width: 768px) {
+  .hero-photo {
+    translate: calc(27% - 80px) 0;
+  }
 }
 
 html.hero-pixel-hover,
@@ -586,9 +701,9 @@ html.hero-pixel-hover * {
         <!-- Hero -->
         <!-- <div class="max-w-5xl w-full mb-20 sm:mb-28 md:mb-48"> -->
         <div class="max-w-5xl w-full mb-20 sm:mb-28">
-            <div id="personal" class="md:pt-[16rem]">
+            <div id="personal" class="relative md:pt-[16rem]">
 
-                <img src="assets/me_light_3.webp" alt="" class="hero-photo translate-x-20 -mb-20 md:absolute md:top-[6rem] md:w-[40rem] md:right-20 lg:w-[40rem] lg:absolute lg:right-20" />
+                <img src="assets/me_light_3.webp" alt="" class="hero-photo translate-x-20 -mb-20 md:translate-x-0 md:absolute md:top-[6rem] md:w-[40rem] md:right-0 lg:w-[40rem] lg:absolute lg:right-0" />
 
                 <h1
                     class="text-[2.75rem] sm:text-[6.5rem] md:text-[6.5rem] font-extrabold leading-[0.9] break-words tight-kerning relative">
@@ -1075,7 +1190,7 @@ html.hero-pixel-hover * {
 
             <h1 class="text-[16px] font-bold uppercase tracking-[0.3em] mt-14 mb-14">// Education</h1>
 
-            <div class="space-y-10">
+            <div class="education-list space-y-10">
 
                 <div class="border-b border-white/10 pb-10">
                     <div class="flex gap-6 items-start">
