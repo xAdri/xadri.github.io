@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Adrián Pérez - R&D Software Engineer</title>
+    <title>Adrián Pérez - Portfolio</title>
 
     <meta name="description"
         content="Senior XR Software Engineer R&D with 5+ years of experience. Python + Django. Unity/Unreal for XR." />
@@ -433,6 +433,364 @@ span[data-tech]:hover {
   color: #ffffff;
 }
 
+.project-detail-body span[data-tech] {
+  padding: 10px 17px;
+  font-size: 12px;
+}
+
+.project-detail-body span[data-tech] i,
+.project-detail-body span[data-tech] svg {
+  width: 18px;
+  height: 18px;
+  font-size: 18px;
+}
+
+.mixcare-gallery {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+  padding: 15px;
+  background: #ffffff;
+}
+
+.mixcare-media {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #eaf5ff;
+}
+
+.mixcare-media-label {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 4;
+  max-width: calc(100% - 32px);
+  padding: 10px 16px;
+  border: 2px solid #0d72d9;
+  border-radius: 999px 999px 24px 999px;
+  background: #ffffff;
+  box-shadow: 3px 3px 0 #0d72d9;
+  color: #0d72d9;
+  font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.mixcare-media-label--left {
+  right: auto;
+  left: 16px;
+  border-radius: 999px 24px 999px 999px;
+  transform: rotate(-2deg);
+}
+
+.mixcare-media-label--tilt {
+  transform: rotate(2deg);
+}
+
+.mixcare-media-label--location {
+  top: 68%;
+  right: auto;
+  bottom: auto;
+  left: 12%;
+  transform: translateY(-50%) rotate(-2deg);
+}
+
+.mixcare-media--portrait {
+  width: calc(40% - 6px);
+  aspect-ratio: 3 / 4;
+}
+
+.mixcare-media--landscape {
+  width: calc(50% - 6px);
+  aspect-ratio: 4 / 3;
+}
+
+.mixcare-feature {
+  position: relative;
+  display: flex;
+  width: calc(60% - 6px);
+  flex-direction: column;
+}
+
+.mixcare-media--video {
+  width: 100%;
+  aspect-ratio: 9 / 8;
+}
+
+.mixcare-info {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  left: 14px;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  color: #0d72d9;
+}
+
+.mixcare-doodle {
+  position: absolute;
+  z-index: 6;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  color: #0d72d9;
+  background: #ffffff;
+  border: 2px solid #0d72d9;
+  box-shadow: 3px 3px 0 #0d72d9;
+  font-family: Arial, sans-serif;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.mixcare-doodle--spark {
+  top: 25px;
+  left: 25px;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px 50% 14px 50%;
+  font-size: 27px;
+  transform: rotate(8deg);
+}
+
+.mixcare-doodle--plus {
+  top: 38%;
+  right: 22px;
+  width: 43px;
+  height: 43px;
+  border-radius: 13px;
+  font-size: 32px;
+  transform: rotate(6deg);
+}
+
+.mixcare-doodle--arrow {
+  top: 46%;
+  left: 45%;
+  padding: 7px 15px 9px;
+  border-radius: 999px;
+  font-size: 25px;
+  transform: rotate(-8deg);
+}
+
+.mixcare-doodle--mini-spark {
+  top: 19%;
+  right: 33%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50% 12px 50% 12px;
+  font-size: 19px;
+  transform: rotate(-10deg);
+}
+
+.mixcare-doodle--ring {
+  top: 7%;
+  right: 26px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 24px;
+  transform: rotate(7deg);
+}
+
+.mixcare-doodle--chevrons {
+  bottom: 34%;
+  left: 24px;
+  padding: 7px 12px 8px;
+  border-radius: 999px;
+  font-size: 18px;
+  letter-spacing: -4px;
+  transform: rotate(3deg);
+}
+
+.mixcare-doodle--orbit {
+  right: 47%;
+  bottom: 17px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50% 18px 50% 18px;
+  font-size: 22px;
+  transform: rotate(12deg);
+}
+
+
+.mixcare-info::before,
+.mixcare-info::after {
+  position: absolute;
+  color: #0d72d9;
+  font-size: 18px;
+  line-height: 1;
+  content: "✦";
+}
+
+.mixcare-info::before {
+  top: 7px;
+  right: 11px;
+}
+
+.mixcare-info::after {
+  bottom: 7px;
+  left: 11px;
+  content: "✧";
+}
+
+.mixcare-info > div {
+  position: relative;
+  padding: 10px 13px;
+  border: 2px solid #0d72d9;
+  background: #ffffff;
+  box-shadow: 3px 3px 0 #0d72d9;
+}
+
+.mixcare-info > div:nth-child(1) {
+  grid-column: 1 / 4;
+  border-radius: 999px 999px 22px 999px;
+  transform: rotate(-1.5deg);
+}
+
+.mixcare-info > div:nth-child(2) {
+  grid-column: 4 / 7;
+  border-radius: 18px 999px 999px 999px;
+  transform: translateY(5px) rotate(1.5deg);
+}
+
+.mixcare-info > div:nth-child(3) {
+  grid-column: 1 / 5;
+  border-radius: 999px;
+  transform: translateX(8px) rotate(1deg);
+}
+
+.mixcare-info > div:nth-child(4) {
+  grid-column: 5 / 7;
+  border-radius: 50%;
+  text-align: center;
+  transform: translate(-3px, -4px) rotate(-3deg);
+}
+
+.mixcare-info dt {
+  margin-bottom: 3px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.mixcare-info dd {
+  font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.mixcare-media img,
+.mixcare-media video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.soh-hero {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 8;
+  overflow: hidden;
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.98) 0 20%, rgba(100, 178, 234, 0.45) 48%, transparent 70%),
+    linear-gradient(135deg, #eef8ff, #c8ebff);
+}
+
+.soh-hero-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  width: 31%;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 10px 18px rgba(13, 114, 217, 0.22));
+}
+
+.soh-island {
+  position: absolute;
+  width: 25%;
+  filter: drop-shadow(0 8px 12px rgba(13, 114, 217, 0.2));
+}
+
+.soh-island--one { top: 5%; left: 5%; transform: rotate(-7deg); }
+.soh-island--two { right: 5%; top: 3%; transform: rotate(7deg); }
+.soh-island--three { right: 11%; bottom: 1%; transform: rotate(-3deg); }
+
+.soh-visual-card,
+.soh-cert-panel {
+  width: calc(50% - 6px);
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #eaf5ff;
+}
+
+.soh-visual-card {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 0;
+}
+
+.soh-visual-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.soh-cert-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px;
+}
+
+.soh-cert {
+  display: grid;
+  grid-template-columns: 94px 1fr;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  border: 2px solid #0d72d9;
+  border-radius: 18px;
+  background: #ffffff;
+  color: #0d72d9;
+  box-shadow: 3px 3px 0 #0d72d9;
+}
+
+.soh-cert img {
+  width: 100%;
+  max-height: 52px;
+  object-fit: contain;
+}
+
+.soh-cert strong {
+  display: block;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.soh-cert small {
+  display: block;
+  margin-top: 4px;
+  font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px;
+  line-height: 1.25;
+}
+
 .detail-back {
   border: 2px solid #0d72d9;
   border-radius: 9999px;
@@ -456,6 +814,141 @@ span[data-tech]:hover {
   .project-detail-body {
     padding: 36px;
   }
+}
+
+@media (max-width: 639px) {
+  .project-detail-body span[data-tech] {
+    padding: 7px 11px;
+    font-size: 10px;
+  }
+
+  .project-detail-body span[data-tech] i,
+  .project-detail-body span[data-tech] svg {
+    width: 14px;
+    height: 14px;
+    font-size: 14px;
+  }
+
+  .mixcare-gallery {
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .soh-hero {
+    aspect-ratio: 4 / 3;
+    border-radius: 18px;
+  }
+
+  .soh-hero-logo { width: 42%; }
+  .soh-island { width: 31%; }
+
+  .soh-visual-card,
+  .soh-cert-panel {
+    width: 100%;
+    border-radius: 18px;
+  }
+
+  .soh-cert-panel {
+    aspect-ratio: auto;
+    padding: 14px;
+  }
+
+  .soh-cert {
+    grid-template-columns: 72px 1fr;
+    padding: 11px;
+  }
+
+  .mixcare-media,
+  .mixcare-media--video,
+  .mixcare-feature {
+    width: 100%;
+    border-radius: 18px;
+  }
+
+  .mixcare-media-label {
+    right: 10px;
+    bottom: 10px;
+    max-width: calc(100% - 20px);
+    padding: 8px 12px;
+    font-size: 11px;
+  }
+
+  .mixcare-media-label--left {
+    right: auto;
+    left: 10px;
+  }
+
+  .mixcare-media-label--location {
+    top: 68%;
+    right: auto;
+    bottom: auto;
+    left: 10%;
+    transform: translateY(-50%) rotate(-2deg);
+  }
+
+  .mixcare-info {
+    right: 8px;
+    bottom: 8px;
+    left: 8px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 0;
+  }
+
+  .mixcare-info > div {
+    padding: 7px 9px;
+  }
+
+  .mixcare-info dd {
+    font-size: 11px;
+  }
+
+  .mixcare-info > div:nth-child(n) {
+    grid-column: auto;
+    transform: none;
+  }
+
+  .mixcare-info > div:nth-child(3) {
+    grid-column: 1 / -1;
+  }
+
+  .mixcare-doodle--spark {
+    top: 18px;
+    left: 18px;
+    transform: scale(0.78) rotate(8deg);
+  }
+
+  .mixcare-doodle--plus {
+    top: 48%;
+    right: 16px;
+    transform: scale(0.75) rotate(6deg);
+  }
+
+  .mixcare-doodle--arrow {
+    display: none;
+  }
+
+  .mixcare-doodle--mini-spark {
+    top: 24%;
+    right: 12px;
+    transform: scale(0.72) rotate(-10deg);
+  }
+
+  .mixcare-doodle--ring {
+    top: 3%;
+    right: 14px;
+    transform: scale(0.72) rotate(7deg);
+  }
+
+  .mixcare-doodle--chevrons {
+    bottom: 32%;
+    left: 12px;
+    transform: scale(0.72) rotate(3deg);
+  }
+
+  .mixcare-doodle--orbit {
+    display: none;
+  }
+
 }
 
 #experience img {
@@ -635,6 +1128,109 @@ span[data-tech]:hover {
   transform: scale(1.08);
 }
 
+.subnav-active {
+  color: #ffffff !important;
+}
+
+.nav-home-tab-link.subnav-active {
+  background: #ffffff;
+  color: #0d72d9 !important;
+  box-shadow: 4px 4px 0 #0d72d9;
+}
+
+.nav-home-group {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  padding-bottom: 12px;
+  margin-bottom: -12px;
+}
+
+.nav-home-group > .nav-link {
+  display: block;
+}
+
+.nav-home-tab {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  width: max-content;
+  max-width: 310px;
+  padding: 0;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 0.1em;
+  text-align: left;
+  text-transform: uppercase;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px) scale(0.96);
+  transform-origin: top right;
+  transition: opacity 280ms ease, transform 280ms cubic-bezier(0.22, 1, 0.36, 1), visibility 280ms;
+}
+
+.nav-home-group:hover .nav-home-tab,
+.nav-home-group:focus-within .nav-home-tab {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.nav-home-tab-link {
+  display: block;
+  width: max-content;
+  max-width: 270px;
+  padding: 11px 15px;
+  border: 2px solid #ffffff;
+  border-radius: 999px;
+  background: #0d72d9;
+  box-shadow: 3px 3px 0 #ffffff;
+  color: #ffffff;
+  text-align: right;
+  transition: color 450ms cubic-bezier(0.22, 1, 0.36, 1), background-color 450ms cubic-bezier(0.22, 1, 0.36, 1), transform 450ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 450ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-home-tab-link + .nav-home-tab-link {
+  border-top: 2px solid #ffffff;
+}
+
+.nav-home-tab-link:hover,
+.nav-home-tab-link:focus-visible {
+  background: #ffffff;
+  color: #0d72d9;
+  box-shadow: 4px 4px 0 #0d72d9;
+  transform: scale(1.06) rotate(2deg);
+}
+
+.nav-home-tab-link:nth-child(even):hover,
+.nav-home-tab-link:nth-child(even):focus-visible {
+  transform: scale(1.06) rotate(-2deg);
+}
+
+.nav-experience-tab-link {
+  width: fit-content;
+  white-space: nowrap;
+  text-align: left;
+}
+
+@media (max-width: 767px) {
+  #mobileMenu .nav-link {
+    text-align: left;
+  }
+}
+
+.nav-experience-tab {
+  right: auto;
+  left: 0;
+  align-items: flex-start;
+}
+
 @media (min-width: 768px) {
   .nav-link {
     color: #ffffff !important;
@@ -745,12 +1341,36 @@ html.hero-pixel-hover * {
             </a>
 
             <!-- Desktop nav -->
-            <nav class="hidden md:flex gap-6 sm:gap-10 md:gap-12">
-                <a class="nav-link text-xs font-bold uppercase tracking-widest transition-colors duration-[450ms] ease-out hover:opacity-50 transition-opacity"
-                    data-view="home" href="#home">Home</a>
+            <nav class="hidden md:flex items-start gap-6 sm:gap-10 md:gap-12">
+                <div class="nav-home-group">
+                    <a class="nav-link text-xs font-bold uppercase tracking-widest transition-colors duration-[450ms] ease-out hover:opacity-50 transition-opacity"
+                        data-view="home" href="#home">Home</a>
+                    <div class="nav-home-tab">
+                        <a class="nav-home-tab-link" data-view-target="healthcare" href="#healthcare">
+                            Immersive Healthcare<br>&amp; Serious Games
+                        </a>
+                        <a class="nav-home-tab-link" data-home-card="industry-project" href="#industry-project">
+                            Human Machine<br>Interfaces &amp; Simulations
+                        </a>
+                        <a class="nav-home-tab-link" data-home-card="game-art-project" href="#game-art-project">
+                            Instructor, Game Art<br>&amp; Procedural Workflows
+                        </a>
+                        <a class="nav-home-tab-link" data-home-card="fullstack-project" href="#fullstack-project">
+                            Backend Systems<br>Mobile Apps &amp; Webs
+                        </a>
+                    </div>
+                </div>
 
-                <a class="nav-link text-xs font-bold uppercase tracking-widest transition-colors duration-[450ms] ease-out hover:opacity-50 transition-opacity"
-                    data-view="experience" href="#experience">Experience</a>
+                <div class="nav-home-group">
+                    <a class="nav-link text-xs font-bold uppercase tracking-widest transition-colors duration-[450ms] ease-out hover:opacity-50 transition-opacity"
+                        data-view="experience" href="#experience">Experience</a>
+                    <div class="nav-home-tab nav-experience-tab">
+                        <a class="nav-home-tab-link nav-experience-tab-link" data-experience-target="work-experience"
+                            href="#work-experience">Work Experience</a>
+                        <a class="nav-home-tab-link nav-experience-tab-link" data-experience-target="education"
+                            href="#education">Education</a>
+                    </div>
+                </div>
 
             </nav>
 
@@ -784,8 +1404,38 @@ html.hero-pixel-hover * {
                 <a class="nav-link mobile-item text-4xl font-extrabold tight-kerning uppercase opacity-0 translate-y-3 transition-colors duration-[450ms] ease-out"
                     style="transition-delay: 80ms;" data-view="home" href="#home">Home</a>
 
+                <div class="flex flex-col items-start gap-3 pl-5 border-l-2 border-white/40">
+                    <a class="nav-link mobile-item text-lg font-bold uppercase tracking-wide opacity-0 translate-y-3"
+                        style="transition-delay: 120ms;" data-view-target="healthcare" href="#healthcare">
+                        Immersive Healthcare &amp; Serious Games
+                    </a>
+                    <a class="nav-link mobile-item text-lg font-bold uppercase tracking-wide opacity-0 translate-y-3"
+                        style="transition-delay: 150ms;" data-home-card="industry-project" href="#industry-project">
+                        Human Machine Interfaces &amp; Simulations
+                    </a>
+                    <a class="nav-link mobile-item text-lg font-bold uppercase tracking-wide opacity-0 translate-y-3"
+                        style="transition-delay: 180ms;" data-home-card="game-art-project" href="#game-art-project">
+                        Instructor, Game Art &amp; Procedural Workflows
+                    </a>
+                    <a class="nav-link mobile-item text-lg font-bold uppercase tracking-wide opacity-0 translate-y-3"
+                        style="transition-delay: 210ms;" data-home-card="fullstack-project" href="#fullstack-project">
+                        Backend Systems, Mobile Apps &amp; Webs
+                    </a>
+                </div>
+
                 <a class="nav-link mobile-item text-4xl font-extrabold tight-kerning uppercase opacity-0 translate-y-3 transition-colors duration-[450ms] ease-out"
                     style="transition-delay: 240ms;" data-view="experience" href="#experience">Experience</a>
+
+                <div class="flex flex-col items-start gap-3 pl-5 border-l-2 border-white/40">
+                    <a class="nav-link mobile-item text-lg font-bold uppercase tracking-wide opacity-0 translate-y-3"
+                        style="transition-delay: 280ms;" data-experience-target="work-experience" href="#work-experience">
+                        Work Experience
+                    </a>
+                    <a class="nav-link mobile-item text-lg font-bold uppercase tracking-wide opacity-0 translate-y-3"
+                        style="transition-delay: 320ms;" data-experience-target="education" href="#education">
+                        Education
+                    </a>
+                </div>
 
             </nav>
         </div>
@@ -949,7 +1599,7 @@ html.hero-pixel-hover * {
                 </div>
 
                 <!-- Industry 4.0 Interactive Systems -->
-                <div class="project-card mb-12">
+                <div id="industry-project" class="project-card mb-12">
 
 
                     <!-- Content -->
@@ -978,7 +1628,7 @@ html.hero-pixel-hover * {
                 </div>
 
                 <!-- Game Art & Technical Art -->
-                <div class="project-card mb-12">
+                <div id="game-art-project" class="project-card mb-12">
 
 
                     <!-- Content -->
@@ -1006,7 +1656,7 @@ html.hero-pixel-hover * {
                 </div>
 
                 <!-- App & Web Development -->
-                <div class="project-card mb-12">
+                <div id="fullstack-project" class="project-card mb-12">
 
                     <!-- Image -->
                     <div class="w-full aspect-[4/3] bg-white/5 overflow-hidden">
@@ -1055,48 +1705,111 @@ html.hero-pixel-hover * {
             </div>
 
             <article class="project-detail mb-12 sm:mb-16">
-                <div class="w-full aspect-[16/9] bg-white overflow-hidden">
-                    <img src="assets/projects/itimind.jpg" alt="XR system being tested in a clinical environment"
-                        class="w-full h-full object-cover">
-                </div>
-
                 <header class="project-detail-header">
                     <p class="text-[11px] font-bold uppercase tracking-[0.3em] mb-3">
-                        Project 01 &middot; Mixcare
+                        &middot; Mixcare &middot;
                     </p>
                     <h2 class="text-4xl font-extrabold tight-kerning">
-                        Mixed Reality for Preoperative Anxiety
+                        Mixed Reality &amp; Biosensors for Preoperative Anxiety
                     </h2>
-                    <div class="flex flex-wrap gap-2 mt-6">
-                        <span class="rounded-full border-2 border-[#0d72d9] px-4 py-2 text-xs font-bold uppercase">Mixed Reality</span>
-                        <span class="rounded-full border-2 border-[#0d72d9] px-4 py-2 text-xs font-bold uppercase">Biofeedback</span>
-                        <span class="rounded-full border-2 border-[#0d72d9] px-4 py-2 text-xs font-bold uppercase">Healthcare</span>
+                    <div class="mt-6 max-w-3xl text-lg leading-relaxed"
+                        style="font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
+                        <p>
+                            Mixcare is a mixed reality experience that helps patients manage anxiety before surgery
+                            while remaining connected to their real surroundings. Non-invasive sensors capture heart
+                            rate and breathing in real time, represented through an emotional avatar that supports
+                            guided relaxation. A clinical pilot at La Fe University and Polytechnic Hospital evaluates
+                            its comfort, effectiveness, and potential integration into preoperative care.
+                        </p>
                     </div>
+                    <a href="https://lafe.san.gva.es/es/-/mixcare" target="_blank" rel="noopener noreferrer"
+                        class="block w-fit mt-5 border-b-2 border-[#0d72d9] text-sm font-bold uppercase tracking-[0.16em] transition-transform hover:scale-105">
+                        Official research ↗
+                    </a>
                 </header>
+
+                <div class="mixcare-gallery">
+                    <span class="mixcare-doodle mixcare-doodle--spark" aria-hidden="true">✦</span>
+                    <span class="mixcare-doodle mixcare-doodle--plus" aria-hidden="true">+</span>
+                    <span class="mixcare-doodle mixcare-doodle--arrow" aria-hidden="true">➜</span>
+                    <span class="mixcare-doodle mixcare-doodle--mini-spark" aria-hidden="true">✧</span>
+                    <span class="mixcare-doodle mixcare-doodle--ring" aria-hidden="true">⊕</span>
+                    <span class="mixcare-doodle mixcare-doodle--chevrons" aria-hidden="true">»»</span>
+                    <span class="mixcare-doodle mixcare-doodle--orbit" aria-hidden="true">✦</span>
+                    <div class="mixcare-feature">
+                        <figure class="mixcare-media mixcare-media--video">
+                            <video autoplay muted loop playsinline preload="metadata"
+                                aria-label="Mixcare project demonstration">
+                                <source src="assets/projects/mixcare_04.mp4" type="video/mp4">
+                            </video>
+                            <figcaption class="mixcare-media-label mixcare-media-label--left">
+                                Biofeedback collection<br>Heart rate &amp; breathing
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <figure class="mixcare-media mixcare-media--portrait">
+                        <img src="assets/projects/mixcare_02.jpeg"
+                            alt="Mixcare immersive healthcare application">
+                        <figcaption class="mixcare-media-label mixcare-media-label--tilt">
+                            Mixed reality relaxation
+                        </figcaption>
+                    </figure>
+                    <figure class="mixcare-media mixcare-media--landscape">
+                        <img src="assets/projects/mixcare_03.jpeg"
+                            alt="Mixcare mixed reality interaction">
+                        <figcaption class="mixcare-media-label mixcare-media-label--left">
+                            Spatial setup<br>Scanning the environment
+                        </figcaption>
+                    </figure>
+                    <figure class="mixcare-media mixcare-media--landscape">
+                        <img src="assets/projects/itimind.jpg"
+                            alt="Mixcare project in a clinical setting">
+                        <figcaption class="mixcare-media-label mixcare-media-label--tilt">
+                            Hospital La Fe<br>Valencia, Spain
+                        </figcaption>
+                    </figure>
+                </div>
 
                 <div class="project-detail-body grid md:grid-cols-2 gap-8 md:gap-12">
                     <div>
-                        <h2 class="text-sm font-bold uppercase tracking-[0.25em] mb-4">// Overview</h2>
-                        <p class="text-lg leading-relaxed"
-                            style="font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
-                            Mixcare combines mixed reality and non-invasive sensors to help patients recognize and
-                            manage anxiety before surgery while remaining connected to the real hospital environment.
-                        </p>
+                        <h2 class="text-sm font-bold uppercase tracking-[0.25em] mb-4">// Technology used</h2>
+                        <div class="flex flex-wrap gap-3">
+                            <span data-tech="OpenXR" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]">
+                                <i class="material-symbols-outlined text-base leading-none not-italic">deployed_code</i>
+                                OpenXR
+                            </span>
+                            <span data-tech="Unity" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]">
+                                <i class="devicon-unity-plain text-base leading-none"></i>
+                                Unity
+                            </span>
+                            <span data-tech="Meta SDK" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]">
+                                <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M4.5 9.5C5 7.8 6.4 7 8.2 7h7.6c1.8 0 3.2.8 3.7 2.5l.8 3.4c.4 1.8-.9 3.6-2.8 3.6h-2.1c-.8 0-1.4-.4-1.8-1.1l-.4-.7c-.2-.4-.7-.7-1.2-.7s-1 .3-1.2.7l-.4.7c-.4.7-1 1.1-1.8 1.1H6.5c-1.9 0-3.2-1.8-2.8-3.6l.8-3.4Z" stroke="currentColor" stroke-width="1.8"/>
+                                </svg>
+                                Meta SDK
+                            </span>
+                            <span data-tech="Mixed Reality" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]">
+                                <i class="material-symbols-outlined text-base leading-none not-italic">view_in_ar</i>
+                                Mixed Reality
+                            </span>
+                            <span data-tech="Wearables" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]">
+                                <i class="material-symbols-outlined text-base leading-none not-italic">watch</i>
+                                Wearables
+                            </span>
+                        </div>
                     </div>
-
                     <div>
-                        <h2 class="text-sm font-bold uppercase tracking-[0.25em] mb-4">// Project focus</h2>
+                        <h2 class="text-sm font-bold uppercase tracking-[0.25em] mb-4">// My contributions</h2>
                         <ul class="space-y-3 text-lg leading-relaxed"
                             style="font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
-                            <li>&bull; Real-time heart rate and breathing biofeedback.</li>
-                            <li>&bull; Emotional avatar and guided relaxation strategies.</li>
-                            <li>&bull; Participatory validation in a clinical pilot at Hospital La Fe.</li>
+                            <li>&bull; Scanned and integrated the hospital room into the mixed reality experience.</li>
+                            <li>&bull; Developed a virtual mascot that reflects the patient&rsquo;s vital signs and received biofeedback.</li>
                         </ul>
                     </div>
                 </div>
             </article>
 
-            <article class="project-detail mb-12 sm:mb-16">
+            <article class="project-detail mb-12 sm:mb-16 hidden">
                 <div class="w-full aspect-[16/9] bg-white overflow-hidden">
                     <img src="assets/lunar_adventure.webp" alt="Cognitive training serious game"
                         class="w-full h-full object-cover">
@@ -1139,42 +1852,74 @@ html.hero-pixel-hover * {
             </article>
 
             <article class="project-detail">
-                <div class="w-full aspect-[16/9] bg-white overflow-hidden">
-                    <img src="assets/projects/seaofheroes.jpg" alt="Sea of Heroes New World"
-                        class="w-full h-full object-contain">
-                </div>
-
                 <header class="project-detail-header">
                     <p class="text-[11px] font-bold uppercase tracking-[0.3em] mb-3">
-                        Project 03 &middot; Digital Therapeutics
+                        &middot; Sea of Heroes: New World &middot;
                     </p>
                     <h2 class="text-4xl font-extrabold tight-kerning">
-                        Sea of Heroes: New World
+                        CE-Marked Class IIa Mobile Therapeutic App
                     </h2>
-                    <div class="flex flex-wrap gap-2 mt-6">
-                        <span class="rounded-full border-2 border-[#0d72d9] px-4 py-2 text-xs font-bold uppercase">Unity</span>
-                        <span class="rounded-full border-2 border-[#0d72d9] px-4 py-2 text-xs font-bold uppercase">Adaptive AI</span>
-                        <span class="rounded-full border-2 border-[#0d72d9] px-4 py-2 text-xs font-bold uppercase">Medical Device</span>
-                    </div>
+                    <p class="mt-6 max-w-3xl text-lg leading-relaxed"
+                        style="font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
+                        Sea of Heroes: New World is a CE-marked Class IIa digital therapeutic for children with
+                        combined-type ADHD. Through personalized serious games, its adaptive AI adjusts difficulty to
+                        each child&rsquo;s progress during short sessions prescribed and monitored by neuropsychology professionals.
+                    </p>
+                    <a href="https://seaofheroes.com/" target="_blank" rel="noopener noreferrer"
+                        class="block w-fit mt-5 border-b-2 border-[#0d72d9] text-sm font-bold uppercase tracking-[0.16em] transition-transform hover:scale-105">
+                        Official Sea of Heroes website ↗
+                    </a>
                 </header>
+
+                <div class="mixcare-gallery soh-gallery">
+                    <span class="mixcare-doodle mixcare-doodle--spark" aria-hidden="true">✦</span>
+                    <span class="mixcare-doodle mixcare-doodle--plus" aria-hidden="true">+</span>
+                    <span class="mixcare-doodle mixcare-doodle--mini-spark" aria-hidden="true">✧</span>
+
+                    <figure class="soh-visual-card">
+                        <img src="assets/projects/soh-brochetas.png" alt="Brochetas game from Sea of Heroes">
+                        <figcaption class="mixcare-media-label mixcare-media-label--left">
+                            Personalized serious games<br>Adaptive difficulty
+                        </figcaption>
+                    </figure>
+
+                    <figure class="soh-visual-card">
+                        <img src="assets/projects/soh-islas.png" alt="Sea of Heroes game islands">
+                        <figcaption class="mixcare-media-label mixcare-media-label--tilt">
+                            CE-Marked Class IIa<br>Medical Device
+                        </figcaption>
+                    </figure>
+                </div>
 
                 <div class="project-detail-body grid md:grid-cols-2 gap-8 md:gap-12">
                     <div>
-                        <h2 class="text-sm font-bold uppercase tracking-[0.25em] mb-4">// Overview</h2>
-                        <p class="text-lg leading-relaxed"
-                            style="font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
-                            A personalized cognitive training application for children. Its AI adjusts session
-                            difficulty in real time according to each child&rsquo;s needs and progress.
-                        </p>
+                        <h2 class="text-sm font-bold uppercase tracking-[0.25em] mb-4">// Technology used</h2>
+                        <div class="flex flex-wrap gap-3">
+                            <span data-tech="Unity" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]">
+                                <i class="devicon-unity-plain text-base leading-none"></i>Unity
+                            </span>
+                            <span data-tech="UX/UI" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]">
+                                <i class="material-symbols-outlined text-base leading-none not-italic">design_services</i>UX/UI
+                            </span>
+                            <span data-tech="Android" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]">
+                                <i class="devicon-android-plain text-base leading-none"></i>Android
+                            </span>
+                            <span data-tech="iOS" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]">
+                                <i class="devicon-apple-original text-base leading-none"></i>iOS
+                            </span>
+                            <span data-tech="Adaptive AI" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]">
+                                <i class="material-symbols-outlined text-base leading-none not-italic">neurology</i>Adaptive AI
+                            </span>
+                        </div>
                     </div>
 
                     <div>
-                        <h2 class="text-sm font-bold uppercase tracking-[0.25em] mb-4">// Product model</h2>
+                        <h2 class="text-sm font-bold uppercase tracking-[0.25em] mb-4">// My contributions</h2>
                         <ul class="space-y-3 text-lg leading-relaxed"
                             style="font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
-                            <li>&bull; Prescribed by healthcare professionals.</li>
-                            <li>&bull; Remote cognitive training in a video game format.</li>
-                            <li>&bull; Professional monitoring of performance and progression.</li>
+                            <li>&bull; Calculated patient performance metrics to measure progress and improvement.</li>
+                            <li>&bull; Cleaned and prepared frontend data to support the AI model for each patient profile.</li>
+                            <li>&bull; Gamified cognitive exercise activities into engaging mobile experiences.</li>
                         </ul>
                     </div>
                 </div>
@@ -1185,7 +1930,7 @@ html.hero-pixel-hover * {
         <!-- Experience -->
         <!-- <section id="experience" class="mt-24 sm:mt-36 md:mt-64 w-full max-w-5xl"> -->
         <section id="experience" class=" w-full max-w-5xl">
-            <h1 class="text-[16px] font-bold uppercase tracking-[0.3em] mb-14">// Work experience</h1>
+            <h1 id="work-experience" class="text-[16px] font-bold uppercase tracking-[0.3em] mb-14">// Work experience</h1>
 
             <div>
                 <!-- <h3 class="text-[10px] font-bold uppercase tracking-[0.3em] text-accent mb-10">Work experience</h3> -->
@@ -1429,7 +2174,7 @@ html.hero-pixel-hover * {
             </div>
             </div>
 
-            <h1 class="text-[16px] font-bold uppercase tracking-[0.3em] mt-14 mb-14">// Education</h1>
+            <h1 id="education" class="text-[16px] font-bold uppercase tracking-[0.3em] mt-14 mb-14">// Education</h1>
 
             <div class="education-list space-y-10">
 
@@ -1778,6 +2523,16 @@ html.hero-pixel-hover * {
             });
         }
 
+        function setActiveSubnav(target) {
+            const controls = document.querySelectorAll("[data-view-target], [data-home-card], [data-experience-target]");
+            controls.forEach((control) => {
+                const value = control.getAttribute("data-view-target") ||
+                    control.getAttribute("data-home-card") ||
+                    control.getAttribute("data-experience-target");
+                control.classList.toggle("subnav-active", value === target);
+            });
+        }
+
         function scrollTop() {
             window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
         }
@@ -1803,6 +2558,7 @@ html.hero-pixel-hover * {
             }
 
             setActiveNav(view === "healthcare" ? "home" : view);
+            setActiveSubnav(view === "healthcare" ? "healthcare" : (view === "experience" ? "work-experience" : null));
             scrollTop();
         }
 
@@ -1831,6 +2587,7 @@ html.hero-pixel-hover * {
                 if (!target) return;
                 history.replaceState(null, "", "#" + target);
                 showView(target);
+                closeMenu();
             }
 
             control.addEventListener("click", openTargetView);
@@ -1838,6 +2595,40 @@ html.hero-pixel-hover * {
                 if (event.key !== "Enter" && event.key !== " ") return;
                 event.preventDefault();
                 openTargetView();
+            });
+        });
+
+        document.querySelectorAll("[data-home-card]").forEach((control) => {
+            control.addEventListener("click", (event) => {
+                event.preventDefault();
+                const targetId = control.getAttribute("data-home-card");
+                const targetCard = targetId ? document.getElementById(targetId) : null;
+                if (!targetCard) return;
+
+                history.replaceState(null, "", "#" + targetId);
+                showView("home");
+                setActiveSubnav(targetId);
+                closeMenu();
+                requestAnimationFrame(() => {
+                    targetCard.scrollIntoView({ behavior: "smooth", block: "center" });
+                });
+            });
+        });
+
+        document.querySelectorAll("[data-experience-target]").forEach((control) => {
+            control.addEventListener("click", (event) => {
+                event.preventDefault();
+                const targetId = control.getAttribute("data-experience-target");
+                const targetSection = targetId ? document.getElementById(targetId) : null;
+                if (!targetSection) return;
+
+                history.replaceState(null, "", "#" + targetId);
+                showView("experience");
+                setActiveSubnav(targetId);
+                closeMenu();
+                requestAnimationFrame(() => {
+                    targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+                });
             });
         });
 
