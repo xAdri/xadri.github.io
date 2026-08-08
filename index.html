@@ -1324,10 +1324,113 @@ body > header {
 }
 
 .hero-photo {
+  position: relative;
+  z-index: 2;
   scale: 1;
   rotate: 0deg;
   transform-origin: center bottom;
   transition: scale 300ms ease, rotate 300ms ease;
+}
+
+.hero-hover-art {
+  position: absolute;
+  top: 5rem;
+  right: -17rem;
+  z-index: 1;
+  display: none;
+  width: 34rem;
+  pointer-events: none;
+  opacity: 0;
+  scale: 0;
+  rotate: 0deg;
+  transform-origin: left bottom;
+  filter: drop-shadow(0 10px 18px rgba(13, 114, 217, 0.28));
+  transition: opacity 320ms ease, scale 420ms cubic-bezier(0.22, 1, 0.36, 1), rotate 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-hover-art--under {
+  top: 20rem;
+  right: -23em;
+  z-index: 0;
+  rotate: 0deg;
+  transform-origin: -1rem 5rem;
+}
+
+.hero-hover-art--top {
+  z-index: 1;
+  rotate: 2.5deg;
+}
+
+.hero-hover-art-image {
+  display: block;
+  width: 100%;
+  transform-origin: right center;
+}
+
+.hero-photo.is-hovered ~ .hero-hover-art {
+  opacity: 1;
+  scale: 1;
+  rotate: 0deg;
+}
+
+.hero-photo.is-hovered ~ .hero-hover-art--under {
+  rotate: 5deg;
+  animation: hero-under-to-front 560ms ease-in-out 20ms forwards;
+}
+
+.hero-photo.is-hovered ~ .hero-hover-art--under .hero-hover-art-image {
+  animation: hero-under-settle-subtle 560ms cubic-bezier(0.4, 0, 0.2, 1) 20ms forwards;
+}
+
+.hero-photo.is-hovered ~ .hero-hover-art--top {
+  rotate: 2.5deg;
+  animation: hero-top-to-front 560ms ease-in-out forwards;
+}
+
+.hero-photo.is-hovered ~ .hero-hover-art--top .hero-hover-art-image {
+  animation: hero-under-settle 560ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes hero-under-to-front {
+  0%, 78% {
+    z-index: 0;
+  }
+  79%, 100% {
+    z-index: 2;
+  }
+}
+
+@keyframes hero-top-to-front {
+  0%, 78% {
+    z-index: 1;
+  }
+  79%, 100% {
+    z-index: 2;
+  }
+}
+
+@keyframes hero-under-settle {
+  0% {
+    transform: scaleX(1) scaleY(1) skewX(0deg);
+  }
+  78% {
+    transform: scaleX(0.72) scaleY(1.01) skewX(-1.5deg);
+  }
+  100% {
+    transform: scaleX(1) scaleY(1) skewX(0deg);
+  }
+}
+
+@keyframes hero-under-settle-subtle {
+  0% {
+    transform: scaleX(1) scaleY(1) skewX(0deg);
+  }
+  78% {
+    transform: scaleX(0.84) scaleY(1.005) skewX(-0.75deg);
+  }
+  100% {
+    transform: scaleX(1) scaleY(1) skewX(0deg);
+  }
 }
 
 .hero-photo.is-hovered {
@@ -1339,6 +1442,12 @@ body > header {
 @media (min-width: 768px) {
   .hero-photo {
     translate: calc(27% - 80px) 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-hover-art {
+    display: block;
   }
 }
 
@@ -1492,12 +1601,18 @@ html.hero-pixel-hover * {
         <!-- Hero -->
         <!-- <div class="max-w-5xl w-full mb-20 sm:mb-28 md:mb-48"> -->
         <div class="max-w-5xl w-full mb-20 sm:mb-28">
-            <div id="personal" class="relative md:pt-[16rem]">
+            <div id="personal" class="relative isolate md:pt-[16rem]">
 
                 <img src="assets/me_light_3.webp" alt="" class="hero-photo translate-x-20 -mb-20 md:translate-x-0 md:absolute md:top-[6rem] md:w-[40rem] md:right-0 lg:w-[40rem] lg:absolute lg:right-0" />
+                <div class="hero-hover-art hero-hover-art--under" aria-hidden="true">
+                    <img src="assets/adri_01.png" alt="" class="hero-hover-art-image" />
+                </div>
+                <div class="hero-hover-art hero-hover-art--top" aria-hidden="true">
+                    <img src="assets/adri_03.png" alt="" class="hero-hover-art-image" />
+                </div>
 
                 <h1
-                    class="text-[2.75rem] sm:text-[6.5rem] md:text-[6.5rem] font-extrabold leading-[0.9] break-words tight-kerning relative">
+                    class="text-[2.75rem] sm:text-[6.5rem] md:text-[6.5rem] font-extrabold leading-[0.9] break-words tight-kerning relative z-[3]">
                     <span class="lwr-box">
                         <span class="visible" data-role="software"><span class="title-line">Software</span><span class="title-line">Engineer</span></span>
                         <span data-role="unityxr"><span class="title-line">Unity XR</span><span class="title-line">Developer</span></span>
