@@ -286,12 +286,16 @@ filter: url(#displacementFilter);
   position: relative;
 }
 
-.lwr-box * {
+.lwr-box > span {
   position: absolute;
   opacity: 0;
   transition: opacity .4s ease-in-out, filter .4s ease-in-out;
   filter: blur(20px);
   white-space: nowrap;
+}
+
+.lwr-box .title-line {
+  display: block;
 }
 
 .lwr-box .visible{
@@ -708,9 +712,9 @@ html.hero-pixel-hover * {
                 <h1
                     class="text-[2.75rem] sm:text-[6.5rem] md:text-[6.5rem] font-extrabold leading-[0.9] break-words tight-kerning relative">
                     <span class="lwr-box">
-                        <span class="visible" data-role="software">Software<br>Engineer</span>
-                        <span data-role="unityxr">Unity XR<br>Developer</span>
-                        <span data-role="techart">Tech Art<br>Instructor</span>
+                        <span class="visible" data-role="software"><span class="title-line">Software</span><span class="title-line">Engineer</span></span>
+                        <span data-role="unityxr"><span class="title-line">Unity XR</span><span class="title-line">Developer</span></span>
+                        <span data-role="techart"><span class="title-line">Tech Art</span><span class="title-line">Instructor</span></span>
                     </span><br />
                     <br>
                     <!-- Developer -->
@@ -1643,7 +1647,7 @@ html.hero-pixel-hover * {
         var lwr = 0;
 
         function listenWatchRead() {
-            var spans = document.querySelectorAll(".lwr-box span");
+            var spans = document.querySelectorAll(".lwr-box > span");
 
             spans.forEach(function (span) {
                 span.classList.remove("visible");
@@ -1719,7 +1723,7 @@ html.hero-pixel-hover * {
             showView(initialView);
 
             // 3) Inicializa chips + animacion LWR (respetando el texto visible actual)
-            var firstVisible = document.querySelector(".lwr-box span.visible");
+            var firstVisible = document.querySelector(".lwr-box > span.visible");
             var role = firstVisible ? (firstVisible.dataset.role || "") : "software";
             setTechChipsMode(role);
             initializeHeroPhotoHitArea();
