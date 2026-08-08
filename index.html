@@ -533,15 +533,22 @@ span[data-tech]:hover {
   color: #0d72d9;
 }
 
-.site-footer img {
+.site-footer .footer-icon {
+  display: block;
   width: 26px;
   height: 26px;
-  filter: brightness(0) saturate(100%) invert(34%) sepia(97%) saturate(1489%) hue-rotate(190deg) brightness(88%) contrast(99%);
+  background-color: #0d72d9;
+  -webkit-mask: var(--footer-icon) center / contain no-repeat;
+  mask: var(--footer-icon) center / contain no-repeat;
   transition: transform 220ms ease;
 }
 
-.site-footer a:hover img {
-  filter: brightness(0) saturate(100%) invert(100%);
+.site-footer .footer-icon img {
+  opacity: 0;
+}
+
+.site-footer .footer-icon:hover {
+  background-color: #ffffff;
   transform: scale(1.154);
 }
 
@@ -1413,29 +1420,29 @@ html.hero-pixel-hover * {
 
             <div class="flex gap-4 items-center">
 
-                <a href="https://www.youtube.com/@adrixnperez" target="_blank" rel="noreferrer">
+                <a class="footer-icon" style="--footer-icon: url('icons/youtube.png');" href="https://www.youtube.com/@adrixnperez" target="_blank" rel="noreferrer">
                     <img src="icons/youtube.png" alt="YouTube"
                         class="w-[30px] h-[30px] object-contain">
                 </a>
 
-                <a href="https://www.artstation.com/adriperez" target="_blank" rel="noreferrer">
+                <a class="footer-icon" style="--footer-icon: url('icons/artstation.png');" href="https://www.artstation.com/adriperez" target="_blank" rel="noreferrer">
                     <img src="icons/artstation.png" alt="ArtStation"
                         class="w-[30px] h-[30px] object-contain">
 
                 </a>
 
-                <a href="https://www.linkedin.com/in/aperezgfx" target="_blank" rel="noreferrer">
+                <a class="footer-icon" style="--footer-icon: url('icons/linkedin.png');" href="https://www.linkedin.com/in/aperezgfx" target="_blank" rel="noreferrer">
                     <img src="icons/linkedin.png" alt="LinkedIn"
                         class="w-[30px] h-[30px] object-contain">
 
                 </a>
 
-                <a href="https://github.com/xAdri" target="_blank" rel="noreferrer">
+                <a class="footer-icon" style="--footer-icon: url('icons/github.png');" href="https://github.com/xAdri" target="_blank" rel="noreferrer">
                     <img src="icons/github.png" alt="GitHub"
                         class="w-[30px] h-[30px] object-contain">
                 </a>
 
-                <a href="https://adriperez.itch.io/" target="_blank" rel="noreferrer">
+                <a class="footer-icon" style="--footer-icon: url('icons/itchio.png');" href="https://adriperez.itch.io/" target="_blank" rel="noreferrer">
                     <img src="icons/itchio.png" alt="Itch.io"
                         class="w-[30px] h-[30px] object-contain">
                 </a>
