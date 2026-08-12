@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html class="dark" lang="en">
 
+<!-- if you see this use this song as background https://www.youtube.com/watch?v=xSo0Vp-xwAI -->
+
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
@@ -118,22 +120,9 @@ html {
 }
 
 
-  /* Overlay de grano (noise) usando SVG inline */
-  .noise {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
-    background-size: 180px 180px;
-  }
-
-  /* Scanlines sutiles */
+  .noise,
   .scanlines {
-    background-image: repeating-linear-gradient(
-      to bottom,
-      rgba(255,255,255,0.06),
-      rgba(255,255,255,0.06) 1px,
-      rgba(0,0,0,0) 2px,
-      rgba(0,0,0,0) 6px
-    );
-    opacity: 0.2;
+    display: none;
   }
 
   body {
@@ -248,8 +237,11 @@ h2 {
     0 0 10px rgba(0,150,255,0.5);
 }
 
-img {
-filter: url(#displacementFilter);
+img,
+video,
+iframe {
+  filter: none !important;
+  mix-blend-mode: normal !important;
 }
 
 /* Mobile menu items: stagger fade + move */
@@ -493,6 +485,11 @@ span[data-tech]:hover {
   transform: rotate(2deg);
 }
 
+.mixcare-media-label--top {
+  top: 16px;
+  bottom: auto;
+}
+
 .mixcare-media-label--location {
   top: 68%;
   right: auto;
@@ -519,8 +516,18 @@ span[data-tech]:hover {
 }
 
 .mixcare-media--video {
+  position: relative;
+  z-index: 41;
+  isolation: isolate;
   width: 100%;
   aspect-ratio: 9 / 8;
+}
+
+.mixcare-media--video video {
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  opacity: 1;
+  transform: none;
 }
 
 .mixcare-info {
@@ -791,6 +798,198 @@ span[data-tech]:hover {
   line-height: 1.25;
 }
 
+.gameart-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding: 15px;
+  background: #ffffff;
+}
+
+.gameart-media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #eaf5ff;
+}
+
+.gameart-media--featured {
+  grid-column: 1 / -1;
+}
+
+.gameart-media--portrait {
+  aspect-ratio: 2 / 3;
+}
+
+.gameart-media--panoramic {
+  aspect-ratio: 15 / 7;
+}
+
+.gameart-media--contain {
+  aspect-ratio: auto;
+  background: #ffffff;
+}
+
+.gameart-media--contain img {
+  height: auto;
+  object-fit: contain;
+}
+
+.gameart-media--wide-video {
+  aspect-ratio: 960 / 461;
+}
+
+@media (min-width: 640px) {
+  .industry-gallery .industry-main {
+    grid-column: 1 / -1;
+  }
+
+  .industry-gallery .industry-essential {
+    grid-column: 2;
+    grid-row: 3;
+    aspect-ratio: 4 / 3;
+  }
+
+  .industry-gallery .industry-production {
+    grid-column: 1;
+    grid-row: 2 / span 2;
+    height: 100%;
+    aspect-ratio: auto;
+  }
+
+  .industry-gallery .industry-enterprise {
+    grid-column: 2;
+    grid-row: 2;
+    aspect-ratio: 4 / 3;
+  }
+}
+
+.gameart-media img,
+.gameart-media video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.void-of-light-gif {
+  filter: brightness(1.12) !important;
+}
+
+.gameart-media iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.procedural-workflow {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  min-height: 320px;
+  padding: 28px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #0d72d9;
+}
+
+.procedural-workflow-step {
+  position: relative;
+  display: flex;
+  min-height: 230px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 22px;
+  overflow: visible;
+  border-radius: 20px;
+  background: #fff;
+  color: #0d72d9;
+}
+
+.procedural-workflow-step:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  right: -18px;
+  top: 50%;
+  z-index: 5;
+  padding: 5px 8px;
+  border: 2px solid #0d72d9;
+  border-radius: 999px;
+  background: #fff;
+  font-size: 18px;
+  line-height: 1;
+  transform: translateY(-50%);
+}
+
+.procedural-workflow-number {
+  font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .2em;
+}
+
+.procedural-workflow-icon {
+  font-size: 52px;
+  line-height: 1;
+}
+
+.procedural-workflow-step strong {
+  display: block;
+  font-size: clamp(20px, 2.2vw, 30px);
+  line-height: .95;
+  letter-spacing: -.04em;
+}
+
+.procedural-workflow-step small {
+  display: block;
+  margin-top: 8px;
+  font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px;
+  line-height: 1.25;
+}
+
+.gamejam-game-title {
+  grid-column: 1 / -1;
+  padding: 12px 4px 4px;
+  color: #0d72d9;
+}
+
+.gamejam-game-title h3 {
+  display: block;
+  font-size: clamp(26px, 4vw, 42px);
+  font-weight: 800;
+  line-height: .95;
+  letter-spacing: -.04em;
+}
+
+.gamejam-game-title span {
+  display: block;
+  margin-top: 7px;
+  font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+#fullstack:not(.hidden) {
+  display: flex;
+  flex-direction: column;
+}
+
+#fullstack > .detail-back {
+  order: 0;
+  align-self: flex-start;
+}
+#fullstack > .fullstack-intro { order: 1; }
+#fullstack > .fullstack-hundred { order: 2; }
+#fullstack > .fullstack-stm { order: 3; }
+#fullstack > .fullstack-chatripp { order: 4; }
+#fullstack > .fullstack-fitzgerald { order: 5; }
+
 .detail-back {
   border: 2px solid #0d72d9;
   border-radius: 9999px;
@@ -866,6 +1065,38 @@ span[data-tech]:hover {
     padding: 11px;
   }
 
+  .gameart-gallery {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .gameart-media,
+  .gameart-media--featured {
+    grid-column: 1;
+    border-radius: 18px;
+  }
+
+  .procedural-workflow {
+    grid-column: 1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-height: 0;
+    padding: 10px;
+  }
+
+  .procedural-workflow-step {
+    min-height: 170px;
+    padding: 16px;
+  }
+
+  .procedural-workflow-step::after {
+    display: none;
+  }
+
+  .procedural-workflow-icon {
+    font-size: 38px;
+  }
+
   .mixcare-media,
   .mixcare-media--video,
   .mixcare-feature {
@@ -884,6 +1115,11 @@ span[data-tech]:hover {
   .mixcare-media-label--left {
     right: auto;
     left: 10px;
+  }
+
+  .mixcare-media-label--top {
+    top: 10px;
+    bottom: auto;
   }
 
   .mixcare-media-label--location {
@@ -1547,13 +1783,13 @@ html.hero-pixel-hover * {
                         <a class="nav-home-tab-link" data-view-target="healthcare" href="#healthcare">
                             Immersive Healthcare<br>&amp; Serious Games
                         </a>
-                        <a class="nav-home-tab-link" data-home-card="industry-project" href="#industry-project">
+                        <a class="nav-home-tab-link" data-view-target="industry" href="#industry">
                             Human Machine<br>Interfaces &amp; Simulations
                         </a>
-                        <a class="nav-home-tab-link" data-home-card="game-art-project" href="#game-art-project">
+                        <a class="nav-home-tab-link" data-view-target="gameart" href="#gameart">
                             Instructor, Game Art<br>&amp; Procedural Workflows
                         </a>
-                        <a class="nav-home-tab-link" data-home-card="fullstack-project" href="#fullstack-project">
+                        <a class="nav-home-tab-link" data-view-target="fullstack" href="#fullstack">
                             Backend Systems<br>Mobile Apps &amp; Webs
                         </a>
                     </div>
@@ -1607,15 +1843,15 @@ html.hero-pixel-hover * {
                         Immersive Healthcare &amp; Serious Games
                     </a>
                     <a class="nav-link mobile-item text-lg font-bold uppercase tracking-wide opacity-0 translate-y-3"
-                        style="transition-delay: 150ms;" data-home-card="industry-project" href="#industry-project">
+                        style="transition-delay: 150ms;" data-view-target="industry" href="#industry">
                         Human Machine Interfaces &amp; Simulations
                     </a>
                     <a class="nav-link mobile-item text-lg font-bold uppercase tracking-wide opacity-0 translate-y-3"
-                        style="transition-delay: 180ms;" data-home-card="game-art-project" href="#game-art-project">
+                        style="transition-delay: 180ms;" data-view-target="gameart" href="#gameart">
                         Instructor, Game Art &amp; Procedural Workflows
                     </a>
                     <a class="nav-link mobile-item text-lg font-bold uppercase tracking-wide opacity-0 translate-y-3"
-                        style="transition-delay: 210ms;" data-home-card="fullstack-project" href="#fullstack-project">
+                        style="transition-delay: 210ms;" data-view-target="fullstack" href="#fullstack">
                         Backend Systems, Mobile Apps &amp; Webs
                     </a>
                 </div>
@@ -1805,7 +2041,8 @@ html.hero-pixel-hover * {
                 </div>
 
                 <!-- Industry 4.0 Interactive Systems -->
-                <div id="industry-project" class="project-card mb-12">
+                <div id="industry-project" class="project-card mb-12" data-view-target="industry" role="button" tabindex="0"
+                    aria-label="Open Industry 4.0 Interactive Systems">
 
 
                     <!-- Content -->
@@ -1834,7 +2071,8 @@ html.hero-pixel-hover * {
                 </div>
 
                 <!-- Game Art & Technical Art -->
-                <div id="game-art-project" class="project-card mb-12">
+                <div id="game-art-project" class="project-card mb-12" data-view-target="gameart" role="button" tabindex="0"
+                    aria-label="Open Instructor, Game Art and Procedural Workflows">
 
 
                     <!-- Content -->
@@ -1862,7 +2100,8 @@ html.hero-pixel-hover * {
                 </div>
 
                 <!-- App & Web Development -->
-                <div id="fullstack-project" class="project-card mb-12">
+                <div id="fullstack-project" class="project-card mb-12" data-view-target="fullstack" role="button" tabindex="0"
+                    aria-label="Open Fullstack Development projects">
 
                     <!-- Image -->
                     <div class="w-full aspect-[4/3] bg-white/5 overflow-hidden">
@@ -2130,8 +2369,575 @@ html.hero-pixel-hover * {
                     </div>
                 </div>
             </article>
+
         </section>
 
+
+        <section id="industry" class="hidden w-full max-w-5xl mb-12">
+            <button class="detail-back mb-8" type="button" data-view-target="home">
+                &larr; Back to work
+            </button>
+
+            <div class="mb-12 sm:mb-16">
+                <p class="text-[12px] font-bold uppercase tracking-[0.3em] mb-4">// Selected Industry 4.0 projects</p>
+                <h1 class="text-5xl sm:text-7xl md:text-8xl font-extrabold tight-kerning leading-[0.9]">
+                    Human Machine Interfaces & Simulations
+                </h1>
+                <p class="mt-8 max-w-2xl text-lg sm:text-xl leading-relaxed"
+                    style="font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
+                    Interactive software connecting industrial machinery, tooling, production data, and operators
+                    through real-time interfaces and automated workflows.
+                </p>
+            </div>
+
+            <article class="project-detail">
+                <header class="project-detail-header">
+                    <p class="text-[11px] font-bold uppercase tracking-[0.3em] mb-3">
+                        &middot; Smart Tooling Intralogistics &middot;
+                    </p>
+                    <h2 class="text-4xl font-extrabold tight-kerning">
+                        Connected Tooling Storage &amp; Production Control
+                    </h2>
+                    <p class="mt-6 max-w-3xl text-lg leading-relaxed"
+                        style="font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
+                        STI is a connected intralogistics ecosystem for the flexographic printing industry. It links
+                        storage systems, cranes, stackers, tooling inventory, and production planning to reduce manual
+                        handling, improve traceability, and give operators real-time control over industrial workflows.
+                    </p>
+                    <a href="https://www.flexo.solutions/es" target="_blank" rel="noopener noreferrer"
+                        class="block w-fit mt-5 border-b-2 border-[#0d72d9] text-sm font-bold uppercase tracking-[0.16em] transition-transform hover:scale-105">
+                        Official website ↗
+                    </a>
+                </header>
+
+                <div class="gameart-gallery industry-gallery">
+                    <figure class="gameart-media gameart-media--featured industry-main">
+                        <video src="assets/sti.mp4" autoplay muted loop playsinline preload="metadata"
+                            aria-label="Smart Tooling Intralogistics demonstration"></video>
+                        <figcaption class="mixcare-media-label mixcare-media-label--left">Connected industrial workflow</figcaption>
+                    </figure>
+                    <figure class="gameart-media industry-essential">
+                        <video src="assets/projects/sti-essential.mp4" autoplay muted loop playsinline preload="metadata"
+                            aria-label="STI Essential crane and stacker control demonstration"></video>
+                        <figcaption class="mixcare-media-label mixcare-media-label--tilt">Essential control<br>Cranes &amp; stackers</figcaption>
+                    </figure>
+                    <figure class="gameart-media gameart-media--portrait industry-production">
+                        <img src="assets/projects/sti-production.jpg" alt="STI Production Suite installation">
+                        <figcaption class="mixcare-media-label mixcare-media-label--tilt">Production Suite<br>ERP &amp; API connectivity</figcaption>
+                    </figure>
+                    <figure class="gameart-media gameart-media--panoramic industry-enterprise">
+                        <img src="assets/projects/sti-enterprise.jpg" alt="STI Enterprise Suite industrial installation">
+                        <figcaption class="mixcare-media-label mixcare-media-label--left">Enterprise Suite<br>Multi-department integration</figcaption>
+                    </figure>
+                    <figure class="gameart-media gameart-media--featured">
+                        <video src="assets/projects/sti-workflow-muted.mp4" autoplay muted loop playsinline preload="metadata"
+                            aria-label="Smart Tooling Intralogistics workflow demonstration"></video>
+                        <figcaption class="mixcare-media-label mixcare-media-label--left">Smart Tooling Intralogistics Workflow</figcaption>
+                    </figure>
+                </div>
+
+                <div class="project-detail-body grid md:grid-cols-2 gap-8 md:gap-12">
+                    <div>
+                        <h2 class="project-tech-heading text-sm font-bold uppercase tracking-[0.25em] mb-4">// Technology used</h2>
+                        <div class="project-tech-list flex flex-wrap gap-3">
+                            <span data-tech="Unity" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="devicon-unity-plain text-base leading-none"></i>Unity</span>
+                            <span data-tech="Python" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="devicon-python-plain text-base leading-none"></i>Python</span>
+                            <span data-tech="Django" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="devicon-django-plain text-base leading-none"></i>Django REST</span>
+                            <span data-tech="Docker" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="devicon-docker-plain text-base leading-none"></i>Docker</span>
+                            <span data-tech="DigitalOcean" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="devicon-digitalocean-plain text-base leading-none"></i>DigitalOcean</span>
+                            <span data-tech="PLC Connection" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="material-symbols-outlined text-base leading-none not-italic">cable</i>PLC Connection</span>
+                            <span data-tech="Low Latency" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="material-symbols-outlined text-base leading-none not-italic">speed</i>Low Latency</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="text-sm font-bold uppercase tracking-[0.25em] mb-4">// My contributions</h2>
+                        <ul class="space-y-3 text-lg leading-relaxed"
+                            style="font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
+                            <li>&bull; Lead the development of desktop and XR applications for industrial tooling workflows.</li>
+                            <li>&bull; Built backend services and REST APIs to connect production data, equipment, and interfaces.</li>
+                            <li>&bull; Automated design and engineering processes to reduce repetitive work across departments.</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section id="gameart" class="hidden w-full max-w-5xl mb-12">
+            <button class="detail-back mb-8" type="button" data-view-target="home">
+                &larr; Back to work
+            </button>
+
+            <div class="mb-12 sm:mb-16">
+                <p class="text-[12px] font-bold uppercase tracking-[0.3em] mb-4">// Selected game art projects</p>
+                <h1 class="text-5xl sm:text-7xl md:text-8xl font-extrabold tight-kerning leading-[0.9]">
+                    Instructor, Game Art<br>&amp; Procedural Workflows
+                </h1>
+                <p class="mt-8 max-w-2xl text-lg sm:text-xl leading-relaxed"
+                    style="font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
+                    A selection of projects combining game development, technical art, procedural workflows, and
+                    real-time interactive experiences.
+                </p>
+            </div>
+
+            <article class="project-detail mb-12 sm:mb-16">
+                <header class="project-detail-header">
+                    <p class="text-[11px] font-bold uppercase tracking-[0.3em] mb-3">
+                        &middot; Void of Light &middot;
+                    </p>
+                    <h2 class="text-4xl font-extrabold tight-kerning">
+                        A 2.5D Atmospheric Puzzle-Platformer
+                    </h2>
+                    <p class="mt-6 max-w-3xl text-lg leading-relaxed"
+                        style="font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
+                        Void of Light is a short 2.5D puzzle-platformer for Windows. After an energy overload sends a
+                        self-aware orb into a recycling plant, the player must inhabit robot bodies, solve environmental
+                        puzzles, and uncover the experiments hidden inside the facility.
+                    </p>
+                    <a href="https://adriperez.itch.io/void-of-light" target="_blank" rel="noopener noreferrer"
+                        class="block w-fit mt-5 border-b-2 border-[#0d72d9] text-sm font-bold uppercase tracking-[0.16em] transition-transform hover:scale-105">
+                        Play on itch.io ↗
+                    </a>
+                </header>
+
+                <div class="gameart-gallery">
+                    <figure class="gameart-media gameart-media--featured">
+                        <iframe
+                            src="https://www.youtube-nocookie.com/embed/HkvvI5Gp4hw?autoplay=1&mute=1&loop=1&playlist=HkvvI5Gp4hw&controls=0&rel=0&playsinline=1"
+                            title="Void of Light gameplay trailer" allow="autoplay; encrypted-media; picture-in-picture"
+                            loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <figcaption class="mixcare-media-label mixcare-media-label--left">2.5D atmospheric world</figcaption>
+                    </figure>
+                    <figure class="gameart-media">
+                        <img class="void-of-light-gif" src="assets/projects/vol_01.gif" alt="Void of Light puzzle gameplay animation">
+                        <figcaption class="mixcare-media-label mixcare-media-label--tilt">Environmental puzzles</figcaption>
+                    </figure>
+                    <figure class="gameart-media">
+                        <img class="void-of-light-gif" src="assets/projects/vol_02.gif" alt="Void of Light robot gameplay animation">
+                        <figcaption class="mixcare-media-label mixcare-media-label--left">Robot body control</figcaption>
+                    </figure>
+                    <figure class="gameart-media">
+                        <img class="void-of-light-gif" src="assets/projects/vol_03.gif" alt="Void of Light stylized level animation">
+                        <figcaption class="mixcare-media-label mixcare-media-label--tilt">Stylized level design</figcaption>
+                    </figure>
+                    <figure class="gameart-media">
+                        <img class="void-of-light-gif" src="assets/projects/vol_04.gif" alt="Void of Light gameplay prototype animation">
+                        <figcaption class="mixcare-media-label mixcare-media-label--left">Prototype for Windows</figcaption>
+                    </figure>
+                </div>
+
+                <div class="project-detail-body grid md:grid-cols-2 gap-8 md:gap-12">
+                    <div>
+                        <h2 class="project-tech-heading text-sm font-bold uppercase tracking-[0.25em] mb-4">// Technology used</h2>
+                        <div class="project-tech-list flex flex-wrap gap-3">
+                            <span data-tech="Unity" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]">
+                                <i class="devicon-unity-plain text-base leading-none"></i>Unity
+                            </span>
+                            <span data-tech="3D" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]">
+                                <i class="material-symbols-outlined text-base leading-none not-italic">view_in_ar</i>3D
+                            </span>
+                            <span data-tech="Windows" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]">
+                                <i class="devicon-windows8-original text-base leading-none"></i>Windows
+                            </span>
+                            <span data-tech="Game Design" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]">
+                                <i class="material-symbols-outlined text-base leading-none not-italic">sports_esports</i>Game Design
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="text-sm font-bold uppercase tracking-[0.25em] mb-4">// My contributions</h2>
+                        <ul class="space-y-3 text-lg leading-relaxed"
+                            style="font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
+                            <li>&bull; Programmed gameplay systems and robot-body interaction mechanics.</li>
+                            <li>&bull; Collaborated with the multidisciplinary art and programming team to build the playable prototype.</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-detail mb-12 sm:mb-16">
+                <header class="project-detail-header">
+                    <p class="text-[11px] font-bold uppercase tracking-[0.3em] mb-3">
+                        &middot; Procedural Space Asteroid Generator Tool &middot;
+                    </p>
+                    <h2 class="text-4xl font-extrabold tight-kerning">
+                        Artist-Driven Procedural Asteroid Belts
+                    </h2>
+                    <p class="mt-6 max-w-3xl text-lg leading-relaxed"
+                        style="font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
+                        A Houdini tool for building and art-directing space asteroid belts from curves. Adjustable
+                        controls make it possible to generate varied compositions quickly while keeping their shape,
+                        density, scale, and distribution easy to refine.
+                    </p>
+                    <a href="https://www.artstation.com/artwork/6Lw4bV" target="_blank" rel="noopener noreferrer"
+                        class="block w-fit mt-5 border-b-2 border-[#0d72d9] text-sm font-bold uppercase tracking-[0.16em] transition-transform hover:scale-105">
+                        View on ArtStation &#8599;
+                    </a>
+                </header>
+
+                <div class="gameart-gallery">
+                    <figure class="gameart-media gameart-media--featured">
+                        <video src="assets/projects/procedural-asteroid-generator.mp4" autoplay muted loop playsinline
+                            preload="metadata" aria-label="Procedural space asteroid generator demonstration"></video>
+                        <figcaption class="mixcare-media-label mixcare-media-label--left mixcare-media-label--top">Procedural tool breakdown</figcaption>
+                    </figure>
+                    <figure class="gameart-media gameart-media--featured gameart-media--contain">
+                        <img src="assets/projects/adri-perez-asteroids-compariso.jpg"
+                            alt="Comparison between the input geometry and procedural asteroid output">
+                        <figcaption class="mixcare-media-label mixcare-media-label--left">Geometry output examples (low & high)</figcaption>
+                    </figure>
+                    <figure class="gameart-media gameart-media--featured">
+                        <img src="assets/projects/procedural-asteroid-generator.jpg"
+                            alt="Houdini interface showing the procedural asteroid belt controls">
+                        <figcaption class="mixcare-media-label mixcare-media-label--tilt">Unreal Real-time Render</figcaption>
+                    </figure>
+                </div>
+
+                <div class="project-detail-body grid md:grid-cols-2 gap-8 md:gap-12">
+                    <div>
+                        <h2 class="project-tech-heading text-sm font-bold uppercase tracking-[0.25em] mb-4">// Technology used</h2>
+                        <div class="project-tech-list flex flex-wrap gap-3">
+                            <span data-tech="Houdini" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]">
+                                <span class="inline-block w-4 h-4 bg-current" style="-webkit-mask: url('assets/houdini-icon.svg') no-repeat center / contain; mask: url('assets/houdini-icon.svg') no-repeat center / contain;"></span>Houdini
+                            </span>
+                            <span data-tech="Unreal Engine 5" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]">
+                                <i class="devicon-unrealengine-original text-base leading-none"></i>Unreal Engine 5
+                            </span>
+                            <span data-tech="Python" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]">
+                                <i class="devicon-python-plain text-base leading-none"></i>Python
+                            </span>
+                            <span data-tech="Procedural Generation" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]">
+                                <i class="material-symbols-outlined text-base leading-none not-italic">hub</i>Procedural Generation
+                            </span>
+                            <span data-tech="Technical Art" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]">
+                                <i class="material-symbols-outlined text-base leading-none not-italic">deployed_code</i>Technical Art
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="text-sm font-bold uppercase tracking-[0.25em] mb-4">// My contributions</h2>
+                        <ul class="space-y-3 text-lg leading-relaxed"
+                            style="font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
+                            <li>&bull; Built a curve-driven workflow for creating and shaping asteroid belts.</li>
+                            <li>&bull; Exposed artist-friendly controls for density, scale, variation, and distribution.</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-detail mb-12 sm:mb-16">
+                <header class="project-detail-header">
+                    <p class="text-[11px] font-bold uppercase tracking-[0.3em] mb-3">
+                        &middot; Procedural Landscape World Generator &middot;
+                    </p>
+                    <h2 class="text-4xl font-extrabold tight-kerning">
+                        From Layered PSD Maps to UE5 Worlds
+                    </h2>
+                    <p class="mt-6 max-w-3xl text-lg leading-relaxed"
+                        style="font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
+                        A procedural world-building workflow that turns layered PSD maps into editable Unreal Engine 5
+                        landscapes. A custom Python map creator preserves semantic layers such as terrain, forests,
+                        sand, and buildings, which are interpreted by a Houdini Digital Asset for rapid iteration.
+                    </p>
+                    <a href="https://www.artstation.com/artwork/rlPrxa" target="_blank" rel="noopener noreferrer"
+                        class="block w-fit mt-5 border-b-2 border-[#0d72d9] text-sm font-bold uppercase tracking-[0.16em] transition-transform hover:scale-105">
+                        View on ArtStation &#8599;
+                    </a>
+                </header>
+
+                <div class="gameart-gallery">
+                    <figure class="gameart-media gameart-media--featured gameart-media--contain">
+                        <img src="assets/projects/psd_to_map_1.jpg"
+                            alt="Layered PSD map converted into a procedural Unreal Engine landscape">
+                        <figcaption class="mixcare-media-label mixcare-media-label--left mixcare-media-label--top">PSD to procedural map</figcaption>
+                    </figure>
+                    <div class="procedural-workflow" aria-label="Procedural landscape generation workflow">
+                        <div class="procedural-workflow-step">
+                            <span class="procedural-workflow-number">01 / MAP</span>
+                            <i class="material-symbols-outlined procedural-workflow-icon">layers</i>
+                            <div><strong>Layered PSD</strong><small>Terrain data organised into editable semantic layers.</small></div>
+                        </div>
+                        <div class="procedural-workflow-step">
+                            <span class="procedural-workflow-number">02 / TOOL</span>
+                            <i class="devicon-python-plain procedural-workflow-icon"></i>
+                            <div><strong>Python PSD Editor</strong><small>Parse, validate, edit, and preserve the semantic layer structure.</small></div>
+                        </div>
+                        <div class="procedural-workflow-step">
+                            <span class="procedural-workflow-number">03 / HDA</span>
+                            <span class="procedural-workflow-icon inline-block w-[52px] h-[52px] bg-current" style="-webkit-mask: url('assets/houdini-icon.svg') no-repeat center / contain; mask: url('assets/houdini-icon.svg') no-repeat center / contain;"></span>
+                            <div><strong>Houdini HDA</strong><small>Generate terrain and distribute world elements procedurally.</small></div>
+                        </div>
+                        <div class="procedural-workflow-step">
+                            <span class="procedural-workflow-number">04 / WORLD</span>
+                            <i class="devicon-unrealengine-original procedural-workflow-icon"></i>
+                            <div><strong>Unreal Engine 5</strong><small>Editable landscape ready for real-time iteration.</small></div>
+                        </div>
+                    </div>
+                    <figure class="gameart-media gameart-media--featured gameart-media--wide-video">
+                        <video src="assets/projects/photopython.mp4" autoplay muted loop playsinline preload="metadata"
+                            aria-label="Custom Python layered map editor demonstration"></video>
+                        <figcaption class="mixcare-media-label mixcare-media-label--tilt">Python map creator</figcaption>
+                    </figure>
+                    <figure class="gameart-media gameart-media--featured gameart-media--wide-video">
+                        <video src="assets/projects/psd-to-map.mp4" autoplay muted loop playsinline preload="metadata"
+                            aria-label="PSD layers converted into a procedural Unreal Engine map"></video>
+                        <figcaption class="mixcare-media-label mixcare-media-label--left mixcare-media-label--top">PSD to UE5 world</figcaption>
+                    </figure>
+                    <figure class="gameart-media gameart-media--featured">
+                        <video src="assets/projects/open-photopython.mp4" autoplay muted loop playsinline preload="metadata"
+                            aria-label="Opening a layered PSD map in the custom Python editor"></video>
+                        <figcaption class="mixcare-media-label mixcare-media-label--left">Opening layered maps</figcaption>
+                    </figure>
+                    <figure class="gameart-media gameart-media--featured" style="aspect-ratio: 1578 / 873;">
+                        <img src="assets/map_generator_linkedin.gif"
+                            alt="Alternative procedural map generator developed for Unity">
+                        <figcaption class="mixcare-media-label mixcare-media-label--tilt">Alternative version developed for Unity</figcaption>
+                    </figure>
+                    <figure class="gameart-media gameart-media--featured gameart-media--contain">
+                        <img src="assets/projects/psd_to_map_unity.PNG"
+                            alt="Procedural PSD map generated through Houdini Engine inside Unity">
+                        <figcaption class="mixcare-media-label mixcare-media-label--left">Houdini Engine workflow in Unity</figcaption>
+                    </figure>
+                </div>
+
+                <div class="project-detail-body grid md:grid-cols-2 gap-8 md:gap-12">
+                    <div>
+                        <h2 class="project-tech-heading text-sm font-bold uppercase tracking-[0.25em] mb-4">// Technology used</h2>
+                        <div class="project-tech-list flex flex-wrap gap-3">
+                            <span data-tech="Python" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="devicon-python-plain text-base leading-none"></i>Python</span>
+                            <span data-tech="Photoshop" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="devicon-photoshop-plain text-base leading-none"></i>Photoshop</span>
+                            <span data-tech="Houdini" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><span class="inline-block w-4 h-4 bg-current" style="-webkit-mask: url('assets/houdini-icon.svg') no-repeat center / contain; mask: url('assets/houdini-icon.svg') no-repeat center / contain;"></span>Houdini HDA</span>
+                            <span data-tech="Unreal Engine 5" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="devicon-unrealengine-original text-base leading-none"></i>Unreal Engine 5</span>
+                            <span data-tech="Unity" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="devicon-unity-plain text-base leading-none"></i>Unity</span>
+                            <span data-tech="Procedural Generation" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="material-symbols-outlined text-base leading-none not-italic">account_tree</i>Procedural Generation</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="text-sm font-bold uppercase tracking-[0.25em] mb-4">// My contributions</h2>
+                        <ul class="space-y-3 text-lg leading-relaxed"
+                            style="font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
+                            <li>&bull; Developed a layer-based Python map creator for faster landscape iteration.</li>
+                            <li>&bull; Built the Houdini HDA workflow that converts PSD data into editable UE5 worlds.</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-detail">
+                <header class="project-detail-header">
+                    <p class="text-[11px] font-bold uppercase tracking-[0.3em] mb-3">
+                        &middot; Global Game Jam Collection &middot;
+                    </p>
+                    <h2 class="text-4xl font-extrabold tight-kerning">
+                        Game Jam Games
+                    </h2>
+                    <p class="mt-6 max-w-3xl text-lg leading-relaxed"
+                        style="font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
+                        A collection of compact games created collaboratively under Global Game Jam time constraints,
+                        exploring fast prototyping, focused mechanics, and distinct visual worlds.
+                    </p>
+                </header>
+
+                <div class="gameart-gallery">
+                    <figure class="gameart-media gameart-media--featured">
+                        <video src="assets/projects/ages-of-warfare.mp4" autoplay muted loop playsinline
+                            preload="metadata" aria-label="Ages of Warfare gameplay"></video>
+                        <figcaption class="mixcare-media-label mixcare-media-label--left">Age Of Warfare</figcaption>
+                    </figure>
+                    <figure class="gameart-media gameart-media--featured">
+                        <video src="assets/projects/bonfire-gamejam.mp4" autoplay muted loop playsinline
+                            preload="metadata" aria-label="BONFIRE Global Game Jam gameplay"></video>
+                        <figcaption class="mixcare-media-label mixcare-media-label--left mixcare-media-label--top">Bonfire Brothers</figcaption>
+                    </figure>
+                </div>
+
+                <div class="project-detail-body grid md:grid-cols-2 gap-8 md:gap-12">
+                    <div>
+                        <h2 class="project-tech-heading text-sm font-bold uppercase tracking-[0.25em] mb-4">// Technology used</h2>
+                        <div class="project-tech-list flex flex-wrap gap-3">
+                            <span data-tech="Unity" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="devicon-unity-plain text-base leading-none"></i>Unity</span>
+                            <span data-tech="3D" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="material-symbols-outlined text-base leading-none not-italic">view_in_ar</i>3D</span>
+                            <span data-tech="Local Multiplayer" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="material-symbols-outlined text-base leading-none not-italic">sports_esports</i>Local Multiplayer</span>
+                            <span data-tech="Game Jam" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="material-symbols-outlined text-base leading-none not-italic">timer</i>Game Jam</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="text-sm font-bold uppercase tracking-[0.25em] mb-4">// My contributions</h2>
+                        <ul class="space-y-3 text-lg leading-relaxed"
+                            style="font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
+                            <li>&bull; Gameplay programming and rapid prototyping under game jam constraints.</li>
+                            <li>&bull; Collaborated with multidisciplinary teams to turn each concept into a playable build.</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+
+        <section id="fullstack" class="hidden w-full max-w-5xl mb-12">
+            <button class="detail-back mb-8" type="button" data-view-target="home">
+                &larr; Back to work
+            </button>
+
+            <div class="fullstack-intro mb-12 sm:mb-16">
+                <p class="text-[12px] font-bold uppercase tracking-[0.3em] mb-4">// Selected digital products</p>
+                <h1 class="text-5xl sm:text-7xl md:text-8xl font-extrabold tight-kerning leading-[0.9]">
+                    Fullstack<br>Development
+                </h1>
+                <p class="mt-8 max-w-2xl text-lg sm:text-xl leading-relaxed"
+                    style="font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
+                    Mobile products built across native applications, backend services, administration tools, and the
+                    APIs that connect each experience.
+                </p>
+            </div>
+
+            <article class="project-detail fullstack-stm mb-12 sm:mb-16">
+                <header class="project-detail-header">
+                    <p class="text-[11px] font-bold uppercase tracking-[0.3em] mb-3">&middot; STM Ford &middot;</p>
+                    <h2 class="text-4xl font-extrabold tight-kerning">Workplace Services in One Native App</h2>
+                    <p class="mt-6 max-w-3xl text-lg leading-relaxed" style="font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
+                        A mobile platform that centralises STM documentation and employee services, including salary
+                        agreements, leave procedures, delegates, dining menus, medical areas, calendars, and maps.
+                    </p>
+                    <a href="https://rudo.es/portfolio/stm-ford/" target="_blank" rel="noopener noreferrer" class="block w-fit mt-5 border-b-2 border-[#0d72d9] text-sm font-bold uppercase tracking-[0.16em] transition-transform hover:scale-105">View project &#8599;</a>
+                </header>
+                <div class="gameart-gallery">
+                    <figure class="gameart-media gameart-media--featured gameart-media--contain">
+                        <img src="assets/projects/fullstack-stm-ford.png" alt="STM Ford mobile application">
+                        <figcaption class="mixcare-media-label mixcare-media-label--left">Employee services · iOS &amp; Android</figcaption>
+                    </figure>
+                </div>
+                <div class="project-detail-body grid md:grid-cols-2 gap-8 md:gap-12">
+                    <div>
+                    <h3 class="project-tech-heading text-sm font-bold uppercase tracking-[0.25em] mb-4">// Technology used</h3>
+                    <div class="project-tech-list flex flex-wrap gap-3">
+                        <span data-tech="Python" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="devicon-python-plain text-base leading-none"></i>Python</span>
+                        <span data-tech="Django REST" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="devicon-django-plain text-base leading-none"></i>Django REST</span>
+                        <span data-tech="Docker" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="devicon-docker-plain text-base leading-none"></i>Docker</span>
+                        <span data-tech="DigitalOcean" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="devicon-digitalocean-plain text-base leading-none"></i>DigitalOcean</span>
+                        <span data-tech="Redis" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="devicon-redis-plain text-base leading-none"></i>Redis</span>
+                        <span data-tech="Celery" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="material-symbols-outlined text-base leading-none not-italic">schedule</i>Celery</span>
+                    </div></div>
+                    <div>
+                        <h3 class="text-sm font-bold uppercase tracking-[0.25em] mb-4">// My contributions</h3>
+                        <ul class="space-y-3 text-lg leading-relaxed" style="font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
+                            <li>&bull; Built REST endpoints for documentation, calendars, maps, and employee services.</li>
+                            <li>&bull; Implemented background jobs, caching, containerisation, and cloud deployment.</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-detail fullstack-chatripp mb-12 sm:mb-16">
+                <header class="project-detail-header">
+                    <p class="text-[11px] font-bold uppercase tracking-[0.3em] mb-3">&middot; Chatripp &middot;</p>
+                    <h2 class="text-4xl font-extrabold tight-kerning">A Social Network Built Around Travel</h2>
+                    <p class="mt-6 max-w-3xl text-lg leading-relaxed" style="font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
+                        Travellers enter their destination and dates to meet people who will be there at the same time,
+                        chat before arriving, share photographs, and explore posts from popular cities.
+                    </p>
+                    <a href="https://rudo.es/portfolio/chatripp/" target="_blank" rel="noopener noreferrer" class="block w-fit mt-5 border-b-2 border-[#0d72d9] text-sm font-bold uppercase tracking-[0.16em] transition-transform hover:scale-105">View project &#8599;</a>
+                </header>
+                <div class="gameart-gallery">
+                    <figure class="gameart-media gameart-media--featured gameart-media--contain">
+                        <img src="assets/projects/fullstack-chatripp.png" alt="Chatripp travel social application">
+                        <figcaption class="mixcare-media-label mixcare-media-label--tilt">Travel · Social · Messaging</figcaption>
+                    </figure>
+                </div>
+                <div class="project-detail-body grid md:grid-cols-2 gap-8 md:gap-12">
+                    <div>
+                    <h3 class="project-tech-heading text-sm font-bold uppercase tracking-[0.25em] mb-4">// Technology used</h3>
+                    <div class="project-tech-list flex flex-wrap gap-3">
+                        <span data-tech="Python" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="devicon-python-plain text-base leading-none"></i>Python</span>
+                        <span data-tech="Django REST" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="devicon-django-plain text-base leading-none"></i>Django REST</span>
+                        <span data-tech="Docker" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="devicon-docker-plain text-base leading-none"></i>Docker</span>
+                        <span data-tech="DigitalOcean" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="devicon-digitalocean-plain text-base leading-none"></i>DigitalOcean</span>
+                        <span data-tech="Redis" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="devicon-redis-plain text-base leading-none"></i>Redis</span>
+                        <span data-tech="Celery" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="material-symbols-outlined text-base leading-none not-italic">schedule</i>Celery</span>
+                    </div></div>
+                    <div>
+                        <h3 class="text-sm font-bold uppercase tracking-[0.25em] mb-4">// My contributions</h3>
+                        <ul class="space-y-3 text-lg leading-relaxed" style="font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
+                            <li>&bull; Developed APIs for user profiles, trips, social posts, and traveller connections.</li>
+                            <li>&bull; Supported asynchronous workloads, caching, Docker services, and cloud infrastructure.</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-detail fullstack-hundred mb-12 sm:mb-16">
+                <header class="project-detail-header">
+                    <p class="text-[11px] font-bold uppercase tracking-[0.3em] mb-3">&middot; Hundred Burgers &middot;</p>
+                    <h2 class="text-4xl font-extrabold tight-kerning">Ordering at the Table or From Home</h2>
+                    <p class="mt-6 max-w-3xl text-lg leading-relaxed" style="font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
+                        The native Hundred app supports ordering directly from a restaurant table as well as delivery,
+                        connecting the customer journey with the restaurant's backend and administration platform.
+                    </p>
+                    <a href="https://rudo.es/portfolio/hundred/" target="_blank" rel="noopener noreferrer" class="block w-fit mt-5 border-b-2 border-[#0d72d9] text-sm font-bold uppercase tracking-[0.16em] transition-transform hover:scale-105">View project &#8599;</a>
+                </header>
+                <div class="gameart-gallery">
+                    <figure class="gameart-media gameart-media--featured gameart-media--contain">
+                        <img src="assets/projects/fullstack-hundred.png" alt="Hundred Burgers ordering application">
+                        <figcaption class="mixcare-media-label mixcare-media-label--left">Table ordering · Delivery</figcaption>
+                    </figure>
+                </div>
+                <div class="project-detail-body grid md:grid-cols-2 gap-8 md:gap-12">
+                    <div>
+                    <h3 class="project-tech-heading text-sm font-bold uppercase tracking-[0.25em] mb-4">// Technology used</h3>
+                    <div class="project-tech-list flex flex-wrap gap-3">
+                        <span data-tech="Python" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="devicon-python-plain text-base leading-none"></i>Python</span>
+                        <span data-tech="Django REST" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="devicon-django-plain text-base leading-none"></i>Django REST</span>
+                        <span data-tech="Docker" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="devicon-docker-plain text-base leading-none"></i>Docker</span>
+                        <span data-tech="DigitalOcean" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="devicon-digitalocean-plain text-base leading-none"></i>DigitalOcean</span>
+                        <span data-tech="Redis" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="devicon-redis-plain text-base leading-none"></i>Redis</span>
+                        <span data-tech="Celery" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="material-symbols-outlined text-base leading-none not-italic">schedule</i>Celery</span>
+                    </div></div>
+                    <div>
+                        <h3 class="text-sm font-bold uppercase tracking-[0.25em] mb-4">// My contributions</h3>
+                        <ul class="space-y-3 text-lg leading-relaxed" style="font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
+                            <li>&bull; Developed backend APIs for table ordering, delivery, products, and order flows.</li>
+                            <li>&bull; Built asynchronous processes with Celery and Redis and deployed containerised services.</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-detail fullstack-fitzgerald">
+                <header class="project-detail-header">
+                    <p class="text-[11px] font-bold uppercase tracking-[0.3em] mb-3">&middot; The Fitzgerald &middot;</p>
+                    <h2 class="text-4xl font-extrabold tight-kerning">A Native Gourmet Burger Experience</h2>
+                    <p class="mt-6 max-w-3xl text-lg leading-relaxed" style="font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
+                        A native mobile product bringing The Fitzgerald restaurant experience closer to customers,
+                        supported by a Django backend and administration system for its digital content and services.
+                    </p>
+                    <a href="https://rudo.es/portfolio/the-fitzgerald/" target="_blank" rel="noopener noreferrer" class="block w-fit mt-5 border-b-2 border-[#0d72d9] text-sm font-bold uppercase tracking-[0.16em] transition-transform hover:scale-105">View project &#8599;</a>
+                </header>
+                <div class="gameart-gallery">
+                    <figure class="gameart-media gameart-media--featured gameart-media--contain">
+                        <img src="assets/projects/fullstack-fitzgerald.jpg" alt="The Fitzgerald native mobile application">
+                        <figcaption class="mixcare-media-label mixcare-media-label--tilt">Restaurant mobile experience</figcaption>
+                    </figure>
+                </div>
+                <div class="project-detail-body grid md:grid-cols-2 gap-8 md:gap-12">
+                    <div>
+                    <h3 class="project-tech-heading text-sm font-bold uppercase tracking-[0.25em] mb-4">// Technology used</h3>
+                    <div class="project-tech-list flex flex-wrap gap-3">
+                        <span data-tech="Python" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="devicon-python-plain text-base leading-none"></i>Python</span>
+                        <span data-tech="Django REST" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="devicon-django-plain text-base leading-none"></i>Django REST</span>
+                        <span data-tech="Docker" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="devicon-docker-plain text-base leading-none"></i>Docker</span>
+                        <span data-tech="DigitalOcean" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="devicon-digitalocean-plain text-base leading-none"></i>DigitalOcean</span>
+                        <span data-tech="Redis" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="devicon-redis-plain text-base leading-none"></i>Redis</span>
+                        <span data-tech="Celery" class="tech-active tech-transition inline-flex items-center gap-2 font-mono uppercase tracking-[0.2em]"><i class="material-symbols-outlined text-base leading-none not-italic">schedule</i>Celery</span>
+                    </div></div>
+                    <div>
+                        <h3 class="text-sm font-bold uppercase tracking-[0.25em] mb-4">// My contributions</h3>
+                        <ul class="space-y-3 text-lg leading-relaxed" style="font-family: 'VDS', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">
+                            <li>&bull; Implemented backend services and administration workflows for the mobile product.</li>
+                            <li>&bull; Maintained background tasks, caching, Docker environments, and DigitalOcean deployment.</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+        </section>
 
         <!-- Experience -->
         <!-- <section id="experience" class="mt-24 sm:mt-36 md:mt-64 w-full max-w-5xl"> -->
@@ -2709,6 +3515,9 @@ html.hero-pixel-hover * {
         const secPersonal = document.getElementById("personal");      // Hero personal
         const secWorkList = document.getElementById("home");          // Highlighted projects list
         const secHealthcare = document.getElementById("healthcare");  // Healthcare project detail
+        const secIndustry = document.getElementById("industry");      // Industry project detail
+        const secGameArt = document.getElementById("gameart");        // Game art project detail
+        const secFullstack = document.getElementById("fullstack");    // Fullstack project detail
         const secExperience = document.getElementById("experience");  // Experience
         const secAbout = document.getElementById("about");            // About + Connect
 
@@ -2748,6 +3557,9 @@ html.hero-pixel-hover * {
             setHidden(secPersonal, true);
             setHidden(secWorkList, true);
             setHidden(secHealthcare, true);
+            setHidden(secIndustry, true);
+            setHidden(secGameArt, true);
+            setHidden(secFullstack, true);
             setHidden(secExperience, true);
             setHidden(secAbout, true);
 
@@ -2759,12 +3571,18 @@ html.hero-pixel-hover * {
                 setHidden(secExperience, false);
             } else if (view === "healthcare") {
                 setHidden(secHealthcare, false);
+            } else if (view === "industry") {
+                setHidden(secIndustry, false);
+            } else if (view === "gameart") {
+                setHidden(secGameArt, false);
+            } else if (view === "fullstack") {
+                setHidden(secFullstack, false);
             } else if (view === "about") {
                 setHidden(secAbout, false);
             }
 
-            setActiveNav(view === "healthcare" ? "home" : view);
-            setActiveSubnav(view === "healthcare" ? "healthcare" : (view === "experience" ? "work-experience" : null));
+            setActiveNav((view === "healthcare" || view === "industry" || view === "gameart" || view === "fullstack") ? "home" : view);
+            setActiveSubnav(view === "healthcare" ? "healthcare" : (view === "industry" ? "industry" : (view === "gameart" ? "gameart" : (view === "fullstack" ? "fullstack" : (view === "experience" ? "work-experience" : null)))));
             scrollTop();
         }
 
@@ -2969,7 +3787,7 @@ html.hero-pixel-hover * {
         // Init
         (function init() {
             // 1) Decide view inicial por hash (o "work")
-            const allowed = ["home", "experience", "healthcare"];
+            const allowed = ["home", "experience", "healthcare", "industry", "gameart", "fullstack"];
             const hash = (location.hash || "").replace("#", "");
             const initialView = allowed.includes(hash) ? hash : "home";
 
@@ -2984,7 +3802,6 @@ html.hero-pixel-hover * {
             updateExperienceYears();
             listenWatchRead();
         })();
-
 
     })();
 </script>
