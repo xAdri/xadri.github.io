@@ -35,10 +35,15 @@
 
 
     <link rel="icon" type="image/svg+xml" href="/logo.svg">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin>
+    <link rel="preload" href="assets/me_light_3.webp" as="image" type="image/webp" fetchpriority="high">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 
 
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="stylesheet" href="styles.css" />
 
     <!-- Inter (NEW) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&display=swap" rel="stylesheet" />
@@ -46,27 +51,6 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
-
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        primary: "#ffffff",
-                        accent: "#f97316",
-                        "background-light": "#f5f7f8",
-                        "background-dark": "#0a0a0a",
-                    },
-                    fontFamily: {
-                        sans: ["Inter", "sans-serif"],
-                        display: ["Inter", "sans-serif"],
-                        mono: ["Space Grotesk", "monospace"],
-                    },
-                },
-            },
-        };
-    </script>
 
     <style type="text/tailwindcss">
         @font-face {
@@ -242,6 +226,15 @@ video,
 iframe {
   filter: none !important;
   mix-blend-mode: normal !important;
+}
+
+/* Keep off-screen project cards out of the initial mobile rendering work. */
+@media (max-width: 767px) {
+  .project-card,
+  .experience-card {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 720px;
+  }
 }
 
 /* Mobile menu items: stagger fade + move */
@@ -1882,15 +1875,15 @@ html.hero-pixel-hover * {
         <div class="max-w-5xl w-full mb-20 sm:mb-28">
             <div id="personal" class="relative isolate md:pt-[16rem]">
 
-                <img src="assets/me_light_3.webp" alt="" class="hero-photo translate-x-20 -mb-20 md:translate-x-0 md:absolute md:top-[6rem] md:w-[40rem] md:right-0 lg:w-[40rem] lg:absolute lg:right-0" />
+                <img src="assets/me_light_3.webp" alt="" width="3514" height="2900" fetchpriority="high" decoding="async" class="hero-photo translate-x-20 -mb-20 md:translate-x-0 md:absolute md:top-[6rem] md:w-[40rem] md:right-0 lg:w-[40rem] lg:absolute lg:right-0" />
                 <div class="hero-hover-art hero-hover-art--left" aria-hidden="true">
-                    <img src="assets/adri_02.png" alt="" class="hero-hover-art-image" />
+                    <img src="assets/adri_02.png" alt="" width="1536" height="1024" loading="lazy" decoding="async" class="hero-hover-art-image" />
                 </div>
                 <div class="hero-hover-art hero-hover-art--under" aria-hidden="true">
-                    <img src="assets/adri_01.png" alt="" class="hero-hover-art-image" />
+                    <img src="assets/adri_01.png" alt="" width="1536" height="1024" loading="lazy" decoding="async" class="hero-hover-art-image" />
                 </div>
                 <div class="hero-hover-art hero-hover-art--top" aria-hidden="true">
-                    <img src="assets/adri_03.png" alt="" class="hero-hover-art-image" />
+                    <img src="assets/adri_03.png" alt="" width="1536" height="1024" loading="lazy" decoding="async" class="hero-hover-art-image" />
                 </div>
 
                 <h1
@@ -2018,8 +2011,8 @@ html.hero-pixel-hover * {
                     <!-- Video -->
                     <div class="relative w-full aspect-[4/3] bg-white/5 overflow-hidden">
                         <video src="assets/projects/mixcare_04.mp4"
-                            class="w-full h-full object-cover object-[center_35%]" autoplay muted loop playsinline
-                            preload="metadata"
+                            class="w-full h-full object-cover object-[center_35%]" data-autoplay muted loop playsinline
+                            preload="none"
                             aria-label="Mixcare mixed reality healthcare project demonstration"></video>
 
                     </div>
@@ -2050,7 +2043,7 @@ html.hero-pixel-hover * {
                     <!-- Content -->
                     <!-- Video -->
                     <div class="w-full aspect-[4/3] bg-white/5 overflow-hidden">
-                        <video src="assets/sti.mp4" class="w-full h-full object-cover" autoplay muted loop playsinline>
+                        <video preload="none" src="assets/sti.mp4" class="w-full h-full object-cover" data-autoplay muted loop playsinline>
                         </video>
                     </div>
                     <div class="p-6 sm:p-8">
@@ -2080,7 +2073,7 @@ html.hero-pixel-hover * {
                     <!-- Content -->
                     <!-- Image -->
                     <div class="w-full aspect-[4/3] bg-white/5 overflow-hidden">
-                        <img src="assets/projects/gameart.jpg" alt="Game Art & Technical Art"
+                        <img loading="lazy" decoding="async" src="assets/projects/gameart.jpg" alt="Game Art & Technical Art"
                             class="w-full h-full object-cover">
                     </div>
                     <div class="p-6 sm:p-8">
@@ -2107,7 +2100,7 @@ html.hero-pixel-hover * {
 
                     <!-- Image -->
                     <div class="w-full aspect-[4/3] bg-white/5 overflow-hidden">
-                        <img src="assets/projects/fullstack.jpg" alt="App and Web Development"
+                        <img loading="lazy" decoding="async" src="assets/projects/fullstack.jpg" alt="App and Web Development"
                             class="w-full h-full object-cover">
                     </div>
 
@@ -2185,7 +2178,7 @@ html.hero-pixel-hover * {
                     <span class="mixcare-doodle mixcare-doodle--orbit" aria-hidden="true">✦</span>
                     <div class="mixcare-feature">
                         <figure class="mixcare-media mixcare-media--video">
-                            <video autoplay muted loop playsinline preload="metadata"
+                            <video data-autoplay muted loop playsinline preload="none"
                                 aria-label="Mixcare project demonstration">
                                 <source src="assets/projects/mixcare_04.mp4" type="video/mp4">
                             </video>
@@ -2195,21 +2188,21 @@ html.hero-pixel-hover * {
                         </figure>
                     </div>
                     <figure class="mixcare-media mixcare-media--portrait">
-                        <img src="assets/projects/mixcare_02.jpeg"
+                        <img loading="lazy" decoding="async" src="assets/projects/mixcare_02.jpeg"
                             alt="Mixcare immersive healthcare application">
                         <figcaption class="mixcare-media-label mixcare-media-label--tilt">
                             Mixed reality relaxation
                         </figcaption>
                     </figure>
                     <figure class="mixcare-media mixcare-media--landscape">
-                        <img src="assets/projects/mixcare_03.jpeg"
+                        <img loading="lazy" decoding="async" src="assets/projects/mixcare_03.jpeg"
                             alt="Mixcare mixed reality interaction">
                         <figcaption class="mixcare-media-label mixcare-media-label--left">
                             Spatial setup<br>Scanning the environment
                         </figcaption>
                     </figure>
                     <figure class="mixcare-media mixcare-media--landscape">
-                        <img src="assets/projects/itimind.jpg"
+                        <img loading="lazy" decoding="async" src="assets/projects/itimind.jpg"
                             alt="Mixcare project in a clinical setting">
                         <figcaption class="mixcare-media-label mixcare-media-label--tilt">
                             Hospital La Fe<br>Valencia, Spain
@@ -2258,7 +2251,7 @@ html.hero-pixel-hover * {
 
             <article class="project-detail mb-12 sm:mb-16 hidden">
                 <div class="w-full aspect-[16/9] bg-white overflow-hidden">
-                    <img src="assets/lunar_adventure.webp" alt="Cognitive training serious game"
+                    <img loading="lazy" decoding="async" src="assets/lunar_adventure.webp" alt="Cognitive training serious game"
                         class="w-full h-full object-cover">
                 </div>
 
@@ -2324,14 +2317,14 @@ html.hero-pixel-hover * {
                     <span class="mixcare-doodle mixcare-doodle--mini-spark" aria-hidden="true">✧</span>
 
                     <figure class="soh-visual-card">
-                        <img src="assets/projects/soh-brochetas.png" alt="Brochetas game from Sea of Heroes">
+                        <img loading="lazy" decoding="async" src="assets/projects/soh-brochetas.png" alt="Brochetas game from Sea of Heroes">
                         <figcaption class="mixcare-media-label mixcare-media-label--left">
                             Personalized serious games<br>Adaptive difficulty
                         </figcaption>
                     </figure>
 
                     <figure class="soh-visual-card">
-                        <img src="assets/projects/soh-islas.png" alt="Sea of Heroes game islands">
+                        <img loading="lazy" decoding="async" src="assets/projects/soh-islas.png" alt="Sea of Heroes game islands">
                         <figcaption class="mixcare-media-label mixcare-media-label--tilt">
                             CE-Marked Class IIa<br>Medical Device
                         </figcaption>
@@ -2414,25 +2407,25 @@ html.hero-pixel-hover * {
 
                 <div class="gameart-gallery industry-gallery">
                     <figure class="gameart-media gameart-media--featured industry-main">
-                        <video src="assets/sti.mp4" autoplay muted loop playsinline preload="metadata"
+                        <video src="assets/sti.mp4" data-autoplay muted loop playsinline preload="none"
                             aria-label="Smart Tooling Intralogistics demonstration"></video>
                         <figcaption class="mixcare-media-label mixcare-media-label--left">Connected industrial workflow</figcaption>
                     </figure>
                     <figure class="gameart-media industry-essential">
-                        <video src="assets/projects/sti-essential.mp4" autoplay muted loop playsinline preload="metadata"
+                        <video src="assets/projects/sti-essential.mp4" data-autoplay muted loop playsinline preload="none"
                             aria-label="STI Essential crane and stacker control demonstration"></video>
                         <figcaption class="mixcare-media-label mixcare-media-label--tilt">Essential control<br>Cranes &amp; stackers</figcaption>
                     </figure>
                     <figure class="gameart-media gameart-media--portrait industry-production">
-                        <img src="assets/projects/sti-production.jpg" alt="STI Production Suite installation">
+                        <img loading="lazy" decoding="async" src="assets/projects/sti-production.jpg" alt="STI Production Suite installation">
                         <figcaption class="mixcare-media-label mixcare-media-label--tilt">Production Suite<br>ERP &amp; API connectivity</figcaption>
                     </figure>
                     <figure class="gameart-media gameart-media--panoramic industry-enterprise">
-                        <img src="assets/projects/sti-enterprise.jpg" alt="STI Enterprise Suite industrial installation">
+                        <img loading="lazy" decoding="async" src="assets/projects/sti-enterprise.jpg" alt="STI Enterprise Suite industrial installation">
                         <figcaption class="mixcare-media-label mixcare-media-label--left">Enterprise Suite<br>Multi-department integration</figcaption>
                     </figure>
                     <figure class="gameart-media gameart-media--featured">
-                        <video src="assets/projects/sti-workflow-muted.mp4" autoplay muted loop playsinline preload="metadata"
+                        <video src="assets/projects/sti-workflow-muted.mp4" data-autoplay muted loop playsinline preload="none"
                             aria-label="Smart Tooling Intralogistics workflow demonstration"></video>
                         <figcaption class="mixcare-media-label mixcare-media-label--left">Smart Tooling Intralogistics Workflow</figcaption>
                     </figure>
@@ -2503,17 +2496,17 @@ html.hero-pixel-hover * {
 
                 <div class="gameart-gallery">
                     <figure class="gameart-media gameart-media--featured">
-                        <video src="assets/projects/procedural-asteroid-generator.mp4" autoplay muted loop playsinline
-                            preload="metadata" aria-label="Procedural space asteroid generator demonstration"></video>
+                        <video src="assets/projects/procedural-asteroid-generator.mp4" data-autoplay muted loop playsinline
+                            preload="none" aria-label="Procedural space asteroid generator demonstration"></video>
                         <figcaption class="mixcare-media-label mixcare-media-label--left mixcare-media-label--top">Procedural tool breakdown</figcaption>
                     </figure>
                     <figure class="gameart-media gameart-media--featured gameart-media--contain">
-                        <img src="assets/projects/adri-perez-asteroids-compariso.jpg"
+                        <img loading="lazy" decoding="async" src="assets/projects/adri-perez-asteroids-compariso.jpg"
                             alt="Comparison between the input geometry and procedural asteroid output">
                         <figcaption class="mixcare-media-label mixcare-media-label--left">Geometry output examples (low & high)</figcaption>
                     </figure>
                     <figure class="gameart-media gameart-media--featured">
-                        <img src="assets/projects/procedural-asteroid-generator.jpg"
+                        <img loading="lazy" decoding="async" src="assets/projects/procedural-asteroid-generator.jpg"
                             alt="Houdini interface showing the procedural asteroid belt controls">
                         <figcaption class="mixcare-media-label mixcare-media-label--tilt">Unreal Real-time Render</figcaption>
                     </figure>
@@ -2573,7 +2566,7 @@ html.hero-pixel-hover * {
 
                 <div class="gameart-gallery">
                     <figure class="gameart-media gameart-media--featured gameart-media--contain">
-                        <img src="assets/projects/psd_to_map_1.jpg"
+                        <img loading="lazy" decoding="async" src="assets/projects/psd_to_map_1.jpg"
                             alt="Layered PSD map converted into a procedural Unreal Engine landscape">
                         <figcaption class="mixcare-media-label mixcare-media-label--left mixcare-media-label--top">PSD to procedural map</figcaption>
                     </figure>
@@ -2600,27 +2593,27 @@ html.hero-pixel-hover * {
                         </div>
                     </div>
                     <figure class="gameart-media gameart-media--featured gameart-media--wide-video">
-                        <video src="assets/projects/photopython.mp4" autoplay muted loop playsinline preload="metadata"
+                        <video src="assets/projects/photopython.mp4" data-autoplay muted loop playsinline preload="none"
                             aria-label="Custom Python layered map editor demonstration"></video>
                         <figcaption class="mixcare-media-label mixcare-media-label--tilt">Python map creator</figcaption>
                     </figure>
                     <figure class="gameart-media gameart-media--featured gameart-media--wide-video">
-                        <video src="assets/projects/psd-to-map.mp4" autoplay muted loop playsinline preload="metadata"
+                        <video src="assets/projects/psd-to-map.mp4" data-autoplay muted loop playsinline preload="none"
                             aria-label="PSD layers converted into a procedural Unreal Engine map"></video>
                         <figcaption class="mixcare-media-label mixcare-media-label--left mixcare-media-label--top">PSD to UE5 world</figcaption>
                     </figure>
                     <figure class="gameart-media gameart-media--featured">
-                        <video src="assets/projects/open-photopython.mp4" autoplay muted loop playsinline preload="metadata"
+                        <video src="assets/projects/open-photopython.mp4" data-autoplay muted loop playsinline preload="none"
                             aria-label="Opening a layered PSD map in the custom Python editor"></video>
                         <figcaption class="mixcare-media-label mixcare-media-label--left">Opening layered maps</figcaption>
                     </figure>
                     <figure class="gameart-media gameart-media--featured" style="aspect-ratio: 1578 / 873;">
-                        <img src="assets/map_generator_linkedin.gif"
+                        <img loading="lazy" decoding="async" src="assets/map_generator_linkedin.gif"
                             alt="Alternative procedural map generator developed for Unity">
                         <figcaption class="mixcare-media-label mixcare-media-label--tilt">Alternative version developed for Unity</figcaption>
                     </figure>
                     <figure class="gameart-media gameart-media--featured gameart-media--contain">
-                        <img src="assets/projects/psd_to_map_unity.PNG"
+                        <img loading="lazy" decoding="async" src="assets/projects/psd_to_map_unity.PNG"
                             alt="Procedural PSD map generated through Houdini Engine inside Unity">
                         <figcaption class="mixcare-media-label mixcare-media-label--left">Houdini Engine workflow in Unity</figcaption>
                     </figure>
@@ -2678,19 +2671,19 @@ html.hero-pixel-hover * {
                         <figcaption class="mixcare-media-label mixcare-media-label--left">2.5D atmospheric world</figcaption>
                     </figure>
                     <figure class="gameart-media">
-                        <img class="void-of-light-gif" src="assets/projects/vol_01.gif" alt="Void of Light puzzle gameplay animation">
+                        <img loading="lazy" decoding="async" class="void-of-light-gif" src="assets/projects/vol_01.gif" alt="Void of Light puzzle gameplay animation">
                         <figcaption class="mixcare-media-label mixcare-media-label--tilt">Environmental puzzles</figcaption>
                     </figure>
                     <figure class="gameart-media">
-                        <img class="void-of-light-gif" src="assets/projects/vol_02.gif" alt="Void of Light robot gameplay animation">
+                        <img loading="lazy" decoding="async" class="void-of-light-gif" src="assets/projects/vol_02.gif" alt="Void of Light robot gameplay animation">
                         <figcaption class="mixcare-media-label mixcare-media-label--left">Robot body control</figcaption>
                     </figure>
                     <figure class="gameart-media">
-                        <img class="void-of-light-gif" src="assets/projects/vol_03.gif" alt="Void of Light stylized level animation">
+                        <img loading="lazy" decoding="async" class="void-of-light-gif" src="assets/projects/vol_03.gif" alt="Void of Light stylized level animation">
                         <figcaption class="mixcare-media-label mixcare-media-label--tilt">Stylized level design</figcaption>
                     </figure>
                     <figure class="gameart-media">
-                        <img class="void-of-light-gif" src="assets/projects/vol_04.gif" alt="Void of Light gameplay prototype animation">
+                        <img loading="lazy" decoding="async" class="void-of-light-gif" src="assets/projects/vol_04.gif" alt="Void of Light gameplay prototype animation">
                         <figcaption class="mixcare-media-label mixcare-media-label--left">Prototype for Windows</figcaption>
                     </figure>
                 </div>
@@ -2741,13 +2734,13 @@ html.hero-pixel-hover * {
 
                 <div class="gameart-gallery">
                     <figure class="gameart-media gameart-media--featured">
-                        <video src="assets/projects/ages-of-warfare.mp4" autoplay muted loop playsinline
-                            preload="metadata" aria-label="Ages of Warfare gameplay"></video>
+                        <video src="assets/projects/ages-of-warfare.mp4" data-autoplay muted loop playsinline
+                            preload="none" aria-label="Ages of Warfare gameplay"></video>
                         <figcaption class="mixcare-media-label mixcare-media-label--left">Age Of Warfare</figcaption>
                     </figure>
                     <figure class="gameart-media gameart-media--featured">
-                        <video src="assets/projects/bonfire-gamejam.mp4" autoplay muted loop playsinline
-                            preload="metadata" aria-label="BONFIRE Global Game Jam gameplay"></video>
+                        <video src="assets/projects/bonfire-gamejam.mp4" data-autoplay muted loop playsinline
+                            preload="none" aria-label="BONFIRE Global Game Jam gameplay"></video>
                         <figcaption class="mixcare-media-label mixcare-media-label--left mixcare-media-label--top">Bonfire Brothers</figcaption>
                     </figure>
                 </div>
@@ -2804,7 +2797,7 @@ html.hero-pixel-hover * {
                 </header>
                 <div class="gameart-gallery">
                     <figure class="gameart-media gameart-media--featured gameart-media--contain">
-                        <img src="assets/projects/fullstack-stm-ford.png" alt="STM Ford mobile application">
+                        <img loading="lazy" decoding="async" src="assets/projects/fullstack-stm-ford.png" alt="STM Ford mobile application">
                         <figcaption class="mixcare-media-label mixcare-media-label--left">Employee services · iOS &amp; Android</figcaption>
                     </figure>
                 </div>
@@ -2841,7 +2834,7 @@ html.hero-pixel-hover * {
                 </header>
                 <div class="gameart-gallery">
                     <figure class="gameart-media gameart-media--featured gameart-media--contain">
-                        <img src="assets/projects/fullstack-chatripp.png" alt="Chatripp travel social application">
+                        <img loading="lazy" decoding="async" src="assets/projects/fullstack-chatripp.png" alt="Chatripp travel social application">
                         <figcaption class="mixcare-media-label mixcare-media-label--tilt">Travel · Social · Messaging</figcaption>
                     </figure>
                 </div>
@@ -2878,7 +2871,7 @@ html.hero-pixel-hover * {
                 </header>
                 <div class="gameart-gallery">
                     <figure class="gameart-media gameart-media--featured gameart-media--contain">
-                        <img src="assets/projects/fullstack-hundred.png" alt="Hundred Burgers ordering application">
+                        <img loading="lazy" decoding="async" src="assets/projects/fullstack-hundred.png" alt="Hundred Burgers ordering application">
                         <figcaption class="mixcare-media-label mixcare-media-label--left">Table ordering · Delivery</figcaption>
                     </figure>
                 </div>
@@ -2915,7 +2908,7 @@ html.hero-pixel-hover * {
                 </header>
                 <div class="gameart-gallery">
                     <figure class="gameart-media gameart-media--featured gameart-media--contain">
-                        <img src="assets/projects/fullstack-fitzgerald.jpg" alt="The Fitzgerald native mobile application">
+                        <img loading="lazy" decoding="async" src="assets/projects/fullstack-fitzgerald.jpg" alt="The Fitzgerald native mobile application">
                         <figcaption class="mixcare-media-label mixcare-media-label--tilt">Restaurant mobile experience</figcaption>
                     </figure>
                 </div>
@@ -2955,7 +2948,7 @@ html.hero-pixel-hover * {
                     <div class="border-b border-white/10 pb-10">
                         <div class="flex gap-6 items-start">
                             <div class="shrink-0">
-                                <img src="assets/iti_logo.jfif" alt="ITI logo" class="w-14 h-14 object-contain" />
+                                <img loading="lazy" decoding="async" src="assets/iti_logo.jfif" alt="ITI logo" class="w-14 h-14 object-contain" />
                             </div>
                             <div class="flex-1">
                                 <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
@@ -2982,7 +2975,7 @@ html.hero-pixel-hover * {
                     <div class="border-b border-white/10 pb-10">
                         <div class="flex gap-6 items-start">
                             <div class="shrink-0">
-                                <img src="assets/taw_logo.jpeg" alt="Tech Art Worlds logo"
+                                <img loading="lazy" decoding="async" src="assets/taw_logo.jpeg" alt="Tech Art Worlds logo"
                                     class="w-14 h-14 object-contain" />
                             </div>
                             <div class="flex-1">
@@ -3011,7 +3004,7 @@ html.hero-pixel-hover * {
                     <div class="border-b border-white/10 pb-10">
                         <div class="flex gap-6 items-start">
                             <div class="shrink-0">
-                                <img src="assets/manyworlds_logo.webp" alt="Many Worlds logo"
+                                <img loading="lazy" decoding="async" src="assets/manyworlds_logo.webp" alt="Many Worlds logo"
                                     class="w-14 h-14 object-contain" />
                             </div>
                             <div class="flex-1">
@@ -3039,7 +3032,7 @@ html.hero-pixel-hover * {
                     <div class="border-b border-white/10 pb-10">
                         <div class="flex gap-6 items-start">
                             <div class="shrink-0">
-                                <img src="/assets/logo_sincrolab.png" alt="Sincrolab logo"
+                                <img loading="lazy" decoding="async" src="/assets/logo_sincrolab.png" alt="Sincrolab logo"
                                     class="w-14 h-14 object-contain" />
                             </div>
                             <div class="flex-1">
@@ -3070,7 +3063,7 @@ html.hero-pixel-hover * {
                     <div class="border-b border-white/10 pb-10">
                         <div class="flex gap-6 items-start">
                             <div class="shrink-0">
-                                <img src="assets/flexo_logo.webp" alt="USA Flexo Solutions logo"
+                                <img loading="lazy" decoding="async" src="assets/flexo_logo.webp" alt="USA Flexo Solutions logo"
                                     class="w-14 h-14 object-contain" />
                             </div>
                             <div class="flex-1">
@@ -3099,7 +3092,7 @@ html.hero-pixel-hover * {
                     <div class="border-b border-white/10 pb-10">
                         <div class="flex gap-6 items-start">
                             <div class="shrink-0">
-                                <img src="/assets/rudo.webp" alt="Rudo Apps logo" class="w-14 h-14 object-contain" />
+                                <img loading="lazy" decoding="async" src="/assets/rudo.webp" alt="Rudo Apps logo" class="w-14 h-14 object-contain" />
                             </div>
                             <div class="flex-1">
                                 <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
@@ -3129,7 +3122,7 @@ html.hero-pixel-hover * {
                     <div class="border-b border-white/10 pb-10">
                         <div class="flex gap-6 items-start">
                             <div class="shrink-0">
-                                <img src="/assets/lableni.jpg" alt="LabLENI UPV logo"
+                                <img loading="lazy" decoding="async" src="/assets/lableni.jpg" alt="LabLENI UPV logo"
                                     class="w-14 h-14 object-contain" />
                             </div>
                             <div class="flex-1">
@@ -3160,7 +3153,7 @@ html.hero-pixel-hover * {
                     <div class="border-b border-white/10 pb-10">
                         <div class="flex gap-6 items-start">
                             <div class="shrink-0">
-                                <img src="/assets/imprenta_rocher.jpg" alt="Imprenta Rocher logo"
+                                <img loading="lazy" decoding="async" src="/assets/imprenta_rocher.jpg" alt="Imprenta Rocher logo"
                                     class="w-14 h-14 object-contain" />
                             </div>
                             <div class="flex-1">
@@ -3196,7 +3189,7 @@ html.hero-pixel-hover * {
                     <div class="flex gap-6 items-start">
                         <!-- Logo -->
                         <div class="shrink-0">
-                            <img src="assets/taw_logo.jpeg" alt="TechArt Worlds logo"
+                            <img loading="lazy" decoding="async" src="assets/taw_logo.jpeg" alt="TechArt Worlds logo"
                                 class="w-14 h-14 object-contain" />
                         </div>
 
@@ -3222,7 +3215,7 @@ html.hero-pixel-hover * {
                     <div class="flex gap-6 items-start">
                         <!-- Logo -->
                         <div class="shrink-0">
-                            <img src="assets/florida_logo.jpg" alt="Florida Universitaria logo"
+                            <img loading="lazy" decoding="async" src="assets/florida_logo.jpg" alt="Florida Universitaria logo"
                                 class="w-14 h-14 object-contain" />
                         </div>
 
@@ -3248,7 +3241,7 @@ html.hero-pixel-hover * {
                     <div class="flex gap-6 items-start">
                         <!-- Logo -->
                         <div class="shrink-0">
-                            <img src="assets/florida_logo.jpg" alt="Florida Universitaria logo"
+                            <img loading="lazy" decoding="async" src="assets/florida_logo.jpg" alt="Florida Universitaria logo"
                                 class="w-14 h-14 object-contain" />
                         </div>
 
@@ -3274,7 +3267,7 @@ html.hero-pixel-hover * {
                     <div class="flex gap-6 items-start">
                         <!-- Logo -->
                         <div class="shrink-0">
-                            <img src="assets/fp_la_safor.jfif" alt="Fp La Safor logo"
+                            <img loading="lazy" decoding="async" src="assets/fp_la_safor.jfif" alt="Fp La Safor logo"
                                 class="w-14 h-14 object-contain" />
                         </div>
 
@@ -3314,7 +3307,7 @@ html.hero-pixel-hover * {
                 <div class="pointer-events-none select-none absolute -top-[5rem] -right-[0.6rem]
            w-[260px] sm:w-[320px] md:w-[420px]
            z-0">
-                    <img src="assets/me.webp" alt="" class="w-full h-auto scale-x-[1] opacity-90" />
+                    <img loading="lazy" decoding="async" src="assets/me.webp" alt="" class="w-full h-auto scale-x-[1] opacity-90" />
 
                     <!-- Vertical gradient: bottom 90% -> top 0% -->
                     <div class="absolute inset-0 bg-gradient-to-t from-black/100 to-transparent"></div>
@@ -3410,29 +3403,29 @@ html.hero-pixel-hover * {
             <div class="flex gap-4 items-center">
 
                 <a class="footer-icon" style="--footer-icon: url('icons/youtube.png');" href="https://www.youtube.com/@adrixnperez" target="_blank" rel="noreferrer">
-                    <img src="icons/youtube.png" alt="YouTube"
+                    <img loading="lazy" decoding="async" src="icons/youtube.png" alt="YouTube"
                         class="w-[30px] h-[30px] object-contain">
                 </a>
 
                 <a class="footer-icon" style="--footer-icon: url('icons/artstation.png');" href="https://www.artstation.com/adriperez" target="_blank" rel="noreferrer">
-                    <img src="icons/artstation.png" alt="ArtStation"
+                    <img loading="lazy" decoding="async" src="icons/artstation.png" alt="ArtStation"
                         class="w-[30px] h-[30px] object-contain">
 
                 </a>
 
                 <a class="footer-icon" style="--footer-icon: url('icons/linkedin.png');" href="https://www.linkedin.com/in/aperezgfx" target="_blank" rel="noreferrer">
-                    <img src="icons/linkedin.png" alt="LinkedIn"
+                    <img loading="lazy" decoding="async" src="icons/linkedin.png" alt="LinkedIn"
                         class="w-[30px] h-[30px] object-contain">
 
                 </a>
 
                 <a class="footer-icon" style="--footer-icon: url('icons/github.png');" href="https://github.com/xAdri" target="_blank" rel="noreferrer">
-                    <img src="icons/github.png" alt="GitHub"
+                    <img loading="lazy" decoding="async" src="icons/github.png" alt="GitHub"
                         class="w-[30px] h-[30px] object-contain">
                 </a>
 
                 <a class="footer-icon" style="--footer-icon: url('icons/itchio.png');" href="https://adriperez.itch.io/" target="_blank" rel="noreferrer">
-                    <img src="icons/itchio.png" alt="Itch.io"
+                    <img loading="lazy" decoding="async" src="icons/itchio.png" alt="Itch.io"
                         class="w-[30px] h-[30px] object-contain">
                 </a>
             </div>
@@ -3778,6 +3771,24 @@ html.hero-pixel-hover * {
             else photo.addEventListener("load", prepareHitMap, { once: true });
         }
 
+        function initializeDeferredVideos() {
+            const videos = document.querySelectorAll("video[data-autoplay]");
+            if (!videos.length) return;
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    const video = entry.target;
+                    if (entry.isIntersecting) {
+                        video.play().catch(() => {});
+                    } else {
+                        video.pause();
+                    }
+                });
+            }, { rootMargin: "200px 0px", threshold: 0.01 });
+
+            videos.forEach((video) => observer.observe(video));
+        }
+
         function updateExperienceYears() {
             const careerStartYear = 2020;
             const years = Math.max(0, new Date().getFullYear() - careerStartYear);
@@ -3801,6 +3812,7 @@ html.hero-pixel-hover * {
             var role = firstVisible ? (firstVisible.dataset.role || "") : "software";
             setTechChipsMode(role);
             initializeHeroPhotoHitArea();
+            initializeDeferredVideos();
             updateExperienceYears();
             listenWatchRead();
         })();
