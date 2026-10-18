@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Adrián Pérez">
+  <defs>
+    <mask id="negative-a">
+      <rect width="64" height="64" fill="#000"/>
+      <circle cx="32" cy="32" r="29" fill="#fff"/>
+      <path fill="#000" fill-rule="evenodd" d="M15 49 28.5 14h7L49 49h-8.5l-2.8-8H26.3l-2.8 8H15Zm14-15h6l-3-9-3 9Z"/>
+    </mask>
+  </defs>
+  <circle cx="32" cy="32" r="29" fill="#fff" mask="url(#negative-a)"/>
+</svg>
