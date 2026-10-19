@@ -26,3 +26,14 @@ document.querySelectorAll('.project, .about-gallery-item').forEach((item) => {
 requestAnimationFrame(() => {
   document.querySelectorAll('.about-copy, .resume').forEach((content) => content.classList.add('is-loaded'));
 });
+
+document.querySelectorAll('[data-language-toggle]').forEach((button) => {
+  button.addEventListener('click', () => {
+    const switchingToSpanish = button.dataset.currentLanguage === 'en';
+
+    button.dataset.currentLanguage = switchingToSpanish ? 'es' : 'en';
+    button.querySelector('[aria-hidden="true"]').textContent = switchingToSpanish ? '🇪🇳' : '🇪🇸';
+    button.setAttribute('aria-label', switchingToSpanish ? 'Switch to English' : 'Cambiar a español');
+    button.title = switchingToSpanish ? 'English' : 'Español';
+  });
+});
