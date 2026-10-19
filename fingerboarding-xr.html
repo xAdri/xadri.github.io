@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fingerboarding XR — Adrián Pérez</title>
+  <meta name="description" content="Fingerboarding XR combines direct hand interaction, responsive skateboard physics and a procedural skatepark that can be edited in real time.">
+  <link rel="canonical" href="https://www.adriperez.es/fingerboarding-xr.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Fingerboarding XR — Adrián Pérez">
+  <meta property="og:description" content="Direct hand interaction, responsive board physics and procedural skatepark editing in mixed reality.">
+  <meta property="og:image" content="https://www.adriperez.es/assets/fingerboardingxr.gif">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <section class="welcome">
+      <nav class="menu" aria-label="Portfolio">
+        <a href="/">Innovation</a>
+        <a href="prototypes.html" aria-current="page">Prototypes</a>
+        <a href="experiments.html">Experiments</a>
+        <a href="engineering.html">Engineering</a>
+        <a href="about.html">About</a>
+        <!-- <button class="language-switcher" type="button" data-language-toggle data-current-language="en" aria-label="Cambiar a español" title="Español"><span aria-hidden="true">🇪🇸</span></button> -->
+      </nav>
+      <div class="welcome-message">
+        <h1><strong>Fingerboarding XR</strong> combines <strong>direct hand interaction, responsive board physics and a procedural skatepark</strong> that can be reshaped in real time.</h1>
+      </div>
+    </section>
+
+    <div class="desktop-spacer" aria-hidden="true"></div>
+
+    <article class="case-study">
+      <section class="case-study-section" aria-labelledby="interaction-title">
+        <figure class="case-study-media">
+          <button class="case-study-media-button" type="button" data-media-lightbox aria-label="View the Fingerboarding XR interaction at full size">
+            <img src="assets/fingerboardingxr.gif" alt="Fingerboarding XR running on a table with a virtual skateboard, ramp and editing controls" fetchpriority="high" decoding="async">
+          </button>
+        </figure>
+        <div class="case-study-copy">
+          <h2 class="case-study-kicker" id="interaction-title">Direct interaction</h2>
+          <p>The player controls the virtual skateboard directly with their hands. Finger-scale contact replaces conventional buttons and controllers, keeping the interaction close to the gestures of physical fingerboarding.</p>
+          <p>Picking up the board, positioning the fingers and attempting a trick all happen in the same mixed reality space, without switching interaction modes.</p>
+        </div>
+      </section>
+
+      <div class="case-study-topics">
+        <section class="case-study-topic" aria-labelledby="physics-title">
+          <h2 class="case-study-kicker" id="physics-title">Board physics</h2>
+          <div class="case-study-copy">
+            <p>The physics system turns small hand movements into force, rotation and momentum. The board responds continuously to finger input, the table and the geometry of each obstacle rather than relying on predefined trick animations.</p>
+            <p>This makes every attempt slightly different and keeps balance, timing, collisions and recovery at the centre of the experience.</p>
+          </div>
+        </section>
+
+        <section class="case-study-topic" aria-labelledby="ramps-title">
+          <h2 class="case-study-kicker" id="ramps-title">Real-time procedural generation</h2>
+          <div class="case-study-copy">
+            <p>The environment is built from procedural obstacles instead of fixed assets. In-world controls let the player place a ramp on the physical surface and modify its form and proportions while the geometry updates in real time.</p>
+            <p>The generated obstacle remains immediately playable, creating a continuous loop between level design and interaction: reshape the ramp, test a line and adjust it again without leaving mixed reality.</p>
+          </div>
+        </section>
+      </div>
+
+      <div class="case-study-gallery" aria-label="Procedural skatepark tools">
+        <figure class="case-study-media">
+          <button class="case-study-media-button" type="button" data-media-lightbox aria-label="View the procedural ramp editing at full size">
+            <img src="assets/procedural_ramp.gif" alt="A procedural Fingerboarding XR ramp being placed and adjusted on a real table" loading="lazy" decoding="async">
+          </button>
+        </figure>
+        <figure class="case-study-media">
+          <button class="case-study-media-button" type="button" data-media-lightbox aria-label="View the procedural skatepark generation at full size">
+            <img src="assets/procedural-skatepark.gif" alt="A procedural skatepark being generated in mixed reality on a real table" loading="lazy" decoding="async">
+          </button>
+        </figure>
+      </div>
+
+      <nav class="case-study-nav" aria-label="Project navigation">
+        <a href="prototypes.html">← Back to Prototypes</a>
+        <a href="https://adriperez.itch.io/void-of-light" target="_blank" rel="noreferrer">Next project: Void of Light →</a>
+      </nav>
+    </article>
+
+    <footer>
+      <nav class="social-links" aria-label="Social links">
+        <a href="https://www.youtube.com/@adrixnperez" target="_blank" rel="noreferrer">YouTube</a>
+        <a href="https://www.artstation.com/adriperez" target="_blank" rel="noreferrer">ArtStation</a>
+        <a href="https://www.linkedin.com/in/aperezgfx" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="https://github.com/xAdri" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://adriperez.itch.io/" target="_blank" rel="noreferrer">Itch.io</a>
+      </nav>
+      <p>© <span class="current-year">2026</span><br>Adrián Pérez.<br><a href="mailto:aperezgfx@gmail.com">aperezgfx@gmail.com</a></p>
+    </footer>
+  </main>
+  <script>document.querySelectorAll('.current-year').forEach((element) => element.textContent = new Date().getFullYear());</script>
+  <script src="site.js"></script>
+</body>
+</html>
