@@ -44,24 +44,34 @@ if (lightboxTriggers.length) {
   const lightbox = document.createElement('dialog');
   lightbox.className = 'media-lightbox';
   lightbox.setAttribute('aria-label', 'Expanded project media');
-  lightbox.innerHTML = '<div class="media-lightbox-stage"><img class="media-lightbox-image" alt=""><button class="media-lightbox-close" type="button" aria-label="Close expanded media">&times;</button><button class="media-lightbox-arrow media-lightbox-arrow--previous" type="button" aria-label="View previous project media"></button><button class="media-lightbox-arrow media-lightbox-arrow--next" type="button" aria-label="View next project media"></button></div>';
+  lightbox.innerHTML = '<div class="media-lightbox-stage"><img class="media-lightbox-image media-lightbox-content" alt="" hidden><video class="media-lightbox-video media-lightbox-content" muted loop playsinline hidden></video><button class="media-lightbox-close" type="button" aria-label="Close expanded media"></button><button class="media-lightbox-arrow media-lightbox-arrow--previous" type="button" aria-label="View previous project media"></button><button class="media-lightbox-arrow media-lightbox-arrow--next" type="button" aria-label="View next project media"></button></div>';
   document.body.append(lightbox);
 
   const triggers = Array.from(lightboxTriggers);
   const lightboxImage = lightbox.querySelector('.media-lightbox-image');
+  const lightboxVideo = lightbox.querySelector('.media-lightbox-video');
   const closeButton = lightbox.querySelector('.media-lightbox-close');
   const previousButton = lightbox.querySelector('.media-lightbox-arrow--previous');
   const nextButton = lightbox.querySelector('.media-lightbox-arrow--next');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const coarsePointer = window.matchMedia('(pointer: coarse)');
   let currentIndex = 0;
+  let activeLightboxMedia = null;
+  let mediaRequestId = 0;
 
   lightbox.classList.toggle('has-single-media', triggers.length < 2);
 
   const fitLightboxMedia = () => {
-    if (!lightboxImage.naturalWidth || !lightboxImage.naturalHeight) return;
+    if (!activeLightboxMedia) return;
 
-    const isMobileViewport = coarsePointer.matches || window.innerWidth <= 768;
+    const mediaWidth = activeLightboxMedia instanceof HTMLVideoElement
+      ? activeLightboxMedia.videoWidth
+      : activeLightboxMedia.naturalWidth;
+    const mediaHeight = activeLightboxMedia instanceof HTMLVideoElement
+      ? activeLightboxMedia.videoHeight
+      : activeLightboxMedia.naturalHeight;
+    if (!mediaWidth || !mediaHeight) return;
+
+    const isMobileViewport = Math.min(window.innerWidth, window.innerHeight) <= 600;
     const isPortraitViewport = window.innerHeight >= window.innerWidth;
     const usesThumbControls = isMobileViewport && isPortraitViewport;
     const horizontalMargin = usesThumbControls ? 24 : isMobileViewport ? 136 : 176;
@@ -69,7 +79,7 @@ if (lightboxTriggers.length) {
     const maxHeight = Math.max(160, isMobileViewport
       ? window.innerHeight - (usesThumbControls ? 88 : 24)
       : window.innerHeight * .82);
-    const aspectRatio = lightboxImage.naturalWidth / lightboxImage.naturalHeight;
+    const aspectRatio = mediaWidth / mediaHeight;
     let width = maxWidth;
     let height = width / aspectRatio;
 
@@ -79,27 +89,69 @@ if (lightboxTriggers.length) {
     }
 
     lightbox.classList.toggle('uses-thumb-controls', usesThumbControls);
-    lightboxImage.style.width = `${Math.round(width)}px`;
-    lightboxImage.style.height = `${Math.round(height)}px`;
+    activeLightboxMedia.style.width = `${Math.round(width)}px`;
+    activeLightboxMedia.style.height = `${Math.round(height)}px`;
+  };
+
+  const revealMedia = (media, requestId) => {
+    if (requestId !== mediaRequestId) return;
+
+    activeLightboxMedia = media;
+    media.hidden = false;
+    fitLightboxMedia();
+    lightbox.classList.remove('is-media-loading');
+    media.classList.remove('is-changing');
+    void media.offsetWidth;
+    media.classList.add('is-changing');
+
+    if (media instanceof HTMLVideoElement) {
+      media.play().catch(() => {});
+    }
   };
 
   const showMedia = (index) => {
     const nextIndex = Math.min(Math.max(index, 0), triggers.length - 1);
     if (lightbox.open && nextIndex === currentIndex) return;
 
-    currentIndex = nextIndex;
-    const sourceImage = triggers[currentIndex].querySelector('img');
-    if (!sourceImage) return;
+    const sourceMedia = triggers[nextIndex].querySelector('img, video');
+    if (!sourceMedia) return;
 
+    currentIndex = nextIndex;
+    const requestId = ++mediaRequestId;
     previousButton.disabled = currentIndex === 0;
     nextButton.disabled = currentIndex === triggers.length - 1;
+    lightbox.classList.add('is-media-loading');
+    activeLightboxMedia = null;
+
+    lightboxImage.hidden = true;
+    lightboxVideo.hidden = true;
+    lightboxImage.classList.remove('is-changing');
+    lightboxVideo.classList.remove('is-changing');
     lightboxImage.style.removeProperty('width');
     lightboxImage.style.removeProperty('height');
-    lightboxImage.src = sourceImage.currentSrc || sourceImage.src;
-    lightboxImage.alt = sourceImage.alt;
-    lightboxImage.classList.remove('is-changing');
-    void lightboxImage.offsetWidth;
-    lightboxImage.classList.add('is-changing');
+    lightboxVideo.style.removeProperty('width');
+    lightboxVideo.style.removeProperty('height');
+    lightboxImage.removeAttribute('src');
+    lightboxImage.alt = '';
+    lightboxVideo.pause();
+    lightboxVideo.controls = false;
+    lightboxVideo.removeAttribute('src');
+    lightboxVideo.load();
+
+    if (sourceMedia instanceof HTMLVideoElement) {
+      const source = sourceMedia.currentSrc || sourceMedia.querySelector('source')?.src || sourceMedia.src;
+      if (!source) return;
+
+      lightboxVideo.controls = triggers[currentIndex].hasAttribute('data-video-controls');
+      lightboxVideo.setAttribute('aria-label', sourceMedia.getAttribute('aria-label') || 'Expanded project video');
+      lightboxVideo.addEventListener('loadedmetadata', () => revealMedia(lightboxVideo, requestId), { once: true });
+      lightboxVideo.src = source;
+      lightboxVideo.load();
+    } else {
+      lightboxImage.alt = sourceMedia.alt;
+      lightboxImage.addEventListener('load', () => revealMedia(lightboxImage, requestId), { once: true });
+      lightboxImage.src = sourceMedia.currentSrc || sourceMedia.src;
+    }
   };
 
   const closeLightbox = () => {
@@ -125,7 +177,6 @@ if (lightboxTriggers.length) {
   closeButton.addEventListener('click', closeLightbox);
   previousButton.addEventListener('click', () => showMedia(currentIndex - 1));
   nextButton.addEventListener('click', () => showMedia(currentIndex + 1));
-  lightboxImage.addEventListener('load', fitLightboxMedia);
   window.addEventListener('resize', () => {
     if (lightbox.open) fitLightboxMedia();
   });
@@ -147,11 +198,24 @@ if (lightboxTriggers.length) {
     closeLightbox();
   });
   lightbox.addEventListener('close', () => {
+    mediaRequestId += 1;
     lightbox.classList.remove('is-closing');
+    lightbox.classList.remove('is-media-loading');
     lightboxImage.classList.remove('is-changing');
+    lightboxVideo.classList.remove('is-changing');
     lightboxImage.removeAttribute('src');
     lightboxImage.style.removeProperty('width');
     lightboxImage.style.removeProperty('height');
     lightboxImage.alt = '';
+    lightboxVideo.pause();
+    lightboxVideo.controls = false;
+    lightboxVideo.removeAttribute('src');
+    lightboxVideo.removeAttribute('aria-label');
+    lightboxVideo.style.removeProperty('width');
+    lightboxVideo.style.removeProperty('height');
+    lightboxVideo.load();
+    lightboxVideo.hidden = true;
+    lightboxImage.hidden = true;
+    activeLightboxMedia = null;
   });
 }
