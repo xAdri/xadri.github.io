@@ -219,9 +219,18 @@ img, video { display: block; }
 
 .case-study-media--crop { aspect-ratio: 4 / 3; }
 .case-study-media--crop .case-study-media-button { height: 100%; }
-.case-study-media--crop img {
+.case-study-media--crop img,
+.case-study-media--crop video {
   height: 100%;
   object-fit: cover;
+}
+
+.case-study-media--mixcare-primary {
+  aspect-ratio: 3 / 2;
+}
+
+.case-study-media--mixcare-primary img {
+  object-position: 58% 48%;
 }
 
 .case-study-media-button {
@@ -237,6 +246,8 @@ img, video { display: block; }
 .case-study-media-button video { transition: opacity .7s ease-in-out, transform .4s ease-in-out; }
 .case-study-media-button:hover img,
 .case-study-media-button:hover video { transform: scale(1.015); }
+.case-study-media--mixcare-third img { transform: scale(1.08); }
+.case-study-media--mixcare-third .case-study-media-button:hover img { transform: scale(1.1); }
 .case-study-media-button:focus-visible { outline: 2px solid var(--dark); outline-offset: 4px; }
 
 .media-lightbox {
@@ -425,6 +436,10 @@ img, video { display: block; }
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--gap);
   align-items: stretch;
+}
+
+.case-study-gallery--mixcare .case-study-media--crop {
+  aspect-ratio: 4 / 5;
 }
 
 .case-study-gallery-stack {
