@@ -19,44 +19,52 @@ const waitForMedia = (media) => {
 };
 
 const projectItems = document.querySelectorAll('.project');
-const projectLoaderBlob = projectItems.length
+const caseStudyMediaItems = document.querySelectorAll('.case-study-media');
+const mediaLoaderBlob = projectItems.length || caseStudyMediaItems.length
   ? fetch('assets/loading.gif')
       .then((response) => {
-        if (!response.ok) throw new Error('Could not load the project loader');
+        if (!response.ok) throw new Error('Could not load the media loader');
         return response.blob();
       })
       .catch(() => null)
   : Promise.resolve(null);
 
-projectItems.forEach((item) => {
-  const media = item.querySelector('img, video');
-  const cover = media?.closest('.project-cover');
+const loadMediaFrame = (frame, media) => {
   let loaderStartTimer;
   let individualLoaderUrl;
 
-  projectLoaderBlob.then((loaderBlob) => {
-    if (!loaderBlob || !cover || cover.classList.contains('is-media-loaded')) return;
+  mediaLoaderBlob.then((loaderBlob) => {
+    if (!loaderBlob || !frame || frame.classList.contains('is-media-loaded')) return;
 
     const randomStartDelay = Math.random() * 1400;
     loaderStartTimer = window.setTimeout(() => {
-      if (cover.classList.contains('is-media-loaded')) return;
+      if (frame.classList.contains('is-media-loaded')) return;
 
       individualLoaderUrl = URL.createObjectURL(loaderBlob);
-      cover.style.backgroundImage = `url("${individualLoaderUrl}")`;
+      frame.style.backgroundImage = `url("${individualLoaderUrl}")`;
     }, randomStartDelay);
   });
 
   waitForMedia(media).then(() => {
     window.clearTimeout(loaderStartTimer);
-    cover?.classList.add('is-media-loaded');
+    frame?.classList.add('is-media-loaded');
 
     if (individualLoaderUrl) {
       window.setTimeout(() => {
-        cover.style.removeProperty('background-image');
+        frame.style.removeProperty('background-image');
         URL.revokeObjectURL(individualLoaderUrl);
       }, 700);
     }
   });
+};
+
+projectItems.forEach((item) => {
+  const media = item.querySelector('img, video');
+  loadMediaFrame(media?.closest('.project-cover'), media);
+});
+
+caseStudyMediaItems.forEach((frame) => {
+  loadMediaFrame(frame, frame.querySelector('img, video'));
 });
 
 document.querySelectorAll('.about-gallery-item').forEach((item) => {
@@ -65,6 +73,9 @@ document.querySelectorAll('.about-gallery-item').forEach((item) => {
 });
 
 requestAnimationFrame(() => {
+  projectItems.forEach((item) => item.classList.add('is-loaded'));
+  document.querySelectorAll('.case-study > .case-study-section, .case-study > .case-study-topics, .case-study > .case-study-gallery, .case-study > .case-study-nav')
+    .forEach((content) => content.classList.add('is-loaded'));
   document.querySelectorAll('.about-copy, .resume').forEach((content) => content.classList.add('is-loaded'));
 });
 
