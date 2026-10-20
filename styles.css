@@ -114,17 +114,20 @@ img, video { display: block; }
 
 .project {
   min-width: 0;
-  opacity: 0;
 }
-
-.project.is-loaded { animation: show 1s ease forwards; }
 
 .project-cover img,
 .project-cover video {
   width: 100%;
   height: 100%;
+  opacity: 0;
   object-fit: cover;
-  transition: transform 1s ease-in-out;
+  transition: opacity .7s ease-in-out, transform 1s ease-in-out;
+}
+
+.project-cover.is-media-loaded img,
+.project-cover.is-media-loaded video {
+  opacity: 1;
 }
 
 .project-grid {
@@ -143,8 +146,10 @@ img, video { display: block; }
   height: auto;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  background: #eee;
+  background: #2d2e30 url("assets/loading.gif") center / cover no-repeat;
 }
+
+.project-cover--label { background-image: none; }
 
 .project-cover:hover img,
 .project-cover:hover video { transform: scale(1.04); }
@@ -568,7 +573,7 @@ footer p { grid-column: 4; color: var(--dark); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .project.is-loaded, .about-gallery-item.is-loaded, .about-copy.is-loaded, .resume.is-loaded { opacity: 1; animation: none; }
+  .about-gallery-item.is-loaded, .about-copy.is-loaded, .resume.is-loaded { opacity: 1; animation: none; }
   .project-cover { animation: none; }
   .media-lightbox[open],
   .media-lightbox[open]::backdrop,

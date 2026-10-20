@@ -18,7 +18,48 @@ const waitForMedia = (media) => {
   return Promise.resolve();
 };
 
-document.querySelectorAll('.project, .about-gallery-item').forEach((item) => {
+const projectItems = document.querySelectorAll('.project');
+const projectLoaderBlob = projectItems.length
+  ? fetch('assets/loading.gif')
+      .then((response) => {
+        if (!response.ok) throw new Error('Could not load the project loader');
+        return response.blob();
+      })
+      .catch(() => null)
+  : Promise.resolve(null);
+
+projectItems.forEach((item) => {
+  const media = item.querySelector('img, video');
+  const cover = media?.closest('.project-cover');
+  let loaderStartTimer;
+  let individualLoaderUrl;
+
+  projectLoaderBlob.then((loaderBlob) => {
+    if (!loaderBlob || !cover || cover.classList.contains('is-media-loaded')) return;
+
+    const randomStartDelay = Math.random() * 1400;
+    loaderStartTimer = window.setTimeout(() => {
+      if (cover.classList.contains('is-media-loaded')) return;
+
+      individualLoaderUrl = URL.createObjectURL(loaderBlob);
+      cover.style.backgroundImage = `url("${individualLoaderUrl}")`;
+    }, randomStartDelay);
+  });
+
+  waitForMedia(media).then(() => {
+    window.clearTimeout(loaderStartTimer);
+    cover?.classList.add('is-media-loaded');
+
+    if (individualLoaderUrl) {
+      window.setTimeout(() => {
+        cover.style.removeProperty('background-image');
+        URL.revokeObjectURL(individualLoaderUrl);
+      }, 700);
+    }
+  });
+});
+
+document.querySelectorAll('.about-gallery-item').forEach((item) => {
   const media = item.querySelector('img, video');
   waitForMedia(media).then(() => item.classList.add('is-loaded'));
 });
