@@ -435,6 +435,8 @@ img, video { display: block; }
 }
 
 @media (min-width: 769px) {
+  .case-study-section--reverse > .case-study-media { grid-column: 2; }
+  .case-study-section--reverse > .case-study-copy { grid-column: 1; grid-row: 1; }
   .case-study-media--stack-fill {
     min-height: 0;
     overflow: hidden;
