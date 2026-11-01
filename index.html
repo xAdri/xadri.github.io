@@ -1,17 +1,20 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Adrián Pérez — Portfolio</title>
-  <meta name="description" content="I’m Adrián Pérez, a senior XR software engineer in R&amp;D with 7+ years in the industry, focused on creative ways to apply emerging technologies across healthcare, industry and education.">
+  <meta name="description"
+    content="I’m Adrián Pérez, a senior XR software engineer in R&amp;D with 7+ years in the industry, focused on creative ways to apply emerging technologies across healthcare, industry and education.">
   <link rel="canonical" href="https://www.adriperez.es/">
   <link rel="image_src" href="https://www.adriperez.es/assets/personal.jpg">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Adrián Pérez — Portfolio">
   <meta property="og:url" content="https://www.adriperez.es/">
   <meta property="og:title" content="Adrián Pérez - Portfolio">
-  <meta property="og:description" content="I’m Adrián Pérez, a senior XR software engineer in R&amp;D with 7+ years in the industry, focused on creative ways to apply emerging technologies across healthcare, industry and education.">
+  <meta property="og:description"
+    content="I’m Adrián Pérez, a senior XR software engineer in R&amp;D with 7+ years in the industry, focused on creative ways to apply emerging technologies across healthcare, industry and education.">
   <meta property="og:image" content="https://www.adriperez.es/assets/personal.jpg">
   <meta property="og:image:secure_url" content="https://www.adriperez.es/assets/personal.jpg">
   <meta property="og:image:type" content="image/jpeg">
@@ -20,54 +23,131 @@
   <meta property="og:image:alt" content="Adrián Pérez">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Adrián Pérez - Portfolio">
-  <meta name="twitter:description" content="I’m Adrián Pérez, a senior XR software engineer in R&amp;D with 7+ years in the industry, focused on creative ways to apply emerging technologies across healthcare, industry and education.">
+  <meta name="twitter:description"
+    content="I’m Adrián Pérez, a senior XR software engineer in R&amp;D with 7+ years in the industry, focused on creative ways to apply emerging technologies across healthcare, industry and education.">
   <meta name="twitter:image" content="https://www.adriperez.es/assets/personal.jpg">
   <meta name="twitter:image:alt" content="Adrián Pérez">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <main>
-    <section class="welcome">
-      <nav class="menu" aria-label="Portfolio">
-        <a href="/" aria-current="page">Innovation</a>
-        <a href="prototypes.html">Prototypes</a>
-        <a href="experiments.html">Experiments</a>
-        <a href="engineering.html">Engineering</a>
-        <a href="about.html">About</a>
-        <!-- <button class="language-switcher" type="button" data-language-toggle data-current-language="en" aria-label="Cambiar a español" title="Español"><span aria-hidden="true">🇪🇸</span></button> -->
+    <section class="home-hero" aria-labelledby="home-title">
+      <nav class="menu home-hero-menu" aria-label="Portfolio">
+        <a href="/" aria-current="page" data-underline="Innovation">Innovation</a>
+        <a href="prototypes.html" data-underline="Prototypes">Prototypes</a>
+        <a href="experiments.html" data-underline="Experiments">Experiments</a>
+        <a href="engineering.html" data-underline="Engineering">Engineering</a>
+        <a href="about.html" data-underline="About">About</a>
+        <button class="home-language-toggle is-english" type="button" aria-label="Visual language selector: English"
+          aria-pressed="true">
+          <span class="home-language-flag" aria-hidden="true"></span>
+          <span class="home-language-code">EN</span>
+        </button>
       </nav>
-      <div class="welcome-message">
-        <h1>I’m <abbr title="Senior XR Software Engineer in R&amp;D | Technical Artist"><strong>Adrián Pérez</strong></abbr>, a <strong>senior XR software engineer in R&amp;D</strong> with <strong id="experience-years">+7</strong> years in the industry, focused on creative ways to apply <abbr title="XR | Interactive Systems | Procedural Tools"><strong>emerging technologies</strong></abbr> across <strong>healthcare, industry and education</strong>.</h1>
+      <div class="home-hero-meta" aria-hidden="true"></div>
+
+      <div class="home-hero-copy">
+        <h1 id="home-title">
+          <span>Technology should push limits.</span>
+          <span>I build products that break them.</span>
+        </h1>
+        <div class="home-hero-summary">
+          <p>
+            <!-- <strong class="home-hero-name">Adrián Pérez González,</strong> -->
+            <span>Senior XR Software Engineer
+              <!-- <span class="home-hero-separator" aria-hidden="true"></span> -->
+              <!-- <span class="home-hero-role">Senior XR Software Engineer -->
+              <span class="home-hero-experience"> with +<span id="experience-years">7</span> years of experience</span>
+            </span>
+          </p>
+        </div>
+        <div class="home-hero-actions">
+          <!--
+          <a class="home-hero-button home-hero-button--primary" href="#selected-work">
+            <span class="home-hero-button-label">See my work</span>
+            <span class="home-hero-button-icon" aria-hidden="true">↓</span>
+          </a>
+          -->
+        </div>
       </div>
+
+      <section class="lanyard-showcase" id="interactive-badge" aria-label="Interactive identity badge">
+        <!-- BADGE TEXTS: change these data attributes to customize both 3D faces. -->
+        <div class="lanyard-stage" data-lanyard-badge
+          data-badge-front-image="assets/badge_design_front_2.webp"
+          data-badge-mark-icon="favicon.svg"
+          data-badge-footer-icon="assets/github-avatar.png"
+          data-badge-role="Senior XR Software Engineer"
+          data-badge-code="XR · R&amp;D"
+          data-badge-name="Adrián Pérez"
+          data-badge-monogram="AP"
+          data-badge-back-label="Portfolio / 2026"
+          data-badge-back-copy="Building products across healthcare, industry and education."
+          data-badge-contact="aperezgfx@gmail.com">
+          <p class="lanyard-fallback">Interactive 3D badge for Adrián Pérez.</p>
+        </div>
+      </section>
+
+      <!-- <figure class="home-portrait">
+        <img src="assets/draw_02.webp" alt="Hand-drawn portrait of Adrián Pérez with a handwritten greeting"
+          fetchpriority="high" decoding="async">
+      </figure> -->
     </section>
 
-    <div class="desktop-spacer" aria-hidden="true"></div>
-
-    <section class="project-grid" aria-label="Innovation projects">
+    <section class="project-grid" id="selected-work" aria-label="Innovation projects">
       <article class="project" id="itimind">
-        <a class="project-cover" href="iti-mind.html" title="View the ITI Mind project"><img src="assets/itimind.gif" alt="ITI Mind augmented reality rehabilitation experience" loading="lazy" decoding="async"></a>
-        <div class="base-spacer"></div><h2>ITI Mind</h2><p>A mixed reality platform using gamification and biofeedback for mental health and physical and cognitive rehabilitation.</p>
+        <a class="project-cover" href="iti-mind.html" title="View the ITI Mind project"><img src="assets/itimind.gif"
+            alt="ITI Mind augmented reality rehabilitation experience" loading="lazy" decoding="async"></a>
+        <div class="base-spacer"></div>
+        <h2>ITI Mind</h2>
+        <p>A mixed reality platform using gamification and biofeedback for mental health and physical and cognitive
+          rehabilitation.</p>
       </article>
       <article class="project" id="smart-tooling-intralogistics">
-        <a class="project-cover" href="smart-tooling-intralogistics.html" title="View Smart tooling intralogistics project"><video src="assets/projects/sti-essential.mp4" autoplay muted loop playsinline preload="metadata" aria-label="HMI Smart tooling intralogistics"></video></a>
-        <div class="base-spacer"></div><h2>Smart tooling intralogistics</h2><p>A portable HMI that lets operators control different machines and keep their daily tasks connected to the factory’s existing systems.</p>
+        <a class="project-cover" href="smart-tooling-intralogistics.html"
+          title="View Smart tooling intralogistics project"><video src="assets/projects/sti-essential.mp4" autoplay
+            muted loop playsinline preload="metadata" aria-label="HMI Smart tooling intralogistics"></video></a>
+        <div class="base-spacer"></div>
+        <h2>Smart tooling intralogistics</h2>
+        <p>A portable HMI that lets operators control different machines and keep their daily tasks connected to the
+          factory’s existing systems.</p>
       </article>
       <article class="project" id="ecosidea">
-        <a class="project-cover" href="https://www.iti.es/proyectosidi/ecosidea/" target="_blank" rel="noreferrer" title="Ecosidea"><img src="assets/metaverso_02.gif" alt="Ecosidea collaborative metaverse environment" loading="lazy" decoding="async"></a>
-        <div class="base-spacer"></div><h2>Ecosidea</h2><p>An industrial metaverse platform for collaborative product design, process simulation and remote quality inspection.</p>
+        <a class="project-cover" href="https://www.iti.es/proyectosidi/ecosidea/" target="_blank" rel="noreferrer"
+          title="Ecosidea"><img src="assets/metaverso_02.gif" alt="Ecosidea collaborative metaverse environment"
+            loading="lazy" decoding="async"></a>
+        <div class="base-spacer"></div>
+        <h2>Ecosidea</h2>
+        <p>An industrial metaverse platform for collaborative product design, process simulation and remote quality
+          inspection.</p>
       </article>
       <article class="project" id="mixcare">
-        <a class="project-cover" href="mixcare.html" title="View the MixCare project"><video src="assets/projects/mixcare_04.mp4" autoplay muted loop playsinline preload="metadata" aria-label="MixCare immersive healthcare application"></video></a>
-        <div class="base-spacer"></div><h2>MixCare</h2><p>A mixed reality experience using biosensors and biofeedback to support patients managing anxiety before surgery.</p>
+        <a class="project-cover" href="mixcare.html" title="View the MixCare project"><video
+            src="assets/projects/mixcare_04.mp4" autoplay muted loop playsinline preload="metadata"
+            aria-label="MixCare immersive healthcare application"></video></a>
+        <div class="base-spacer"></div>
+        <h2>MixCare</h2>
+        <p>A mixed reality experience using biosensors and biofeedback to support patients managing anxiety before
+          surgery.</p>
       </article>
       <article class="project" id="sea-of-heroes">
-        <a class="project-cover" href="https://seaofheroes.com/" target="_blank" rel="noreferrer" title="Sea of Heroes: New World"><img src="assets/sincrolab_soh.png" alt="Sea of Heroes: New World cognitive training game" loading="lazy" decoding="async"></a>
-        <div class="base-spacer"></div><h2>Sea of Heroes: New World</h2><p>A Class IIa certified medical device using AI-powered gameplay to support children with ADHD.</p>
+        <a class="project-cover" href="https://seaofheroes.com/" target="_blank" rel="noreferrer"
+          title="Sea of Heroes: New World"><img src="assets/sincrolab_soh.png"
+            alt="Sea of Heroes: New World cognitive training game" loading="lazy" decoding="async"></a>
+        <div class="base-spacer"></div>
+        <h2>Sea of Heroes: New World</h2>
+        <p>A Class IIa certified medical device using AI-powered gameplay to support children with ADHD.</p>
       </article>
       <article class="project" id="lunar-adventure">
-        <a class="project-cover" href="https://sincrolab.es/?srsltid=AU7gw4Uk9sjdGSWeoGQkcWPfLZKx7OoRPMglzF8fcPLKUZgpYin5-8sU" target="_blank" rel="noreferrer" title="Lunar Adventure"><img src="assets/lunar_adventure.webp" alt="Lunar Adventure serious game" loading="lazy" decoding="async"></a>
-        <div class="base-spacer"></div><h2>Lunar Adventure</h2><p>An AI-powered serious game featuring adaptive minigames for children's cognitive development.</p>
+        <a class="project-cover"
+          href="https://sincrolab.es/?srsltid=AU7gw4Uk9sjdGSWeoGQkcWPfLZKx7OoRPMglzF8fcPLKUZgpYin5-8sU" target="_blank"
+          rel="noreferrer" title="Lunar Adventure"><img src="assets/lunar_adventure.webp"
+            alt="Lunar Adventure serious game" loading="lazy" decoding="async"></a>
+        <div class="base-spacer"></div>
+        <h2>Lunar Adventure</h2>
+        <p>An AI-powered serious game featuring adaptive minigames for children's cognitive development.</p>
       </article>
     </section>
 
@@ -79,17 +159,75 @@
         <a href="https://github.com/xAdri" target="_blank" rel="noreferrer">GitHub</a>
         <a href="https://adriperez.itch.io/" target="_blank" rel="noreferrer">Itch.io</a>
       </nav>
-      <p>© <span class="current-year">2026</span><br>Adrián Pérez.<br><a href="mailto:aperezgfx@gmail.com">aperezgfx@gmail.com</a></p>
+      <p>© <span class="current-year">2026</span><br>Adrián Pérez.<br><a
+          href="mailto:aperezgfx@gmail.com">aperezgfx@gmail.com</a></p>
     </footer>
   </main>
 
   <script>
     const today = new Date();
-    let experienceYears = today.getFullYear() - 2019;
-    if (today < new Date(today.getFullYear(), 2, 1)) experienceYears -= 1;
-    document.getElementById('experience-years').textContent = `+${experienceYears}`;
+    const experienceYearsElement = document.getElementById('experience-years');
+    if (experienceYearsElement) {
+      let experienceYears = today.getFullYear() - 2019;
+      if (today < new Date(today.getFullYear(), 2, 1)) experienceYears -= 1;
+      experienceYearsElement.textContent = experienceYears;
+    }
     document.querySelectorAll('.current-year').forEach((element) => element.textContent = today.getFullYear());
+
+    const visualLanguageToggle = document.querySelector('.home-language-toggle');
+    if (visualLanguageToggle) {
+      visualLanguageToggle.addEventListener('click', () => {
+        const showEnglish = visualLanguageToggle.getAttribute('aria-pressed') !== 'true';
+        visualLanguageToggle.setAttribute('aria-pressed', String(showEnglish));
+        visualLanguageToggle.setAttribute('aria-label', `Visual language selector: ${showEnglish ? 'English' : 'Spanish'}`);
+        visualLanguageToggle.classList.toggle('is-english', showEnglish);
+        visualLanguageToggle.querySelector('.home-language-code').textContent = showEnglish ? 'EN' : 'ES';
+      });
+    }
+
+    const cursorFacingButton = document.querySelector('.home-hero-button--primary');
+    const canTrackCursor = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (cursorFacingButton && canTrackCursor) {
+      let cursorFrame;
+
+      window.addEventListener('mousemove', (event) => {
+        cancelAnimationFrame(cursorFrame);
+        cursorFrame = requestAnimationFrame(() => {
+          const bounds = cursorFacingButton.getBoundingClientRect();
+          const centerX = bounds.left + bounds.width / 2;
+          const centerY = bounds.top + bounds.height / 2;
+          const distanceX = Math.max(window.innerWidth * .45, 320);
+          const distanceY = Math.max(window.innerHeight * .45, 260);
+          const normalizedX = Math.max(-1, Math.min(1, (event.clientX - centerX) / distanceX));
+          const normalizedY = Math.max(-1, Math.min(1, (event.clientY - centerY) / distanceY));
+
+          cursorFacingButton.style.setProperty('--button-tilt-x', `${normalizedY * -9}deg`);
+          cursorFacingButton.style.setProperty('--button-tilt-y', `${normalizedX * 14}deg`);
+          cursorFacingButton.style.setProperty('--button-background-x', `${normalizedX * -10}px`);
+          cursorFacingButton.style.setProperty('--button-background-y', `${normalizedY * -7}px`);
+          cursorFacingButton.style.setProperty('--button-content-x', `${normalizedX * 5}px`);
+          cursorFacingButton.style.setProperty('--button-content-y', `${normalizedY * 3}px`);
+          cursorFacingButton.style.setProperty('--button-shadow-x', `${normalizedX * -6}px`);
+          cursorFacingButton.style.setProperty('--button-shadow-y', `${6 - normalizedY * 2}px`);
+        });
+      }, { passive: true });
+
+      document.documentElement.addEventListener('mouseleave', () => {
+        cancelAnimationFrame(cursorFrame);
+        cursorFacingButton.style.setProperty('--button-tilt-x', '0deg');
+        cursorFacingButton.style.setProperty('--button-tilt-y', '0deg');
+        cursorFacingButton.style.setProperty('--button-background-x', '0px');
+        cursorFacingButton.style.setProperty('--button-background-y', '0px');
+        cursorFacingButton.style.setProperty('--button-content-x', '0px');
+        cursorFacingButton.style.setProperty('--button-content-y', '0px');
+        cursorFacingButton.style.setProperty('--button-shadow-x', '0px');
+        cursorFacingButton.style.setProperty('--button-shadow-y', '6px');
+      });
+    }
+
   </script>
+  <script type="module" src="lanyard.js?v=20261031-10"></script>
   <script src="site.js"></script>
 </body>
+
 </html>
