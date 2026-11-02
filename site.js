@@ -1,3 +1,62 @@
+const siteNavigation = [
+  { id: 'innovation', label: 'Innovation', href: '/' },
+  { id: 'prototypes', label: 'Prototypes', href: 'prototypes.html' },
+  { id: 'experiments', label: 'Experiments', href: 'experiments.html' },
+  { id: 'engineering', label: 'Engineering', href: 'engineering.html' },
+  { id: 'about', label: 'About', href: 'about.html' },
+];
+
+const sectionByPage = {
+  'index.html': 'innovation',
+  'iti-mind.html': 'innovation',
+  'mixcare.html': 'innovation',
+  'smart-tooling-intralogistics.html': 'innovation',
+  'prototypes.html': 'prototypes',
+  'fingerboarding-xr.html': 'prototypes',
+  'games.html': 'prototypes',
+  'experiments.html': 'experiments',
+  'engineering.html': 'engineering',
+  'software.html': 'engineering',
+  'about.html': 'about',
+};
+
+const currentPage = decodeURIComponent(window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+
+document.querySelectorAll('[data-site-header]').forEach((header) => {
+  const activeSection = header.dataset.activeSection || sectionByPage[currentPage] || 'innovation';
+  const navigationLinks = siteNavigation.map(({ id, label, href }) => {
+    const currentAttribute = id === activeSection ? ' aria-current="page"' : '';
+    return `<a href="${href}" data-underline="${label}"${currentAttribute}>${label}</a>`;
+  }).join('');
+
+  header.innerHTML = `${navigationLinks}
+    <button class="home-language-toggle is-english" type="button" aria-label="Cambiar a español" title="Español">
+      <span class="home-language-flag" aria-hidden="true"></span>
+      <span class="home-language-code">EN</span>
+    </button>`;
+
+  const languageToggle = header.querySelector('.home-language-toggle');
+  languageToggle?.addEventListener('click', () => {
+    const switchingToSpanish = languageToggle.classList.contains('is-english');
+    languageToggle.classList.toggle('is-english', !switchingToSpanish);
+    languageToggle.querySelector('.home-language-code').textContent = switchingToSpanish ? 'ES' : 'EN';
+    languageToggle.setAttribute('aria-label', switchingToSpanish ? 'Switch to English' : 'Cambiar a español');
+    languageToggle.title = switchingToSpanish ? 'English' : 'Español';
+  });
+});
+
+document.querySelectorAll('[data-site-footer]').forEach((footer) => {
+  footer.innerHTML = `
+    <nav class="social-links" aria-label="Social links">
+      <a href="https://www.youtube.com/@adrixnperez" target="_blank" rel="noreferrer">YouTube</a>
+      <a href="https://www.artstation.com/adriperez" target="_blank" rel="noreferrer">ArtStation</a>
+      <a href="https://www.linkedin.com/in/aperezgfx" target="_blank" rel="noreferrer">LinkedIn</a>
+      <a href="https://github.com/xAdri" target="_blank" rel="noreferrer">GitHub</a>
+      <a href="https://adriperez.itch.io/" target="_blank" rel="noreferrer">Itch.io</a>
+    </nav>
+    <p>© <span class="current-year">${new Date().getFullYear()}</span><br>Adrián Pérez.<br><a href="mailto:aperezgfx@gmail.com">aperezgfx@gmail.com</a></p>`;
+});
+
 const waitForMedia = (media) => {
   if (media instanceof HTMLImageElement) {
     if (media.complete) return Promise.resolve();

@@ -122,7 +122,7 @@ img, video { display: block; }
   background: #fff;
 }
 
-.home-hero-menu {
+.site-header-menu {
   display: flex;
   grid-column: 1 / -1;
   grid-row: 1;
@@ -131,13 +131,13 @@ img, video { display: block; }
   gap: clamp(24px, 3vw, 48px);
 }
 
-.home-hero-menu a {
+.site-header-menu a {
   position: relative;
   grid-column: auto;
   text-decoration: none;
 }
 
-.home-hero-menu a::after {
+.site-header-menu a::after {
   content: attr(data-underline);
   position: absolute;
   inset: 0 auto auto 0;
@@ -154,17 +154,24 @@ img, video { display: block; }
   transition: clip-path .28s ease;
 }
 
-.home-hero-menu a:hover::after,
-.home-hero-menu a:focus-visible::after,
-.home-hero-menu a[aria-current="page"]::after {
+.site-header-menu a:hover::after,
+.site-header-menu a:focus-visible::after,
+.site-header-menu a[aria-current="page"]::after {
   clip-path: inset(0 0 0 0);
 }
 
-.home-hero-menu a:hover::after { text-decoration-color: var(--dark-50); }
+.site-header-menu a:hover::after { text-decoration-color: var(--dark-50); }
 
 @media (prefers-reduced-motion: reduce) {
-  .home-hero-menu a::after { transition: none; }
+  .site-header-menu a::after { transition: none; }
 }
+
+.welcome .site-header-menu {
+  grid-column: 1 / -1;
+  grid-row: 1;
+}
+
+.welcome .welcome-message { grid-row: 2; }
 
 .home-language-toggle {
   display: inline-flex;
@@ -1204,7 +1211,7 @@ footer p { grid-column: 4; color: var(--dark); }
     min-height: auto;
     padding-bottom: 64px;
   }
-  .home-hero-menu,
+  .site-header-menu,
   .home-hero-meta,
   .home-hero-copy,
   .lanyard-showcase,
@@ -1213,15 +1220,15 @@ footer p { grid-column: 4; color: var(--dark); }
     grid-column: 1;
     grid-row: auto;
   }
-  .home-hero-menu {
+  .site-header-menu {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     justify-content: initial;
     gap: 0 var(--gap);
   }
-  .home-hero-menu a { grid-column: 1; }
-  .home-hero-menu a:nth-child(4) { grid-column: 2; grid-row: 1; }
-  .home-hero-menu a:nth-child(5) { grid-column: 2; grid-row: 2; }
+  .site-header-menu a { grid-column: 1; }
+  .site-header-menu a:nth-child(4) { grid-column: 2; grid-row: 1; }
+  .site-header-menu a:nth-child(5) { grid-column: 2; grid-row: 2; }
   .home-language-toggle { display: none; }
   .home-hero-meta { padding-top: 0; }
   .home-hero-copy { gap: 28px; margin-top: 0; transform: none; }

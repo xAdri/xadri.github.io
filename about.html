@@ -29,14 +29,7 @@
 <body>
   <main>
     <section class="welcome">
-      <nav class="menu" aria-label="Portfolio">
-        <a href="/">Innovation</a>
-        <a href="prototypes.html">Prototypes</a>
-        <a href="experiments.html">Experiments</a>
-        <a href="engineering.html">Engineering</a>
-        <a href="about.html" aria-current="page">About</a>
-        <!-- <button class="language-switcher" type="button" data-language-toggle data-current-language="en" aria-label="Cambiar a español" title="Español"><span aria-hidden="true">🇪🇸</span></button> -->
-      </nav>
+      <nav class="menu site-header-menu" data-site-header aria-label="Portfolio"></nav>
       <div class="welcome-message">
       </div>
     </section>
@@ -115,23 +108,9 @@
       </div>
     </section>
 
-    <footer>
-      <nav class="social-links" aria-label="Social links">
-        <a href="https://www.youtube.com/@adrixnperez" target="_blank" rel="noreferrer">YouTube</a>
-        <a href="https://www.artstation.com/adriperez" target="_blank" rel="noreferrer">ArtStation</a>
-        <a href="https://www.linkedin.com/in/aperezgfx" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a href="https://github.com/xAdri" target="_blank" rel="noreferrer">GitHub</a>
-        <a href="https://adriperez.itch.io/" target="_blank" rel="noreferrer">Itch.io</a>
-      </nav>
-      <p>© <span class="current-year">2026</span><br>Adrián Pérez.<br><a href="mailto:aperezgfx@gmail.com">aperezgfx@gmail.com</a></p>
-    </footer>
+    <footer data-site-footer></footer>
   </main>
 
-  <script>
-    const today = new Date();
-    document.querySelectorAll('.current-year').forEach((element) => element.textContent = today.getFullYear());
-
-  </script>
   <script src="site.js"></script>
 </body>
 </html>

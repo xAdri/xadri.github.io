@@ -34,18 +34,7 @@
 <body>
   <main>
     <section class="home-hero" aria-labelledby="home-title">
-      <nav class="menu home-hero-menu" aria-label="Portfolio">
-        <a href="/" aria-current="page" data-underline="Innovation">Innovation</a>
-        <a href="prototypes.html" data-underline="Prototypes">Prototypes</a>
-        <a href="experiments.html" data-underline="Experiments">Experiments</a>
-        <a href="engineering.html" data-underline="Engineering">Engineering</a>
-        <a href="about.html" data-underline="About">About</a>
-        <button class="home-language-toggle is-english" type="button" aria-label="Visual language selector: English"
-          aria-pressed="true">
-          <span class="home-language-flag" aria-hidden="true"></span>
-          <span class="home-language-code">EN</span>
-        </button>
-      </nav>
+      <nav class="menu site-header-menu" data-site-header aria-label="Portfolio"></nav>
       <div class="home-hero-meta" aria-hidden="true"></div>
 
       <div class="home-hero-copy">
@@ -151,17 +140,7 @@
       </article>
     </section>
 
-    <footer>
-      <nav class="social-links" aria-label="Social links">
-        <a href="https://www.youtube.com/@adrixnperez" target="_blank" rel="noreferrer">YouTube</a>
-        <a href="https://www.artstation.com/adriperez" target="_blank" rel="noreferrer">ArtStation</a>
-        <a href="https://www.linkedin.com/in/aperezgfx" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a href="https://github.com/xAdri" target="_blank" rel="noreferrer">GitHub</a>
-        <a href="https://adriperez.itch.io/" target="_blank" rel="noreferrer">Itch.io</a>
-      </nav>
-      <p>© <span class="current-year">2026</span><br>Adrián Pérez.<br><a
-          href="mailto:aperezgfx@gmail.com">aperezgfx@gmail.com</a></p>
-    </footer>
+    <footer data-site-footer></footer>
   </main>
 
   <script>
@@ -172,19 +151,6 @@
       if (today < new Date(today.getFullYear(), 2, 1)) experienceYears -= 1;
       experienceYearsElement.textContent = experienceYears;
     }
-    document.querySelectorAll('.current-year').forEach((element) => element.textContent = today.getFullYear());
-
-    const visualLanguageToggle = document.querySelector('.home-language-toggle');
-    if (visualLanguageToggle) {
-      visualLanguageToggle.addEventListener('click', () => {
-        const showEnglish = visualLanguageToggle.getAttribute('aria-pressed') !== 'true';
-        visualLanguageToggle.setAttribute('aria-pressed', String(showEnglish));
-        visualLanguageToggle.setAttribute('aria-label', `Visual language selector: ${showEnglish ? 'English' : 'Spanish'}`);
-        visualLanguageToggle.classList.toggle('is-english', showEnglish);
-        visualLanguageToggle.querySelector('.home-language-code').textContent = showEnglish ? 'EN' : 'ES';
-      });
-    }
-
     const cursorFacingButton = document.querySelector('.home-hero-button--primary');
     const canTrackCursor = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (cursorFacingButton && canTrackCursor) {
