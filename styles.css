@@ -19,6 +19,19 @@ html {
   scroll-behavior: smooth;
 }
 
+html.is-site-menu-open,
+body.is-site-menu-open {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+body.is-site-menu-open {
+  position: fixed;
+  right: 0;
+  left: 0;
+  width: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -1451,12 +1464,15 @@ footer::before {
     grid-row: auto;
   }
   .site-header-menu {
+    z-index: 1000;
     display: flex;
     justify-content: space-between;
     gap: 16px;
     padding-top: 20px;
     padding-bottom: 20px;
   }
+  .site-header-menu.is-menu-open .site-brand { pointer-events: none; }
+  .site-header-menu.is-menu-open .site-menu-toggle { z-index: 3; }
   .site-header-menu .site-brand { margin-right: 0; }
   .site-menu-toggle { display: block; }
   .site-menu-backdrop {
@@ -1475,6 +1491,7 @@ footer::before {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
+    touch-action: none;
     transition: opacity .24s ease, visibility 0s linear .32s;
   }
   .site-header-menu.is-menu-open .site-menu-backdrop {
@@ -1498,6 +1515,7 @@ footer::before {
     margin-left: 0;
     padding: 32px clamp(24px, 8vw, 64px);
     overflow-y: auto;
+    overscroll-behavior: contain;
     background: #fff;
     border-bottom: 1px solid rgba(17, 17, 17, .08);
     border-left: 1px solid rgba(17, 17, 17, .08);

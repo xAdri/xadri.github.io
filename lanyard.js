@@ -476,7 +476,7 @@ const initializeStage = async (stage) => {
   const yellowAccentProgram = new Program(gl, {
     vertex: materialVertex,
     fragment: materialFragment,
-    uniforms: { uColor: { value: [1, .76, 0] }, uMetallic: { value: 0 } },
+    uniforms: { uColor: { value: [239 / 255, 231 / 255, 211 / 255] }, uMetallic: { value: 0 } },
   });
   const cardEdgeProgram = new Program(gl, {
     vertex: materialVertex,
@@ -497,7 +497,7 @@ const initializeStage = async (stage) => {
   const ribbonProgram = new Program(gl, {
     vertex: materialVertex,
     fragment: materialFragment,
-    uniforms: { uColor: { value: [.08235, .09412, .11765] }, uMetallic: { value: 0 } },
+    uniforms: { uColor: { value: [47 / 255, 59 / 255, 72 / 255] }, uMetallic: { value: 0 } },
     cullFace: null,
   });
 
