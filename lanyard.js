@@ -537,6 +537,7 @@ const initializeStage = async (stage) => {
     program: yellowAccentProgram,
   });
   keeper.position.y = .2;
+  keeper.position.z = .035;
   keeper.setParent(clip);
 
   const dRing = new Mesh(gl, {
@@ -1365,6 +1366,11 @@ const initializeStage = async (stage) => {
     renderRibbon(clipBasis);
   };
 
+  const drawScene = () => {
+    renderer.render({ scene, camera });
+    gl.flush();
+  };
+
   const update = (time = performance.now()) => {
     if (!active) return;
     const elapsed = Math.min((time - lastTime) / 1000, .05);
@@ -1377,7 +1383,7 @@ const initializeStage = async (stage) => {
     }
 
     updateScene(time);
-    renderer.render({ scene, camera });
+    drawScene();
     frame = requestAnimationFrame(update);
   };
 
@@ -1394,11 +1400,35 @@ const initializeStage = async (stage) => {
   resize();
   simulatePhysics(fixedTimeStep);
   updateScene(performance.now());
-  renderer.render({ scene, camera });
+  drawScene();
   visibilityObserver.observe(stage);
-  const stageResizeObserver = new ResizeObserver(resize);
+
+  let presentationFrame = 0;
+  const refreshPresentation = () => {
+    cancelAnimationFrame(presentationFrame);
+    presentationFrame = requestAnimationFrame(() => {
+      resize();
+      updateScene(performance.now());
+      drawScene();
+    });
+  };
+  let warmupFrames = 3;
+  const warmupPresentation = () => {
+    if (!warmupFrames) return;
+    warmupFrames -= 1;
+    updateScene(performance.now());
+    drawScene();
+    requestAnimationFrame(warmupPresentation);
+  };
+  requestAnimationFrame(warmupPresentation);
+
+  const stageResizeObserver = new ResizeObserver(refreshPresentation);
   stageResizeObserver.observe(stage);
-  window.addEventListener('resize', resize, { passive: true });
+  window.addEventListener('resize', refreshPresentation, { passive: true });
+  window.addEventListener('pageshow', refreshPresentation);
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') refreshPresentation();
+  });
 };
 
 const loadObserver = new IntersectionObserver((entries, observer) => {

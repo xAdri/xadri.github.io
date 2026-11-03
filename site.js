@@ -270,7 +270,7 @@ const spanishTranslations = new Map(Object.entries({
   'Experiments — Adrián Pérez': 'Experimentos — Adrián Pérez',
   'Prototypes — Adrián Pérez': 'Prototipos — Adrián Pérez',
   'Adrián Pérez — Portfolio': 'Adrián Pérez — Portafolio',
-  'I’m Adrián Pérez, a senior XR software engineer in R&D with 7+ years in the industry, focused on creative ways to apply emerging technologies across healthcare, industry and education.': 'Soy Adrián Pérez, ingeniero de software XR sénior en I+D con más de 7 años en el sector, centrado en aplicar de forma creativa tecnologías emergentes en salud, industria y educación.',
+  'I’m Adrián Pérez, a senior XR software engineer in R&D with +7 years in the industry, focused on creative ways to apply emerging technologies across healthcare, industry and education.': 'Soy Adrián Pérez, ingeniero de software XR sénior en I+D con más de 7 años en el sector, centrado en aplicar de forma creativa tecnologías emergentes en salud, industria y educación.',
   'Selected innovation, prototype and engineering projects by XR Software Engineer Adrián Pérez.': 'Proyectos seleccionados de innovación, prototipado e ingeniería del ingeniero de software XR Adrián Pérez.',
   'About Adrián Pérez and his experience as a senior XR software engineer in R&D across immersive systems, healthcare, industry and education.': 'Sobre Adrián Pérez y su experiencia como ingeniero de software XR sénior en I+D de sistemas inmersivos para salud, industria y educación.',
   'Backend systems, administration tools and APIs for mobile applications, with additional frontend experience.': 'Sistemas backend, herramientas de administración y API para aplicaciones móviles, además de experiencia frontend.',

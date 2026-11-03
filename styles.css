@@ -773,6 +773,9 @@ img, video { display: block; }
   height: 100%;
   outline: none;
   pointer-events: none;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .lanyard-interaction {
