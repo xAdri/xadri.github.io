@@ -35,21 +35,18 @@
   <main>
     <section class="home-hero" aria-labelledby="home-title">
       <nav class="menu site-header-menu" data-site-header aria-label="Portfolio"></nav>
-      <div class="home-hero-meta" aria-hidden="true"></div>
 
       <div class="home-hero-copy">
         <h1 id="home-title">
-          <span>Technology should push limits.</span>
-          <span>I build products that break them.</span>
+          <span>XR Software Engineer</span>
         </h1>
         <div class="home-hero-summary">
           <p>
             <!-- <strong class="home-hero-name">Adrián Pérez González,</strong> -->
-            <span>Senior XR Software Engineer
-              <!-- <span class="home-hero-separator" aria-hidden="true"></span> -->
-              <!-- <span class="home-hero-role">Senior XR Software Engineer -->
-              <span class="home-hero-experience"> with +<span id="experience-years">7</span> years of experience</span>
-            </span>
+            <span>With <span class="experience-years-value">7</span>+ years of experience in software development, I
+              work with emerging technologies to create immersive products, from initial research and prototyping to
+              software architecture, development, and the final product, mainly in healthcare, industry, and
+              education.</span>
           </p>
         </div>
         <div class="home-hero-actions">
@@ -65,7 +62,7 @@
       <section class="lanyard-showcase" id="interactive-badge" aria-label="Interactive identity badge">
         <!-- BADGE TEXTS: change these data attributes to customize both 3D faces. -->
         <div class="lanyard-stage" data-lanyard-badge
-          data-badge-front-image="assets/badge_design_front_2.webp"
+          data-badge-front-image="assets/badge_design_front_3.webp"
           data-badge-mark-icon="favicon.svg"
           data-badge-footer-icon="assets/github-avatar.png"
           data-badge-role="Senior XR Software Engineer"
@@ -75,7 +72,7 @@
           data-badge-back-label="Portfolio / 2026"
           data-badge-back-copy="Building products across healthcare, industry and education."
           data-badge-contact="aperezgfx@gmail.com">
-          <p class="lanyard-fallback">Interactive 3D badge for Adrián Pérez.</p>
+          <p class="lanyard-fallback">Loading interactive badge...</p>
         </div>
       </section>
 
@@ -85,14 +82,19 @@
       </figure> -->
     </section>
 
-    <section class="project-grid" id="selected-work" aria-label="Innovation projects">
-      <article class="project" id="itimind">
-        <a class="project-cover" href="iti-mind.html" title="View the ITI Mind project"><img src="assets/itimind.gif"
-            alt="ITI Mind augmented reality rehabilitation experience" loading="lazy" decoding="async"></a>
+    <section class="featured-projects-header" aria-labelledby="featured-projects-title">
+      <h2 id="featured-projects-title">Selected work</h2>
+    </section>
+
+    <section class="project-grid project-grid--showcase" id="selected-work" aria-label="Selected projects">
+      <article class="project" id="fingerboarding-xr">
+        <a class="project-cover" href="fingerboarding-xr.html" title="View Fingerboarding XR project"><img
+            src="assets/fingerboardingxr.gif" alt="Fingerboarding XR procedural ramp and physics prototype"
+            loading="lazy" decoding="async"></a>
         <div class="base-spacer"></div>
-        <h2>ITI Mind</h2>
-        <p>A mixed reality platform using gamification and biofeedback for mental health and physical and cognitive
-          rehabilitation.</p>
+        <h2>Fingerboarding XR</h2>
+        <p>Realistic physics and hand interactions designed to make a digital skateboard feel as close to a real one
+          as possible.</p>
       </article>
       <article class="project" id="smart-tooling-intralogistics">
         <a class="project-cover" href="smart-tooling-intralogistics.html"
@@ -102,6 +104,14 @@
         <h2>Smart tooling intralogistics</h2>
         <p>A portable HMI that lets operators control different machines and keep their daily tasks connected to the
           factory’s existing systems.</p>
+      </article>
+      <article class="project" id="itimind">
+        <a class="project-cover" href="iti-mind.html" title="View the ITI Mind project"><img src="assets/itimind.gif"
+            alt="ITI Mind mixed reality rehabilitation experience" loading="lazy" decoding="async"></a>
+        <div class="base-spacer"></div>
+        <h2>ITI Mind</h2>
+        <p>An adaptive mixed reality platform combining gamification and real-time biofeedback for mental health and
+          physical and cognitive rehabilitation.</p>
       </article>
       <article class="project" id="ecosidea">
         <a class="project-cover" href="https://www.iti.es/proyectosidi/ecosidea/" target="_blank" rel="noreferrer"
@@ -121,22 +131,16 @@
         <p>A mixed reality experience using biosensors and biofeedback to support patients managing anxiety before
           surgery.</p>
       </article>
-      <article class="project" id="sea-of-heroes">
-        <a class="project-cover" href="https://seaofheroes.com/" target="_blank" rel="noreferrer"
-          title="Sea of Heroes: New World"><img src="assets/sincrolab_soh.png"
-            alt="Sea of Heroes: New World cognitive training game" loading="lazy" decoding="async"></a>
+      <article class="project project--all">
+        <a class="project-cover project-cover--all" href="works.html" aria-label="View all projects">
+          <span>See more work</span>
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M18 46 46 18M25 18h21v21"></path>
+          </svg>
+        </a>
         <div class="base-spacer"></div>
-        <h2>Sea of Heroes: New World</h2>
-        <p>A Class IIa certified medical device using AI-powered gameplay to support children with ADHD.</p>
-      </article>
-      <article class="project" id="lunar-adventure">
-        <a class="project-cover"
-          href="https://sincrolab.es/?srsltid=AU7gw4Uk9sjdGSWeoGQkcWPfLZKx7OoRPMglzF8fcPLKUZgpYin5-8sU" target="_blank"
-          rel="noreferrer" title="Lunar Adventure"><img src="assets/lunar_adventure.webp"
-            alt="Lunar Adventure serious game" loading="lazy" decoding="async"></a>
-        <div class="base-spacer"></div>
-        <h2>Lunar Adventure</h2>
-        <p>An AI-powered serious game featuring adaptive minigames for children's cognitive development.</p>
+        <h2>View all projects</h2>
+        <p>Explore immersive products, technical prototypes and software engineering work.</p>
       </article>
     </section>
 
@@ -145,11 +149,13 @@
 
   <script>
     const today = new Date();
-    const experienceYearsElement = document.getElementById('experience-years');
-    if (experienceYearsElement) {
+    const experienceYearsElements = document.querySelectorAll('.experience-years-value');
+    if (experienceYearsElements.length) {
       let experienceYears = today.getFullYear() - 2019;
       if (today < new Date(today.getFullYear(), 2, 1)) experienceYears -= 1;
-      experienceYearsElement.textContent = experienceYears;
+      experienceYearsElements.forEach((element) => {
+        element.textContent = experienceYears;
+      });
     }
     const cursorFacingButton = document.querySelector('.home-hero-button--primary');
     const canTrackCursor = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;

@@ -741,7 +741,7 @@ const initializeStage = async (stage) => {
     const ropeLengthChanged = Math.abs(ropeLength - nextRopeLength) > .0001;
     ropeLength = nextRopeLength;
     ropeSegmentLength = ropeLength / (pointCount - 1);
-    const nextAnchorX = window.matchMedia('(min-width: 769px)').matches ? viewWidth * 0.26 : 0;
+    const nextAnchorX = window.matchMedia('(min-width: 769px)').matches ? viewWidth * 0.22 : 0;
     const anchorOffsetX = nextAnchorX - anchor.x;
     if (Math.abs(anchorOffsetX) > .0001) {
       ropePoints.forEach((point) => {

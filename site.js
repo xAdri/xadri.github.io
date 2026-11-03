@@ -1,39 +1,81 @@
 const siteNavigation = [
-  { id: 'innovation', label: 'Innovation', href: '/' },
-  { id: 'prototypes', label: 'Prototypes', href: 'prototypes.html' },
-  { id: 'experiments', label: 'Experiments', href: 'experiments.html' },
-  { id: 'engineering', label: 'Engineering', href: 'engineering.html' },
+  { id: 'home', label: 'Home', href: '/' },
+  { id: 'works', label: 'Works', href: 'works.html' },
   { id: 'about', label: 'About', href: 'about.html' },
 ];
 
 const sectionByPage = {
-  'index.html': 'innovation',
-  'iti-mind.html': 'innovation',
-  'mixcare.html': 'innovation',
-  'smart-tooling-intralogistics.html': 'innovation',
-  'prototypes.html': 'prototypes',
-  'fingerboarding-xr.html': 'prototypes',
-  'games.html': 'prototypes',
-  'experiments.html': 'experiments',
-  'engineering.html': 'engineering',
-  'software.html': 'engineering',
+  'index.html': 'home',
+  'works.html': 'works',
+  'iti-mind.html': 'works',
+  'mixcare.html': 'works',
+  'smart-tooling-intralogistics.html': 'works',
+  'prototypes.html': 'works',
+  'fingerboarding-xr.html': 'works',
+  'games.html': 'works',
+  'experiments.html': 'works',
+  'engineering.html': 'works',
+  'software.html': 'works',
   'about.html': 'about',
 };
 
 const currentPage = decodeURIComponent(window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
 
-document.querySelectorAll('[data-site-header]').forEach((header) => {
-  const activeSection = header.dataset.activeSection || sectionByPage[currentPage] || 'innovation';
+document.querySelectorAll('[data-site-header]').forEach((header, headerIndex) => {
+  const activeSection = header.dataset.activeSection || sectionByPage[currentPage] || 'home';
+  const actionsId = `site-header-actions-${headerIndex}`;
   const navigationLinks = siteNavigation.map(({ id, label, href }) => {
     const currentAttribute = id === activeSection ? ' aria-current="page"' : '';
     return `<a href="${href}" data-underline="${label}"${currentAttribute}>${label}</a>`;
   }).join('');
 
-  header.innerHTML = `${navigationLinks}
-    <button class="home-language-toggle is-english" type="button" aria-label="Cambiar a español" title="Español">
-      <span class="home-language-flag" aria-hidden="true"></span>
-      <span class="home-language-code">EN</span>
-    </button>`;
+  header.innerHTML = `<a class="site-brand" href="/" aria-label="Adrián — Home">
+      <img src="favicon.svg" alt="" aria-hidden="true">
+      <span>drián Pérez</span>
+    </a>
+    <button class="site-menu-toggle" type="button" aria-expanded="false" aria-controls="${actionsId}"
+      aria-label="Open menu"><span></span><span></span></button>
+    <button class="site-menu-backdrop" type="button" aria-label="Close menu" tabindex="-1"></button>
+    <div class="site-header-actions" id="${actionsId}">
+      <div class="site-navigation-links">${navigationLinks}</div>
+      <button class="home-language-toggle is-english" type="button" aria-label="Cambiar a español" title="Español">
+        <span class="home-language-flag" aria-hidden="true"></span>
+        <span class="home-language-code">EN</span>
+      </button>
+    </div>`;
+
+  const menuToggle = header.querySelector('.site-menu-toggle');
+  const menuBackdrop = header.querySelector('.site-menu-backdrop');
+  const closeMenu = () => {
+    header.classList.remove('is-menu-open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-label', 'Open menu');
+  };
+
+  menuToggle.addEventListener('click', () => {
+    const isOpening = !header.classList.contains('is-menu-open');
+    header.classList.toggle('is-menu-open', isOpening);
+    menuToggle.setAttribute('aria-expanded', String(isOpening));
+    menuToggle.setAttribute('aria-label', isOpening ? 'Close menu' : 'Open menu');
+  });
+
+  menuBackdrop.addEventListener('click', closeMenu);
+
+  header.querySelectorAll('.site-navigation-links a').forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeMenu();
+  });
+
+  document.addEventListener('pointerdown', (event) => {
+    if (!header.contains(event.target)) closeMenu();
+  });
+
+  window.matchMedia('(max-width: 768px)').addEventListener('change', (event) => {
+    if (!event.matches) closeMenu();
+  });
 
   const languageToggle = header.querySelector('.home-language-toggle');
   languageToggle?.addEventListener('click', () => {
@@ -47,14 +89,49 @@ document.querySelectorAll('[data-site-header]').forEach((header) => {
 
 document.querySelectorAll('[data-site-footer]').forEach((footer) => {
   footer.innerHTML = `
-    <nav class="social-links" aria-label="Social links">
-      <a href="https://www.youtube.com/@adrixnperez" target="_blank" rel="noreferrer">YouTube</a>
-      <a href="https://www.artstation.com/adriperez" target="_blank" rel="noreferrer">ArtStation</a>
-      <a href="https://www.linkedin.com/in/aperezgfx" target="_blank" rel="noreferrer">LinkedIn</a>
-      <a href="https://github.com/xAdri" target="_blank" rel="noreferrer">GitHub</a>
-      <a href="https://adriperez.itch.io/" target="_blank" rel="noreferrer">Itch.io</a>
+    <nav class="social-links" aria-label="Social and contact links">
+      <a href="https://www.linkedin.com/in/aperezgfx" target="_blank" rel="noreferrer" aria-label="LinkedIn"><img src="icons/linkedin.png" alt="" aria-hidden="true"></a>
+      <a href="https://www.youtube.com/@adrixnperez" target="_blank" rel="noreferrer" aria-label="YouTube"><img src="icons/youtube.png" alt="" aria-hidden="true"></a>
+      <span class="email-copy-control">
+        <button class="footer-email-copy" type="button" aria-label="Copy aperezgfx@gmail.com" title="Copy email"><img src="icons/email.png" alt="" aria-hidden="true"></button>
+        <span class="copy-toast" role="status" aria-live="polite"></span>
+      </span>
+      <a href="https://www.artstation.com/adriperez" target="_blank" rel="noreferrer" aria-label="ArtStation"><img src="icons/artstation.png" alt="" aria-hidden="true"></a>
+      <a href="https://adriperez.itch.io/" target="_blank" rel="noreferrer" aria-label="Itch.io"><img src="icons/itchio.png" alt="" aria-hidden="true"></a>
     </nav>
-    <p>© <span class="current-year">${new Date().getFullYear()}</span><br>Adrián Pérez.<br><a href="mailto:aperezgfx@gmail.com">aperezgfx@gmail.com</a></p>`;
+    <p class="footer-meta">Adrián Pérez © 2026</span></p>`;
+
+  const emailButton = footer.querySelector('.footer-email-copy');
+  const copyToast = footer.querySelector('.copy-toast');
+  let toastTimer;
+
+  emailButton.addEventListener('click', async () => {
+    const email = 'aperezgfx@gmail.com';
+
+    try {
+      await navigator.clipboard.writeText(email);
+    } catch {
+      const temporaryInput = document.createElement('textarea');
+      temporaryInput.value = email;
+      temporaryInput.setAttribute('readonly', '');
+      temporaryInput.style.position = 'fixed';
+      temporaryInput.style.opacity = '0';
+      document.body.appendChild(temporaryInput);
+      temporaryInput.select();
+      document.execCommand('copy');
+      temporaryInput.remove();
+    }
+
+    window.clearTimeout(toastTimer);
+    copyToast.classList.remove('is-visible');
+    copyToast.textContent = 'Email copied';
+    void copyToast.offsetWidth;
+    copyToast.classList.add('is-visible');
+    toastTimer = window.setTimeout(() => {
+      copyToast.classList.remove('is-visible');
+      copyToast.textContent = '';
+    }, 1500);
+  });
 });
 
 const waitForMedia = (media) => {
