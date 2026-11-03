@@ -126,6 +126,31 @@ const createBadgeCanvas = (stage, side, assets = {}) => {
     const titleLines = wrapCanvasText(context, stage.dataset.badgeBackTitle || '', width - 128);
     titleLines.slice(0, 4).forEach((line, index) => context.fillText(line, 64, 380 + index * 76));
 
+    if (assets.backLogo) {
+      const sourceX = assets.backLogo.width * .06;
+      const sourceY = assets.backLogo.height * .22;
+      const sourceWidth = assets.backLogo.width * .88;
+      const sourceHeight = assets.backLogo.height * .58;
+  const logoWidth = 400;
+      const logoHeight = logoWidth * sourceHeight / sourceWidth;
+      const logoX = (width - logoWidth) / 2;
+  const logoY = 288;
+      context.save();
+      context.globalCompositeOperation = 'multiply';
+      context.drawImage(
+        assets.backLogo,
+        sourceX,
+        sourceY,
+        sourceWidth,
+        sourceHeight,
+        logoX,
+        logoY,
+        logoWidth,
+        logoHeight,
+      );
+      context.restore();
+    }
+
     context.fillStyle = 'rgba(23,23,25,.62)';
     context.font = '400 32px Satoshi, Arial, sans-serif';
     const copyLines = wrapCanvasText(context, stage.dataset.badgeBackCopy || '', width - 128);
@@ -266,11 +291,14 @@ const createArcTube = (Geometry, gl, radius, tube, startAngle, endAngle, arcSegm
 const initializeStage = async (stage) => {
   await waitForFonts();
 
-  const [markIcon, footerIcon, frontImage] = await Promise.all([
+  const [markIcon, footerIcon, frontImage, backLogo] = await Promise.all([
     loadBadgeImage(new URL(stage.dataset.badgeMarkIcon || './favicon.svg', import.meta.url).href),
     loadBadgeImage(new URL(stage.dataset.badgeFooterIcon || './icons/github.png', import.meta.url).href),
     stage.dataset.badgeFrontImage
       ? loadBadgeImage(new URL(stage.dataset.badgeFrontImage, import.meta.url).href)
+      : Promise.resolve(null),
+    stage.dataset.badgeBackLogo
+      ? loadBadgeImage(new URL(stage.dataset.badgeBackLogo, import.meta.url).href)
       : Promise.resolve(null),
   ]);
 
@@ -326,7 +354,9 @@ const initializeStage = async (stage) => {
   interactionSurface.className = 'lanyard-interaction';
   interactionSurface.setAttribute('role', 'button');
   interactionSurface.setAttribute('tabindex', '0');
-  interactionSurface.setAttribute('aria-label', 'Adrián Pérez 3D badge. Drag it or press to flip it.');
+  interactionSurface.setAttribute('aria-label', document.documentElement.lang === 'es'
+    ? 'Acreditación 3D de Adrián Pérez. Arrástrala o púlsala para darle la vuelta.'
+    : 'Adrián Pérez 3D badge. Drag it or press to flip it.');
   interactionSurface.setAttribute('aria-pressed', 'false');
   stage.prepend(canvas);
   stage.append(interactionSurface);
@@ -419,9 +449,18 @@ const initializeStage = async (stage) => {
     return texture;
   };
 
-  const badgeAssets = { markIcon, footerIcon, frontImage };
+  const badgeAssets = { markIcon, footerIcon, frontImage, backLogo };
   const frontTexture = createTexture(createBadgeCanvas(stage, 'front', badgeAssets));
   const backTexture = createTexture(createBadgeCanvas(stage, 'back', badgeAssets));
+  window.addEventListener('portfolio-language-change', () => {
+    frontTexture.image = createBadgeCanvas(stage, 'front', badgeAssets);
+    frontTexture.needsUpdate = true;
+    backTexture.image = createBadgeCanvas(stage, 'back', badgeAssets);
+    backTexture.needsUpdate = true;
+    interactionSurface.setAttribute('aria-label', document.documentElement.lang === 'es'
+      ? 'Acreditación 3D de Adrián Pérez. Arrástrala o púlsala para darle la vuelta.'
+      : 'Adrián Pérez 3D badge. Drag it or press to flip it.');
+  });
   const frontProgram = new Program(gl, {
     vertex: texturedVertex,
     fragment: texturedFragment,

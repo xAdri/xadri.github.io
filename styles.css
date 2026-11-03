@@ -944,6 +944,11 @@ img, video { display: block; }
 
 .works-project-grid { margin-bottom: 0; }
 
+.project-detail-header + .case-study {
+  padding-top: var(--divider-content-gap);
+  padding-bottom: var(--row-gap);
+}
+
 .case-study {
   display: grid;
   gap: var(--row-gap);
@@ -1237,6 +1242,8 @@ img, video { display: block; }
   justify-content: space-between;
   gap: var(--gap);
 }
+
+.about-page-header + .about { padding-top: var(--divider-content-gap); }
 
 .about {
   display: grid;
