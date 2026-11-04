@@ -405,8 +405,8 @@ const initializeStage = async (stage) => {
     uniform mat4 modelViewMatrix;
     uniform mat4 projectionMatrix;
     uniform mat4 modelMatrix;
-    varying vec3 vNormal;
-    varying vec2 vUv;
+    varying mediump vec3 vNormal;
+    varying mediump vec2 vUv;
     void main() {
       vNormal = mat3(modelMatrix) * normal;
       vUv = uv;
@@ -414,26 +414,31 @@ const initializeStage = async (stage) => {
     }
   `;
   const materialFragment = `
-    precision highp float;
+    precision mediump float;
     uniform vec3 uColor;
     uniform float uMetallic;
-    varying vec3 vNormal;
-    varying vec2 vUv;
+    varying mediump vec3 vNormal;
+    varying mediump vec2 vUv;
     void main() {
-      vec3 normal = normalize(vNormal);
+      float normalLength = max(length(vNormal), 0.0001);
+      vec3 normal = vNormal / normalLength;
       if (normal.z < 0.0) normal *= -1.0;
       vec3 lightDirection = normalize(vec3(-0.45, 0.78, 1.0));
       vec3 viewDirection = vec3(0.0, 0.0, 1.0);
       vec3 halfDirection = normalize(lightDirection + viewDirection);
-      float diffuse = max(dot(normal, lightDirection), 0.0);
-      float broadHighlight = pow(max(dot(normal, halfDirection), 0.0), 7.0);
-      float fineHighlight = pow(max(dot(normal, halfDirection), 0.0), 34.0);
-      float edge = pow(1.0 - abs(normal.z), 2.5);
+      float rawDiffuse = dot(normal, lightDirection);
+      float rawHighlight = dot(normal, halfDirection);
+      float diffuse = rawDiffuse > 0.0 ? min(rawDiffuse, 1.0) : 0.0;
+      float highlight = rawHighlight > 0.0 ? min(rawHighlight, 1.0) : 0.0;
+      float broadHighlight = pow(highlight, 7.0);
+      float fineHighlight = pow(highlight, 24.0);
+      float rawEdge = 1.0 - abs(normal.z);
+      float edge = rawEdge > 0.0 ? pow(min(rawEdge, 1.0), 2.0) : 0.0;
       float fabric = 1.0 - step(0.5, fract(vUv.x * 58.0)) * 0.028;
-      vec3 color = uColor * (0.52 + diffuse * 0.48) * mix(fabric, 1.0, uMetallic);
+      vec3 color = uColor * (0.72 + diffuse * 0.28) * mix(fabric, 1.0, uMetallic);
       color += vec3(broadHighlight * mix(0.018, 0.055, uMetallic));
-      color += vec3(fineHighlight * mix(0.025, 0.16, uMetallic));
-      color += vec3(edge * uMetallic * 0.045);
+      color += vec3(fineHighlight * mix(0.025, 0.13, uMetallic));
+      color += vec3(edge * uMetallic * 0.035);
       gl_FragColor = vec4(color, 1.0);
     }
   `;

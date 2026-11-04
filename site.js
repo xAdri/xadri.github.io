@@ -9,7 +9,7 @@ try {
     hasStoredTheme = true;
   }
 } catch {
-  // The system preference is still used when storage is unavailable.
+  // The device preference remains the default when storage is unavailable.
 }
 
 document.documentElement.dataset.theme = currentTheme;
@@ -45,7 +45,7 @@ const animateThemeChange = (theme) => {
 };
 
 preferredDarkScheme.addEventListener('change', (event) => {
-  if (!hasStoredTheme) applyTheme(event.matches ? 'dark' : 'light');
+  if (!hasStoredTheme) animateThemeChange(event.matches ? 'dark' : 'light');
 });
 
 const spanishTranslations = new Map(Object.entries({
