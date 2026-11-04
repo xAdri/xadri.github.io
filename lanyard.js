@@ -537,7 +537,7 @@ const initializeStage = async (stage) => {
     program: yellowAccentProgram,
   });
   keeper.position.y = .2;
-  keeper.position.z = .035;
+  keeper.position.z = 0;
   keeper.setParent(clip);
 
   const dRing = new Mesh(gl, {
