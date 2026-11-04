@@ -1,7 +1,57 @@
+const preferredDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+let hasStoredTheme = false;
+let currentTheme = preferredDarkScheme.matches ? 'dark' : 'light';
+
+try {
+  const storedTheme = window.localStorage.getItem('portfolio-theme');
+  if (storedTheme === 'light' || storedTheme === 'dark') {
+    currentTheme = storedTheme;
+    hasStoredTheme = true;
+  }
+} catch {
+  // The system preference is still used when storage is unavailable.
+}
+
+document.documentElement.dataset.theme = currentTheme;
+
+const updateThemeControls = () => {
+  const isDark = currentTheme === 'dark';
+  const isSpanish = document.documentElement.lang === 'es';
+  const label = isDark
+    ? (isSpanish ? 'Cambiar a modo claro' : 'Switch to light mode')
+    : (isSpanish ? 'Cambiar a modo oscuro' : 'Switch to dark mode');
+
+  document.querySelectorAll('.site-theme-toggle').forEach((toggle) => {
+    toggle.setAttribute('aria-label', label);
+    toggle.setAttribute('aria-pressed', String(isDark));
+    toggle.title = label;
+  });
+};
+
+const applyTheme = (theme) => {
+  currentTheme = theme === 'dark' ? 'dark' : 'light';
+  document.documentElement.dataset.theme = currentTheme;
+  updateThemeControls();
+};
+
+const animateThemeChange = (theme) => {
+  document.documentElement.classList.add('is-theme-changing');
+  applyTheme(theme);
+  window.requestAnimationFrame(() => {
+    window.requestAnimationFrame(() => {
+      document.documentElement.classList.remove('is-theme-changing');
+    });
+  });
+};
+
+preferredDarkScheme.addEventListener('change', (event) => {
+  if (!hasStoredTheme) applyTheme(event.matches ? 'dark' : 'light');
+});
+
 const spanishTranslations = new Map(Object.entries({
   'Home': 'Inicio',
   'Works': 'Proyectos',
-  'About': 'Sobre mí',
+  'About me': 'Sobre mí',
   'Portfolio': 'Portafolio',
   'Innovation': 'Innovación',
   'Prototypes': 'Prototipos',
@@ -41,7 +91,6 @@ const spanishTranslations = new Map(Object.entries({
   'A connected application built across the product interface, backend and supporting web services.': 'Una aplicación conectada desarrollada entre la interfaz del producto, el backend y los servicios web de soporte.',
   'A Class IIa certified medical device using AI-powered gameplay to support children with ADHD.': 'Un dispositivo médico certificado de clase IIa que utiliza gameplay impulsado por IA para ayudar a niños con TDAH.',
   'An AI-powered serious game featuring adaptive minigames for children’s cognitive development.': 'Un serious game impulsado por IA con minijuegos adaptativos para el desarrollo cognitivo infantil.',
-  'About Me': 'Sobre mí',
   'I’m Adrián,': 'Soy Adrián,',
   'My career started in graphic design before moving into software development, real-time 3D and XR. That mix helps me test ideas, choose the right tools and take a project from the first sketch to the final result.': 'Mi trayectoria comenzó en el diseño gráfico antes de pasar al desarrollo de software, el 3D en tiempo real y XR. Esa combinación me ayuda a probar ideas, elegir las herramientas adecuadas y llevar un proyecto desde el primer boceto hasta el resultado final.',
   'I’m always curious about new technology and what can actually be done with it, especially with Unity, new hardware and research. The best part is when it goes beyond the screen and becomes something useful in the real world.': 'Siempre siento curiosidad por las nuevas tecnologías y por lo que realmente se puede hacer con ellas, especialmente con Unity, nuevo hardware e investigación. Lo mejor es cuando van más allá de la pantalla y se convierten en algo útil en el mundo real.',
@@ -265,7 +314,7 @@ const spanishTranslations = new Map(Object.entries({
   'Map Generator from PSD in Unity': 'Generador de mapas desde PSD en Unity',
   'Lunar Adventure serious game': 'Serious game Lunar Adventure',
   'Works — Adrián Pérez': 'Proyectos — Adrián Pérez',
-  'About — Adrián Pérez': 'Sobre mí — Adrián Pérez',
+  'About me — Adrián Pérez': 'Sobre mí — Adrián Pérez',
   'Engineering — Adrián Pérez': 'Ingeniería — Adrián Pérez',
   'Experiments — Adrián Pérez': 'Experimentos — Adrián Pérez',
   'Prototypes — Adrián Pérez': 'Prototipos — Adrián Pérez',
@@ -383,6 +432,8 @@ const applyLanguage = (language) => {
       : (isOpen ? 'Close menu' : 'Open menu'));
   });
 
+  updateThemeControls();
+
   window.dispatchEvent(new CustomEvent('portfolio-language-change', {
     detail: { language: currentLanguage },
   }));
@@ -391,7 +442,7 @@ const applyLanguage = (language) => {
 const siteNavigation = [
   { id: 'home', label: 'Home', href: '/' },
   { id: 'works', label: 'Works', href: 'works.html' },
-  { id: 'about', label: 'About', href: 'about.html' },
+  { id: 'about', label: 'About me', href: 'about.html' },
 ];
 
 const sectionByPage = {
@@ -448,10 +499,16 @@ document.querySelectorAll('[data-site-header]').forEach((header, headerIndex) =>
     <button class="site-menu-backdrop" type="button" aria-label="Close menu" tabindex="-1"></button>
     <div class="site-header-actions" id="${actionsId}">
       <div class="site-navigation-links">${navigationLinks}</div>
-      <button class="home-language-toggle is-english" type="button" aria-label="Cambiar a español" title="Español">
-        <span class="home-language-flag" aria-hidden="true"></span>
-        <span class="home-language-code">EN</span>
-      </button>
+      <div class="site-preference-controls">
+        <button class="site-theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" title="Switch to dark mode">
+          <img class="site-theme-icon site-theme-icon--dark" src="assets/night-mode.png" alt="" aria-hidden="true">
+          <img class="site-theme-icon site-theme-icon--light" src="assets/contrast.png" alt="" aria-hidden="true">
+        </button>
+        <button class="home-language-toggle is-english" type="button" aria-label="Cambiar a español" title="Español">
+          <span class="home-language-flag" aria-hidden="true"></span>
+          <span class="home-language-code">EN</span>
+        </button>
+      </div>
     </div>`;
 
   const menuToggle = header.querySelector('.site-menu-toggle');
@@ -538,6 +595,20 @@ document.querySelectorAll('[data-site-header]').forEach((header, headerIndex) =>
   });
 
   const languageToggle = header.querySelector('.home-language-toggle');
+  const themeToggle = header.querySelector('.site-theme-toggle');
+  applyTheme(currentTheme);
+
+  themeToggle?.addEventListener('click', () => {
+    const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    hasStoredTheme = true;
+    try {
+      window.localStorage.setItem('portfolio-theme', nextTheme);
+    } catch {
+      // The theme still changes for this page when storage is unavailable.
+    }
+    animateThemeChange(nextTheme);
+  });
+
   languageToggle?.addEventListener('click', () => {
     const nextLanguage = currentLanguage === 'en' ? 'es' : 'en';
     try {
