@@ -24,7 +24,10 @@
   <meta name="twitter:image:alt" content="ITI Mind mixed reality experience">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <script>try{const t=localStorage.getItem('portfolio-theme');document.documentElement.dataset.theme=t==='dark'||t==='light'?t:(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch{document.documentElement.dataset.theme=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}</script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500&amp;display=swap">
+  <link rel="stylesheet" href="styles.css?v=20261108-1">
 </head>
 <body>
   <main>
@@ -40,7 +43,10 @@
       <section class="case-study-section" aria-labelledby="experience-title">
         <figure class="case-study-media">
           <button class="case-study-media-button" type="button" data-media-lightbox aria-label="View the ITI Mind biofeedback experience at full size">
-            <img src="assets/itimind_01.gif" alt="ITI Mind mixed reality experience with a digital companion and a biofeedback heart" fetchpriority="high" decoding="async">
+            <video autoplay muted loop playsinline preload="auto" width="800" height="450" data-managed-video aria-label="ITI Mind mixed reality experience with a digital companion and a biofeedback heart">
+              <source src="assets/itimind_01.webm" type="video/webm">
+              <source src="assets/itimind_01.mp4" type="video/mp4">
+            </video>
           </button>
         </figure>
         <div class="case-study-copy">
@@ -53,7 +59,10 @@
       <section class="case-study-section case-study-section--reverse" aria-labelledby="programming-title">
         <figure class="case-study-media">
           <button class="case-study-media-button" type="button" data-media-lightbox aria-label="View the ITI Mind therapeutic interaction at full size">
-            <img src="assets/itimind_02.gif" alt="Hand interaction with gamified therapeutic elements in ITI Mind" loading="lazy" decoding="async">
+            <video autoplay muted loop playsinline preload="none" width="800" height="450" data-managed-video aria-label="Hand interaction with gamified therapeutic elements in ITI Mind">
+              <source data-src="assets/itimind_02.webm" type="video/webm">
+              <source data-src="assets/itimind_02.mp4" type="video/mp4">
+            </video>
           </button>
         </figure>
         <div class="case-study-copy">
@@ -66,7 +75,10 @@
       <section class="case-study-section case-study-section--reverse" aria-labelledby="health-title">
         <figure class="case-study-media">
           <button class="case-study-media-button" type="button" data-media-lightbox aria-label="View more ITI Mind therapeutic activities at full size">
-            <img src="assets/itimind_04.gif" alt="Colourful interactive characters used in an ITI Mind mixed reality activity" loading="lazy" decoding="async">
+            <video autoplay muted loop playsinline preload="none" width="800" height="450" data-managed-video aria-label="Colourful interactive characters used in an ITI Mind mixed reality activity">
+              <source data-src="assets/itimind_04.webm" type="video/webm">
+              <source data-src="assets/itimind_04.mp4" type="video/mp4">
+            </video>
           </button>
         </figure>
         <div class="case-study-copy">
@@ -79,12 +91,18 @@
       <div class="case-study-gallery" aria-label="ITI Mind immersive therapeutic activities">
         <figure class="case-study-media">
           <button class="case-study-media-button" type="button" data-media-lightbox aria-label="View the ITI Mind digital animal therapy at full size">
-            <img src="assets/itimind_03.gif" alt="Interacting with a digital horse in the ITI Mind mixed reality experience" loading="lazy" decoding="async">
+            <video autoplay muted loop playsinline preload="none" width="800" height="450" data-managed-video aria-label="Interacting with a digital horse in the ITI Mind mixed reality experience">
+              <source data-src="assets/itimind_03.webm" type="video/webm">
+              <source data-src="assets/itimind_03.mp4" type="video/mp4">
+            </video>
           </button>
         </figure>
         <figure class="case-study-media">
           <button class="case-study-media-button" type="button" data-media-lightbox aria-label="View another ITI Mind mixed reality activity at full size">
-            <img src="assets/itimind_05.gif" alt="Interactive glowing elements placed in the real environment by ITI Mind" loading="lazy" decoding="async">
+            <video autoplay muted loop playsinline preload="none" width="800" height="450" data-managed-video aria-label="Interactive glowing elements placed in the real environment by ITI Mind">
+              <source data-src="assets/itimind_05.webm" type="video/webm">
+              <source data-src="assets/itimind_05.mp4" type="video/mp4">
+            </video>
           </button>
         </figure>
       </div>
@@ -97,6 +115,6 @@
 
     <footer data-site-footer></footer>
   </main>
-  <script src="site.js?v=20261104-4"></script>
+  <script src="site.js?v=20261108-1"></script>
 </body>
 </html>

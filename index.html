@@ -29,7 +29,10 @@
   <meta name="twitter:image:alt" content="Adrián Pérez">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <script>try{const t=localStorage.getItem('portfolio-theme');document.documentElement.dataset.theme=t==='dark'||t==='light'?t:(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch{document.documentElement.dataset.theme=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}</script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500&amp;display=swap">
+  <link rel="stylesheet" href="styles.css?v=20261108-1">
 </head>
 
 <body>
@@ -89,9 +92,12 @@
 
     <section class="project-grid project-grid--showcase" id="selected-work" aria-label="Selected projects">
       <article class="project" id="fingerboarding-xr">
-        <a class="project-cover" href="fingerboarding-xr.html" title="View Fingerboarding XR project"><img
-            src="assets/fingerboardingxr.gif" alt="Fingerboarding XR procedural ramp and physics prototype"
-            loading="lazy" decoding="async"></a>
+        <a class="project-cover" href="fingerboarding-xr.html" title="View Fingerboarding XR project"><video autoplay
+            muted loop playsinline preload="none" data-managed-video
+            aria-label="Fingerboarding XR procedural ramp and physics prototype">
+            <source data-src="assets/fingerboardingxr.webm" type="video/webm">
+            <source data-src="assets/fingerboardingxr.mp4" type="video/mp4">
+          </video></a>
         <div class="base-spacer"></div>
         <h2>Fingerboarding XR</h2>
         <p>Realistic physics and hand interactions designed to make a digital skateboard feel as close to a real one
@@ -99,16 +105,21 @@
       </article>
       <article class="project" id="smart-tooling-intralogistics">
         <a class="project-cover" href="smart-tooling-intralogistics.html"
-          title="View Smart tooling intralogistics project"><video src="assets/projects/sti-essential.mp4" autoplay
-            muted loop playsinline preload="metadata" aria-label="HMI Smart tooling intralogistics"></video></a>
+          title="View Smart tooling intralogistics project"><video autoplay muted loop playsinline preload="none"
+            data-managed-video aria-label="HMI Smart tooling intralogistics">
+            <source data-src="assets/projects/sti-essential.mp4" type="video/mp4">
+          </video></a>
         <div class="base-spacer"></div>
         <h2>Smart tooling intralogistics</h2>
         <p>A portable HMI that lets operators control different machines and keep their daily tasks connected to the
           factory’s existing systems.</p>
       </article>
       <article class="project" id="itimind">
-        <a class="project-cover" href="iti-mind.html" title="View the ITI Mind project"><img src="assets/itimind.gif"
-            alt="ITI Mind mixed reality rehabilitation experience" loading="lazy" decoding="async"></a>
+        <a class="project-cover" href="iti-mind.html" title="View the ITI Mind project"><video autoplay muted loop
+            playsinline preload="none" data-managed-video aria-label="ITI Mind mixed reality rehabilitation experience">
+            <source data-src="assets/itimind.webm" type="video/webm">
+            <source data-src="assets/itimind.mp4" type="video/mp4">
+          </video></a>
         <div class="base-spacer"></div>
         <h2>ITI Mind</h2>
         <p>An adaptive mixed reality platform combining gamification and real-time biofeedback for mental health and
@@ -116,8 +127,11 @@
       </article>
       <article class="project" id="ecosidea">
         <a class="project-cover" href="https://www.iti.es/proyectosidi/ecosidea/" target="_blank" rel="noreferrer"
-          title="Ecosidea"><img src="assets/metaverso_02.gif" alt="Ecosidea collaborative metaverse environment"
-            loading="lazy" decoding="async"></a>
+          title="Ecosidea"><video autoplay muted loop playsinline preload="none" data-managed-video
+            aria-label="Ecosidea collaborative metaverse environment">
+            <source data-src="assets/metaverso_02.webm" type="video/webm">
+            <source data-src="assets/metaverso_02.mp4" type="video/mp4">
+          </video></a>
         <div class="base-spacer"></div>
         <h2>Ecosidea</h2>
         <p>An industrial metaverse platform for collaborative product design, process simulation and remote quality
@@ -125,8 +139,10 @@
       </article>
       <article class="project" id="mixcare">
         <a class="project-cover" href="mixcare.html" title="View the MixCare project"><video
-            src="assets/projects/mixcare_04.mp4" autoplay muted loop playsinline preload="metadata"
-            aria-label="MixCare immersive healthcare application"></video></a>
+            autoplay muted loop playsinline preload="none" data-managed-video
+            aria-label="MixCare immersive healthcare application">
+            <source data-src="assets/projects/mixcare_04.mp4" type="video/mp4">
+          </video></a>
         <div class="base-spacer"></div>
         <h2>MixCare</h2>
         <p>A mixed reality experience using biosensors and biofeedback to support patients managing anxiety before
@@ -200,7 +216,7 @@
 
   </script>
   <script type="module" src="lanyard.js?v=20261104-15"></script>
-  <script src="site.js?v=20261104-4"></script>
+  <script src="site.js?v=20261108-1"></script>
 </body>
 
 </html>

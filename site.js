@@ -689,6 +689,72 @@ const waitForMedia = (media) => {
   return Promise.resolve();
 };
 
+const managedVideos = Array.from(document.querySelectorAll('video[data-managed-video]'));
+
+const loadManagedVideo = (video) => {
+  if (video.dataset.mediaReady === 'true') return;
+
+  video.querySelectorAll('source[data-src]').forEach((source) => {
+    source.src = source.dataset.src;
+    source.removeAttribute('data-src');
+  });
+
+  if (video.dataset.src) {
+    video.src = video.dataset.src;
+    video.removeAttribute('data-src');
+  }
+
+  video.dataset.mediaReady = 'true';
+  video.load();
+};
+
+const playManagedVideo = (video) => {
+  loadManagedVideo(video);
+  video.play().catch(() => {});
+};
+
+if (managedVideos.length) {
+  if ('IntersectionObserver' in window) {
+    const videoLoadObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        loadManagedVideo(entry.target);
+        observer.unobserve(entry.target);
+      });
+    }, { rootMargin: '400px 0px' });
+
+    const videoPlaybackObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const video = entry.target;
+        video.dataset.inViewport = entry.isIntersecting ? 'true' : 'false';
+
+        if (entry.isIntersecting && !document.hidden) {
+          playManagedVideo(video);
+        } else {
+          video.pause();
+        }
+      });
+    }, { threshold: 0.05 });
+
+    managedVideos.forEach((video) => {
+      videoLoadObserver.observe(video);
+      videoPlaybackObserver.observe(video);
+    });
+  } else {
+    managedVideos.forEach(playManagedVideo);
+  }
+
+  document.addEventListener('visibilitychange', () => {
+    managedVideos.forEach((video) => {
+      if (document.hidden || video.dataset.inViewport === 'false') {
+        video.pause();
+      } else {
+        playManagedVideo(video);
+      }
+    });
+  });
+}
+
 const projectItems = document.querySelectorAll('.project');
 const caseStudyMediaItems = document.querySelectorAll('.case-study-media');
 const mediaLoaderBlob = projectItems.length || caseStudyMediaItems.length
@@ -862,7 +928,16 @@ if (lightboxTriggers.length) {
     lightboxVideo.load();
 
     if (sourceMedia instanceof HTMLVideoElement) {
-      const source = sourceMedia.currentSrc || sourceMedia.querySelector('source')?.src || sourceMedia.src;
+      const sources = Array.from(sourceMedia.querySelectorAll('source'));
+      const preferredSource = sources.find((candidate) => (
+        (!candidate.type || sourceMedia.canPlayType(candidate.type))
+        && (candidate.src || candidate.dataset.src)
+      )) || sources.find((candidate) => candidate.src || candidate.dataset.src);
+      const source = sourceMedia.currentSrc
+        || preferredSource?.src
+        || preferredSource?.dataset.src
+        || sourceMedia.src
+        || sourceMedia.dataset.src;
       if (!source) return;
 
       lightboxVideo.controls = triggers[currentIndex].hasAttribute('data-video-controls');

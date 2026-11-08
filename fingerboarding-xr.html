@@ -24,7 +24,10 @@
   <meta name="twitter:image:alt" content="Fingerboarding XR mixed reality experience">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <script>try{const t=localStorage.getItem('portfolio-theme');document.documentElement.dataset.theme=t==='dark'||t==='light'?t:(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch{document.documentElement.dataset.theme=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}</script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500&amp;display=swap">
+  <link rel="stylesheet" href="styles.css?v=20261108-1">
 </head>
 <body>
   <main>
@@ -40,7 +43,10 @@
       <section class="case-study-section" aria-labelledby="interaction-title">
         <figure class="case-study-media">
           <button class="case-study-media-button" type="button" data-media-lightbox aria-label="View the Fingerboarding XR interaction at full size">
-            <img src="assets/fingerboardingxr.gif" alt="Fingerboarding XR running on a table with a virtual skateboard, ramp and editing controls" fetchpriority="high" decoding="async">
+            <video autoplay muted loop playsinline preload="auto" width="800" height="450" data-managed-video aria-label="Fingerboarding XR running on a table with a virtual skateboard, ramp and editing controls">
+              <source src="assets/fingerboardingxr.webm" type="video/webm">
+              <source src="assets/fingerboardingxr.mp4" type="video/mp4">
+            </video>
           </button>
         </figure>
         <div class="case-study-copy">
@@ -71,12 +77,18 @@
       <div class="case-study-gallery" aria-label="Procedural skatepark tools">
         <figure class="case-study-media">
           <button class="case-study-media-button" type="button" data-media-lightbox aria-label="View the procedural ramp editing at full size">
-            <img src="assets/procedural_ramp.gif" alt="A procedural Fingerboarding XR ramp being placed and adjusted on a real table" loading="lazy" decoding="async">
+            <video autoplay muted loop playsinline preload="none" width="800" height="450" data-managed-video aria-label="A procedural Fingerboarding XR ramp being placed and adjusted on a real table">
+              <source data-src="assets/procedural_ramp.webm" type="video/webm">
+              <source data-src="assets/procedural_ramp.mp4" type="video/mp4">
+            </video>
           </button>
         </figure>
         <figure class="case-study-media">
           <button class="case-study-media-button" type="button" data-media-lightbox aria-label="View the procedural skatepark generation at full size">
-            <img src="assets/procedural-skatepark.gif" alt="A procedural skatepark being generated in mixed reality on a real table" loading="lazy" decoding="async">
+            <video autoplay muted loop playsinline preload="none" width="800" height="450" data-managed-video aria-label="A procedural skatepark being generated in mixed reality on a real table">
+              <source data-src="assets/procedural-skatepark.webm" type="video/webm">
+              <source data-src="assets/procedural-skatepark.mp4" type="video/mp4">
+            </video>
           </button>
         </figure>
       </div>
@@ -89,6 +101,6 @@
 
     <footer data-site-footer></footer>
   </main>
-  <script src="site.js?v=20261104-4"></script>
+  <script src="site.js?v=20261108-1"></script>
 </body>
 </html>

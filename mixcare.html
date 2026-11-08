@@ -25,7 +25,10 @@
   <meta name="twitter:image:alt" content="MixCare mixed reality experience inside an operating room at Hospital La Fe">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <script>try{const t=localStorage.getItem('portfolio-theme');document.documentElement.dataset.theme=t==='dark'||t==='light'?t:(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch{document.documentElement.dataset.theme=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}</script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500&amp;display=swap">
+  <link rel="stylesheet" href="styles.css?v=20261108-1">
 </head>
 <body>
   <main>
@@ -80,8 +83,8 @@
       <div class="case-study-gallery case-study-gallery--mixcare" aria-label="MixCare clinical pilot at Hospital La Fe">
         <figure class="case-study-media case-study-media--crop">
           <button class="case-study-media-button" type="button" data-media-lightbox data-video-controls aria-label="View the MixCare biofeedback experience at full size">
-            <video autoplay muted loop playsinline preload="metadata" aria-label="MixCare mixed reality relaxation and biofeedback experience">
-              <source src="assets/projects/mixcare_04.mp4" type="video/mp4">
+            <video autoplay muted loop playsinline preload="none" width="576" height="1024" data-managed-video aria-label="MixCare mixed reality relaxation and biofeedback experience">
+              <source data-src="assets/projects/mixcare_04.mp4" type="video/mp4">
             </video>
           </button>
         </figure>
@@ -100,6 +103,6 @@
 
     <footer data-site-footer></footer>
   </main>
-  <script src="site.js?v=20261104-4"></script>
+  <script src="site.js?v=20261108-1"></script>
 </body>
 </html>
