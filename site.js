@@ -492,7 +492,7 @@ document.querySelectorAll('[data-site-header]').forEach((header, headerIndex) =>
 
   header.innerHTML = `<a class="site-brand" href="/" aria-label="Adrián — Home">
       <img src="favicon.svg" alt="" aria-hidden="true">
-      <span class="site-brand-name">DRIÁN</span>
+      <span class="site-brand-name">PÉREZ</span>
     </a>
     <button class="site-menu-toggle" type="button" aria-expanded="false" aria-controls="${actionsId}"
       aria-label="Open menu"><span></span><span></span></button>
@@ -757,41 +757,10 @@ if (managedVideos.length) {
 
 const projectItems = document.querySelectorAll('.project');
 const caseStudyMediaItems = document.querySelectorAll('.case-study-media');
-const mediaLoaderBlob = projectItems.length || caseStudyMediaItems.length
-  ? fetch('assets/loading.gif')
-      .then((response) => {
-        if (!response.ok) throw new Error('Could not load the media loader');
-        return response.blob();
-      })
-      .catch(() => null)
-  : Promise.resolve(null);
 
 const loadMediaFrame = (frame, media) => {
-  let loaderStartTimer;
-  let individualLoaderUrl;
-
-  mediaLoaderBlob.then((loaderBlob) => {
-    if (!loaderBlob || !frame || frame.classList.contains('is-media-loaded')) return;
-
-    const randomStartDelay = Math.random() * 1400;
-    loaderStartTimer = window.setTimeout(() => {
-      if (frame.classList.contains('is-media-loaded')) return;
-
-      individualLoaderUrl = URL.createObjectURL(loaderBlob);
-      frame.style.backgroundImage = `url("${individualLoaderUrl}")`;
-    }, randomStartDelay);
-  });
-
   waitForMedia(media).then(() => {
-    window.clearTimeout(loaderStartTimer);
     frame?.classList.add('is-media-loaded');
-
-    if (individualLoaderUrl) {
-      window.setTimeout(() => {
-        frame.style.removeProperty('background-image');
-        URL.revokeObjectURL(individualLoaderUrl);
-      }, 700);
-    }
   });
 };
 
