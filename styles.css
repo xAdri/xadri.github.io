@@ -149,7 +149,7 @@ img, video { display: block; }
 .welcome-message h1 { width: 100%; color: var(--dark-50); }
 .desktop-spacer {
   height: var(--row-gap);
-  background: linear-gradient(to bottom, var(--off-white), var(--page-background));
+  background: var(--page-background);
 }
 
 .home-hero {
@@ -963,9 +963,9 @@ img, video { display: block; }
 }
 
 .featured-projects-header h2 {
-  font-size: clamp(22px, 1.8vw, 28px);
-  line-height: 1;
-  letter-spacing: -.025em;
+  font-size: clamp(36px, 4vw, 64px);
+  line-height: .95;
+  letter-spacing: -.045em;
 }
 
 .project-cover--all {
@@ -1390,7 +1390,13 @@ img, video { display: block; }
 
 .resume { padding: 0 var(--page-padding); opacity: 0; }
 .resume.is-loaded { animation: show 1s ease forwards; }
-.resume-section-title { margin: 0 0 var(--gap); color: var(--dark); }
+.resume-section-title {
+  margin: 0 0 var(--gap);
+  color: var(--dark);
+  font-size: clamp(36px, 4vw, 64px);
+  line-height: .95;
+  letter-spacing: -.045em;
+}
 .resume-section-title--spaced { margin-top: var(--row-gap); }
 .resume-list { display: grid; gap: var(--gap); }
 .resume-item {
