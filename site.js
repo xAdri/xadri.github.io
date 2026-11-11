@@ -773,16 +773,21 @@ caseStudyMediaItems.forEach((frame) => {
   loadMediaFrame(frame, frame.querySelector('img, video'));
 });
 
-document.querySelectorAll('.about-gallery-item').forEach((item) => {
-  const media = item.querySelector('img, video');
-  waitForMedia(media).then(() => item.classList.add('is-loaded'));
-});
+const aboutGalleryItems = Array.from(document.querySelectorAll('.about-gallery-item'));
+
+if (aboutGalleryItems.length) {
+  Promise.all(aboutGalleryItems.map((item) => waitForMedia(item.querySelector('img, video'))))
+    .then(() => requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        aboutGalleryItems.forEach((item) => item.classList.add('is-loaded'));
+      });
+    }));
+}
 
 requestAnimationFrame(() => {
   projectItems.forEach((item) => item.classList.add('is-loaded'));
   document.querySelectorAll('.case-study > .case-study-section, .case-study > .case-study-topics, .case-study > .case-study-gallery, .case-study > .case-study-nav')
     .forEach((content) => content.classList.add('is-loaded'));
-  document.querySelectorAll('.about-copy, .resume').forEach((content) => content.classList.add('is-loaded'));
 });
 
 document.querySelectorAll('[data-language-toggle]').forEach((button) => {
