@@ -94,7 +94,7 @@ const spanishTranslations = new Map(Object.entries({
   'I’m Adrián,': 'Soy Adrián,',
   'My career started in graphic design before moving into software development, real-time 3D and XR. That mix helps me test ideas, choose the right tools and take a project from the first sketch to the final result.': 'Mi trayectoria comenzó en el diseño gráfico antes de pasar al desarrollo de software, el 3D en tiempo real y XR. Esa combinación me ayuda a probar ideas, elegir las herramientas adecuadas y llevar un proyecto desde el primer boceto hasta el resultado final.',
   'I’m always curious about new technology and what can actually be done with it, especially with Unity, new hardware and research. The best part is when it goes beyond the screen and becomes something useful in the real world.': 'Siempre siento curiosidad por las nuevas tecnologías y por lo que realmente se puede hacer con ellas, especialmente con Unity, nuevo hardware e investigación. Lo mejor es cuando van más allá de la pantalla y se convierten en algo útil en el mundo real.',
-  'Thanks for taking the time to look through my portfolio and learn more about me and my work! ♥': '¡Gracias por dedicar tiempo a ver mi portafolio y conocer mejor mi trabajo! ♥',
+  'Thanks for taking the time to look through my portfolio and learn more about me and my work!': '¡Gracias por dedicar tiempo a ver mi portafolio y conocer mejor mi trabajo!',
   'Valencia, Spain': 'Valencia, España',
   'Experience': 'Experiencia',
   'Education': 'Formación',
