@@ -14,6 +14,10 @@
   --media-placeholder: #ececea;
   --lightbox-background: rgba(255, 255, 255, .86);
   --lightbox-control: rgba(17, 17, 17, .65);
+  --accent-green: #acd3a0;
+  --accent-yellow: #fbcb35;
+  --accent-cyan: #4ec7cd;
+  --accent-coral: #f04c57;
   color-scheme: light;
   --font-size: 22px;
   --gap: 32px;
@@ -1521,6 +1525,156 @@ footer::before {
 @keyframes show {
   from { opacity: 0; transform: translateY(32px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* Four-colour accent system, inspired by the highlighted portfolio labels. */
+::selection {
+  background: var(--accent-yellow);
+  color: #111;
+}
+
+a:not(.home-hero-button):not(.project-cover):not(.project-cover--all):not(.project-cover--label) {
+  text-decoration-color: var(--accent-cyan);
+  text-decoration-thickness: .12em;
+  text-underline-offset: .16em;
+}
+
+.site-header-menu {
+  border-bottom-color: transparent;
+}
+
+.site-header-menu::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+    var(--accent-green) 0 25%,
+    var(--accent-yellow) 25% 50%,
+    var(--accent-cyan) 50% 75%,
+    var(--accent-coral) 75% 100%);
+  pointer-events: none;
+}
+
+.site-brand::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 -5px;
+  display: block;
+  height: 3px;
+  background: linear-gradient(90deg,
+    var(--accent-green) 0 25%,
+    var(--accent-yellow) 25% 50%,
+    var(--accent-cyan) 50% 75%,
+    var(--accent-coral) 75% 100%);
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path .28s ease;
+}
+
+.site-brand:hover::after,
+.site-brand:focus-visible::after,
+.site-brand[aria-current="page"]::after {
+  clip-path: inset(0);
+}
+
+.site-navigation-links a:nth-child(1)::after { text-decoration-color: var(--accent-green); }
+.site-navigation-links a:nth-child(2)::after { text-decoration-color: var(--accent-yellow); }
+.site-navigation-links a:nth-child(3)::after { text-decoration-color: var(--accent-cyan); }
+.site-navigation-links a:nth-child(4)::after { text-decoration-color: var(--accent-coral); }
+
+.featured-projects-header h2,
+.works-category-header h1,
+.works-category-header h2,
+.resume-section-title {
+  position: relative;
+  width: fit-content;
+  isolation: isolate;
+}
+
+.featured-projects-header h2::after,
+.works-category-header h1::after,
+.works-category-header h2::after,
+.resume-section-title::after {
+  content: "";
+  position: absolute;
+  right: -.06em;
+  bottom: .02em;
+  left: -.06em;
+  z-index: -1;
+  height: .2em;
+  background: var(--section-accent, var(--accent-green));
+}
+
+.works-category:nth-child(4n + 1) { --section-accent: var(--accent-green); }
+.works-category:nth-child(4n + 2) { --section-accent: var(--accent-yellow); }
+.works-category:nth-child(4n + 3) { --section-accent: var(--accent-cyan); }
+.works-category:nth-child(4n) { --section-accent: var(--accent-coral); }
+.resume-section-title:nth-of-type(2) { --section-accent: var(--accent-coral); }
+
+.project { --project-accent: var(--accent-green); }
+.project:nth-child(4n + 2) { --project-accent: var(--accent-yellow); }
+.project:nth-child(4n + 3) { --project-accent: var(--accent-cyan); }
+.project:nth-child(4n) { --project-accent: var(--accent-coral); }
+
+.project h2,
+.resume-item .resume-company {
+  width: fit-content;
+  padding: .04em .24em .08em;
+  background: var(--project-accent);
+  color: #111;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.resume-item { --project-accent: var(--accent-green); }
+.resume-item:nth-child(4n + 2) { --project-accent: var(--accent-yellow); }
+.resume-item:nth-child(4n + 3) { --project-accent: var(--accent-cyan); }
+.resume-item:nth-child(4n) { --project-accent: var(--accent-coral); }
+
+.case-study-section,
+.case-study-topic { --section-accent: var(--accent-green); }
+.case-study-section:nth-child(4n + 2),
+.case-study-topic:nth-child(4n + 2) { --section-accent: var(--accent-yellow); }
+.case-study-section:nth-child(4n + 3),
+.case-study-topic:nth-child(4n + 3) { --section-accent: var(--accent-cyan); }
+.case-study-section:nth-child(4n),
+.case-study-topic:nth-child(4n) { --section-accent: var(--accent-coral); }
+
+.case-study-kicker {
+  width: fit-content;
+  padding: .04em .24em .08em;
+  background: var(--section-accent);
+  color: #111;
+}
+
+.case-study-nav a:first-child { text-decoration-color: var(--accent-green); }
+.case-study-nav a:last-child { text-decoration-color: var(--accent-coral); }
+.about-contact a { text-decoration-color: var(--accent-yellow); }
+
+footer::before {
+  height: 2px;
+  background: linear-gradient(90deg,
+    var(--accent-green) 0 25%,
+    var(--accent-yellow) 25% 50%,
+    var(--accent-cyan) 50% 75%,
+    var(--accent-coral) 75% 100%);
+}
+
+.social-links a:nth-child(4n + 1) { text-decoration-color: var(--accent-green); }
+.social-links a:nth-child(4n + 2) { text-decoration-color: var(--accent-yellow); }
+.social-links a:nth-child(4n + 3) { text-decoration-color: var(--accent-cyan); }
+.social-links a:nth-child(4n) { text-decoration-color: var(--accent-coral); }
+
+.site-menu-toggle:focus-visible,
+.home-language-toggle:focus-visible,
+.site-theme-toggle:focus-visible,
+.home-hero-button:focus-visible,
+.case-study-media-button:focus-visible,
+.media-lightbox-arrow:focus-visible,
+.footer-email-copy:focus-visible {
+  outline-color: var(--accent-cyan);
 }
 
 @media (max-width: 768px) {
