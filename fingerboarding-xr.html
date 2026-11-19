@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://api.fontshare.com">
   <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500&amp;display=swap">
-  <link rel="stylesheet" href="styles.css?v=20261115-1">
+  <link rel="stylesheet" href="styles.css?v=20261119-20">
 </head>
 <body>
   <main>
@@ -40,6 +40,28 @@
     </header>
 
     <article class="case-study">
+      <section class="case-study-section case-study-section--reverse" aria-labelledby="trailer-title">
+        <figure class="case-study-trailer case-study-trailer--interactive">
+          <iframe
+            src="https://player.vimeo.com/video/1248270150?autoplay=1&amp;muted=1&amp;loop=1&amp;autopause=0&amp;controls=1&amp;unmute_button=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;dnt=1"
+            title="Official Fingerboarding XR trailer"
+            width="1920"
+            height="1080"
+            loading="eager"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
+            allowfullscreen></iframe>
+          <button class="case-study-trailer-expand" type="button"
+            data-vimeo-lightbox="https://player.vimeo.com/video/1248270150?autoplay=1&amp;muted=0&amp;loop=1&amp;autopause=0&amp;controls=1&amp;unmute_button=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;dnt=1"
+            aria-label="View official Fingerboarding XR trailer at full size"></button>
+        </figure>
+        <div class="case-study-copy">
+          <h2 class="case-study-kicker" id="trailer-title">Meta VR Start Developer Competition 2026</h2>
+          <p><span>Created for the hackathon, this prototype explores how fingerboarding can work in mixed reality.</span> <span>Players control a virtual skateboard with their fingers and shape a skatepark directly on a physical table, turning a familiar hands-on hobby into an interactive XR experience.</span></p>
+          <p><span>I handled the Unity development, technical implementation, testing, and performance optimization.</span> <span>My teammate created the visual direction and art, and we worked together from concept to final build.</span> <a href="https://devpost.com/software/fingerboarding-xr" target="_blank" rel="noreferrer">View the official project page on Devpost.</a></p>
+        </div>
+      </section>
+
       <section class="case-study-section" aria-labelledby="interaction-title">
         <figure class="case-study-media">
           <button class="case-study-media-button" type="button" data-media-lightbox aria-label="View the Fingerboarding XR interaction at full size">
@@ -53,6 +75,22 @@
           <h2 class="case-study-kicker" id="interaction-title">Direct interaction</h2>
           <p>The player controls the virtual skateboard directly with their hands. Finger-scale contact replaces conventional buttons and controllers, keeping the interaction close to the gestures of physical fingerboarding.</p>
           <p>Picking up the board, positioning the fingers and attempting a trick all happen in the same mixed reality space, without switching interaction modes.</p>
+        </div>
+      </section>
+
+      <section class="case-study-section case-study-section--reverse" aria-labelledby="game-feel-title">
+        <figure class="case-study-media">
+          <button class="case-study-media-button" type="button" data-media-lightbox aria-label="View the Fingerboarding XR trick at full size">
+            <video autoplay muted loop playsinline preload="none" width="800" height="450" data-managed-video aria-label="A fingerboarding trick performed with the virtual skateboard in mixed reality">
+              <source data-src="assets/fingerboarding_trick.webm?v=20261119-1" type="video/webm">
+              <source data-src="assets/fingerboarding_trick.mp4?v=20261119-1" type="video/mp4">
+            </video>
+          </button>
+        </figure>
+        <div class="case-study-copy">
+          <h2 class="case-study-kicker" id="game-feel-title">Making every trick feel right</h2>
+          <p>Game feel is the layer that turns a working mechanic into something satisfying to master. Small differences in responsiveness and weight shape whether a trick feels deliberate, accidental, or disconnected from the player’s movement.</p>
+          <p>It is also what supports learning. When the result of an attempt feels clear and consistent, players can understand what went wrong, adjust their movement, and build confidence instead of relying on guesswork.</p>
         </div>
       </section>
 
@@ -101,6 +139,7 @@
 
     <footer data-site-footer></footer>
   </main>
-  <script src="site.js?v=20261111-1"></script>
+  <script src="https://player.vimeo.com/api/player.js"></script>
+  <script src="site.js?v=20261119-19"></script>
 </body>
 </html>

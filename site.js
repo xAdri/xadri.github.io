@@ -62,10 +62,10 @@ const spanishTranslations = new Map(Object.entries({
   'View all projects': 'Ver todos los proyectos',
   'See more work': 'Ver más proyectos',
   'Loading interactive badge...': 'Cargando acreditación interactiva...',
-  'XR Software Engineer': 'Ingeniero de Software XR',
+  'XR Software Engineer': 'Ingeniero de software XR',
   'Senior XR Software Engineer': 'Ingeniero de software XR sénior',
   'With': 'Con',
-  'With +': 'Con +',
+  'With +': 'Con más de ',
   'years of experience in software development, I work with emerging technologies to create immersive products, from initial research and prototyping to software architecture, development, and the final product.': 'años de experiencia en desarrollo de software, trabajo con tecnologías emergentes para crear productos inmersivos, desde la investigación inicial y el prototipado hasta la arquitectura de software, el desarrollo y el producto final.',
   '+ years of experience in software development, I work with emerging technologies to create immersive products, from initial research and prototyping to software architecture, development, and the final product.': '+ años de experiencia en desarrollo de software, trabajo con tecnologías emergentes para crear productos inmersivos, desde la investigación inicial y el prototipado hasta la arquitectura de software, el desarrollo y el producto final.',
   'Explore immersive products, technical prototypes and software engineering work.': 'Explora productos inmersivos, prototipos técnicos y proyectos de ingeniería de software.',
@@ -78,7 +78,7 @@ const spanishTranslations = new Map(Object.entries({
   'Immersive products developed through research, prototyping and production for healthcare, industry and education.': 'Productos inmersivos desarrollados mediante investigación, prototipado y producción para salud, industria y educación.',
   'Playable and technical studies combining game development, interaction design, procedural systems and real-time worlds.': 'Estudios jugables y técnicos que combinan desarrollo de videojuegos, diseño de interacción, sistemas procedurales y mundos en tiempo real.',
   'Software products spanning native applications, backend systems, administration tools and connected services.': 'Productos de software que abarcan aplicaciones nativas, sistemas backend, herramientas de administración y servicios conectados.',
-  'Gameplay programming and development for a 2.5D atmospheric puzzle-platformer.': 'Programación y desarrollo de gameplay para un plataformas de puzles atmosférico en 2.5D.',
+  'Gameplay programming and development for a 2.5D atmospheric puzzle-platformer.': 'Programación y desarrollo de un juego atmosférico de plataformas y puzles en 2.5D.',
   'A fast local multiplayer game created collaboratively during a game jam.': 'Un juego multijugador local rápido creado de forma colaborativa durante una game jam.',
   'A compact collaborative game built around timing, atmosphere and focused interaction.': 'Un juego colaborativo compacto construido alrededor del ritmo, la atmósfera y una interacción precisa.',
   'An art-directed Houdini tool for building editable asteroid belts in Unreal Engine.': 'Una herramienta de Houdini con dirección artística para crear cinturones de asteroides editables en Unreal Engine.',
@@ -226,6 +226,28 @@ const spanishTranslations = new Map(Object.entries({
   'At ITI, I develop products across healthcare, industry and education.': 'Desde ITI, desarrollo productos para los sectores de salud, industria y educación.',
   'Portfolio / 2026': 'Portafolio / 2026',
   'View Fingerboarding XR project': 'Ver el proyecto Fingerboarding XR',
+  'Official Fingerboarding XR trailer': 'Tráiler oficial de Fingerboarding XR',
+  'View official Fingerboarding XR trailer at full size': 'Ver el tráiler oficial de Fingerboarding XR a tamaño completo',
+  'Making every trick feel right': 'Conseguir que cada truco se sienta bien',
+  'Game feel is the layer that turns a working mechanic into something satisfying to master. Small differences in responsiveness and weight shape whether a trick feels deliberate, accidental, or disconnected from the player’s movement.': 'El game feel es la capa que convierte una mecánica funcional en algo satisfactorio de dominar. Pequeñas diferencias en la respuesta y la sensación de peso determinan si un truco se percibe intencionado, accidental o desconectado del movimiento del jugador.',
+  'It is also what supports learning. When the result of an attempt feels clear and consistent, players can understand what went wrong, adjust their movement, and build confidence instead of relying on guesswork.': 'También es fundamental para el aprendizaje. Cuando el resultado de un intento se siente claro y coherente, el jugador puede entender qué ha fallado, ajustar su movimiento y ganar confianza en lugar de depender del ensayo a ciegas.',
+  'View the Fingerboarding XR trick at full size': 'Ver el truco de Fingerboarding XR a tamaño completo',
+  'A fingerboarding trick performed with the virtual skateboard in mixed reality': 'Un truco de fingerboarding realizado con el monopatín virtual en realidad mixta',
+  'Created for the hackathon, this prototype explores how fingerboarding can work in mixed reality.': 'Creado para la hackatón, este prototipo explora cómo puede funcionar el fingerboarding en realidad mixta.',
+  'Players control a virtual skateboard with their fingers and shape a skatepark directly on a physical table, turning a familiar hands-on hobby into an interactive XR experience.': 'Los jugadores controlan un monopatín virtual con los dedos y dan forma a un skatepark directamente sobre una mesa física, convirtiendo una afición manual y familiar en una experiencia XR interactiva.',
+  'I handled the Unity development, technical implementation, testing, and performance optimization.': 'Me encargué del desarrollo en Unity, la implementación técnica, las pruebas y la optimización del rendimiento.',
+  'My teammate created the visual direction and art, and we worked together from concept to final build.': 'Mi compañero creó la dirección visual y el arte, y trabajamos juntos desde el concepto hasta la versión final.',
+  'View the official project page on Devpost.': 'Ver la página oficial del proyecto en Devpost.',
+  'Adrián Pérez wearing a suit outdoors': 'Adrián Pérez con traje en el exterior',
+  'Masutapp connected application interface': 'Interfaz de la aplicación conectada Masutapp',
+  'A webapp for client management, creating, assigning, and tracking personalized rehabilitation training programs.': 'Una aplicación web para gestionar clientes y crear, asignar y seguir programas personalizados de entrenamiento para rehabilitación.',
+  'The experience in action': 'La experiencia en acción',
+  'Actual ITI Mind gameplay footage': 'Grabación real del juego ITI Mind',
+  'View ITI Mind gameplay footage at full size': 'Ver la grabación del juego ITI Mind a tamaño completo',
+  'This footage was captured directly from ITI Mind during a real mixed reality session.': 'Estas imágenes se capturaron directamente desde ITI Mind durante una sesión real de realidad mixta.',
+  'It shows the experience from the player’s point of view, with virtual activities placed in the physical environment and controlled through hand tracking.': 'Muestran la experiencia desde el punto de vista del jugador, con actividades virtuales situadas en el entorno físico y controladas mediante seguimiento de manos.',
+  'The recording gives a clearer sense of how the game feels in real time.': 'La grabación permite entender mejor cómo se siente el juego en tiempo real.',
+  'You can see the pace of each activity, how it responds to the player, and how the virtual content stays grounded in the surrounding space.': 'Se puede ver el ritmo de cada actividad, cómo responde al jugador y cómo el contenido virtual se integra en el espacio que lo rodea.',
   'View Smart tooling intralogistics project': 'Ver el proyecto Smart Tooling Intralogistics',
   'View the ITI Mind project': 'Ver el proyecto ITI Mind',
   'View the MixCare project': 'Ver el proyecto MixCare',
@@ -345,7 +367,6 @@ const translatableAttributes = [
   'aria-label',
   'title',
   'alt',
-  'data-underline',
   'data-badge-role',
   'data-badge-back-label',
   'data-badge-back-title',
@@ -487,12 +508,12 @@ document.querySelectorAll('[data-site-header]').forEach((header, headerIndex) =>
   const actionsId = `site-header-actions-${headerIndex}`;
   const navigationLinks = siteNavigation.map(({ id, label, href }) => {
     const currentAttribute = id === activeSection ? ' aria-current="page"' : '';
-    return `<a href="${href}" data-underline="${label}"${currentAttribute}>${label}</a>`;
+    return `<a href="${href}"${currentAttribute}>${label}</a>`;
   }).join('');
 
-  header.innerHTML = `<a class="site-brand" href="/" aria-label="Adrián — Home">
+  header.innerHTML = `<a class="site-brand" href="/" aria-label="Adrián Pérez — Home">
       <img src="favicon.svg" alt="" aria-hidden="true">
-      <span class="site-brand-name">PÉREZ</span>
+      <span class="site-brand-name" aria-hidden="true"><span>ADRIÁN</span><span>PÉREZ</span></span>
     </a>
     <button class="site-menu-toggle" type="button" aria-expanded="false" aria-controls="${actionsId}"
       aria-label="Open menu"><span></span><span></span></button>
@@ -801,24 +822,61 @@ document.querySelectorAll('[data-language-toggle]').forEach((button) => {
   });
 });
 
-const lightboxTriggers = document.querySelectorAll('[data-media-lightbox]');
+const vimeoPlayers = new WeakMap();
+
+const getVimeoPlayer = (iframe) => {
+  const VimeoPlayer = window.Vimeo?.Player;
+  if (!VimeoPlayer || !(iframe instanceof HTMLIFrameElement)) return null;
+  if (!vimeoPlayers.has(iframe)) vimeoPlayers.set(iframe, new VimeoPlayer(iframe));
+  return vimeoPlayers.get(iframe);
+};
+
+const readVimeoState = async (player) => {
+  if (!player) return { time: 0, muted: true, volume: 1, paused: false };
+
+  const [time, muted, volume, paused] = await Promise.all([
+    player.getCurrentTime().catch(() => 0),
+    player.getMuted().catch(() => true),
+    player.getVolume().catch(() => 1),
+    player.getPaused().catch(() => false),
+  ]);
+
+  return { time, muted, volume, paused };
+};
+
+const applyVimeoState = async (player, state, forcePlayback = false) => {
+  if (!player || !state) return;
+  await player.ready().catch(() => {});
+  await player.setCurrentTime(Math.max(0, state.time || 0)).catch(() => {});
+  await player.setVolume(state.volume ?? 1).catch(() => {});
+  await player.setMuted(Boolean(state.muted)).catch(() => {});
+  if (forcePlayback || !state.paused) {
+    await player.play().catch(() => {});
+  } else {
+    await player.pause().catch(() => {});
+  }
+};
+
+const lightboxTriggers = document.querySelectorAll('[data-media-lightbox], [data-vimeo-lightbox]');
 
 if (lightboxTriggers.length) {
   const lightbox = document.createElement('dialog');
   lightbox.className = 'media-lightbox';
   lightbox.setAttribute('aria-label', 'Expanded project media');
-  lightbox.innerHTML = '<div class="media-lightbox-stage"><img class="media-lightbox-image media-lightbox-content" alt="" hidden><video class="media-lightbox-video media-lightbox-content" muted loop playsinline hidden></video><button class="media-lightbox-close" type="button" aria-label="Close expanded media"></button><button class="media-lightbox-arrow media-lightbox-arrow--previous" type="button" aria-label="View previous project media"></button><button class="media-lightbox-arrow media-lightbox-arrow--next" type="button" aria-label="View next project media"></button></div>';
+  lightbox.innerHTML = '<div class="media-lightbox-stage"><img class="media-lightbox-image media-lightbox-content" alt="" hidden><video class="media-lightbox-video media-lightbox-content" muted loop playsinline hidden></video><iframe class="media-lightbox-iframe media-lightbox-content" title="" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" allowfullscreen hidden></iframe><button class="media-lightbox-close" type="button" aria-label="Close expanded media"></button><button class="media-lightbox-arrow media-lightbox-arrow--previous" type="button" aria-label="View previous project media"></button><button class="media-lightbox-arrow media-lightbox-arrow--next" type="button" aria-label="View next project media"></button></div>';
   document.body.append(lightbox);
 
   const triggers = Array.from(lightboxTriggers);
   const lightboxImage = lightbox.querySelector('.media-lightbox-image');
   const lightboxVideo = lightbox.querySelector('.media-lightbox-video');
+  const lightboxIframe = lightbox.querySelector('.media-lightbox-iframe');
   const closeButton = lightbox.querySelector('.media-lightbox-close');
   const previousButton = lightbox.querySelector('.media-lightbox-arrow--previous');
   const nextButton = lightbox.querySelector('.media-lightbox-arrow--next');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let currentIndex = 0;
   let activeLightboxMedia = null;
+  let activeVimeoContext = null;
   let mediaRequestId = 0;
 
   lightbox.classList.toggle('has-single-media', triggers.length < 2);
@@ -826,12 +884,17 @@ if (lightboxTriggers.length) {
   const fitLightboxMedia = () => {
     if (!activeLightboxMedia) return;
 
-    const mediaWidth = activeLightboxMedia instanceof HTMLVideoElement
-      ? activeLightboxMedia.videoWidth
-      : activeLightboxMedia.naturalWidth;
-    const mediaHeight = activeLightboxMedia instanceof HTMLVideoElement
-      ? activeLightboxMedia.videoHeight
-      : activeLightboxMedia.naturalHeight;
+    const isIframe = activeLightboxMedia instanceof HTMLIFrameElement;
+    const mediaWidth = isIframe
+      ? 16
+      : activeLightboxMedia instanceof HTMLVideoElement
+        ? activeLightboxMedia.videoWidth
+        : activeLightboxMedia.naturalWidth;
+    const mediaHeight = isIframe
+      ? 9
+      : activeLightboxMedia instanceof HTMLVideoElement
+        ? activeLightboxMedia.videoHeight
+        : activeLightboxMedia.naturalHeight;
     if (!mediaWidth || !mediaHeight) return;
 
     const isMobileViewport = Math.min(window.innerWidth, window.innerHeight) <= 600;
@@ -872,11 +935,30 @@ if (lightboxTriggers.length) {
     }
   };
 
-  const showMedia = (index) => {
+  const syncActiveVimeoToInline = async () => {
+    if (!activeVimeoContext) return;
+
+    const context = activeVimeoContext;
+    activeVimeoContext = null;
+    const state = context.lightboxPlayer
+      ? await readVimeoState(context.lightboxPlayer)
+      : context.initialState;
+
+    await context.lightboxPlayer?.pause().catch(() => {});
+    await applyVimeoState(context.inlinePlayer, state);
+  };
+
+  const showMedia = async (index) => {
     const nextIndex = Math.min(Math.max(index, 0), triggers.length - 1);
     if (lightbox.open && nextIndex === currentIndex) return;
 
-    const sourceMedia = triggers[nextIndex].querySelector('img, video');
+    await syncActiveVimeoToInline();
+
+    const trigger = triggers[nextIndex];
+    const vimeoSource = trigger.dataset.vimeoLightbox;
+    const sourceMedia = vimeoSource
+      ? trigger.parentElement?.querySelector('iframe[src*="player.vimeo.com"]')
+      : trigger.querySelector('img, video');
     if (!sourceMedia) return;
 
     currentIndex = nextIndex;
@@ -888,20 +970,50 @@ if (lightboxTriggers.length) {
 
     lightboxImage.hidden = true;
     lightboxVideo.hidden = true;
+    lightboxIframe.hidden = true;
     lightboxImage.classList.remove('is-changing');
     lightboxVideo.classList.remove('is-changing');
+    lightboxIframe.classList.remove('is-changing');
     lightboxImage.style.removeProperty('width');
     lightboxImage.style.removeProperty('height');
     lightboxVideo.style.removeProperty('width');
     lightboxVideo.style.removeProperty('height');
+    lightboxIframe.style.removeProperty('width');
+    lightboxIframe.style.removeProperty('height');
     lightboxImage.removeAttribute('src');
     lightboxImage.alt = '';
     lightboxVideo.pause();
     lightboxVideo.controls = false;
     lightboxVideo.removeAttribute('src');
     lightboxVideo.load();
+    lightboxIframe.removeAttribute('src');
+    lightboxIframe.title = '';
 
-    if (sourceMedia instanceof HTMLVideoElement) {
+    if (vimeoSource) {
+      const inlinePlayer = getVimeoPlayer(sourceMedia);
+      const vimeoState = await readVimeoState(inlinePlayer);
+      await inlinePlayer?.pause().catch(() => {});
+      activeVimeoContext = {
+        inlinePlayer,
+        lightboxPlayer: null,
+        initialState: vimeoState,
+      };
+
+      const lightboxUrl = new URL(vimeoSource);
+      lightboxUrl.searchParams.set('autoplay', '1');
+      lightboxUrl.searchParams.set('muted', vimeoState.muted ? '1' : '0');
+      lightboxUrl.hash = `t=${Math.max(0, vimeoState.time || 0).toFixed(3)}s`;
+      lightboxIframe.title = sourceMedia.title || 'Expanded project video';
+      lightboxIframe.addEventListener('load', async () => {
+        revealMedia(lightboxIframe, requestId);
+        if (!activeVimeoContext || requestId !== mediaRequestId) return;
+
+        const lightboxPlayer = getVimeoPlayer(lightboxIframe);
+        activeVimeoContext.lightboxPlayer = lightboxPlayer;
+        await applyVimeoState(lightboxPlayer, vimeoState, true);
+      }, { once: true });
+      lightboxIframe.src = lightboxUrl.toString();
+    } else if (sourceMedia instanceof HTMLVideoElement) {
       const sources = Array.from(sourceMedia.querySelectorAll('source'));
       const preferredSource = sources.find((candidate) => (
         (!candidate.type || sourceMedia.canPlayType(candidate.type))
@@ -939,16 +1051,21 @@ if (lightboxTriggers.length) {
   };
 
   triggers.forEach((trigger, index) => {
-    trigger.addEventListener('click', () => {
-      showMedia(index);
-      lightbox.classList.remove('is-closing');
-      lightbox.showModal();
+    trigger.addEventListener('click', async () => {
+      trigger.disabled = true;
+      try {
+        await showMedia(index);
+        lightbox.classList.remove('is-closing');
+        lightbox.showModal();
+      } finally {
+        trigger.disabled = false;
+      }
     });
   });
 
   closeButton.addEventListener('click', closeLightbox);
-  previousButton.addEventListener('click', () => showMedia(currentIndex - 1));
-  nextButton.addEventListener('click', () => showMedia(currentIndex + 1));
+  previousButton.addEventListener('click', () => { void showMedia(currentIndex - 1); });
+  nextButton.addEventListener('click', () => { void showMedia(currentIndex + 1); });
   window.addEventListener('resize', () => {
     if (lightbox.open) fitLightboxMedia();
   });
@@ -958,23 +1075,25 @@ if (lightboxTriggers.length) {
   lightbox.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowLeft') {
       event.preventDefault();
-      showMedia(currentIndex - 1);
+      void showMedia(currentIndex - 1);
     }
     if (event.key === 'ArrowRight') {
       event.preventDefault();
-      showMedia(currentIndex + 1);
+      void showMedia(currentIndex + 1);
     }
   });
   lightbox.addEventListener('cancel', (event) => {
     event.preventDefault();
     closeLightbox();
   });
-  lightbox.addEventListener('close', () => {
+  lightbox.addEventListener('close', async () => {
+    await syncActiveVimeoToInline();
     mediaRequestId += 1;
     lightbox.classList.remove('is-closing');
     lightbox.classList.remove('is-media-loading');
     lightboxImage.classList.remove('is-changing');
     lightboxVideo.classList.remove('is-changing');
+    lightboxIframe.classList.remove('is-changing');
     lightboxImage.removeAttribute('src');
     lightboxImage.style.removeProperty('width');
     lightboxImage.style.removeProperty('height');
@@ -987,6 +1106,11 @@ if (lightboxTriggers.length) {
     lightboxVideo.style.removeProperty('height');
     lightboxVideo.load();
     lightboxVideo.hidden = true;
+    lightboxIframe.removeAttribute('src');
+    lightboxIframe.removeAttribute('title');
+    lightboxIframe.style.removeProperty('width');
+    lightboxIframe.style.removeProperty('height');
+    lightboxIframe.hidden = true;
     lightboxImage.hidden = true;
     activeLightboxMedia = null;
   });

@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://api.fontshare.com">
   <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500&amp;display=swap">
-  <link rel="stylesheet" href="styles.css?v=20261115-1">
+  <link rel="stylesheet" href="styles.css?v=20261119-20">
 </head>
 <body>
   <main>
@@ -40,6 +40,28 @@
     </header>
 
     <article class="case-study">
+      <section class="case-study-section case-study-section--reverse" aria-labelledby="gameplay-recording-title">
+        <figure class="case-study-trailer case-study-trailer--interactive">
+          <iframe
+            src="https://player.vimeo.com/video/1248278942?autoplay=1&amp;muted=1&amp;loop=1&amp;autopause=0&amp;controls=1&amp;unmute_button=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;dnt=1"
+            title="Actual ITI Mind gameplay footage"
+            width="1920"
+            height="1080"
+            loading="eager"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
+            allowfullscreen></iframe>
+          <button class="case-study-trailer-expand" type="button"
+            data-vimeo-lightbox="https://player.vimeo.com/video/1248278942?autoplay=1&amp;muted=0&amp;loop=1&amp;autopause=0&amp;controls=1&amp;unmute_button=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;dnt=1"
+            aria-label="View ITI Mind gameplay footage at full size"></button>
+        </figure>
+        <div class="case-study-copy">
+          <h2 class="case-study-kicker" id="gameplay-recording-title">The experience in action</h2>
+          <p><span>This footage was captured directly from ITI Mind during a real mixed reality session.</span> <span>It shows the experience from the player’s point of view, with virtual activities placed in the physical environment and controlled through hand tracking.</span></p>
+          <p><span>The recording gives a clearer sense of how the game feels in real time.</span> <span>You can see the pace of each activity, how it responds to the player, and how the virtual content stays grounded in the surrounding space.</span></p>
+        </div>
+      </section>
+
       <section class="case-study-section" aria-labelledby="experience-title">
         <figure class="case-study-media">
           <button class="case-study-media-button" type="button" data-media-lightbox aria-label="View the ITI Mind biofeedback experience at full size">
@@ -115,6 +137,7 @@
 
     <footer data-site-footer></footer>
   </main>
-  <script src="site.js?v=20261111-1"></script>
+  <script src="https://player.vimeo.com/api/player.js"></script>
+  <script src="site.js?v=20261119-19"></script>
 </body>
 </html>

@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://api.fontshare.com">
   <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500&amp;display=swap">
-  <link rel="stylesheet" href="styles.css?v=20261115-1">
+  <link rel="stylesheet" href="styles.css?v=20261119-20">
 </head>
 <body>
   <main>
@@ -41,12 +41,19 @@
 
     <article class="case-study">
       <section class="case-study-section" aria-labelledby="hmi-title">
-        <figure class="case-study-media">
-          <button class="case-study-media-button" type="button" data-media-lightbox aria-label="View the Smart Tooling Intralogistics interface at full size">
-            <video autoplay muted loop playsinline preload="auto" width="1280" height="720" data-managed-video aria-label="Smart Tooling Intralogistics operator interface">
-              <source src="assets/sti.mp4" type="video/mp4">
-            </video>
-          </button>
+        <figure class="case-study-trailer case-study-trailer--interactive">
+          <iframe
+            src="https://player.vimeo.com/video/1248288793?autoplay=1&amp;muted=1&amp;loop=1&amp;autopause=0&amp;controls=1&amp;unmute_button=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;dnt=1"
+            title="CRM synchronized smart tooling workflow"
+            width="1920"
+            height="1080"
+            loading="eager"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
+            allowfullscreen></iframe>
+          <button class="case-study-trailer-expand" type="button"
+            data-vimeo-lightbox="https://player.vimeo.com/video/1248288793?autoplay=1&amp;muted=1&amp;loop=1&amp;autopause=0&amp;controls=1&amp;unmute_button=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;dnt=1"
+            aria-label="View the smart tooling workflow at full size"></button>
         </figure>
         <div class="case-study-copy">
           <h2 class="case-study-kicker" id="hmi-title">One interface across every machine</h2>
@@ -64,19 +71,18 @@
           </div>
         </section>
         <figure class="case-study-media">
-          <button class="case-study-media-button" type="button" data-media-lightbox aria-label="View the Essential crane interface at full size">
-            <img src="assets/projects/sti-essential.jpg" alt="Operator using the Essential HMI tablet beside the industrial crane controls" loading="lazy" decoding="async">
+          <button class="case-study-media-button" type="button" data-media-lightbox aria-label="View the Smart Tooling Intralogistics interface at full size">
+            <video autoplay muted loop playsinline preload="none" width="1280" height="720" data-managed-video aria-label="Smart Tooling Intralogistics operator interface">
+              <source data-src="assets/sti.mp4" type="video/mp4">
+            </video>
           </button>
         </figure>
       </div>
 
       <section class="case-study-section" aria-labelledby="workflow-title">
         <figure class="case-study-media">
-          <button class="case-study-media-button" type="button" data-media-lightbox data-video-controls aria-label="View the smart tooling workflow at full size">
-            <video autoplay muted loop playsinline preload="none" width="1920" height="1080" data-managed-video aria-label="CRM synchronized smart tooling workflow">
-              <source data-src="assets/projects/sti-workflow-muted.optimized.webm" type="video/webm">
-              <source data-src="assets/projects/sti-workflow-muted.optimized.mp4" type="video/mp4">
-            </video>
+          <button class="case-study-media-button" type="button" data-media-lightbox aria-label="View the Essential crane interface at full size">
+            <img src="assets/projects/sti-essential.jpg" alt="Operator using the Essential HMI tablet beside the industrial crane controls" loading="lazy" decoding="async">
           </button>
         </figure>
         <div class="case-study-copy">
@@ -114,6 +120,7 @@
 
     <footer data-site-footer></footer>
   </main>
-  <script src="site.js?v=20261111-1"></script>
+  <script src="https://player.vimeo.com/api/player.js"></script>
+  <script src="site.js?v=20261119-19"></script>
 </body>
 </html>
